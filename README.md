@@ -19,3 +19,26 @@ O arquivo **concursos.txt** contém as informações dos concursos públicos:
 | SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
 | SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
 | SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
+
+**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+
+Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+
+**É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
+
+Caso o candidato envie um código que não funcione e não cumpra com os requisitos supracitados, esse será desclassificado.
+
+## Pontos de Avaliação
+
+
+## Diferenciais 
+
+| Critério  | Pontos Ganhos | 
+|---|---|
+| Criar um [microserviço ou Serviço](https://martinfowler.com/articles/microservices.html) com o problema |  10  |
+| Implementar Clean Code  |  10  |
+| Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  10  |
+| Implementar Teste |  10  |
+| Implementar Integração com [Travis](https://travis-ci.org/)  |  10  |
+| Implementar Integração com Travis + SonarQube |  10  |
+
