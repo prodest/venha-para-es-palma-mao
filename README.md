@@ -26,9 +26,10 @@ Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra
 
 **É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
 
-Caso o candidato envie uma solução que não funcione e não cumpra com os requisitos supracitados, esse será desclassificado.
-
-O candidato deve descrever no Readme, qual diferencial foi implementado.
+Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
+1. Documentação da solução;
+2. Lista dos diferenciais implementados
+3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
 
 ## Avaliação
 
@@ -63,3 +64,11 @@ O candidato pode aumentar a sua pontuação na seleção implementando um ou mai
 | Total| 170|
 
 A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
+
+## Penalizações
+
+O candidato será desclassifiado nas seguintes situações:
+
+1. Submeter um solução que não funcione; 
+2. Não cumprir os critérios presentes no seção **Avaliação**
+3. Plágio
