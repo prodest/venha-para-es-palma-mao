@@ -27,7 +27,9 @@ Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra
 
 **É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
 
-Caso o candidato envie um código que não funcione e não cumpra com os requisitos supracitados, esse será desclassificado.
+Caso o candidato envie uma solução que não funcione e não cumpra com os requisitos supracitados, esse será desclassificado.
+
+O Candidato deve descrever no Readme, qual diferencial foi implementado.
 
 ## Avaliação
 
@@ -36,8 +38,11 @@ O programa será avaliado levando em conta os seguintes critérios:
 | Critério  | Valor | 
 |---|---|
 | Legibilidade do Código |  10  |
-| Documentação |  10  |
+| Documentação do código|  10  |
+| Documentação da solução|  10  |
 | Tratamento de Erros| 10| 
+
+A pontuação do candidato será a soma dos valores obtidos nos critérios acima.
 
 ## Diferenciais 
 
@@ -45,11 +50,13 @@ O candidato pode aumentar a sua pontuação na seleção implementando um ou mai
 
 | Item  | Pontos Ganhos | 
 |---|---|
-| Criar um [microserviço ou Serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
-| Implementar Clean Code  |  10  |
+| Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
+| Implementar Clean Code |  10  |
+| Implementar o padrão de programação da tecnologia escolhida |  10  |
 | Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  10  |
 | Implementar Teste |  10  |
 | Implementar Integração com [Travis](https://travis-ci.org/)  |  10  |
 | Implementar Integração com Travis + SonarQube |  10  |
 | Implementar Usando Docker| 10|
 
+A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
