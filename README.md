@@ -1,4 +1,3 @@
-![Prodest](prodest.png)![ES na palma da Mão](es_na_palma_mao.png)
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
