@@ -1,3 +1,4 @@
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
@@ -28,17 +29,27 @@ Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra
 
 Caso o candidato envie um código que não funcione e não cumpra com os requisitos supracitados, esse será desclassificado.
 
-## Pontos de Avaliação
+## Avaliação
 
+O programa será avaliado levando em conta os seguintes critérios:
+
+| Critério  | Valor | 
+|---|---|
+| Legibilidade do Código |  10  |
+| Documentação |  10  |
+| Tratamento de Erros| 10| 
 
 ## Diferenciais 
 
-| Critério  | Pontos Ganhos | 
+O candidato pode aumentar a sua pontuação na seleção implementando um ou mais dos itens abaixo:
+
+| Item  | Pontos Ganhos | 
 |---|---|
-| Criar um [microserviço ou Serviço](https://martinfowler.com/articles/microservices.html) com o problema |  10  |
+| Criar um [microserviço ou Serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
 | Implementar Clean Code  |  10  |
 | Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  10  |
 | Implementar Teste |  10  |
 | Implementar Integração com [Travis](https://travis-ci.org/)  |  10  |
 | Implementar Integração com Travis + SonarQube |  10  |
+| Implementar Usando Docker| 10|
 
