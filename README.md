@@ -1,4 +1,4 @@
-![GitHub Logo](prodest.png)
+![Prodest](prodest.png)![ES na palma da Mão](prodest.png)
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
