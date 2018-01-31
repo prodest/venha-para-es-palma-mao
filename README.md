@@ -6,7 +6,7 @@ O desafio é desenvolver um programa que permita realizar as seguintes buscas:
 
 O arquivo **candidatos.txt** contém as informações dos candidatos:
 
-| Nome  | Data de Nascimento  | CPF |  Lista de habilidades do candidato|
+| Nome  | Data de Nascimento  | CPF |  Profissões|
 |---|---|---|---|
 | Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
 | Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
