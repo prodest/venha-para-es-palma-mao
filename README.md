@@ -17,5 +17,5 @@ O arquivo **concursos.txt** contém as informações dos concursos públicos:
 | Órgão  | Edital  | Código do Concurso |  Lista de vagas|
 |---|---|---|---|
 | SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
-| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática]  |
-| SEJUS | 17/2017 |  95655123539  |  professor de matemática] |
+| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
+| SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
