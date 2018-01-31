@@ -51,6 +51,7 @@ O candidato pode aumentar a sua pontuação na seleção implementando um ou mai
 | Item  | Pontos Ganhos | 
 |---|---|
 | Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
+| Utilizar banco de dados| 30|
 | Implementar Clean Code |  20  |
 | Implementar o padrão de programação da tecnologia escolhida |  20  |
 | Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |
@@ -59,6 +60,6 @@ O candidato pode aumentar a sua pontuação na seleção implementando um ou mai
 | Implementar integração com [Travis](https://travis-ci.org/)  |  10  |
 | Implementar integração com Travis + SonarQube |  10  |
 | Implementar usando Docker| 5|
-| Total| 140|
+| Total| 170|
 
 A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
