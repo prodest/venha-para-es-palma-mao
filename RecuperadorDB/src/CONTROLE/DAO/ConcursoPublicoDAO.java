@@ -48,7 +48,7 @@ public class ConcursoPublicoDAO {
         }
         //laço para registrar as profissoes 1 por 1
         for (int i = 0; i < c.getProfissoes().size(); i ++) {
-            String callsql = "call InsereCandidatoXProfissao (?,?)";
+            String callsql = "call InsereListaDeVagas (?,?)";
             CallableStatement call = con.prepareCall(callsql);
             call.setInt(1, c.getIdConcursoPublico());
             call.setString(2, c.getProfissao(i));
