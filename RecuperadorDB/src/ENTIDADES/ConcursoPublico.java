@@ -16,21 +16,37 @@
  */
 package ENTIDADES;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mgarcia
  */
 public class ConcursoPublico {
     private int IdConcursoPublico;
+    private String orgao;
     private String CodConcurso;
     private int EditalNum;
     private int EditalAno;
+    private ArrayList<String> Profissoes;
     
+    public ConcursoPublico() {
+        this.Profissoes = new ArrayList();
+    }
+    
+
     public void setIdConcursoPublico(int id) {
         this.IdConcursoPublico = id;
     }
     public int getIdConcursoPublico() {
         return this.IdConcursoPublico;
+    }
+    
+    public void setOrgao(String orgao) {
+        this.orgao = orgao;
+    }
+    public String getOrgao(){
+        return this.orgao;
     }
     
     public void setCodConcurso(String cod) {
@@ -52,5 +68,17 @@ public class ConcursoPublico {
     }
     public int getEditalAno(){
         return this.EditalAno;
+    }
+    //adiciona uma profissão na lista de profissoes
+    public void addProfissao(String prof) {
+        this.Profissoes.add(prof);
+    }
+    //retorna o nome da profissao no indice indicado
+    public String getProfissao(int index) {
+        return this.Profissoes.get(index);
+    }
+    //retorna toda a lista de profissoes
+    public ArrayList<String> getProfissoes(){
+        return this.Profissoes;
     }
 }
