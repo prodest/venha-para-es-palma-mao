@@ -19,7 +19,9 @@ package CONTROLE.DAO;
 import ENTIDADES.ConcursoPublico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -32,8 +34,16 @@ public class ConcursoPublicoDAO {
         Connection con = new ConnectionFactory().getConnection();
         String sql = "INSERT INTO Concurso Publico "
                 + "(Orgao,CodConcurso,EditalNum,EditalAno) VALUES (?,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(sql);
-        
+        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, c.getOrgao());
+        ps.setString(2, c.getCodConcurso());
+        ps.setInt(3, c.getEditalNum());
+        ps.setInt(4, c.getEditalAno());
+        ps.execute();
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs.next()) {
+            c.setIdConcursoPublico(rs.getInt(1));
+        }
     }
 
 }
