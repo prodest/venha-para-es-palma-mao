@@ -32,13 +32,12 @@ import java.util.ArrayList;
  */
 public class CandidatoDAO {
 
-    
     public void salvar(Candidato c) throws SQLException {
         ArrayList<String> Profissoes = c.getProfissoes();
         Connection con = new ConnectionFactory().getConnection();
         con.setAutoCommit(false);
         String sql = "INSERT INTO Candidato VALUES (NULL,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, c.getNome());
         ps.setDate(2, Data.getDataAsSQL(c.getDataNasc()));
         ps.setString(3, c.getCPF());
@@ -47,25 +46,19 @@ public class CandidatoDAO {
         if (rs.next()) {
             c.setidCandidato(rs.getInt(1));
         }
-        
-        System.out.println("Candidato registrado: " + c.getNome() + 
-                ". ID: "+c.getIdCandidato());
         ps.close();
-        
-        
+
         for (int i = 0; i < Profissoes.size(); i++) {
             String callsql = "call InsereCandidatoXProfissao (?,?);";
             CallableStatement pcall = con.prepareCall(callsql);
             pcall.setInt(1, c.getIdCandidato());
             pcall.setString(2, Profissoes.get(i));
             pcall.executeUpdate();
-            
-            System.out.println("Profissão registrada: "+c.getNome()+
-                    " - "+Profissoes.get(i));
             pcall.close();
         }
         con.commit();
-        System.out.println("\n\nCommit ok...\n\n");
+        System.out.println("Candidato registrado: " + c.getNome()
+                + ". ID: " + c.getIdCandidato());
         con.close();
     }
 
