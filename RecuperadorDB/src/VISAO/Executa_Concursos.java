@@ -17,6 +17,7 @@
 package VISAO;
 
 import CONTROLE.DAO.ConcursoPublicoDAO;
+import CONTROLE.LeitorDeDados;
 import ENTIDADES.ConcursoPublico;
 import java.sql.SQLException;
 
@@ -25,22 +26,20 @@ import java.sql.SQLException;
  * @author mgarcia
  */
 public class Executa_Concursos {
+
     public static void main(String[] args) {
-        //teste
-        ConcursoPublico teste = new ConcursoPublico();
-        teste.setCodConcurso("12345678901");
-        teste.setEditalAno(2017);
-        teste.setEditalNum(46);
-        teste.setOrgao("PRODEST-TESTE");
-        teste.addProfissao("carpinteiro");
-        teste.addProfissao("marceneiro");
-        ConcursoPublicoDAO dao = new ConcursoPublicoDAO();
-        try {
-            dao.salvar(teste);
-        } catch (SQLException e) {
-            System.out.println("Erro: "+e);
-        }
-        
-        
+        ConcursoPublico c = LeitorDeDados.LeConcursos("SEDU 9/2016 61828450843 [carpinteiro, analista de sistemas, marceneiro]");
+    
+    System.out.println(c.getEditalNum());
+    System.out.println(c.getEditalAno());
+    System.out.println(c.getOrgao());
+    System.out.println(c.getCodConcurso());
+    
+    for (int i = 0; i < c.getProfissoes().size(); i++) {
+        System.out.println(c.getProfissao(i));
     }
+    
+    
+    }
+    
 }

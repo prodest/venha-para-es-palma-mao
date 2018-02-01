@@ -18,11 +18,13 @@ package CONTROLE;
 
 import CONTROLE.UTILS.Data;
 import ENTIDADES.Candidato;
+import ENTIDADES.ConcursoPublico;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author mgarcia
@@ -30,7 +32,7 @@ import java.util.logging.Logger;
 /*
 * Esta classe Le os dados das linhas dos arquivos txt fornecidos e devolve a
 * entdade correspondente instanciada e pronta para ser manipulada.
-*/
+ */
 public class LeitorDeDados {
 
     public static Candidato LeCandidatos(String linha) {
@@ -146,10 +148,95 @@ public class LeitorDeDados {
             candidato.setDataNasc(Data.getDataFromStringDMY(data.toString()));
         } catch (ParseException ex) {
             Logger.getLogger(LeitorDeDados.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Erro ao converter a data. verifique o formato"+ex);
+            System.out.println("Erro ao converter a data. verifique o formato" + ex);
         }
-        
+
         return candidato;
+    }
+
+    //este método terá menos comentários pois segue a mesma idéia do primeiro.
+    public static ConcursoPublico LeConcursos(String linha) {
+        ConcursoPublico concurso = new ConcursoPublico();
+        StringBuilder orgao = new StringBuilder(25);
+        StringBuilder editalnum = new StringBuilder(3);
+        StringBuilder editalano = new StringBuilder(4);
+        StringBuilder codconcurso = new StringBuilder(11);
+        StringBuilder profissoes = new StringBuilder(45);
+
+        int t = linha.length();
+        boolean isorgao = true;
+        boolean iseditalnum = false;
+        boolean iseditalano = false;
+        boolean iscodconcurso = false;
+        boolean isprof = false;
+
+        for (int i = 0; i < t; i++) {
+
+            if (isorgao) {
+                if (linha.charAt(i) != ' ') {
+                    orgao.append(linha.charAt(i));
+                } else {
+                    isorgao = false;
+                    iseditalnum = true;
+                }
+            }
+
+            if (iseditalnum) {
+                if (linha.charAt(i) == ' ') {
+                    continue;
+                } else if (linha.charAt(i) == '/') {
+                    iseditalnum = false;
+                    iseditalano = true;
+                } else {
+                    editalnum.append(linha.charAt(i));
+                }
+            }
+
+            if (iseditalano) {
+                if (linha.charAt(i) == '/') {
+                    continue;
+                } else if (linha.charAt(i) == ' ') {
+                    iseditalano = false;
+                    iscodconcurso = true;
+                } else {
+                    editalano.append(linha.charAt(i));
+                }
+            }
+
+            if (iscodconcurso) {
+                if (linha.charAt(i) == ' ' && linha.charAt(i + 1) == '[') {
+                    iscodconcurso = false;
+                    isprof = true;
+                } else if (linha.charAt(i) == ' ') {
+                    continue;
+                } else {
+                    codconcurso.append(linha.charAt(i));
+                }
+            }
+
+            if (isprof) {
+                if (linha.charAt(i) == ' ' && linha.charAt(i + 1) == '[' || linha.charAt(i) == '[') {
+                    continue;
+                } else if (linha.charAt(i) == ',') {
+                    concurso.addProfissao(profissoes.toString());
+                    profissoes.delete(0, profissoes.length());//limpa pilha
+                } else if (linha.charAt(i) == ' ' && linha.charAt(i - 1) == ',') {
+                    continue;
+                } else if (linha.charAt(i) == ']') {
+                    concurso.addProfissao(profissoes.toString());
+                    profissoes.delete(0, profissoes.length());//limpa pilha
+                } else {
+                    profissoes.append(linha.charAt(i));
+                }
+
+            }
+
+        }
+        concurso.setOrgao(orgao.toString());
+        concurso.setEditalNum(Integer.parseInt(editalnum.toString()));
+        concurso.setEditalAno(Integer.parseInt(editalano.toString()));
+        concurso.setCodConcurso(codconcurso.toString());
+        return concurso;
     }
 
 }
