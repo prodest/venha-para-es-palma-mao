@@ -1,0 +1,12 @@
+INSERT INTO Candidato (Nome,DataNasc,CPF) VALUES
+('Lindsey Craft', '1976-05-19', '182.845.084-34'),
+('Jackie Dawson', '1970-08-14','311.667.973-47'),
+('Cory Mendoza','1957-02-11','565.512.353-92');
+
+INSERT INTO Profissao (Nome,IdProf) VALUES
+('carpinteiro',(SELECT IdCandidato WHERE Nome = 'Lindsey Craft')),
+('marceneiro',(SELECT IdCandidato WHERE NOME = 'Jackie Dawson')),
+('assistente administrativo',Jackie Dawson),
+('carpinteiro'),
+('marceneiro');
+

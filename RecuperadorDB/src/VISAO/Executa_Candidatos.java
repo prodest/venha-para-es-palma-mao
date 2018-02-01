@@ -17,7 +17,7 @@
 package VISAO;
 
 import CONTROLE.DAO.CandidatoDAO;
-import static CONTROLE.LeitorDeArquivo.LeArquivoCandidatos;
+import CONTROLE.LeitorDeArquivo;
 import CONTROLE.LeitorDeDados;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,9 +30,10 @@ import java.util.logging.Logger;
  * @author mgarcia
  */
 /*
-* esta classe executa todo o backend para armazenar os dados dos TXTs no banco.
+* esta classe executa todo o backend para armazenar os dados do 
+* arquivo candidatos.txt no banco.
 */
-public class AppStart {
+public class Executa_Candidatos {
 
     public static void main(String[] args) {
 
@@ -40,23 +41,25 @@ public class AppStart {
 
         try {
             System.out.println("Aguarde, lendo o arquivo...");
-            lista = LeArquivoCandidatos("/home/mgarcia/"
+            //instanciando uma lista de candidatos lida do arquivo
+            lista = LeitorDeArquivo.LeArquivoCandidatos("/home/mgarcia/"
                     + "GitProjects/venha-para-es-palma-mao/candidatos.txt");
 
             CandidatoDAO dao = new CandidatoDAO();
             System.out.println("Iniciando as inserções no banco de dados...");
             try {
+                //entra num loop e vai salvando os candidatos da lista 1 por 1
                 for (int i = 0; i < lista.size(); i++) {
                     dao.salvar(LeitorDeDados.LeCandidatos(lista.get(i)));
                 }
                 System.out.println("Inserções Concluídas com Êxito!");
             } catch (SQLException ex) {
-                Logger.getLogger(AppStart.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Executa_Candidatos.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Erro ao tentar salvar Candidatos\n" + ex);
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(AppStart.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Executa_Candidatos.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Erro ao ler o arquivo\n" + ex);
         }
     }
