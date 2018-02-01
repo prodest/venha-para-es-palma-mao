@@ -32,7 +32,7 @@ public class ConcursoPublicoDAO {
     //registra um ConcursoPublico no banco de dados
     public void salvar(ConcursoPublico c) throws SQLException {
         Connection con = new ConnectionFactory().getConnection();
-        String sql = "INSERT INTO Concurso Publico "
+        String sql = "INSERT INTO ConcursoPublico "
                 + "(Orgao,CodConcurso,EditalNum,EditalAno) VALUES (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, c.getOrgao());
@@ -44,6 +44,7 @@ public class ConcursoPublicoDAO {
         if (rs.next()) {
             c.setIdConcursoPublico(rs.getInt(1));
         }
+        System.out.println("Concurso Publico registrado! ID: "+c.getIdConcursoPublico());
     }
 
 }

@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
  */
 public class ConnectionFactory {
 
-    private final String host = "192.168.1.109";
+    private final String host = "192.168.1.101";
     private final int port = 3306;
     private final String user = "root";
     private final String password = "123";

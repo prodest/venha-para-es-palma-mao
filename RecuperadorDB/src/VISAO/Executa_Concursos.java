@@ -16,6 +16,10 @@
  */
 package VISAO;
 
+import CONTROLE.DAO.ConcursoPublicoDAO;
+import ENTIDADES.ConcursoPublico;
+import java.sql.SQLException;
+
 /**
  *
  * @author mgarcia
@@ -23,8 +27,17 @@ package VISAO;
 public class Executa_Concursos {
     public static void main(String[] args) {
         //teste
-        
-        
+        ConcursoPublico teste = new ConcursoPublico();
+        teste.setCodConcurso("12345678901");
+        teste.setEditalAno(2017);
+        teste.setEditalNum(2);
+        teste.setOrgao("PRODEST-TESTE");
+        ConcursoPublicoDAO dao = new ConcursoPublicoDAO();
+        try {
+            dao.salvar(teste);
+        } catch (SQLException e) {
+            System.out.println("Erro: "+e);
+        }
         
         
     }

@@ -59,6 +59,7 @@ Orgao VARCHAR(25)NOT NULL,
 EditalNum INT(3) NOT NULL,
 EditalAno INT(5) NOT NULL,
 CodConcurso VARCHAR(11) NOT NULL,
+UNIQUE (EditalNum,EditalAno,CodConcurso),
 PRIMARY KEY(IdConcursoPublico)
 );
 
