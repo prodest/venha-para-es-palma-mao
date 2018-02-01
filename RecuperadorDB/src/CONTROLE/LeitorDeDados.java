@@ -16,9 +16,13 @@
  */
 package CONTROLE;
 
+import CONTROLE.UTILS.Data;
 import ENTIDADES.Candidato;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author mgarcia
@@ -29,7 +33,7 @@ import java.util.Date;
 */
 public class LeitorDeDados {
 
-    public Candidato LeCandidatos(String linha) {
+    public static Candidato LeCandidatos(String linha) {
         Candidato candidato = new Candidato();
 
         StringBuilder nome = new StringBuilder(100);
@@ -122,7 +126,7 @@ public class LeitorDeDados {
                 if (linha.charAt(i) != '[' && !(linha.charAt(i) == ' '
                         && linha.charAt(i - 1) == ',')) {
                     if (linha.charAt(i) == ',' || linha.charAt(i) == ']') {
-                        lista.add(prof.toString());
+                        candidato.addProfissao(prof.toString());
                         prof.delete(0, prof.length()); // limpa a string
                     } else {
                         prof.append(linha.charAt(i));
@@ -135,6 +139,16 @@ public class LeitorDeDados {
             }
 
         }
+
+        candidato.setNome(nome.toString());
+        candidato.setCPF(cpf.toString());
+        try {
+            candidato.setDataNasc(Data.getDataFromStringDMY(data.toString()));
+        } catch (ParseException ex) {
+            Logger.getLogger(LeitorDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Erro ao converter a data. verifique o formato"+ex);
+        }
+        
         return candidato;
     }
 

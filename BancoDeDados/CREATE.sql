@@ -93,4 +93,32 @@ ON DELETE RESTRICT
 ON UPDATE CASCADE
 );
 
+/*
+	STORED PROCEDURE PARA AGILIZAR INSERÇÕES DE CANDIDATOS
+	E SUAS PROFISSOES ESCOLHIDAS, DE FORMA A UTILIZAR MENOS
+	O BANCO DE DADOS NA APLICAÇÃO, FAVORECENDO O DESEMPENHO.
+*/
+DELIMITER $
+CREATE PROCEDURE InsereProfissaoDoCandidato (IN IdCand INT, IN prof VARCHAR(45))
+INSERT INTO CandidatoXProfissao (IdCandidato, IdProfissao) VALUES
+(
+(IdCand),
+(SELECT IdProfissao FROM Profissao WHERE Nome = prof)
+);
+END$
+DELIMITER ;
+
+
+/*      
+*
+* INSERÇÕES DAS PROFISSÕES BÁSICAS
+*
+*/
+
+INSERT INTO Profissao (Nome) VALUES
+('carpinteiro'),
+('marceneiro'),
+('assistente administrativo'),
+('analista de sistemas'),
+('professor de matemática');
 

@@ -42,6 +42,10 @@ public class Candidato {
         return this.Profissoes.get(index);
     }
     
+    public ArrayList<String> getProfissoes() {
+        return this.Profissoes;
+    }
+    
     public void setidCandidato(int i) {
         this.IdCandidato = i;
     }
