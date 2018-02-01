@@ -1,3 +1,13 @@
+Minhas implementações:
+
+O primeiro desafio consiste em transformar os dados crus que estão nos arquivos txt em representações confiaveis das informações para serem registradas no banco de dados. Para executar esta missão, eu desenvolvi uma aplicação java, nomeando esse projeto "RecuperadorDB". O projeto consiste em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade íntegra (Candidato, ConcursoPublico e suas relações CandidatoXProfissao e e ConcursoPublicoXProfissao). 
+Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conexões com o banco, as 2 classes principais que contém os métodos para fazer isso ser possível, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a solução foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
+
+O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licenças.
+
+
+
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
