@@ -1,4 +1,5 @@
-myvenev/
+# maquina virtual
+myvenv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
