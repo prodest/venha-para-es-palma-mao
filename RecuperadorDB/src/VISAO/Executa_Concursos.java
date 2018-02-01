@@ -17,9 +17,14 @@
 package VISAO;
 
 import CONTROLE.DAO.ConcursoPublicoDAO;
+import CONTROLE.LeitorDeArquivo;
 import CONTROLE.LeitorDeDados;
 import ENTIDADES.ConcursoPublico;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,18 +33,30 @@ import java.sql.SQLException;
 public class Executa_Concursos {
 
     public static void main(String[] args) {
-        ConcursoPublico c = LeitorDeDados.LeConcursos("SEDU 9/2016 61828450843 [carpinteiro, analista de sistemas, marceneiro]");
-    
-    System.out.println(c.getEditalNum());
-    System.out.println(c.getEditalAno());
-    System.out.println(c.getOrgao());
-    System.out.println(c.getCodConcurso());
-    
-    for (int i = 0; i < c.getProfissoes().size(); i++) {
-        System.out.println(c.getProfissao(i));
+        ArrayList<String> lista; // lista de linhas lidas do arquivo
+        System.out.println("Aguarde, lendo o arquivo...");
+
+        try {
+            lista = LeitorDeArquivo.LeArquivoCandidatos("/home/mgarcia/"
+                    + "GitProjects/venha-para-es-palma-mao/concursos.txt");
+            ConcursoPublicoDAO dao = new ConcursoPublicoDAO();
+            System.out.println("Iniciando as inserções no banco de dados...");
+            try {
+                //entra num loop e vai salvando os Concursos da lista 1 por 1
+                for (int i = 0; i < lista.size(); i++) {
+                    dao.salvar(LeitorDeDados.LeConcursos(lista.get(i)));
+                }
+                System.out.println("Inserções Concluídas com Êxito!");
+            } catch (SQLException ex) {
+                Logger.getLogger(Executa_Candidatos.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Erro ao tentar salvar Concursos\n" + ex);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(Executa_Concursos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Erro ao ler o arquivo\n" + ex);
+        }
+
     }
-    
-    
-    }
-    
+
 }

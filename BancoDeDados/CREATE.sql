@@ -142,5 +142,7 @@ INSERT INTO Profissao (Nome) VALUES
 ('marceneiro'),
 ('assistente administrativo'),
 ('analista de sistemas'),
-('professor de matemática');
+('professor de matemática'),
+('inspetor penitenciário'),
+('estagiário');
 
