@@ -17,6 +17,7 @@
 package CONTROLE.DAO;
 
 import ENTIDADES.ConcursoPublico;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,7 @@ public class ConcursoPublicoDAO {
     //registra um ConcursoPublico no banco de dados
     public void salvar(ConcursoPublico c) throws SQLException {
         Connection con = new ConnectionFactory().getConnection();
+        con.setAutoCommit(false);
         String sql = "INSERT INTO ConcursoPublico "
                 + "(Orgao,CodConcurso,EditalNum,EditalAno) VALUES (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -44,7 +46,21 @@ public class ConcursoPublicoDAO {
         if (rs.next()) {
             c.setIdConcursoPublico(rs.getInt(1));
         }
+        //laço para registrar as profissoes 1 por 1
+        for (int i = 0; i < c.getProfissoes().size(); i ++) {
+            String callsql = "call InsereCandidatoXProfissao (?,?)";
+            CallableStatement call = con.prepareCall(callsql);
+            call.setInt(1, c.getIdConcursoPublico());
+            call.setString(2, c.getProfissao(i));
+            call.execute();
+            call.close();
+        }
+        
+        con.commit();
         System.out.println("Concurso Publico registrado! ID: "+c.getIdConcursoPublico());
+        rs.close();
+        ps.close();
+        con.close();
     }
 
 }

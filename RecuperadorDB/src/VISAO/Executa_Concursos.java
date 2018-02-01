@@ -30,8 +30,10 @@ public class Executa_Concursos {
         ConcursoPublico teste = new ConcursoPublico();
         teste.setCodConcurso("12345678901");
         teste.setEditalAno(2017);
-        teste.setEditalNum(2);
+        teste.setEditalNum(46);
         teste.setOrgao("PRODEST-TESTE");
+        teste.addProfissao("carpinteiro");
+        teste.addProfissao("marceneiro");
         ConcursoPublicoDAO dao = new ConcursoPublicoDAO();
         try {
             dao.salvar(teste);

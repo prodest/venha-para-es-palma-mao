@@ -54,7 +54,7 @@ public class CandidatoDAO {
         
         
         for (int i = 0; i < Profissoes.size(); i++) {
-            String callsql = "call InsereProfissaoDoCandidato (?,?);";
+            String callsql = "call InsereCandidatoXProfissao (?,?);";
             CallableStatement pcall = con.prepareCall(callsql);
             pcall.setInt(1, c.getIdCandidato());
             pcall.setString(2, Profissoes.get(i));
