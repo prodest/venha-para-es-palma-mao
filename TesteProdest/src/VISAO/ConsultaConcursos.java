@@ -49,7 +49,7 @@ public class ConsultaConcursos extends javax.swing.JFrame {
             *   A janela trabalhará com uma Lista de Concursos recuperados do banco
             *   através da query resolvida do problema 1, e um candidato, que será
             *   recuperado do banco pelo CPF fornecido pelo operador ao clicar no
-            *   botão do problema 1. os dados deste usuários erão apresentados na
+            *   botão do problema 1. os dados deste Candidato serão apresentados na
             *   tela abaixo da tabela de dados de concursos recuperados para nos
             *   certificarmos que a busca foi feita para o Candidato correto.
             *

@@ -16,17 +16,39 @@
  */
 package VISAO;
 
+import ENTIDADES.Candidato;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mgarcia
  */
 public class ConsultaCandidatos extends javax.swing.JFrame {
 
+    ArrayList<Candidato> lista;
+
     /**
      * Creates new form ConsultaConcursos
      */
-    public ConsultaCandidatos() {
+    public ConsultaCandidatos(String codconcurso) {
+        /*
+            *
+            *   A janela trabalhará com uma Lista de Candidatos recuperados do banco
+            *   através da query resolvida do problema 2, e um Concurso, que será
+            *   recuperado do banco pelo Codigo fornecido pelo operador ao clicar no
+            *   botão do problema 2. os dados deste Concurso serão apresentados na
+            *   tela abaixo da tabela de dados de Candidatos recuperados para nos
+            *   certificarmos que a busca foi feita para o Concurso correto.
+            *
+         */
+
         initComponents();
+
+        ResultLabel.setText(lista.size() + " resultados encontrados");
+        GregorianCalendar today = new GregorianCalendar();
+        datalabel.setText("Data da pesquisa: " + today.getTime());
     }
 
     /**
@@ -42,6 +64,8 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        ResultLabel = new javax.swing.JLabel();
+        datalabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CONSULTA CONCURSOS");
@@ -76,6 +100,10 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
 
         jLabel1.setText("Concurso analisado:");
 
+        ResultLabel.setText("resultados encontrados");
+
+        datalabel.setText("Pesquisa feita em xx/xx/xxxx as 00:00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,17 +115,27 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
                     .addComponent(jTextField1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ResultLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(datalabel, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(ResultLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(datalabel)
                 .addContainerGap())
         );
 
@@ -136,12 +174,14 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaCandidatos().setVisible(true);
+                JOptionPane.showMessageDialog(null, "O código não foi informado!");
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ResultLabel;
+    private javax.swing.JLabel datalabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
