@@ -22,4 +22,3 @@ SELECT DISTINCT Nome, DataNasc, CPF FROM Candidato JOIN CandidatoXProfissao ON C
 JOIN ListaDeVagas ON CandidatoXProfissao.IdProfissao = ListaDeVagas.IdProfissao 
 JOIN ConcursoPublico ON ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ConcursoPublico.CodConcurso = '80671076246';
 ##################################################################################################################################
-
