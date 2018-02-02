@@ -17,20 +17,9 @@ ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ListaDe
 JOIN Candidato ON CandidatoXProfissao.IdCandidato = Candidato.IdCandidato WHERE Candidato.CPF = '120.164.449-15'));
 ##################################################################################################################################
 SOLUÇÃO DO PROBLEMA 2
-SELECT Nome, DataNasc, CPF FROM Candidato JOIN CandidatoXProfissao ON Candidato.IdCandidato = CandidatoXProfissao.IdCandidato
+/* Listar os candidatos compatíveis com um concurso baseado no codigo do concurso */
+SELECT DISTINCT Nome, DataNasc, CPF FROM Candidato JOIN CandidatoXProfissao ON Candidato.IdCandidato = CandidatoXProfissao.IdCandidato
 JOIN ListaDeVagas ON CandidatoXProfissao.IdProfissao = ListaDeVagas.IdProfissao 
 JOIN ConcursoPublico ON ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ConcursoPublico.CodConcurso = '80671076246';
 ##################################################################################################################################
-
-
-
-
-
-
-
-
-
-
-
-
 
