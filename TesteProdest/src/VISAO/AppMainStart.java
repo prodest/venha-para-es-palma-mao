@@ -150,12 +150,16 @@ public class AppMainStart extends javax.swing.JFrame {
 
     private void Prob1_BottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Prob1_BottActionPerformed
         //chama a solução do problema 1
+        try {
         String CPF = JOptionPane.showInputDialog(null, "Insira o CPF do Candidato");
         if (CPF.length() != 14) {
             JOptionPane.showMessageDialog(null, "Valor inválido! "
                     + "Lembre-se de digitar os pontos e os traços também");
         } else {
             new ConsultaConcursos(CPF).setVisible(true);
+        }
+        } catch (Exception e) {
+            System.out.println("O usuario fechou a janela antes da confirmação");
         }
     }//GEN-LAST:event_Prob1_BottActionPerformed
 

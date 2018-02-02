@@ -46,7 +46,7 @@ public class Concursos {
         *   com um candidato buscando pelo seu CPF, que deve ser fornecido
         *   via parâmetro para este método
          */
-        StringBuilder query = new StringBuilder(510);
+        StringBuilder query = new StringBuilder(557);
         /*
             usarei um stringbuilder para formar a query completa por questões 
             de desempenho. o Java trata uma soma de strings como varias strings
@@ -64,7 +64,8 @@ public class Concursos {
         query.append("JOIN CandidatoXProfissao ON Profissao.IdProfissao");
         query.append(" = CandidatoXProfissao.IdProfissao ");
         query.append("JOIN Candidato ON CandidatoXProfissao.IdCandidato ");
-        query.append("= Candidato.IdCandidato WHERE Candidato.CPF = ? ))");
+        query.append("= Candidato.IdCandidato WHERE Candidato.CPF = ? )) ");
+        query.append("ORDER BY ConcursoPublico.EditalAno Desc, Orgao");
         ArrayList<ConcursoPublico> concursos = new ArrayList();
 
         Connection con = new ConnectionFactory().getConnection();

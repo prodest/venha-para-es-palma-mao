@@ -14,7 +14,8 @@ SOLUÇÃO DO PROBLEMA 1
 SELECT Orgao, CodConcurso, EditalNum, EditalAno FROM ConcursoPublico WHERE IdConcursoPublico IN
 (SELECT ConcursoPublico.IdConcursoPublico FROM ConcursoPublico JOIN ListaDeVagas ON
 ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ListaDeVagas.IdProfissao IN (SELECT Profissao.IdProfissao FROM Profissao JOIN CandidatoXProfissao ON Profissao.IdProfissao = CandidatoXProfissao.IdProfissao
-JOIN Candidato ON CandidatoXProfissao.IdCandidato = Candidato.IdCandidato WHERE Candidato.CPF = '120.164.449-15'));
+JOIN Candidato ON CandidatoXProfissao.IdCandidato = Candidato.IdCandidato WHERE Candidato.CPF = '684.284.486-15'))
+ORDER BY EditalAno Desc, Orgao;
 ##################################################################################################################################
 SOLUÇÃO DO PROBLEMA 2
 /* Listar os candidatos compatíveis com um concurso baseado no codigo do concurso */

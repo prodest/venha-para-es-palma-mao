@@ -18,10 +18,14 @@ package VISAO;
 
 import CONTROLE.CONSULTAS.Concursos;
 import CONTROLE.DAO.CandidatoDAO;
+import CONTROLE.UTILS.Data;
 import ENTIDADES.Candidato;
 import ENTIDADES.ConcursoPublico;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -65,6 +69,9 @@ public class ConsultaConcursos extends javax.swing.JFrame {
         }
         initComponents();
         CandTxt.setText(candidato.getNome() + " CPF: "+candidato.getCPF());
+        ResultLabel.setText(lista.size() + " resultados encontrados");
+        GregorianCalendar today = new GregorianCalendar();
+        datalabel.setText("Data da pesquisa: "+today.getTime());
     }
 
     // este método retorna uma matriz de objetos que alimenta a tabela
@@ -106,10 +113,12 @@ public class ConsultaConcursos extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         CandTxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        ResultLabel = new javax.swing.JLabel();
+        datalabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CONSULTA CONCURSOS");
-        setExtendedState(1);
+        setAlwaysOnTop(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             getArray(),
@@ -135,6 +144,10 @@ public class ConsultaConcursos extends javax.swing.JFrame {
 
         jLabel1.setText("Candidato analisado:");
 
+        ResultLabel.setText("resultados encontrados");
+
+        datalabel.setText("Pesquisa feita em xx/xx/xxxx as 00:00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,18 +158,28 @@ public class ConsultaConcursos extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                     .addComponent(CandTxt)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datalabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ResultLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(ResultLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CandTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(datalabel)
                 .addContainerGap())
         );
 
@@ -201,6 +224,8 @@ public class ConsultaConcursos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CandTxt;
+    private javax.swing.JLabel ResultLabel;
+    private javax.swing.JLabel datalabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
