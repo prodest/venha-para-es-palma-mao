@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+
+<head>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/candidato.css' %}">
+    <title>es na palma da mao</title>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>
+            <a href="https://github.com/lukasg18/venha-para-es-palma-mao">Venha para ES na palma da mão!</a>
+        </h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
