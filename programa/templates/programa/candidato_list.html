@@ -1,11 +1,7 @@
-{% extends 'programa/base.html' %}
-{% block content %}
-    {% for cand in candidatos %}
-        <div class="post">
-            <h1>
-                <a href="">{{ cand.nome }}</a>
-            </h1>
-            <p>{{ cand.cpf|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
-{% endblock %}
+{% extends 'programa/base.html' %} {% block content %} {% for cand in candidatos %}
+<div class="post card text-white bg-success mb-3" style="width: 15rem;">
+    <div class="card-body">
+        <a href="{% url 'candidato_detail' pk=cand.pk %}">{{ cand.nome }}</a>
+    </div>
+</div>
+{% endfor %} {% endblock %}
