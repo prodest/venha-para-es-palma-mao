@@ -81,4 +81,9 @@ public class ConcursoPublico {
     public ArrayList<String> getProfissoes(){
         return this.Profissoes;
     }
+    
+    //retorna o numero composto completo do edital como string
+    public String getEdital() {
+        return "" + this.EditalNum + "/" + this.EditalAno;
+    }
 }

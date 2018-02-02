@@ -83,4 +83,26 @@ public class CandidatoDAO {
 
         return lista;
     }
+
+    //retorna um Candidato buscado pelo seu CPF
+    public Candidato getByCPF(String CPF) throws SQLException {
+        Connection con = new ConnectionFactory().getConnection();
+        String sql = "SELECT * FROM Candidato WHERE CPF = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, CPF);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            Candidato c = new Candidato();
+            c.setidCandidato(rs.getInt(1));
+            c.setNome(rs.getString(2));
+            c.setDataNasc(Data.getDataAsUtil(rs.getDate(3)));
+            c.setCPF(rs.getString(4));
+            rs.close();
+            con.close();
+            return c;
+        }
+        rs.close();
+        con.close();
+        return null;
+    }
 }
