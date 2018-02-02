@@ -1,4 +1,24 @@
 <html>
-    <p>Hi there!</p>
-    <p>It works!</p>
+
+<head>
+    <title>es na palma da mao</title>
+</head>
+
+<body>
+    <div>
+        <h1>
+            <a href="/">Candidatos</a>
+        </h1>
+    </div>
+
+    {% for cand in candidatos %}
+    <div>
+        <h1>
+            <a href="">{{ cand.nome }}</a>
+        </h1>
+        <p>{{ cand.cpf|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+</body>
+
 </html>
