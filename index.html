@@ -11,8 +11,11 @@
 <body>
     <div id="divSearch">
         <div id = "radiosMain">
-            <input type="radio" name="candidato" id="candidato">
-            <input type="radio" name="concurso" id="concurso">
+            <label id = "tituloMain">Pesquisar por:</label>
+            <div>
+                <input type="radio" name="escolha" value = "candidato" data-icon = 'Candidato'/>
+                <input type="radio" name="escolha" value = "concurso" data-icon = 'Concurso'/>
+            </div>
         </div>
         <div id = "inputMain">
             <input type="search" name="textoPesquisa" id="txtPesquisa" placeholder="Digite aqui...">

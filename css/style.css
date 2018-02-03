@@ -12,6 +12,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', end
     border:none;
     border-radius:15px;
     width:400px;
+    left:35%;
+    top:50%;
+    position:absolute;
+    box-shadow: 3px 2px rgba(0,0,0,0.5);
 }
   
 #txtPesquisa{
@@ -23,4 +27,45 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', end
     border:none;
     height:48px;
     width:350px;
+}
+
+#radiosMain{
+    left:35%;
+    top:30%;
+    position:absolute;
+}
+
+#tituloMain{
+    font-family: Arial,Helvetica,sans-serif; 
+    color: white;
+    font-weight: bold;
+    font-size:36px;
+    text-shadow: 3px 2px rgba(0,0,0,0.5);
+}
+
+input[name='escolha'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
+}
+input[name='escolha']:after {
+    font-family: Arial,Helvetica,sans-serif;
+    display: inline-block;
+    text-align: center;
+    font-size: 25px;
+    content: attr(data-icon);
+    padding: 20px 20px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: box-shadow 1s, color 1s;
+    transition: box-shadow 1s, color 1s;
+}
+
+input[name='escolha']:checked:after {
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 1.0);
+    font-weight: bold;
 }
