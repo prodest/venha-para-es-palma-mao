@@ -61,6 +61,11 @@ public class AppMainStart extends javax.swing.JFrame {
         });
 
         Prob2_Bott.setText("Problema 2");
+        Prob2_Bott.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Prob2_BottActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -151,17 +156,31 @@ public class AppMainStart extends javax.swing.JFrame {
     private void Prob1_BottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Prob1_BottActionPerformed
         //chama a solução do problema 1
         try {
-        String CPF = JOptionPane.showInputDialog(null, "Insira o CPF do Candidato");
-        if (CPF.length() != 14) {
-            JOptionPane.showMessageDialog(null, "Valor inválido! "
-                    + "Lembre-se de digitar os pontos e os traços também");
-        } else {
-            new ConsultaConcursos(CPF).setVisible(true);
-        }
+            String CPF = JOptionPane.showInputDialog(null, "Insira o CPF do Candidato");
+            if (CPF.length() != 14) {
+                JOptionPane.showMessageDialog(null, "Valor inválido! "
+                        + "Lembre-se de digitar os pontos e os traços também");
+            } else {
+                new ConsultaConcursos(CPF).setVisible(true);
+            }
         } catch (Exception e) {
             System.out.println("O usuario fechou a janela antes da confirmação");
         }
     }//GEN-LAST:event_Prob1_BottActionPerformed
+
+    private void Prob2_BottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Prob2_BottActionPerformed
+        //chama a solução do problema 2
+        try {
+            String cod = JOptionPane.showInputDialog(null, "Insira o Codigo do Concurso");
+            if (cod.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Valor inválido!");
+            } else {
+                new ConsultaCandidatos(cod).setVisible(true);
+            }
+        } catch (Exception e) {
+            System.out.println("O usuario fechou a janela antes da confirmação");
+        }
+    }//GEN-LAST:event_Prob2_BottActionPerformed
 
     /**
      * @param args the command line arguments

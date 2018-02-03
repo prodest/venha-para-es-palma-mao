@@ -21,5 +21,5 @@ SOLUÇÃO DO PROBLEMA 2
 /* Listar os candidatos compatíveis com um concurso baseado no codigo do concurso */
 SELECT DISTINCT Nome, DataNasc, CPF FROM Candidato JOIN CandidatoXProfissao ON Candidato.IdCandidato = CandidatoXProfissao.IdCandidato
 JOIN ListaDeVagas ON CandidatoXProfissao.IdProfissao = ListaDeVagas.IdProfissao 
-JOIN ConcursoPublico ON ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ConcursoPublico.CodConcurso = '80671076246';
+JOIN ConcursoPublico ON ListaDeVagas.IdConcursoPublico = ConcursoPublico.IdConcursoPublico WHERE ConcursoPublico.CodConcurso = '80671076246' ORDER BY Candidato.Nome;
 ##################################################################################################################################

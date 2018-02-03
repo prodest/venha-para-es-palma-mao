@@ -43,8 +43,8 @@ public class ConsultaConcursos extends javax.swing.JFrame {
      * Creates new form ConsultaConcursos
      */
     public ConsultaConcursos(String CPF) {
-        try {
-            /*
+
+        /*
             *
             *   A janela trabalhará com uma Lista de Concursos recuperados do banco
             *   através da query resolvida do problema 1, e um candidato, que será
@@ -53,8 +53,8 @@ public class ConsultaConcursos extends javax.swing.JFrame {
             *   tela abaixo da tabela de dados de concursos recuperados para nos
             *   certificarmos que a busca foi feita para o Candidato correto.
             *
-             */
-
+         */
+        try {
             lista = Concursos.Problema1(CPF);
             CandidatoDAO cdao = new CandidatoDAO();
             candidato = cdao.getByCPF(CPF);
@@ -68,10 +68,10 @@ public class ConsultaConcursos extends javax.swing.JFrame {
             dispose();
         }
         initComponents();
-        CandTxt.setText(candidato.getNome() + " CPF: "+candidato.getCPF());
+        CandTxt.setText(candidato.getNome() + " CPF: " + candidato.getCPF());
         ResultLabel.setText(lista.size() + " resultados encontrados");
         GregorianCalendar today = new GregorianCalendar();
-        datalabel.setText("Data da pesquisa: "+today.getTime());
+        datalabel.setText("Data da pesquisa: " + today.getTime());
     }
 
     // este método retorna uma matriz de objetos que alimenta a tabela

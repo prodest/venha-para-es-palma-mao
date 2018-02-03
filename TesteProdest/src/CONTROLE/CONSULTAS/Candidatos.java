@@ -16,7 +16,13 @@
  */
 package CONTROLE.CONSULTAS;
 
+import CONTROLE.DAO.ConnectionFactory;
+import CONTROLE.UTILS.Data;
 import ENTIDADES.Candidato;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -24,19 +30,53 @@ import java.util.ArrayList;
  * @author mgarcia
  */
 public class Candidatos {
+
     /*
     *   
-    *   Esta classe cuida das consultas referentes a busca de dados de Candidato.
-    *   Todas as querys que rodarão no banco buscando dados de candidatos devem
-    *   ser inseridas aqui e processadas somente aqui.
+    *   Esta classe cuida das consultas referentes a buscas complexas de dados 
+    *   de Candidato.
+    *   Todas as querys complexas que rodarão no banco buscando dados de 
+    *   candidatos devem ser inseridas aqui e processadas somente aqui.
     *
      */
+    public static ArrayList<Candidato> Problema2(String codconcurso) throws SQLException {
+        /*
+        *   Este método retorna uma lista de concursos publicos compatíveis
+        *   com um candidato buscando pelo seu CPF, que deve ser fornecido
+        *   via parâmetro para este método
+         */
+        ArrayList<Candidato> candidatos = new ArrayList();
+        StringBuilder query = new StringBuilder(367);
+        /*
+            usarei um stringbuilder para formar a query completa por questões 
+            de desempenho. o Java trata uma soma de strings como varias strings
+            separadas, o que causa impacto no desempenho ao se somar muitas 
+            strings. o stringbuilder com tamanho pré definido pelo conhecimento
+            do tamanho da query reduz o impacto no consumo de memória
+         */
+        query.append("SELECT DISTINCT Nome, DataNasc, CPF FROM Candidato JOIN ");
+        query.append("CandidatoXProfissao ON Candidato.IdCandidato = ");
+        query.append("CandidatoXProfissao.IdCandidato JOIN ListaDeVagas ON ");
+        query.append("CandidatoXProfissao.IdProfissao = ListaDeVagas.IdProfissao");
+        query.append(" JOIN ConcursoPublico ON ListaDeVagas.IdConcursoPublico");
+        query.append(" = ConcursoPublico.IdConcursoPublico WHERE ");
+        query.append("ConcursoPublico.CodConcurso = ");
+        query.append("? ORDER BY Candidato.Nome");
 
-    public static ArrayList<Candidato> Prob2() {
-        
-        return null;
+        Connection con = new ConnectionFactory().getConnection();
+        PreparedStatement ps = con.prepareStatement(query.toString());
+        ps.setString(1, codconcurso);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Candidato c = new Candidato();
+            c.setNome(rs.getString(1));
+            c.setDataNasc(Data.getDataAsUtil(rs.getDate(2)));
+            c.setCPF(rs.getString(3));
+            candidatos.add(c);
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        return candidatos;
     }
-    
-    
-    
 }

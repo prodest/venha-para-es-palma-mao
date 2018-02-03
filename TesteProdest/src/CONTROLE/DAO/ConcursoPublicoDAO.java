@@ -36,7 +36,7 @@ public class ConcursoPublicoDAO {
         con.setAutoCommit(false);
         String sql = "INSERT INTO ConcursoPublico "
                 + "(Orgao,CodConcurso,EditalNum,EditalAno) VALUES (?,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, c.getOrgao());
         ps.setString(2, c.getCodConcurso());
         ps.setInt(3, c.getEditalNum());
@@ -47,7 +47,7 @@ public class ConcursoPublicoDAO {
             c.setIdConcursoPublico(rs.getInt(1));
         }
         //laço para registrar as profissoes 1 por 1
-        for (int i = 0; i < c.getProfissoes().size(); i ++) {
+        for (int i = 0; i < c.getProfissoes().size(); i++) {
             String callsql = "call InsereListaDeVagas (?,?)";
             CallableStatement call = con.prepareCall(callsql);
             call.setInt(1, c.getIdConcursoPublico());
@@ -55,12 +55,36 @@ public class ConcursoPublicoDAO {
             call.execute();
             call.close();
         }
-        
+
         con.commit();
-        System.out.println("Concurso Publico registrado! ID: "+c.getIdConcursoPublico());
+        System.out.println("Concurso Publico registrado! ID: " + c.getIdConcursoPublico());
         rs.close();
         ps.close();
         con.close();
     }
 
+    public ConcursoPublico getByCodigoConcurso(String codigo) throws SQLException {
+        Connection con = new ConnectionFactory().getConnection();
+        String sql = "SELECT * FROM ConcursoPublico WHERE CodConcurso = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, codigo);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            ConcursoPublico c = new ConcursoPublico();
+            c.setIdConcursoPublico(rs.getInt(1));
+            c.setOrgao(rs.getString(2));
+            c.setEditalNum(rs.getInt(3));
+            c.setEditalAno(rs.getInt(4));
+            c.setCodConcurso(rs.getString(5));
+            rs.close();
+            ps.close();
+            con.close();
+            return c;
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        System.out.println("O codigo inserido é inválido");
+        return null;
+    }
 }

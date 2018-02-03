@@ -16,9 +16,16 @@
  */
 package VISAO;
 
+import CONTROLE.CONSULTAS.Candidatos;
+import CONTROLE.DAO.ConcursoPublicoDAO;
+import CONTROLE.UTILS.Data;
 import ENTIDADES.Candidato;
+import ENTIDADES.ConcursoPublico;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,11 +35,13 @@ import javax.swing.JOptionPane;
 public class ConsultaCandidatos extends javax.swing.JFrame {
 
     ArrayList<Candidato> lista;
+    ConcursoPublico concurso;
 
     /**
      * Creates new form ConsultaConcursos
      */
     public ConsultaCandidatos(String codconcurso) {
+
         /*
             *
             *   A janela trabalhará com uma Lista de Candidatos recuperados do banco
@@ -43,12 +52,52 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
             *   certificarmos que a busca foi feita para o Concurso correto.
             *
          */
+        try {
+            lista = Candidatos.Problema2(codconcurso);
+            ConcursoPublicoDAO condao = new ConcursoPublicoDAO();
+            concurso = condao.getByCodigoConcurso(codconcurso);
+            if (null == concurso) {
+                JOptionPane.showMessageDialog(null, "O Código informado não existe");
+                dispose();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaCandidatos.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao buscar dados" + ex);
+            dispose();
+        }
 
         initComponents();
 
         ResultLabel.setText(lista.size() + " resultados encontrados");
         GregorianCalendar today = new GregorianCalendar();
         datalabel.setText("Data da pesquisa: " + today.getTime());
+        ConcTXT.setText(concurso.getOrgao() + " " + concurso.getEdital());
+    }
+
+    // este método retorna uma matriz de objetos que alimenta a tabela
+    // exibida pelo swing na tela do usuario.
+    public Object[][] getArray() {
+        int length = lista.size();
+        Object[][] matrix = new String[length][3];
+
+        for (int i = 0; i < length; i++) {
+            Candidato c = lista.get(i);
+            for (int y = 0; y < 3; y++) {
+                switch (y) {
+                    case 0:
+                        matrix[i][y] = lista.get(i).getNome();
+                        break;
+                    case 1:
+                        matrix[i][y] = Data.getDataAsStringBR(lista.get(i).getDataNasc());
+                        break;
+                    case 2:
+                        matrix[i][y] = lista.get(i).getCPF();
+                        break;
+                }
+            }
+
+        }
+        return matrix;
     }
 
     /**
@@ -62,22 +111,17 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        ConcTXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         ResultLabel = new javax.swing.JLabel();
         datalabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("CONSULTA CONCURSOS");
-        setExtendedState(1);
+        setTitle("CONSULTA CANDIDATOS");
+        setAlwaysOnTop(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
+            getArray(),
             new String [] {
                 "Nome", "Nascimento", "CPF"
             }
@@ -95,8 +139,8 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(128);
         }
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("teste");
+        ConcTXT.setEditable(false);
+        ConcTXT.setText("teste");
 
         jLabel1.setText("Concurso analisado:");
 
@@ -112,7 +156,7 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addComponent(ConcTXT)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -133,7 +177,7 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConcTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(datalabel)
                 .addContainerGap())
@@ -180,11 +224,11 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ConcTXT;
     private javax.swing.JLabel ResultLabel;
     private javax.swing.JLabel datalabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

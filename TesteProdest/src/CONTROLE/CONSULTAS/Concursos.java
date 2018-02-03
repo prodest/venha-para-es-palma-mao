@@ -35,9 +35,10 @@ public class Concursos {
 
     /*
     *   
-    *   Esta classe cuida das consultas referentes a busca de dados de Concursos.
-    *   Todas as querys que rodarão no banco buscando dados de Concursos devem
-    *   ser inseridas aqui e processadas somente aqui.
+    *   Esta classe cuida das consultas referentes a buscas complexas de 
+    *   dados de Concursos.
+    *   Todas as querys complexas que rodarão no banco buscando dados de 
+    *   Concursos devem ser inseridas aqui e processadas somente aqui.
     *
      */
     public static ArrayList<ConcursoPublico> Problema1(String CPF) throws SQLException {
@@ -80,6 +81,7 @@ public class Concursos {
             c.setEditalAno(rs.getInt(4));
             concursos.add(c);
         }
+        System.out.println("O CPF inserido é inválido");
         rs.close();
         con.close();
         return concursos;
