@@ -4,8 +4,9 @@ O primeiro desafio consiste em transformar os dados crus que estão nos arquivos
 Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conexões com o banco, as 2 classes principais que contém os métodos para fazer isso ser possível, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a solução foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
 
 O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licenças.
-######################################################################################################################################
-######################################################################################################################################
+
+################################################################################################
+
 1) Documentação da Solução:
 
 Primeira parte:
@@ -24,14 +25,16 @@ Desenvolvido em Java.
 Nome: TesteProdest
 Funcionamento: Insira os dados do banco. Assim como feito na classe "CONTROLE.DAO.ConnectionFactory.java" do Projeto "RecuperadorDB", faça o mesmo procedimento para o Projeto "TesteProdest", que é a solução própriamente dita.
 Com os dados corretamente configurados. basta executar o Projeto "TesteProdest". Uma janela aparecerá com 2 botões que executam o backend para solucionar os problemas solicitados.
-######################################################################################################################################
-######################################################################################################################################
+
+################################################################################################
+
 2) Diferenciais implementados:
 
 Uso de Banco de Dados: MySQL
-utiliza CleanCode
-utiliza o Padrão de Programação MVC (padrão do java)
 
+utiliza CleanCode
+
+utiliza o Padrão de Programação MVC (padrão do java)
 
 
 
