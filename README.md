@@ -36,6 +36,8 @@ utiliza CleanCode
 
 utiliza o Padrão de Programação MVC (padrão do java)
 
+3)
+Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/zjsuijodgf?start=2018-01-29&end=2018-02-04
 
 
 
