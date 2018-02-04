@@ -84,7 +84,7 @@ public class CandidatoDAO {
         return lista;
     }
 
-    //retorna um Candidato buscado pelo seu CPF
+    //retorna um Candidato buscado pelo seu CPF 
     public Candidato getByCPF(String CPF) throws SQLException {
         Connection con = new ConnectionFactory().getConnection();
         String sql = "SELECT * FROM Candidato WHERE CPF = ?";
