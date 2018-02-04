@@ -26,11 +26,11 @@ import javax.swing.JOptionPane;
  */
 public class ConnectionFactory {
 
-    private final String host = "192.168.1.101";
-    private final int port = 3306;
-    private final String user = "root";
-    private final String password = "123";
-    private final String db = "Concursos";
+    private final String host = "192.168.1.101"; //INSIRA O IP DO BANCO
+    private final int port = 3306; //INSIRA A PORTA
+    private final String user = "root"; //INSIRA O USUAIRO DO BANCO
+    private final String password = "123"; // INSIRA A SENHA DO BANCO
+    private final String db = "Concursos"; //Nome do Schema.
     private final String url = "jdbc:mysql://" + host + ":" + port + "/" + db;
 
     public Connection getConnection() {
