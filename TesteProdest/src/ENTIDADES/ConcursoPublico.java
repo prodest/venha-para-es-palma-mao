@@ -30,6 +30,7 @@ public class ConcursoPublico {
     private int EditalAno;
     private ArrayList<String> Profissoes;
     
+    //o construtor inicializa o ArrayList
     public ConcursoPublico() {
         this.Profissoes = new ArrayList();
     }

@@ -30,18 +30,22 @@ public class Candidato {
     private String CPF;
     private ArrayList<String> Profissoes;
     
+    //o construtor inicializa o ArrayList
     public Candidato() {
         this.Profissoes = new ArrayList();
     }
     
+    //add uma profissão na sua arraylist
     public void addProfissao(String p) {
         this.Profissoes.add(p);
     }
     
+    //pega uma profissão da sua arraylist no index informado
     public String getProfissao(int index) {
         return this.Profissoes.get(index);
     }
     
+    //retorna o ArrayList Profissoes inteiro
     public ArrayList<String> getProfissoes() {
         return this.Profissoes;
     }
