@@ -25,25 +25,35 @@ import java.util.Date;
  * @author mgarcia
  */
 public class Data {
+    /*
+    *   Esta classe fornece utilidades para tratamento de Datas dos tipos
+    *   java.sql.Date e java.util.Date, fornecendo métodos fáceis para
+    *   transformação de datas em strings em formatos pré determinados
+    *   ou o inverso, transformar strings formatadas em data.
+    */
     
+    //devolve uma string formatada no padrão brasileiro
     public static String getDataAsStringBR(Date d) {
         SimpleDateFormat dmy = new SimpleDateFormat("dd/MM/yyyy");
         return dmy.format(d);
     }
     
+    //devolve uma string formatada no padrão americano
     public static String getDataAsStringUS(Date d) {
         SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
         return ymd.format(d);
     }
     
+    //devolve um java.sql.Date (para uso em PreparedStatements)
     public static java.sql.Date getDataAsSQL (Date d) {
         return new java.sql.Date(d.getTime());
     }
     
+    //devolve um java.util.Date
     public static Date getDataAsUtil(java.sql.Date d) {
         return new Date(d.getTime());
     }
-    
+    //devolve um java.util.Date pela string parão BR fornecida
     public static Date getDataFromStringDMY(String d) throws ParseException {
         SimpleDateFormat dmy = new SimpleDateFormat("dd/MM/yyyy");
         return dmy.parse(d);
