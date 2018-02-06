@@ -11,15 +11,17 @@
 <body>
     <div id="divSearch">
         <div id = "radiosMain">
-            <label id = "tituloMain">Pesquisar por:</label>
-            <div>
-                <input type="radio" name="escolha" value = "candidato" data-icon = 'Candidato'/>
-                <input type="radio" name="escolha" value = "concurso" data-icon = 'Concurso'/>
+            <label id = "tituloMain">Olá!</label>
+            <br>
+            <label id = "tituloMain">Escolha se deseja pesquisar por:</label>
+            <div id = "inputRadios">
+                <input type="radio" name="escolha" value = "candidato" data-icon = 'Candidato' onclick="exibeMsg(this.value);"/>
+                <input type="radio" name="escolha" value = "concurso" data-icon = 'Concurso' onclick="exibeMsg(this.value);"/>
             </div>
         </div>
         <div id = "inputMain">
-            <input type="search" name="textoPesquisa" id="txtPesquisa" placeholder="Digite aqui...">
-            <img src="imagens/search.png" id = "btnBusca" alt="clique aqui para fazer a pesquisa">
+            <input type="search" name="textoPesquisa" id="txtPesquisa" placeholder="Selecione Candidato ou Concurso..."/>
+            <a href="#"><img src="imagens/search.png" id = "btnBusca" alt="clique aqui para fazer a pesquisa"></a>
         </div>
     </div>
     

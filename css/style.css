@@ -1,10 +1,10 @@
 body{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7b0d+0,ffa84c+100 */
-background: #ff7b0d; /* Old browsers */
-background: -moz-linear-gradient(left, #ff7b0d 0%, #ffa84c 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, #ff7b0d 0%,#ffa84c 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, #ff7b0d 0%,#ffa84c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', endColorstr='#ffa84c',GradientType=1 ); /* IE6-9 */
+    background: #ff7b0d; /* Old browsers */
+    background: -moz-linear-gradient(left, #ff7b0d 0%, #ffa84c 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ff7b0d 0%,#ffa84c 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ff7b0d 0%,#ffa84c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', endColorstr='#ffa84c',GradientType=1 ); /* IE6-9 */
 }
 
 #inputMain{
@@ -15,7 +15,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', end
     left:35%;
     top:50%;
     position:absolute;
-    box-shadow: 3px 2px rgba(0,0,0,0.5);
+    box-shadow: 3px 2px 10px rgba(0,0,0,0.5);
 }
   
 #txtPesquisa{
@@ -31,16 +31,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', end
 
 #radiosMain{
     left:35%;
-    top:30%;
+    top:25%;
     position:absolute;
 }
 
 #tituloMain{
     font-family: Arial,Helvetica,sans-serif; 
-    color: white;
+    color: rgba(255, 255, 255, 1.0);
     font-weight: bold;
     font-size:36px;
-    text-shadow: 3px 2px rgba(0,0,0,0.5);
+    text-shadow: 3px 2px 10px rgba(0,0,0,0.5);
+}
+
+#inputRadios{
+    margin-top: 10px;
 }
 
 input[name='escolha'] {
@@ -57,7 +61,7 @@ input[name='escolha']:after {
     text-align: center;
     font-size: 25px;
     content: attr(data-icon);
-    padding: 20px 20px;
+    padding: 15px 15px;
     border-radius: 15px;
     color: rgba(0, 0, 0, 0.4);
     -webkit-transition: box-shadow 1s, color 1s;
@@ -65,7 +69,7 @@ input[name='escolha']:after {
 }
 
 input[name='escolha']:checked:after {
-    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 255, 1.0);
     font-weight: bold;
 }
