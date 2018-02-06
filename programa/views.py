@@ -3,7 +3,7 @@ from .models import *
 # Create your views here.
 
 def candidato_list(request):
-    candidatos = Candidato.objects.all().group_by('nome')
+    candidatos = Candidato.objects.all()
     return render(request, 'programa/candidato_list.html', {'candidatos':candidatos})
 
 def candidato_detail(request, pk):

@@ -1,64 +1,84 @@
 import sys,os
 
-#verificando onde se encontra o arrquivo settings
+# # # verificando onde se encontra o arrquivo settings
 project_dir= os.path.dirname(os.path.abspath(__file__))+'/avaliacao'
 sys.path.append(project_dir)
 
 os.environ['DJANGO_SETTINGS_MODULE']='settings'
 
-#iniciando o django para fazer o import
+# # # iniciando o django para fazer o import
 import django
 
 django.setup()
 
-#importando os modelos a serem usados
+# # # importando os modelos a serem usados
 from programa.models import *
 
-#declaraçao de obejtos
+# # # declaracao de obejtos
 candidato = Candidato()
 orgao = Orgao()
 profissao = Profissao()
 concurso = Concurso()
 
-#abrindo o arquivo
+# # #funcao de remover caracteres
+def remove_caracter(texto) :
+    remove = "[]\n"
+    for i in range(0, len(remove)) :
+        texto = texto.replace(remove[i],"")
+    return texto
+
+# # # abrindo o arquivo. Leio linha por linha, para nao colocar
+# tudo na memoria
 arq = open('candidatos.txt', 'r')
 texto = arq.readline()
-texto = arq.readline()
-texto = arq.readline()
 
-#caracteres a serem removidos da linha
-remove = "[]\n" 
-for i in range(0, len(remove)) :
-    texto = texto.replace(remove[i],"")
+# # # caracteres a serem removidos da linha
+texto = remove_caracter(texto)
 
-#após a limpeza, corto o texto em partes
-# print(texto)
+# # # apos a limpeza, corto o texto em partes
 informacoes = texto.split(" ", 4)
-# print(informacoes)
 list_prof = informacoes[4].split(",")
-# print(list_prof)
-# print(informacoes[0]+ " " + informacoes[1])
+i = 1
 
+while texto != '':
+    for prof in list_prof :
+        candidato = Candidato()
+        profissao = Profissao()
 
-for prof in list_prof :
-    candidato = Candidato()
-    profissao = Profissao()
-    profissao.nome = prof
-    print(profissao.nome)
-    candidato.nome = informacoes[0]+ " " + informacoes[1]
-    candidato.data_nascimento = informacoes[2]
-    candidato.cpf = informacoes[3]
-    if Profissao.objects.filter(nome=profissao.nome).exists():
-        print("eu existo!")
-        profissao = Profissao.objects.get(nome=profissao.nome)
-        candidato.profissao = profissao
+        # # # verifico se o split foi cortado corretamente, isto e,
+        # nao tem cpf junto com profissao. Ex 123.123.123-12 adm
+        if(prof[0].isdigit()):
+            aux = prof.split(" ", 1)
+            # # # cpf junto com profissao, eh necessario separar
+            informacoes[4] = aux[0]
+            candidato.nome = informacoes[0] + " " + informacoes[1] + " " + informacoes[2]
+            candidato.data_nascimento = informacoes[3]
+            candidato.cpf = informacoes[4]
+            profissao.nome = aux[1]
+
+        else:
+            profissao.nome = prof
+            candidato.nome = informacoes[0]+ " " + informacoes[1]
+            candidato.data_nascimento = informacoes[2]
+            candidato.cpf = informacoes[3]
+
+        # # # verifico se ja existe a profissao. Se ja existe eu salvo apenas 
+        # o candidato
+        if Profissao.objects.filter(nome=profissao.nome).exists():
+            profissao = Profissao.objects.get(nome=profissao.nome)
+            candidato.profissao = profissao
+
+        else:
+            profissao.save()
+            profissao = Profissao.objects.get(nome=profissao.nome)
+            candidato.profissao = profissao
+
         candidato.save()
-    else:
-        print("eu existo!")
-        profissao.save()
-        profissao = Profissao.objects.get(nome=profissao.nome)
-        candidato.profissao = profissao
-        candidato.save()
 
-print(" OK ")
+    texto = arq.readline()
+    texto = remove_caracter(texto)
+    # # # após a limpeza, corto o texto em partes novamente
+    informacoes = texto.split(" ", 4)
+    list_prof = informacoes[4].split(",")
+print(" salvo com sucesso ")
 arq.close()
