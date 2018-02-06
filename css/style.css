@@ -12,7 +12,7 @@ body{
     border:none;
     border-radius:15px;
     width:400px;
-    left:35%;
+    left:30%;
     top:50%;
     position:absolute;
     box-shadow: 3px 2px 10px rgba(0,0,0,0.5);
@@ -30,7 +30,7 @@ body{
 }
 
 #radiosMain{
-    left:35%;
+    left:30%;
     top:25%;
     position:absolute;
 }

@@ -3,7 +3,7 @@ function exibeMsg(valor){
         document.getElementById('txtPesquisa').placeholder = "Informe o CPF do candidato..."
     } else {
         if (valor == 'concurso') {
-            document.getElementById('txtPesquisa').placeholder = "Informe o numero do concurso..."
+            document.getElementById('txtPesquisa').placeholder = "Informe o Código do concurso..."
         }   
     }
 }
