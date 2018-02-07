@@ -184,7 +184,7 @@ public class AppStart {
         
         
         if (bancoexiste && arquivosprocessados) {
-            new AppMainStart().setVisible(true);
+            new TelaDeConsultas().setVisible(true);
         }
 
         //PRONTO!
