@@ -193,7 +193,7 @@ public class SeletorDeArquivos extends javax.swing.JDialog {
             try {
                 //instancio o RodarRestauração dentro de uma Thread para não
                 //travar a janela do seletor de arquivos ao clicar em OK
-                new Thread(new Runnable() {
+                Thread t1 = new Thread(new Runnable() {
                     @Override
                     public synchronized void run() {
                         try {
@@ -202,7 +202,26 @@ public class SeletorDeArquivos extends javax.swing.JDialog {
                             Logger.getLogger(SeletorDeArquivos.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                }).start();
+                });
+                
+                //esta thread mostra a tela de espera enquanto a primeira nao termina
+                Thread t2 = new Thread (new Runnable() {
+                   @Override
+                   public void run () {
+                       try {
+                           EsperaSQL e = new EsperaSQL();
+                           e.setVisible(true);
+                           t1.join();
+                           e.dispose();      
+                       } catch (InterruptedException ex) {
+                           Logger.getLogger(SeletorDeArquivos.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                       
+                   }
+                });
+                t1.start();
+                t2.start();
+                
                 dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Ocorreu um erro ao invocar"
