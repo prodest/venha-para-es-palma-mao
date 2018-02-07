@@ -1,3 +1,6 @@
+/* Efeitos do background gerado atraves do colorzilla.com
+afim de causar o efeito gradiente de fundo, se preocupando
+que seja executado pelos principais navegadores existentes */
 body{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7b0d+0,ffa84c+100 */
     background: #ff7b0d; /* Old browsers */
@@ -7,6 +10,8 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', endColorstr='#ffa84c',GradientType=1 ); /* IE6-9 */
 }
 
+/* Efeitos e posicionamento da div inputMain
+onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
 #inputMain{
     background-color:#FFE4B5;
     border:none;
@@ -17,7 +22,8 @@ body{
     position:absolute;
     box-shadow: 3px 2px 10px rgba(0,0,0,0.5);
 }
-  
+
+/* Efeitos para o input search */
 #txtPesquisa{
     float:left;
     background-color:transparent;
@@ -29,12 +35,14 @@ body{
     width:350px;
 }
 
+/* Configuracao do posicionamento da div radiosMain
+onde se encontram o titulo e o input radio */
 #radiosMain{
     left:30%;
     top:25%;
     position:absolute;
 }
-
+/* Efeitos do tituloMain */
 #tituloMain{
     font-family: Arial,Helvetica,sans-serif; 
     color: rgba(255, 255, 255, 1.0);
@@ -43,10 +51,13 @@ body{
     text-shadow: 3px 2px 10px rgba(0,0,0,0.5);
 }
 
+/* Proporciona um afastamento do tituloMain */
 #inputRadios{
     margin-top: 10px;
 }
 
+
+/* Efeitos do radio button */
 input[name='escolha'] {
     -webkit-appearance: none;
     -moz-appearance: none;
