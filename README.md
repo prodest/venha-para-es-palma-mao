@@ -1,4 +1,4 @@
-1) Documentação da Solução:
+﻿1) Documentação da Solução:
 
 A Pasta Documentação possui alguns dos diagramas de funcionamento básico do sistema que podem ajudar a esclarescer seu comportamento
 
@@ -41,9 +41,9 @@ APÓS TESTAR OS PROJETOS, EU CHEGUEI A FAZER UM PULL REQUEST
 ###############################################################
 Porém, eu percebi que eu poderia unificar os 2 projetos em um só e simplificar muito mais esta solução, através de arquivos de configuração e fluxos de dados mais inteligentes na classe principal.
 
-###################################################################################
+###############################################################################
 PORTANTO, FECHEI O PULL REQUEST ANTERIOR E COMEÇEI A TRABALHAR NESTA IDÉIA
-###################################################################################
+###############################################################################
 CRIEI O PROJETO JAVA CHAMADO "SolucaoCompleta" QUE É O QUE O TITULO DIZ, UMA SOLUÇÃO COMPLETA PARA OS PROBLEMAS DE ARQUIVOS, BANCO DE DADOS, CONFIGURAÇÕES E FINALMENTE DAS CONSULTAS.
 
 Eu unifiquei os projetos anteriores, que compartilhavam muito backend similar, fiz as adaptações em todas as classes para que trabalhassem sem conflito, diminui as chances de ocorrerem erros inesperados através do tratamento das exceptions, e criei uma classe que concentra o fluxo do programa, a "VISAO.AppStart.java". esta classe contém o espírito do projeto dentro de sí e revela seu funcionamento de uma maneira muito clara e intuitiva, contendo comentários preciosos que guiarão o raciocínio de quem a lê.
