@@ -11,6 +11,7 @@ def candidato_list(request):
         candidatos = candidatos.filter(cpf=var_get_search)
         return render(request, 'programa/candidato_list.html', {'candidatos':candidatos})
     return render(request, 'programa/candidato_list.html', {})
+    #apagar isto
     # candidatos = Candidato.objects.all()
     # return render(request, 'programa/candidato_list.html', {'candidatos':candidatos})
 
