@@ -124,8 +124,11 @@ public class AppStart {
         if (TheConfIsValid()) {
             if (!bancoexiste) {
                 JOptionPane.showMessageDialog(null, "O Banco de Dados não foi "
-                        + "encontrado! Execute o script CREATE.sql no "
-                        + "Servidor do  MySQL e certifique-se \nque seu usuario"
+                        + "encontrado!\nVerifique se você digitou corretamente "
+                        + "todas as informações na janela de configuração do "
+                        + "banco de dados,\nSe ainda não executou, execute o "
+                        + "script CREATE.sql no Servidor do  MySQL.\n"
+                        + "Certifique-se que seu usuario"
                         + " possui as permissões adequadas para criar schemas"
                         + " e tabelas.\nVerifique o arquivo de configuração "
                         + "mysql.conf na pasta raiz da aplicação");

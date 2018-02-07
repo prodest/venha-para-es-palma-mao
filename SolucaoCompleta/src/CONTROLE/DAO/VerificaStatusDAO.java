@@ -119,7 +119,7 @@ public class VerificaStatusDAO {
                         || Arquivo.getLineByCode("mysql.conf", "@ip").length() > 14) {
                     ConfigValida = false;
                     System.out.print("configure @ip. ");
-                    System.out.println(Arquivo.getLineByCode("mysql.conf", "@ip").length());
+                    System.out.println(Arquivo.getLineByCode("mysql.conf", "@ip"));
                 }
                 if ((Arquivo.getLineByCode("mysql.conf", "@user").isEmpty())) {
                     ConfigValida = false;
