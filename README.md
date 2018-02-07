@@ -3,7 +3,7 @@
 A Pasta Documentação possui alguns dos diagramas de funcionamento básico do sistema que podem ajudar a esclarescer seu comportamento
 
 Primeira parte:
-Simplesmente rode o script BancoDeDados/CREATE.sql dentro de um Servidor de Banco de Dados MySQL. Este script gerará um Schema chamado "Concursos" contendo toda a estrutura de dados e informações básicas para o funcionamento das aplicações.
+Simplesmente rode o script BancoDeDados/CREATE.sql dentro de um Servidor de Banco de Dados MySQL. Este script gerará um Schema chamado "Concursos" contendo toda a estrutura de dados e informações básicas para o funcionamento da aplicação.
 anote o usuario do banco, a senha, o IP do servidor e a porta, a aplicação irá solicitar estes dados para sua primeira inicialização
 
 Segunda parte: 
@@ -55,6 +55,7 @@ CRIEI O PROJETO JAVA CHAMADO "SolucaoCompleta" QUE É O QUE O TITULO DIZ, UMA SOL
 Eu unifiquei os projetos anteriores, que compartilhavam muito backend similar, fiz as adaptações em todas as classes para que trabalhassem sem conflito, diminui as chances de ocorrerem erros inesperados através do tratamento das exceptions, e criei uma classe que concentra o fluxo do programa, a "VISAO.AppStart.java". esta classe contém o espírito do projeto dentro de sí e revela seu funcionamento de uma maneira muito clara e intuitiva, contendo comentários preciosos que guiarão o raciocínio de quem a lê.
 
 Candidato: MATEUS GARCIA LOPES
+
 Inscrição: 750838
 
 # Teste para o projeto ES na Palma da mão
