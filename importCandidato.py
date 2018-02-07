@@ -40,6 +40,50 @@ informacoes = texto.split(" ", 4)
 list_prof = informacoes[4].split(",")
 i = 1
 
+# # salvando profissao
+while texto != '':
+    for prof in list_prof :
+        profissao = Profissao()
+
+        # # # verifico se o split foi cortado corretamente, isto e,
+        # nao tem cpf junto com profissao. Ex 123.123.123-12 adm
+        if(prof[0].isdigit()):
+            aux = prof.split(" ", 1)
+            profissao.nome = aux[1]
+
+        else:
+            profissao.nome = prof
+
+        # # # verifico se ja existe a profissao. Se ja existe eu salvo apenas 
+        # o candidato
+        if not Profissao.objects.filter(nome=profissao.nome).exists():
+            profissao.save()
+
+    texto = arq.readline()
+    texto = remove_caracter(texto)
+    print("salvando profissao", i)
+    i += 1
+    if texto != '' :
+        # # # após a limpeza, corto o texto em partes novamente
+        informacoes = texto.split(" ", 4)
+        list_prof = informacoes[4].split(",")
+print("Profissao salvo com sucesso ")
+arq.close()
+
+#***********************************************************************************************************
+
+arq = open('candidatos.txt', 'r')
+texto = arq.readline()
+
+# # # caracteres a serem removidos da linha
+texto = remove_caracter(texto)
+
+# # # apos a limpeza, corto o texto em partes
+informacoes = texto.split(" ", 4)
+list_prof = informacoes[4].split(",")
+i = 1
+
+# # # salva candidato
 while texto != '':
     for prof in list_prof :
         candidato = Candidato()
@@ -62,23 +106,19 @@ while texto != '':
             candidato.data_nascimento = informacoes[2]
             candidato.cpf = informacoes[3]
 
-        # # # verifico se ja existe a profissao. Se ja existe eu salvo apenas 
-        # o candidato
-        if Profissao.objects.filter(nome=profissao.nome).exists():
-            profissao = Profissao.objects.get(nome=profissao.nome)
-            candidato.profissao = profissao
-
-        else:
-            profissao.save()
-            profissao = Profissao.objects.get(nome=profissao.nome)
-            candidato.profissao = profissao
-
+        profissao = Profissao.objects.get(nome=profissao.nome)
+        candidato.profissao = profissao
         candidato.save()
 
     texto = arq.readline()
     texto = remove_caracter(texto)
-    # # # após a limpeza, corto o texto em partes novamente
-    informacoes = texto.split(" ", 4)
-    list_prof = informacoes[4].split(",")
-print(" salvo com sucesso ")
+    print("salvando candidato", i)
+    i += 1
+
+    if texto != '' :
+        # # # após a limpeza, corto o texto em partes novamente
+        informacoes = texto.split(" ", 4)
+        list_prof = informacoes[4].split(",")
+
+print("candidato salvo com sucesso ")
 arq.close()
