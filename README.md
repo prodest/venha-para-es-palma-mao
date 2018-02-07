@@ -23,6 +23,9 @@ utiliza o Padrão de Programação MVC (padrão do java)
 
 3)Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/hpruoavnlu?start=2018-02-01&end=2018-02-07
 
+Observe que o WakaTime está computando somente o tempo em que trabalhei no projeto SolucaoCompleta.
+a maior parte do tempo eu gastei para fazer os outros dois projetos, os quais eu fundi neste acima citado para formar um só, porém eu ainda não estava utilizando o WakaTime naquele momento, pois só tomei conhecimento do serviço após o primeiro pull request.
+
 ##########################################################
 
 Sobre minhas implementações:
