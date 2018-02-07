@@ -1,7 +1,19 @@
-{% extends 'programa/base.html' %} {% block content %} {% for cand in candidatos %}
-<div class="post card text-white bg-success mb-3" style="width: 15rem;">
-    <div class="card-body">
-        <a href="{% url 'candidato_detail' pk=cand.pk %}">{{ cand.nome }}</a>
-    </div>
-</div>
-{% endfor %} {% endblock %}
+{% extends 'programa/base.html' %} 
+
+{% block content %} 
+<form class="navbar-form navbar-right" action="." method="get">
+    <input id="search_box" name="search_box" type="text" placeholder="Search..." class="form-control">
+    <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span>enviar</button>
+</form>
+{% if verifica %}
+    <h1>teste</h1>
+{% else %}
+    {% for cand in candidatos %}
+        <div class="post card text-white bg-success mb-3" style="width: 15rem;">
+            <div class="card-body">
+                <a href="{% url 'candidato_detail' pk=cand.pk %}">{{ cand.nome }}</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %} 
+{% endblock %}
