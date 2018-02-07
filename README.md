@@ -1,3 +1,5 @@
+O sistema foi desenvolvido na IDE NetBeans8.2 sobre a plataforma Linux Debian 9 "Stretch" 64 bits
+
 1) Documentação da Solução:
 
 A Pasta Documentação possui alguns dos diagramas de funcionamento básico do sistema que podem ajudar a esclarescer seu comportamento
