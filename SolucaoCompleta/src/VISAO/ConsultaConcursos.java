@@ -18,6 +18,7 @@ package VISAO;
 
 import CONTROLE.CONSULTAS.Concursos;
 import CONTROLE.DAO.CandidatoDAO;
+import CONTROLE.UTIL.Data;
 import ENTIDADES.Candidato;
 import ENTIDADES.ConcursoPublico;
 import java.sql.SQLException;
@@ -68,7 +69,7 @@ public class ConsultaConcursos extends javax.swing.JFrame {
         CandTxt.setText(candidato.getNome() + " CPF: " + candidato.getCPF());
         ResultLabel.setText(lista.size() + " resultados encontrados");
         GregorianCalendar today = new GregorianCalendar();
-        datalabel.setText("Data da pesquisa: " + today.getTime());
+        datalabel.setText("Data da pesquisa: " + Data.getDataHoraBR());
     }
 
     // este método retorna uma matriz de objetos que alimenta a tabela

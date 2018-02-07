@@ -195,7 +195,7 @@ public class SeletorDeArquivos extends javax.swing.JDialog {
                 //travar a janela do seletor de arquivos ao clicar em OK
                 new Thread(new Runnable() {
                     @Override
-                    public void run() {
+                    public synchronized void run() {
                         try {
                             new RodarRestauracao(arquivos);
                         } catch (Exception ex) {

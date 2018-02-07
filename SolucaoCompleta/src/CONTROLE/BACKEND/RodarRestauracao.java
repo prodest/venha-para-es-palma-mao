@@ -19,6 +19,7 @@ package CONTROLE.BACKEND;
 import CONTROLE.DAO.CandidatoDAO;
 import CONTROLE.DAO.ConcursoPublicoDAO;
 import CONTROLE.DAO.VerificaStatusDAO;
+import VISAO.AppStart;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -53,7 +54,8 @@ public class RodarRestauracao {
                 ArrayList<String> candidatos;
 
                 try {
-                    JOptionPane.showMessageDialog(null, "Os arquivos serão processados AGORA!");
+                    JOptionPane.showMessageDialog(null, "Os arquivos serão processados "
+                            + "AGORA!\nAguarde, isso pode demorar um ou dois minutos...");
                     System.out.println("Aguarde, lendo o arquivo candidatos.txt...");
                     //instanciando uma lista de candidatos lida do arquivo
                     candidatos = LeitorDeArquivo.LeArquivoCandidatos(candidatostxt);
@@ -89,6 +91,24 @@ public class RodarRestauracao {
                             codao.salvar(LeitorDeDados.LeConcursos(concursos.get(i)));
                         }
                         System.out.println("Inserções Concluídas com Êxito!");
+                        JOptionPane.showMessageDialog(null,"Dados recuperados com êxito!\n"
+                                + "Agora você já pode trabalhar com as "
+                                + "consultas sempre que quiser");
+                        
+                        
+                        /*
+                        aqui temos um probleminha que eu resolvi usando um
+                        recurso técnico que fiz devido ao uso de Thread 
+                        em SeletorDeArquivos na hora de invocar esta classe.
+                        se eu não reinvocar o main do AppStart daqui, a primeira
+                        inicialização da aplicação não chegará ao ultimo estágio
+                         */
+                        AppStart.main(null); //deal with it..!
+                        
+                        
+                        
+                        
+                        
                     } catch (Exception ex) {
                         Logger.getLogger(RodarRestauracao.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Erro ao tentar salvar Concursos\n" + ex);

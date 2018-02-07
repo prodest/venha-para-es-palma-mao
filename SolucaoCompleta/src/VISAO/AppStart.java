@@ -8,6 +8,8 @@ package VISAO;
 import CONTROLE.DAO.VerificaStatusDAO;
 import static CONTROLE.DAO.VerificaStatusDAO.ResetConfigs;
 import static CONTROLE.DAO.VerificaStatusDAO.TheConfIsValid;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,6 +55,7 @@ public class AppStart {
     public static void main(String[] args) {
         //inicia com aquele padrão do NetBeans enxugado
         setNimbusVisual();
+        
 
         /*
         *   ************************* PASSO 1 *******************************
@@ -62,15 +65,19 @@ public class AppStart {
         *   O PROGRAMA SOLICITARÁ AS INFORMAÇÕES CASO NÃO ESTEJAM CONFIGURADAS
         *   NO ARQUIVO mysql.conf QUE ESTÁ NA PASTA RAIZ DO PROJETO
         *   *****************************************************************
-         */
+        */
+        
+        
         if (false == TheConfIsValid()) {
             JOptionPane.showMessageDialog(null, "Antes de rodar a aplicação, crie o "
                     + "Banco de dados em um servidor MySQL \nusando o script "
                     + "CREATE.sql que acompanha este Projeto na pasta "
                     + "'BancoDeDados'\nAnote a porta do servidor, o usuario e a "
                     + "senha. A aplicação irá solicitar esses dados a seguir");
+            
+            
 
-            /*
+        /*
         *   ************************ PASSO 2 ********************************
         *   APÓS TER CONFIGURADO O SERVIDOR MYSQL COM O SCRIPT CREATE.sql
         *   QUE ACOMPANHA O PROJETO NA PASTA BancoDeDados, A APLICAÇÃO IRÁ
@@ -81,7 +88,10 @@ public class AppStart {
         *   A APLICAÇÃO SE ENCARREGA DE CONFIGURAR O ARQUIVO SEM INTERVENÇÃO
         *   MANUAL NO MESMO.
         *   *****************************************************************
-             */
+        */
+        
+        
+        
             if (false == TheConfIsValid()) {
                 JOptionPane.showMessageDialog(null, "Parece que seu arquivo de "
                         + "configuração do banco de dados ainda não está bem "
@@ -90,7 +100,9 @@ public class AppStart {
             }
         }
 
-        /*
+        
+        
+            /*
             *   *************************** PASSO 3 *************************
             *   SE O FLUXO CHEGAR NESTE PONTO, O ARQUIVO mysql.conf ESTÁ
             *   DEVIDAMENTE CONFIGURADO(espero que sim :-)). AGORA A 
@@ -103,7 +115,9 @@ public class AppStart {
             *   CASO CONTRARIO, A APLICAÇÃO IRÁ TENTAR CONFIGURAR O AMBIENTE
             *   COM AUXILIO DO OPERADOR DO SISTEMA OU USUÁRIO.
             *   *************************************************************
-         */
+            */
+            
+            
         // LÓGICA PARA VERIFICAR O AMBIENTE
         boolean bancoexiste = VerificaStatusDAO.BancoExiste();
         boolean arquivosprocessados = false;
@@ -128,6 +142,8 @@ public class AppStart {
                     System.exit(0);
                 }
             }
+            
+            
 
             /*
             * *************************** PASSO 4 *************************
@@ -139,7 +155,10 @@ public class AppStart {
             *   APÓS APONTAR PARA OS ARQUIVOS, O SELETOR IRÁ DIRECIONAR O
             *   FLUXO PARA OS DEVIDOS BACKENDS, ONDE A MÁGICA ACONTECERÁ.
             *   ************************************************************
-             */
+            */
+            
+            
+            
             if (bancoexiste && !arquivosprocessados) {
                 //os arquivos não estão processados. processe!
                 new SeletorDeArquivos(null, true).setVisible(true);
@@ -149,6 +168,8 @@ public class AppStart {
                     + "mysql.inf é invalido");
             System.exit(0);
         }
+        
+        
 
         /*
         *   *************************** PASSO 5 *************************
@@ -158,13 +179,14 @@ public class AppStart {
         *   EXIBIDA E O OPERADOR PODERÁ FAZER AS DUAS CONSULTAS QUE
         *   O TESTE DA PRODEST SOLICITOU! THAT'S IT! GG WP!
         *   ************************************************************
-         */
+        */
+        
         
         
         if (bancoexiste && arquivosprocessados) {
             new AppMainStart().setVisible(true);
         }
-        
+
         //PRONTO!
         //MATEUS GARCIA LOPES
         //INSCRIÇÃO 750838

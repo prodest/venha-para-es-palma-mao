@@ -51,7 +51,7 @@ public class AppMainStart extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Projeto teste PRODEST");
+        setTitle("PRODEST - ES NA PALMA DA MAO");
 
         Prob1_Bott.setText("Problema 1");
         Prob1_Bott.addActionListener(new java.awt.event.ActionListener() {

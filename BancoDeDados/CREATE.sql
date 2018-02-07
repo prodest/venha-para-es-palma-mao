@@ -3,7 +3,7 @@
 *	de dados do Projeto no Banco de Dados MySQL
 *	Autor: Mateus Garcia
 */
-
+DROP SCHEMA IF EXISTS Concursos;
 CREATE SCHEMA Concursos;
 USE Concursos;
 

@@ -71,7 +71,7 @@ public class ConsultaCandidatos extends javax.swing.JFrame {
 
         ResultLabel.setText(lista.size() + " resultados encontrados");
         GregorianCalendar today = new GregorianCalendar();
-        datalabel.setText("Data da pesquisa: " + today.getTime());
+        datalabel.setText("Data da pesquisa: " + Data.getDataHoraBR());
         ConcTXT.setText(concurso.getOrgao() + " " + concurso.getEdital());
     }
 

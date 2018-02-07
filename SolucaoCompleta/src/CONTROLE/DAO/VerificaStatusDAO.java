@@ -145,7 +145,6 @@ public class VerificaStatusDAO {
 
             } catch (Exception e) {
                 ConfigValida = false;
-                System.out.println("Erro de verificação em TheConfIsValid()" + e);
             }
         }
         return ConfigValida;
