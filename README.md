@@ -1,13 +1,13 @@
-Ôªø1) Documenta√ß√£o da Solu√ß√£o:
+1) DocumentaÁ„o da SoluÁ„o:
 
-A Pasta Documenta√ß√£o possui alguns dos diagramas de funcionamento b√°sico do sistema que podem ajudar a esclarescer seu comportamento
+A Pasta DocumentaÁ„o possui alguns dos diagramas de funcionamento b·sico do sistema que podem ajudar a esclarescer seu comportamento
 
 Primeira parte:
-Simplesmente rode o script BancoDeDados/CREATE.sql dentro de um Servidor de Banco de Dados MySQL. Este script gerar√° um Schema chamado "Concursos" contendo toda a estrutura de dados e informa√ß√µes b√°sicas para o funcionamento das aplica√ß√µes.
-anote o usuario do banco, a senha, o IP do servidor e a porta, a aplica√ß√£o ir√° solicitar estes dados para sua primeira inicializa√ß√£o
+Simplesmente rode o script BancoDeDados/CREATE.sql dentro de um Servidor de Banco de Dados MySQL. Este script gerar· um Schema chamado "Concursos" contendo toda a estrutura de dados e informaÁıes b·sicas para o funcionamento das aplicaÁıes.
+anote o usuario do banco, a senha, o IP do servidor e a porta, a aplicaÁ„o ir· solicitar estes dados para sua primeira inicializaÁ„o
 
 Segunda parte: 
-Ap√≥s ter executado o script CREATE.sql no seu MySQL, basta que execute o Projeto SolucaoCompleta e siga as instru√ß√µes do programa.
+ApÛs ter executado o script CREATE.sql no seu MySQL, basta que execute o Projeto SolucaoCompleta e siga as instruÁıes do programa.
 
 ###########################################################
 
@@ -17,7 +17,7 @@ Uso de Banco de Dados: MySQL
 
 utiliza CleanCode
 
-utiliza o Padr√£o de Programa√ß√£o MVC (padr√£o do java)
+utiliza o Padr„o de ProgramaÁ„o MVC (padr„o do java)
 
 ##########################################################
 
@@ -25,103 +25,109 @@ utiliza o Padr√£o de Programa√ß√£o MVC (padr√£o do java)
 
 ##########################################################
 
-Sobre minhas implementa√ß√µes:
+Sobre minhas implementaÁıes:
 
-O primeiro desafio consistiu em transformar os dados crus que est√£o nos arquivos txt em representa√ß√µes confiaveis das informa√ß√µes para serem registradas no banco de dados. Para executar esta miss√£o, eu desenvolvi uma aplica√ß√£o java, nomeando esse projeto "RecuperadorDB". O projeto consistia em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade √≠ntegra (Candidato, ConcursoPublico e suas rela√ß√µes CandidatoXProfissao e e ConcursoPublicoXProfissao). 
+O primeiro desafio consistiu em transformar os dados crus que est„o nos arquivos txt em representaÁıes confiaveis das informaÁıes para serem registradas no banco de dados. Para executar esta miss„o, eu desenvolvi uma aplicaÁ„o java, nomeando esse projeto "RecuperadorDB". O projeto consistia em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade Ìntegra (Candidato, ConcursoPublico e suas relaÁıes CandidatoXProfissao e e ConcursoPublicoXProfissao). 
 
-Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conex√µes com o banco, as 2 classes principais que cont√©m os m√©todos para fazer isso ser poss√≠vel, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a solu√ß√£o foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
+Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conexıes com o banco, as 2 classes principais que contÈm os mÈtodos para fazer isso ser possÌvel, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a soluÁ„o foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
 
-O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licen√ßas.
+O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licenÁas.
 
-Ap√≥s criar o Projeto para recuperar os dados dos arquivos, criei o projeto principal, chamado "TesteProdest", que era a solu√ß√£o propriamente dita do problema principal. Este projeto continha os DAOS e as Entidades do primeiro, adicionados das funcionalidades demandadas pelo problema.
+ApÛs criar o Projeto para recuperar os dados dos arquivos, criei o projeto principal, chamado "TesteProdest", que era a soluÁ„o propriamente dita do problema principal. Este projeto continha os DAOS e as Entidades do primeiro, adicionados das funcionalidades demandadas pelo problema.
 
 
-###############################################################
-AP√ìS TESTAR OS PROJETOS, EU CHEGUEI A FAZER UM PULL REQUEST
-###############################################################
-Por√©m, eu percebi que eu poderia unificar os 2 projetos em um s√≥ e simplificar muito mais esta solu√ß√£o, atrav√©s de arquivos de configura√ß√£o e fluxos de dados mais inteligentes na classe principal.
+#############################################################
 
-###############################################################################
-PORTANTO, FECHEI O PULL REQUEST ANTERIOR E COME√áEI A TRABALHAR NESTA ID√âIA
-###############################################################################
-CRIEI O PROJETO JAVA CHAMADO "SolucaoCompleta" QUE √â O QUE O TITULO DIZ, UMA SOLU√á√ÉO COMPLETA PARA OS PROBLEMAS DE ARQUIVOS, BANCO DE DADOS, CONFIGURA√á√ïES E FINALMENTE DAS CONSULTAS.
+AP”S TESTAR OS PROJETOS, EU CHEGUEI A FAZER UM PULL REQUEST
 
-Eu unifiquei os projetos anteriores, que compartilhavam muito backend similar, fiz as adapta√ß√µes em todas as classes para que trabalhassem sem conflito, diminui as chances de ocorrerem erros inesperados atrav√©s do tratamento das exceptions, e criei uma classe que concentra o fluxo do programa, a "VISAO.AppStart.java". esta classe cont√©m o esp√≠rito do projeto dentro de s√≠ e revela seu funcionamento de uma maneira muito clara e intuitiva, contendo coment√°rios preciosos que guiar√£o o racioc√≠nio de quem a l√™.
+#############################################################
+
+PorÈm, eu percebi que eu poderia unificar os 2 projetos em um sÛ e simplificar muito mais esta soluÁ„o, atravÈs de arquivos de configuraÁ„o e fluxos de dados mais inteligentes na classe principal.
+
+#############################################################
+
+PORTANTO, FECHEI O PULL REQUEST ANTERIOR E COME«EI A TRABALHAR NESTA ID…IA
+
+#############################################################
+
+CRIEI O PROJETO JAVA CHAMADO "SolucaoCompleta" QUE … O QUE O TITULO DIZ, UMA SOLU«√O COMPLETA PARA OS PROBLEMAS DE ARQUIVOS, BANCO DE DADOS, CONFIGURA«’ES E FINALMENTE DAS CONSULTAS.
+
+Eu unifiquei os projetos anteriores, que compartilhavam muito backend similar, fiz as adaptaÁıes em todas as classes para que trabalhassem sem conflito, diminui as chances de ocorrerem erros inesperados atravÈs do tratamento das exceptions, e criei uma classe que concentra o fluxo do programa, a "VISAO.AppStart.java". esta classe contÈm o espÌrito do projeto dentro de sÌ e revela seu funcionamento de uma maneira muito clara e intuitiva, contendo coment·rios preciosos que guiar„o o raciocÌnio de quem a lÍ.
 
 Candidato: MATEUS GARCIA LOPES
-Inscri√ß√£o: 750838
+InscriÁ„o: 750838
 
-# Teste para o projeto ES na Palma da m√£o
+# Teste para o projeto ES na Palma da m„o
 
-O desafio √© desenvolver um programa que permita realizar as seguintes buscas: 
-1. Listar os **√≥rg√£os, c√≥digos e editais dos concursos p√∫blicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
-2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **C√≥digo do Concurso** do concurso p√∫blico;
+O desafio È desenvolver um programa que permita realizar as seguintes buscas: 
+1. Listar os **Ûrg„os, cÛdigos e editais dos concursos p˙blicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
+2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **CÛdigo do Concurso** do concurso p˙blico;
 
-O arquivo **candidatos.txt** cont√©m as informa√ß√µes dos candidatos:
+O arquivo **candidatos.txt** contÈm as informaÁıes dos candidatos:
 
-| Nome  | Data de Nascimento  | CPF |  Profiss√µes|
+| Nome  | Data de Nascimento  | CPF |  Profissıes|
 |---|---|---|---|
 | Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
 | Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
 | Cory Mendoza |   11/02/1957 |  565.512.353-92  |  [carpinteiro, marceneiro] |
 
-O arquivo **concursos.txt** cont√©m as informa√ß√µes dos concursos p√∫blicos:
+O arquivo **concursos.txt** contÈm as informaÁıes dos concursos p˙blicos:
 
-| √ìrg√£o  | Edital  | C√≥digo do Concurso |  Lista de vagas|
+| ”rg„o  | Edital  | CÛdigo do Concurso |  Lista de vagas|
 |---|---|---|---|
 | SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
-| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matem√°tica,assistente administrativo] |
-| SEJUS | 17/2017 |  95655123539  |  [professor de matem√°tica] |
+| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matem·tica,assistente administrativo] |
+| SEJUS | 17/2017 |  95655123539  |  [professor de matem·tica] |
 
-**Escolha as tecnologias que voc√™ vai usar e tente montar uma solu√ß√£o completa para rodar a aplica√ß√£o**.
+**Escolha as tecnologias que vocÍ vai usar e tente montar uma soluÁ„o completa para rodar a aplicaÁ„o**.
 
-Para enviar o resultado, basta realiazar um **Fork** deste reposit√≥rio e **abra um Pull Request**, **com seu nome e o n√∫mero de inscri√ß√£o**.  
+Para enviar o resultado, basta realiazar um **Fork** deste repositÛrio e **abra um Pull Request**, **com seu nome e o n˙mero de inscriÁ„o**.  
 
-**√â importante comentar que deve ser enviado apenas o c√≥digo fonte. N√£o aceitaremos c√≥digos compilados**.
+**… importante comentar que deve ser enviado apenas o cÛdigo fonte. N„o aceitaremos cÛdigos compilados**.
 
-Por fim, o candidato deve atualizar o Readme.md com as seguintes informa√ß√µes: 
-1. Documenta√ß√£o da solu√ß√£o;
+Por fim, o candidato deve atualizar o Readme.md com as seguintes informaÁıes: 
+1. DocumentaÁ„o da soluÁ„o;
 2. Lista dos diferenciais implementados
 3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
 
-## Avalia√ß√£o
+## AvaliaÁ„o
 
-O programa ser√° avaliado levando em conta os seguintes crit√©rios:
+O programa ser· avaliado levando em conta os seguintes critÈrios:
 
-| Crit√©rio  | Valor | 
+| CritÈrio  | Valor | 
 |---|---|
-| Legibilidade do C√≥digo |  10  |
-| Documenta√ß√£o do c√≥digo|  10  |
-| Documenta√ß√£o da solu√ß√£o|  10  |
+| Legibilidade do CÛdigo |  10  |
+| DocumentaÁ„o do cÛdigo|  10  |
+| DocumentaÁ„o da soluÁ„o|  10  |
 | Tratamento de Erros| 10| 
 | Total| 40|
 
-A pontua√ß√£o do candidato ser√° a soma dos valores obtidos nos crit√©rios acima.
+A pontuaÁ„o do candidato ser· a soma dos valores obtidos nos critÈrios acima.
 
 ## Diferenciais 
 
-O candidato pode aumentar a sua pontua√ß√£o na sele√ß√£o implementando um ou mais dos itens abaixo:
+O candidato pode aumentar a sua pontuaÁ„o na seleÁ„o implementando um ou mais dos itens abaixo:
 
 | Item  | Pontos Ganhos | 
 |---|---|
-| Criar um [servi√ßo](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
+| Criar um [serviÁo](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
 | Utilizar banco de dados| 30|
 | Implementar Clean Code |  20  |
-| Implementar o padr√£o de programa√ß√£o da tecnologia escolhida |  20  |
-| Qualidade de [C√≥digo com SonarQube](https://about.sonarcloud.io/) |  15  |
-| Implementar testes unit√°rios |  15  |
+| Implementar o padr„o de programaÁ„o da tecnologia escolhida |  20  |
+| Qualidade de [CÛdigo com SonarQube](https://about.sonarcloud.io/) |  15  |
+| Implementar testes unit·rios |  15  |
 | Implementar testes comportamentais |  15  |
-| Implementar integra√ß√£o com [Travis](https://travis-ci.org/)  |  10  |
-| Implementar integra√ß√£o com Travis + SonarQube |  10  |
+| Implementar integraÁ„o com [Travis](https://travis-ci.org/)  |  10  |
+| Implementar integraÁ„o com Travis + SonarQube |  10  |
 | Implementar usando Docker| 5|
 | Total| 170|
 
-A nota final do candidato ser√° acrescido dos pontos referente ao item implementado corretamente.
+A nota final do candidato ser· acrescido dos pontos referente ao item implementado corretamente.
 
-## Penaliza√ß√µes
+## PenalizaÁıes
 
-O candidato ser√° desclassifiado nas seguintes situa√ß√µes:
+O candidato ser· desclassifiado nas seguintes situaÁıes:
 
-1. Submeter um solu√ß√£o que n√£o funcione; 
-2. N√£o cumprir os crit√©rios presentes no se√ß√£o **Avalia√ß√£o**
-3. Pl√°gio
+1. Submeter um soluÁ„o que n„o funcione; 
+2. N„o cumprir os critÈrios presentes no seÁ„o **AvaliaÁ„o**
+3. Pl·gio
