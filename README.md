@@ -10,6 +10,7 @@ Segunda parte:
 Após ter executado o script CREATE.sql no seu MySQL, basta que execute o Projeto SolucaoCompleta e siga as instruções do programa.
 
 ###########################################################
+
 2) Diferenciais implementados:
 
 Uso de Banco de Dados: MySQL
@@ -19,10 +20,11 @@ utiliza CleanCode
 utiliza o Padrão de Programação MVC (padrão do java)
 
 ##########################################################
-3)
-Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/hpruoavnlu?start=2018-02-01&end=2018-02-07
+
+3)Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/hpruoavnlu?start=2018-02-01&end=2018-02-07
 
 ##########################################################
+
 Sobre minhas implementações:
 
 O primeiro desafio consistiu em transformar os dados crus que estão nos arquivos txt em representações confiaveis das informações para serem registradas no banco de dados. Para executar esta missão, eu desenvolvi uma aplicação java, nomeando esse projeto "RecuperadorDB". O projeto consistia em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade íntegra (Candidato, ConcursoPublico e suas relações CandidatoXProfissao e e ConcursoPublicoXProfissao). 
@@ -36,7 +38,7 @@ Após criar o Projeto para recuperar os dados dos arquivos, criei o projeto prin
 
 ###############################################################
 APÓS TESTAR OS PROJETOS, EU CHEGUEI A FAZER UM PULL REQUEST
-################################################################
+###############################################################
 Porém, eu percebi que eu poderia unificar os 2 projetos em um só e simplificar muito mais esta solução, através de arquivos de configuração e fluxos de dados mais inteligentes na classe principal.
 
 ###################################################################################
