@@ -1,33 +1,15 @@
-Minhas implementações:
-
-O primeiro desafio consiste em transformar os dados crus que estão nos arquivos txt em representações confiaveis das informações para serem registradas no banco de dados. Para executar esta missão, eu desenvolvi uma aplicação java, nomeando esse projeto "RecuperadorDB". O projeto consiste em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade íntegra (Candidato, ConcursoPublico e suas relações CandidatoXProfissao e e ConcursoPublicoXProfissao). 
-Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conexões com o banco, as 2 classes principais que contém os métodos para fazer isso ser possível, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a solução foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
-
-O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licenças.
-
-################################################################################################
-
 1) Documentação da Solução:
 
+A Pasta Documentação possui alguns dos diagramas de funcionamento básico do sistema que podem ajudar a esclarescer seu comportamento
+
 Primeira parte:
-Rode o script BancoDeDados/CREATE.sql dentro do Servidor de Banco de Dados MySQL. Este script gerará um Schema chamado "Concursos" contendo toda a estrutura de dados e informações básicas para o funcionamento das aplicações.
+Simplesmente rode o script BancoDeDados/CREATE.sql dentro de um Servidor de Banco de Dados MySQL. Este script gerará um Schema chamado "Concursos" contendo toda a estrutura de dados e informações básicas para o funcionamento das aplicações.
+anote o usuario do banco, a senha, o IP do servidor e a porta, a aplicação irá solicitar estes dados para sua primeira inicialização
 
 Segunda parte: 
-Aplicação para recuperar as informações dos TXTs e armazena-las em Banco de Dados.
-Desenvolvido em Java
-Nome: RecuperadorDB
-Funcionamento: Na Classe "CONTROLE.DAO.ConnectionFactory.java" insira o IP do banco de dados MySQL contendo a estrutura de dados previamente preparada, o nome do usuário do banco, a senha e o nome do Schema que contem a estrutura ("Concursos").
-Na classe "VISAO.RodarRestauracao.java" insira o caminho dos TXTs e execute o projeto. O método main irá chamar métodos para ler os arquivos txt e armazenar os dados, linha por linha, no banco de dados.
+Após ter executado o script CREATE.sql no seu MySQL, basta que execute o Projeto SolucaoCompleta e siga as instruções do programa.
 
-Terceira Parte:
-Aplicação principal para solucionar os 2 problemas solicitados.
-Desenvolvido em Java.
-Nome: TesteProdest
-Funcionamento: Insira os dados do banco. Assim como feito na classe "CONTROLE.DAO.ConnectionFactory.java" do Projeto "RecuperadorDB", faça o mesmo procedimento para o Projeto "TesteProdest", que é a solução própriamente dita.
-Com os dados corretamente configurados. basta executar o Projeto "TesteProdest". Uma janela aparecerá com 2 botões que executam o backend para solucionar os problemas solicitados.
-
-################################################################################################
-
+###########################################################
 2) Diferenciais implementados:
 
 Uso de Banco de Dados: MySQL
@@ -36,10 +18,36 @@ utiliza CleanCode
 
 utiliza o Padrão de Programação MVC (padrão do java)
 
+##########################################################
 3)
-Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/zjsuijodgf?start=2018-01-29&end=2018-02-04
+Link do Projeto no WakaTime: https://wakatime.com/@2be09e86-5ee9-4fdd-8deb-23ce1dc5c766/projects/hpruoavnlu?start=2018-02-01&end=2018-02-07
+
+##########################################################
+Sobre minhas implementações:
+
+O primeiro desafio consistiu em transformar os dados crus que estão nos arquivos txt em representações confiaveis das informações para serem registradas no banco de dados. Para executar esta missão, eu desenvolvi uma aplicação java, nomeando esse projeto "RecuperadorDB". O projeto consistia em duas classes principais, encarregadas de ler cada arquivo e transformar os dados contidos em cada linha em uma entidade íntegra (Candidato, ConcursoPublico e suas relações CandidatoXProfissao e e ConcursoPublicoXProfissao). 
+
+Criei as 2 classes das entidades envolvidas, seus respectivos DAOs, uma fabrica de conexões com o banco, as 2 classes principais que contém os métodos para fazer isso ser possível, e a classe com o metodo main dentro do pacote VISAO, que cuida de executar todo o backend devidamente e mostrar o resultado no console da IDE. A IDE utilizada para desenvolver a solução foi o NetBeans 8.2, rodando sobre a plataforma Linux Debian 9 'Stretch'
+
+O Banco de dados que escolhi para a tarefa foi o MySQL, devido a sua robustez e simplicidade equilibrados e sem custos de licenças.
+
+Após criar o Projeto para recuperar os dados dos arquivos, criei o projeto principal, chamado "TesteProdest", que era a solução propriamente dita do problema principal. Este projeto continha os DAOS e as Entidades do primeiro, adicionados das funcionalidades demandadas pelo problema.
 
 
+###############################################################
+APÓS TESTAR OS PROJETOS, EU CHEGUEI A FAZER UM PULL REQUEST
+################################################################
+Porém, eu percebi que eu poderia unificar os 2 projetos em um só e simplificar muito mais esta solução, através de arquivos de configuração e fluxos de dados mais inteligentes na classe principal.
+
+###################################################################################
+PORTANTO, FECHEI O PULL REQUEST ANTERIOR E COMEÇEI A TRABALHAR NESTA IDÉIA
+###################################################################################
+CRIEI O PROJETO JAVA CHAMADO "SolucaoCompleta" QUE É O QUE O TITULO DIZ, UMA SOLUÇÃO COMPLETA PARA OS PROBLEMAS DE ARQUIVOS, BANCO DE DADOS, CONFIGURAÇÕES E FINALMENTE DAS CONSULTAS.
+
+Eu unifiquei os projetos anteriores, que compartilhavam muito backend similar, fiz as adaptações em todas as classes para que trabalhassem sem conflito, diminui as chances de ocorrerem erros inesperados através do tratamento das exceptions, e criei uma classe que concentra o fluxo do programa, a "VISAO.AppStart.java". esta classe contém o espírito do projeto dentro de sí e revela seu funcionamento de uma maneira muito clara e intuitiva, contendo comentários preciosos que guiarão o raciocínio de quem a lê.
+
+Candidato: MATEUS GARCIA LOPES
+Inscrição: 750838
 
 # Teste para o projeto ES na Palma da mão
 
