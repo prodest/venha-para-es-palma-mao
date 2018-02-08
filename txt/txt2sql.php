@@ -36,7 +36,7 @@
 
     // ADICIONANDO PROFISSOES AO BANCO
     $sql_profissoes = gera_sql_profissoes($vet_profissoes);
-    echo $sql_profissoes."<br>";
+    //$retorno = insere_bd($sql_profissoes);
 
 
   }//FECHA WHILE
