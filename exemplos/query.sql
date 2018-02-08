@@ -1,4 +1,12 @@
 /* WARM UP */
+/* Pega o id de um determinado candidato de acordo com seu cpf */
+SELECT candidato.candidato_id FROM `candidato`
+WHERE candidato.candidato_cpf_varchar = "12345678901";
+
+/* busca o ide de uma profissao ou vaga */
+SELECT vaga_profissao.vaga_profissao_id FROM `vaga_profissao`
+WHERE vaga_profissao.vaga_profissao_descrição_varchar = "carpinteiro";
+
 /* Todos os candidatos com suas respectivas profissoes */
 SELECT candidato.candidato_nome_varchar,vaga_profissao.vaga_profissao_descricao_varchar
 FROM candidato INNER JOIN candidato_profissao INNER JOIN vaga_profissao

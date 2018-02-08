@@ -1,5 +1,8 @@
 <?php
 
+  header("Content-Type: text/html; charset=utf-8",true);
+  ini_set('default_charset', 'UTF-8');
+
   require_once('../includes/mysqli.php');
 
   require_once('functions.php');
@@ -29,14 +32,21 @@
     }
     unset($profissao);
 
-    // ADICIONANDO UM CANDIDATO AO BANCO
-    $sql_candidato = gera_sql_candidato($nome,$data_nascimento,$cpf);
+    //ADICIONANDO UM CANDIDATO AO BANCO
+    //$sql_candidato = gera_sql_candidato($nome,$data_nascimento,$cpf);
     //$retorno = insere_bd($sql_candidato);
 
+    // // ADICIONANDO PROFISSOES AO BANCO
+    // $sql_profissoes = "";
+    // foreach ($vet_profissoes as &$profissao) {
+    //   $sql_profissoes .= gera_sql_profissao($profissao);
+    // }
+    // unset($profissao);
+    // $retorno = insere_bd($sql_profissoes);
 
-    // ADICIONANDO PROFISSOES AO BANCO
-    $sql_profissoes = gera_sql_profissoes($vet_profissoes);
-    echo $sql_profissoes."<br>";
+    // ADICIONA PROFISSOES AO CANDIDATO
+    $sql_usuario_profissao = gera_sql_candidato_profissao($cpf, $vet_profissoes);
+    $retorno = insere_bd($sql_usuario_profissao);
 
 
   }//FECHA WHILE
