@@ -1,4 +1,4 @@
-Lindsey Craft 19/05/1976 182.845.084-34 [carpinteiro, professor de matemática]
+Lindsey_Craft 19/05/1976 182.845.084-34 [carpinteiro, professor de matemática]
 Devin Gilmore 20/12/1979 679.734.709-14 [marceneiro, professor de matemática]
 Miranda Stokes 21/03/1955 551.235.392-12 [carpinteiro, assistente administrativo, professor de matemática]
 Kay Elliott 03/09/1979 423.976.557-33 [carpinteiro]
