@@ -1,19 +1,38 @@
 {% extends 'programa/base.html' %} 
 
 {% block content %} 
+<div class="input-group mb-3">
+  </div>
 <form class="navbar-form navbar-right" action="." method="get">
-    <input id="search_box" name="search_box" type="text" placeholder="Search..." class="form-control">
-    <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span>enviar</button>
-</form>
-{% if verifica %}
-    <h1>teste</h1>
-{% else %}
-    {% for cand in candidatos %}
-        <div class="post card text-white bg-success mb-3" style="width: 15rem;">
-            <div class="card-body">
-                <a href="{% url 'candidato_detail' pk=cand.pk %}">{{ cand.nome }}</a>
-            </div>
+    <div class="input-group mb-3">
+        <input id="search_box" name="search_box" type="text" placeholder="Informe o CPF... Exemplo: 133.133.133-45" class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="btn  btn-outline-success form-control"><span class="glyphicon glyphicon-search"></span>enviar</button>
         </div>
+    </div>
+</form>
+    {% for con in concursos %}
+        <div class="post">
+
+                <table class="table">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col">Orgão</th>
+                            <th scope="col">Edital</th>
+                            <th scope="col">Código do concurso</th>
+                            <th scope="col">Vagas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ con.orgao }}</th>
+                            <td>{{ con.edital }}</td>
+                            <td>{{ con.codigo_curso }}</td>
+                            <td>{{ con.vagas }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
     {% endfor %}
-{% endif %} 
 {% endblock %}
