@@ -6,8 +6,9 @@
 
  <body>
   <?php
-    // Inclui o arquivo que faz a conexão ao banco de dados
+
     header("Content-Type: text/html; charset=ISO-8859-1",true);
+    // Inclui o arquivo que faz a conexão ao banco de dados
     require_once('../includes/mysqli.php');
     $sql = "SELECT * FROM candidato AS Candidato;";
 
