@@ -8,7 +8,7 @@ jdk:
 - oraclejdk8
 
 addons:
-  sonarqube:
+  sonarcloud:
     organization: "lukasg18-github"
     token:
       secure: "KEY"
