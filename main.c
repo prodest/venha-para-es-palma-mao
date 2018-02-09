@@ -8,9 +8,9 @@
 //estrutura para armazenar meus dados lidos dos arquivos
 typedef struct{
 	char* nome;
-	char* profissoes;
 	char* data;
 	char* cpf;
+	char* profissoes;
 } candidatos;
 
 //cabecalho das minhas funcoes
@@ -21,6 +21,7 @@ char* separaData(char* string);
 char* separaCpf(char* string);
 char* separaProfissoes(char* string);
 void imprime(candidatos* Candidato, int qtd);
+char* separaProfissoesPorParte(char* string);
 
 //funcao principal
 int main(void){
@@ -52,6 +53,7 @@ int main(void){
 		Candidato[i].data = separaData(linha);
 		Candidato[i].cpf = separaCpf(linha);
 		Candidato[i].profissoes = separaProfissoes(linha);
+		// printf("separaProfissoesPorParte: %s\n", separaProfissoesPorParte(Candidato));
 		i++;
 	}
 
@@ -60,8 +62,8 @@ int main(void){
 
 	imprime(Candidato, qtd_linhas_candidatos);
 
-	fclose(arq);
 	limpa(Candidato, qtd_linhas_candidatos);
+	fclose(arq);
 	return 0;
 }
 
@@ -95,6 +97,7 @@ void imprime(candidatos* Candidato, int qtd){
 		printf("data [%d]: %s\n", i+1, Candidato[i].data);
 		printf("cpf [%d]: %s\n", i+1, Candidato[i].cpf);
 		printf("profissoes [%d]: %s\n", i+1, Candidato[i].profissoes);
+		printf("prof1: %s\n", separaProfissoesPorParte(Candidato[i].profissoes));
 		printf("---------------------------------------\n");
 	}
 }
@@ -183,8 +186,15 @@ char* separaProfissoes(char* string){
 	return aux;
 }
 
-char* separaProfissoesPorParte(candidatos* Candidato){
-	int i = 0;
+char* separaProfissoesPorParte(char* string){
+	int i = 0, tam = 80;
+	char* profissao1 = (char*)malloc(tam * sizeof(char));
 
+	while(string[i] != ',' && string[i] != '\0'){
+		profissao1[i] = string[i];
+		i++;
+	}
+	profissao1[i] = '\0';
 
+	return profissao1;
 }
