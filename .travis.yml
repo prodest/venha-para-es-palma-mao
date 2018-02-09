@@ -27,4 +27,4 @@ script:
 # - cd wsgi/gde
 - python manage.py makemigrations
 - python manage.py migrate
-- sonar-scanner
+# - sonar-scanner
