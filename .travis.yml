@@ -11,7 +11,7 @@ addons:
   sonarqube:
     organization: "lukasg18-github"
     token:
-      secure: "$SONAR_TOKEN"
+      secure: "KEY"
 # services:
 # - postgres
 
