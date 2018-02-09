@@ -47,10 +47,10 @@ int main(void){
 	while( fgets(linha, sizeof(linha), arq)!=NULL && i < TAM ){
 		// printf("%s", linha);
 		i++;
-		printf("retorno separaNome: %s\n", separaNome(linha));
-		printf("retorno separaData: %s\n", separaData(linha));
-		printf("retorno separaData: %s\n", separaCpf(linha));
-		printf("retorno separaData: %s\n", separaProfissoes(linha));
+		printf("retorno_separaNome: %s\n", separaNome(linha));
+		printf("retorno_separaData: %s\n", separaData(linha));
+		printf("retorno_separaCpf: %s\n", separaCpf(linha));
+		printf("retorno_separaProfissoes: %s\n\n", separaProfissoes(linha));
 	}
 	printf("%d\n", i);
 
@@ -120,7 +120,6 @@ char* separaData(char* string){
 		}
 		i++;
 	}
-	//adicionando caracter que indica o fim de uma string
 	aux[j]='\0';
 
 	return aux;
@@ -140,7 +139,6 @@ char* separaCpf(char* string){
 		}
 		i++;
 	}
-	//adicionando caracter que indica o fim de uma string
 	aux[j]='\0';
 
 	return aux;
@@ -150,17 +148,18 @@ char* separaProfissoes(char* string){
 	int cont = 0, i = 0, j = 0, tam = 80;
 	char* aux = (char*)malloc(tam * sizeof(char));
 
-	while(cont < 5){
+	while(string[i] != ']'){
 		if(string[i] == ' '){
 			cont++;
 		}
-		if(cont == 4){
-			aux[j] = string[i];
-			j++;
+		if(cont > 3){
+			if(string[i] != '['){
+				aux[j] = string[i];
+				j++;
+			}
 		}
 		i++;
 	}
-	//adicionando caracter que indica o fim de uma string
 	aux[j]='\0';
 
 	return aux;
