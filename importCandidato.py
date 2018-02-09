@@ -64,7 +64,7 @@ while i < 300:
     print("salvando candidatos", i)
     i += 1
     if texto != '' :
-        # # # após a limpeza, corto o texto em partes novamente
+        # # # apos a limpeza, corto o texto em partes novamente
         informacoes = texto.split(" ", 4)
         list_prof = informacoes[4].split(",")
 print("candidatos salvo com sucesso ")
@@ -110,15 +110,15 @@ arq.close()
 #         candidato.profissao = profissao
 #         candidato.save()
 
-    texto = arq.readline()
-    texto = remove_caracter(texto)
-    print("salvando candidato", i)
-    i += 1
+#     texto = arq.readline()
+#     texto = remove_caracter(texto)
+#     print("salvando candidato", i)
+#     i += 1
 
-    if texto != '' :
-        # # # após a limpeza, corto o texto em partes novamente
-        informacoes = texto.split(" ", 4)
-        list_prof = informacoes[4].split(",")
+#     if texto != '' :
+#         # # # apos a limpeza, corto o texto em partes novamente
+#         informacoes = texto.split(" ", 4)
+#         list_prof = informacoes[4].split(",")
 
-print("candidato salvo com sucesso ")
-arq.close()
+# print("candidato salvo com sucesso ")
+# arq.close()
