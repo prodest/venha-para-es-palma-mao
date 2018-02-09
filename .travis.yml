@@ -9,7 +9,7 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "lukasg18-github"
+    organization: "lukasg18"
     token:
       secure: "KEY"
 # services:
