@@ -11,6 +11,11 @@
         </div>
     </div>
 </form>
+{% if verifica %}
+    <div class="alert alert-success" role="alert">
+        CPF nao existe!
+    </div>  
+{% endif %}
     {% for con in concursos %}
         <div class="post">
 

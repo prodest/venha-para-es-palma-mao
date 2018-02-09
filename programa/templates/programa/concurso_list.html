@@ -11,6 +11,11 @@
         </div>
     </div>
 </form>
+{% if verifica %}
+    <div class="alert alert-success" role="alert">
+        Código do concurso não existe!
+    </div>  
+{% endif %}
     {% for cand in candidatos %}
         <div class="post">
 

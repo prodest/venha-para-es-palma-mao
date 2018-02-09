@@ -21,13 +21,8 @@ def remove_caracter(texto) :
         texto = texto.replace(remove[i],"")
     return texto
 
-# *******************************************************************************************************
-# # # abrindo o arquivo. Leio linha por linha, para nao colocar
-# tudo na memoria
 arq = open('concursos.txt', 'r')
 texto = arq.readline()
-
-# # # caracteres a serem removidos da linha
 texto = remove_caracter(texto)
 
 # # # apos a limpeza, corto o texto em partes
@@ -35,76 +30,7 @@ informacoes = texto.split(" ", 3)
 list_prof = informacoes[3].split(",")
 i = 1
 
-# # salvando Orgao
-while texto != '':
-    orgao = Orgao()
-    orgao.nome = informacoes[0]
-
-    if not Orgao.objects.filter(nome=orgao.nome).exists() :
-        orgao.save()
-
-    texto = arq.readline()
-    texto = remove_caracter(texto)
-    print("salvando orgao", i)
-    i += 1
-
-    if texto != '' :
-        # # # após a limpeza, corto o texto em partes novamente
-        informacoes = texto.split(" ", 3)
-        list_prof = informacoes[3].split(",")
-print("orgao salvo com sucesso ")
-arq.close()
-
-# ******************************************************************************************************
-
-# # # abrindo o arquivo. Leio linha por linha, para nao colocar
-# tudo na memoria
-arq = open('concursos.txt', 'r')
-texto = arq.readline()
-
-# # # caracteres a serem removidos da linha
-texto = remove_caracter(texto)
-
-# # # apos a limpeza, corto o texto em partes
-informacoes = texto.split(" ", 3)
-list_prof = informacoes[3].split(",")
-i = 1
-
-# # salvando profissao
-while texto != '':
-    for prof in list_prof :
-        profissao = Profissao()
-        profissao.nome = prof
-
-        # # # verifico se nao existe a profissao.
-        if not Profissao.objects.filter(nome=profissao.nome).exists():
-            profissao.save()
-
-    texto = arq.readline()
-    texto = remove_caracter(texto)
-    print("salvando profissao", i)
-    i += 1
-    if texto != '' :
-        # # # após a limpeza, corto o texto em partes novamente
-        informacoes = texto.split(" ", 3)
-        list_prof = informacoes[3].split(",")
-print("Profissao salvo com sucesso ")
-arq.close()
-
-# ****************************************************************************************************
-
-arq = open('concursos.txt', 'r')
-texto = arq.readline()
-
-# # # caracteres a serem removidos da linha
-texto = remove_caracter(texto)
-
-# # # apos a limpeza, corto o texto em partes
-informacoes = texto.split(" ", 3)
-list_prof = informacoes[3].split(",")
-i = 1
-
-# # # salva candidato
+# # # salva Concurso
 while texto != '':
     for prof in list_prof :
         concurso = Concurso()
@@ -116,9 +42,14 @@ while texto != '':
         concurso.edital = informacoes[1]
         concurso.codigo_curso = informacoes[2]
 
+        if not Profissao.objects.filter(nome=profissao.nome).exists():
+            profissao.save()
+
+        if not Orgao.objects.filter(nome=orgao.nome).exists():
+            orgao.save()
+
         profissao = Profissao.objects.get(nome=profissao.nome)
         orgao = Orgao.objects.get(nome=orgao.nome)
-
         concurso.vagas = profissao
         concurso.orgao = orgao
         concurso.save()
