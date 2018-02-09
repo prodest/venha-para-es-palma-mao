@@ -9,11 +9,9 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "lukasg18"
+    organization: lukasg18
     token:
-      secure: "KEY"
-# services:
-# - postgres
+      secure: 088e0b473d24616bb3eda8f1a1879c5d10154a91
 
 branches:
   only:
