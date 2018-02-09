@@ -20,17 +20,20 @@ char* separaNome(char* string);
 char* separaData(char* string);
 char* separaCpf(char* string);
 char* separaProfissoes(char* string);
+void imprime(candidatos* Candidato, int qtd);
 
 //funcao principal
 int main(void){
-	int i = 0, qtd_linhas_arq = 0;
+	int i = 0, qtd_linhas_candidatos = 0, qtd_linhas_concursos = 0;
 	char linha[500];
 	FILE* arq;
 
-	qtd_linhas_arq = TAM;
+	qtd_linhas_candidatos = TAM;
+	// qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
+	// qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
 
-	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_arq * sizeof(candidatos));
-	for(i = 0; i < qtd_linhas_arq; i++){
+	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
+	for(i = 0; i < qtd_linhas_candidatos; i++){
 		Candidato[i].nome = (char*)malloc(sizeof(char));
 		Candidato[i].data = (char*)malloc(sizeof(char));
 		Candidato[i].cpf = (char*)malloc(sizeof(char));
@@ -44,18 +47,21 @@ int main(void){
 	}
 	i = 0;
 
-	while( fgets(linha, sizeof(linha), arq)!=NULL && i < TAM ){
-		// printf("%s", linha);
+	while( fgets(linha, sizeof(linha), arq)!=NULL && i < qtd_linhas_candidatos ){
+		Candidato[i].nome = separaNome(linha);
+		Candidato[i].data = separaData(linha);
+		Candidato[i].cpf = separaCpf(linha);
+		Candidato[i].profissoes = separaProfissoes(linha);
 		i++;
-		printf("retorno_separaNome: %s\n", separaNome(linha));
-		printf("retorno_separaData: %s\n", separaData(linha));
-		printf("retorno_separaCpf: %s\n", separaCpf(linha));
-		printf("retorno_separaProfissoes: %s\n\n", separaProfissoes(linha));
 	}
-	printf("%d\n", i);
+
+	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
+	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
+
+	imprime(Candidato, qtd_linhas_candidatos);
 
 	fclose(arq);
-	limpa(Candidato, qtd_linhas_arq);
+	limpa(Candidato, qtd_linhas_candidatos);
 	return 0;
 }
 
@@ -81,8 +87,20 @@ int leQtdLinhasArq(char* arquivo){
 	return cont;
 }
 
-void limpa(candidatos* Candidato, int qtd){
+void imprime(candidatos* Candidato, int qtd){
 	int i;
+
+	for(i = 0; i < qtd; i++){
+		printf("nome [%d]: %s\n", i+1, Candidato[i].nome);
+		printf("data [%d]: %s\n", i+1, Candidato[i].data);
+		printf("cpf [%d]: %s\n", i+1, Candidato[i].cpf);
+		printf("profissoes [%d]: %s\n", i+1, Candidato[i].profissoes);
+		printf("---------------------------------------\n");
+	}
+}
+
+void limpa(candidatos* Candidato, int qtd){
+	int i = 0;
 
 	for(i = 0; i < qtd; i++){
 		free(Candidato[i].nome);
@@ -94,7 +112,7 @@ void limpa(candidatos* Candidato, int qtd){
 }
 
 char* separaNome(char* string){
-	int i = 0, tam = 50;
+	int i = 0, tam = 60;
 	char* aux = (char*)malloc(tam * sizeof(char));
 
 	while(!isdigit(string[i])){
@@ -145,7 +163,7 @@ char* separaCpf(char* string){
 }
 
 char* separaProfissoes(char* string){
-	int cont = 0, i = 0, j = 0, tam = 80;
+	int cont = 0, i = 0, j = 0, tam = 100;
 	char* aux = (char*)malloc(tam * sizeof(char));
 
 	while(string[i] != ']'){
@@ -163,4 +181,10 @@ char* separaProfissoes(char* string){
 	aux[j]='\0';
 
 	return aux;
+}
+
+char* separaProfissoesPorParte(candidatos* Candidato){
+	int i = 0;
+
+
 }
