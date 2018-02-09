@@ -21,7 +21,7 @@ branches:
   - lucas
 
 install:
-- pip install -r requirements.txt
+- pip install -r requeriments.pip
 
 script:
 # - cd wsgi/gde
