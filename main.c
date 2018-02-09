@@ -1,8 +1,9 @@
-/*nome:Pablo dos Santos Garajau
-cpf: 16293627784*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+
+#define TAM 5
 
 //estrutura para armazenar meus dados lidos dos arquivos
 typedef struct{
@@ -15,15 +16,16 @@ typedef struct{
 //cabecalho das minhas funcoes
 int leQtdLinhasArq(char* arquivo);
 void limpa(candidatos* Candidato, int qtd);
-void lerTudo();
+char* separaNome(char* string);
+char* separaData(char* string);
 
 //funcao principal
 int main(void){
-	int i;
-	int qtd_linhas_arq;
+	int i = 0, qtd_linhas_arq = 0;
+	char linha[500];
+	FILE* arq;
 
-	qtd_linhas_arq = leQtdLinhasArq("candidatos.txt");
-	printf("O arquivo possui %d linhas\n", qtd_linhas_arq);
+	qtd_linhas_arq = TAM;
 
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_arq * sizeof(candidatos));
 	for(i = 0; i < qtd_linhas_arq; i++){
@@ -33,9 +35,23 @@ int main(void){
 		Candidato[i].profissoes = (char*)malloc(sizeof(char));
 	}
 
-	lerTudo();
-	limpa(Candidato, qtd_linhas_arq);
+	arq = fopen("candidatos.txt", "r");
+	if(arq == NULL){
+		printf("Erro ao abrir o arquivo para leitura!\n");
+		exit(1);
+	}
+	i = 0;
 
+	while( fgets(linha, sizeof(linha), arq)!=NULL && i < TAM ){
+		// printf("%s", linha);
+		i++;
+		printf("retorno separaNome: %s\n", separaNome(linha));
+		printf("retorno separaData: %s\n", separaData(linha));
+	}
+	printf("%d\n", i);
+
+	fclose(arq);
+	limpa(Candidato, qtd_linhas_arq);
 	return 0;
 }
 
@@ -61,36 +77,6 @@ int leQtdLinhasArq(char* arquivo){
 	return cont;
 }
 
-void lerTudo(){
-	int i;
-	FILE* arq;
-	char linha[150];
-
-	arq = fopen("candidatos.txt", "r");
-	if(arq == NULL){
-		printf("Error!\n");
-		exit(1);
-	}
-
-	while( (fscanf(arq, "%[^\n]\n", linha)) != EOF){
-		printf("%s\n", linha);
-		i++;
-		if(i == 10){
-			break;
-		}
-	}
-
-	fclose(arq);
-}
-
-candidatos* organiza(candidatos* Candidato){
-	int cont = 0, i = 0;
-
-
-
-	return Candidato;
-}
-
 void limpa(candidatos* Candidato, int qtd){
 	int i;
 
@@ -100,6 +86,40 @@ void limpa(candidatos* Candidato, int qtd){
 		free(Candidato[i].cpf);
 		free(Candidato[i].profissoes);
 	}
-
 	free(Candidato);
 }
+
+char* separaNome(char* string){
+	int i = 0, tam = 50;
+	char* aux = (char*)malloc(tam * sizeof(char));
+
+	while(!isdigit(string[i])){
+		aux[i] = string[i];
+		i++;
+	}
+	//adicionando caracter que indica o fim de uma string
+	aux[i]='\0';
+	return aux;
+}
+
+char* separaData(char* string){
+	int cont = 0, i = 0, j = 0, tam = 30;
+	char* aux = (char*)malloc(tam * sizeof(char));
+
+	while(cont < 3){
+		if(string[i] == ' '){
+			cont++;
+		}
+		if(cont == 2){
+			aux[j] = string[i];
+			j++;
+		}
+		i++;
+	}
+	//adicionando caracter que indica o fim de uma string
+	aux[j]='\0';
+
+	return aux;
+}
+
+char* separa
