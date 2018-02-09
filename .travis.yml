@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: lukasg18
     token:
-      secure: 088e0b473d24616bb3eda8f1a1879c5d10154a91
+      secure: "$KEY"
 
 branches:
   only:
