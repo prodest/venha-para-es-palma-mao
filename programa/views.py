@@ -33,6 +33,7 @@ def concurso_list(request):
 
     return render(request, 'programa/concurso_list.html', {})
 
+#remover esta funcao!!!!!!!!!!!!!!!!
 def candidato_detail(request, pk):
     candidatos = get_object_or_404(Candidato, pk=pk)
     return render(request, 'programa/candidato_detail.html', {'candidatos':candidatos})
