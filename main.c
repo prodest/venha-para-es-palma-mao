@@ -18,6 +18,7 @@ int leQtdLinhasArq(char* arquivo);
 void limpa(candidatos* Candidato, int qtd);
 char* separaNome(char* string);
 char* separaData(char* string);
+char* separaCpf(char* string);
 
 //funcao principal
 int main(void){
@@ -47,6 +48,7 @@ int main(void){
 		i++;
 		printf("retorno separaNome: %s\n", separaNome(linha));
 		printf("retorno separaData: %s\n", separaData(linha));
+		printf("retorno separaData: %s\n", separaCpf(linha));
 	}
 	printf("%d\n", i);
 
@@ -122,4 +124,22 @@ char* separaData(char* string){
 	return aux;
 }
 
-char* separa
+char* separaCpf(char* string){
+	int cont = 0, i = 0, j = 0, tam = 30;
+	char* aux = (char*)malloc(tam * sizeof(char));
+
+	while(cont < 4){
+		if(string[i] == ' '){
+			cont++;
+		}
+		if(cont == 3){
+			aux[j] = string[i];
+			j++;
+		}
+		i++;
+	}
+	//adicionando caracter que indica o fim de uma string
+	aux[j]='\0';
+
+	return aux;
+}
