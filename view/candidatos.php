@@ -9,7 +9,7 @@
                     encaixam no seu perfil</p>
             </div>
             <div class="row">
-                <form action="candidatosTable.php" method="GET">
+                <form action="candidatosTable.php" method="POST">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">credit_card</i>
                         <input id="cpf" type="text" class="validate" name="cpf" required>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn waves-effect waves-light" type="submit">Procurar
+                    <button class="btn waves-effect waves-light" type="submit" name="entidade" value="candidato">Procurar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

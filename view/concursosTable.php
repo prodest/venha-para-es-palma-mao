@@ -15,7 +15,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    
+                    <?php include ("../control/tableController.php"); ?>
                 </tbody>
              </table>
             </div>
