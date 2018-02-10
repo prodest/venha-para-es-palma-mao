@@ -12,12 +12,12 @@
                 <form action="concursosTable.php" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">description</i>
-                        <input id="cpf" type="text" class="validate">
-                        <label for="cpf">CPF do candidato</label>
+                        <input name="cod_concurso" id="cod_concurso" type="text" class="validate" required>
+                        <label for="cod_concurso">Código do concurso</label>
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Procurar
+                    <button class="btn waves-effect waves-light" type="submit">Procurar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

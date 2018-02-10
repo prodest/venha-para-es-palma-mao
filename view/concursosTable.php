@@ -8,31 +8,14 @@
             <table class="bordered highlight">
                 <thead>
                 <tr>
-                    <th>Órgão</th>
-                    <th>Edital</th>
-                    <th>Código do Concurso</th>
-                    <th>Lista de vagas</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>CPF</th>
+                    <th>Profissões</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>SEDU</td>
-                    <td>9/2016</td>
-                    <td>61828450843</td>
-                    <td>[analista de sistemas, marceneiro]</td>
-                </tr>
-                <tr>
-                    <td>SEDU</td>
-                    <td>9/2016</td>
-                    <td>61828450843</td>
-                    <td>[analista de sistemas, marceneiro]</td>
-                </tr>
-                <tr>
-                    <td>SEDU</td>
-                    <td>9/2016</td>
-                    <td>61828450843</td>
-                    <td>[analista de sistemas, marceneiro]</td>
-                </tr>
+                    
                 </tbody>
              </table>
             </div>

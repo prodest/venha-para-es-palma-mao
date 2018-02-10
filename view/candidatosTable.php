@@ -8,31 +8,14 @@
             <table class="bordered highlight">
                 <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Data de Nascimento</th>
-                    <th>CPF</th>
-                    <th>Profissões</th>
+                    <th>Órgão</th>
+                    <th>Edital</th>
+                    <th>Código do Concurso</th>
+                    <th>Lista de vagas</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Lindsey Craft</td>
-                    <td>19/05/1976</td>
-                    <td>182.845.084-34</td>
-                    <td>[marceneiro, assistente administrativo]</td>
-                </tr>
-                <tr>
-                    <td>Lindsey Craft</td>
-                    <td>19/05/1976</td>
-                    <td>182.845.084-34</td>
-                    <td>[marceneiro, assistente administrativo]</td>
-                </tr>
-                <tr>
-                    <td>Lindsey Craft</td>
-                    <td>19/05/1976</td>
-                    <td>182.845.084-34</td>
-                    <td>[marceneiro, assistente administrativo]</td>
-                </tr>
+                    <?php include ("../control/tableController.php"); ?>
                 </tbody>
              </table>
             </div>

@@ -12,12 +12,12 @@
                 <form action="candidatosTable.php" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">credit_card</i>
-                        <input id="cpf" type="text" class="validate">
+                        <input id="cpf" type="text" class="validate" name="cpf" required>
                         <label for="cpf">CPF do candidato</label>
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Procurar
+                    <button class="btn waves-effect waves-light" type="submit">Procurar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

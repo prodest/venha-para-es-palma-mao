@@ -13,14 +13,13 @@
 
         public function executeQuery($sql){
             $result = mysqli_query($this->connection, $sql);
-            //$table = Array();
+            $arr = Array();
             while ($line = mysqli_fetch_assoc($result)){
-                echo $line['cod_concurso']."<br>";
-
+                $arr[] = $line;
             }
-
+            if(count($arr) == 1){
+                return $arr[0];
+            }
+            return $arr;
         }
     }
-
-
-?>
