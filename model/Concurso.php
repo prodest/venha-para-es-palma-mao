@@ -20,7 +20,7 @@
             return $this->edital;
         }
 
-        function getCodConcurso(){
+        function getCodigo(){
             return $this->codConcurso;
         }
 
