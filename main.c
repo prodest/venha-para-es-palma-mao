@@ -44,15 +44,17 @@ int main(void){
 	int i = 0;
 	int qtd_linhas_candidatos = 0;
 	int qtd_linhas_concursos = 0;
+	int tam_cpf_busca = 20;
 	char linha[500];
+	char* cpf_busca = "";
 	FILE* arq;
 
-	qtd_linhas_candidatos = TAM;
-	qtd_linhas_concursos = TAM;
-	// qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
-	// qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
-	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
-	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
+	// qtd_linhas_candidatos = TAM;
+	// qtd_linhas_concursos = TAM;
+	qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
+	qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
+	printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
+	printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
 
 	//alocando espaço para a minha estrutura que ira armazenar os dados do arquivo candidatos.txt
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
@@ -100,12 +102,19 @@ int main(void){
 	}
 
 	//imprimindo os dados coletados do arquivo e armazenados na struct candidatos.txt
-	imprimeCandidatos(Candidato, qtd_linhas_candidatos);
-	imprimeConcursos(Concurso, qtd_linhas_concursos);
+	//imprimeCandidatos(Candidato, qtd_linhas_candidatos);
+	//imprimeConcursos(Concurso, qtd_linhas_concursos);
+
+	cpf_busca = (char*)malloc(tam_cpf_busca * sizeof(char));
+
+	printf("Digite o cpf do candidato(ex: 162.936.277-84): ");
+	scanf(" %[^\n]", cpf_busca);
+	printf("cpf_busca: %s\n", cpf_busca);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
 	limpaCandidatos(Candidato, qtd_linhas_candidatos);
+	free(cpf_busca);
 
 	fclose(arq);
 	return 0;
@@ -234,7 +243,7 @@ candidatos* separaDataCandidatos(char* string, candidatos* Candidato, int j){
 		}
 		i++;
 	}
-	Candidato[j].data[i]='\0';
+	Candidato[j].data[k]='\0';
 
 	return Candidato;
 }
