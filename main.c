@@ -24,15 +24,18 @@ typedef struct{
 
 //cabecalho das minhas funcoes
 int leQtdLinhasArq(char* arquivo);
-candidatos* separaNome(char* string, candidatos* Candidato, int j);
-candidatos* separaData(char* string, candidatos* Candidato, int j);
-candidatos* separaCpf(char* string, candidatos* Candidato, int j);
-candidatos* separaProfissoes(char* string, candidatos* Candidato, int j);
+candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j);
+candidatos* separaDataCandidatos(char* string, candidatos* Candidato, int j);
+candidatos* separaCpfCandidatos(char* string, candidatos* Candidato, int j);
+candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int j);
 candidatos* alocaCandidatos(candidatos* Candidato, int qtd);
 concursos* alocaConcursos(concursos* Concurso, int qtd);
+concursos* separaNomeConcursos(char* string, concursos* Concurso, int j);
+concursos* separaDataConcursos(char* string, concursos* Concurso, int j);
 void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
-void imprime(candidatos* Candidato, int qtd);
+void imprimeCandidatos(candidatos* Candidato, int qtd);
+void imprimeConcursos(concursos* Concurso, int qtd);
 
 //funcao principal
 int main(void){
@@ -46,6 +49,8 @@ int main(void){
 	qtd_linhas_concursos = TAM;
 	// qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
 	// qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
+	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
+	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
 
 	//alocando espaço para a minha estrutura que ira armazenar os dados do arquivo candidatos.txt
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
@@ -60,31 +65,44 @@ int main(void){
 	//abrindo arquivo candidatos.txt
 	arq = fopen("candidatos.txt", "r");
 	if(arq == NULL){
-		printf("Erro ao abrir o arquivo para leitura!\n");
+		printf("Erro ao abrir o arquivo candidatos.txt!\n");
 		exit(1);
 	}
 	//zerando o 'i' pois usarei a variavel novamente, ja que nao precisarei mais dela
 	i = 0;
 
 	//separando os dados do arquivo para a minha estrutura
-	while( fgets(linha, sizeof(linha), arq)!=NULL && i < qtd_linhas_candidatos ){
-		separaNome(linha, Candidato, i);
-		separaData(linha, Candidato, i);
-		separaCpf(linha, Candidato, i);
-		separaProfissoes(linha, Candidato, i);
-		// CadaProf[i].prof1 = separaProfissoesPorParte(Candidato[i].profissoes);
+	while( fgets(linha, sizeof(linha), arq)!= NULL && i < qtd_linhas_candidatos ){
+		separaNomeCandidatos(linha, Candidato, i);
+		separaDataCandidatos(linha, Candidato, i);
+		separaCpfCandidatos(linha, Candidato, i);
+		separaProfissoesCandidatos(linha, Candidato, i);
 		i++;
 	}
 
-	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
-	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
+	fclose(arq);
+
+	i = 0;
+	arq = fopen("concursos.txt", "r");
+	if(arq == NULL){
+		printf("Erro ao abrir arquivo concursos.txt!\n");
+		exit(1);
+	}
+
+	while( fgets(linha, sizeof(linha), arq)!= NULL && i < qtd_linhas_concursos ){
+		separaNomeConcursos(linha, Concurso, i);
+		separaDataConcursos(linha, Concurso, i);
+		i++;
+	}
 
 	//imprimindo os dados coletados do arquivo e armazenados na struct candidatos.txt
-	imprime(Candidato, qtd_linhas_candidatos);
+	imprimeCandidatos(Candidato, qtd_linhas_candidatos);
+	imprimeConcursos(Concurso, qtd_linhas_concursos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
 	limpaCandidatos(Candidato, qtd_linhas_candidatos);
+
 	fclose(arq);
 	return 0;
 }
@@ -113,15 +131,25 @@ int leQtdLinhasArq(char* arquivo){
 }
 
 //funcao sem retorno para imprimir os dados armazenados na minha struct
-void imprime(candidatos* Candidato, int qtd){
+void imprimeCandidatos(candidatos* Candidato, int qtd){
 	int i = 0;
 
 	for(i = 0; i < qtd; i++){
-		printf("nome [%d]: %s\t%ld\n", i+1, Candidato[i].nome, strlen(Candidato[i].nome));
-		printf("data [%d]: %s\t%ld\n", i+1, Candidato[i].data, strlen(Candidato[i].data));
-		printf("cpf [%d]: %s\t%ld\n", i+1, Candidato[i].cpf, strlen(Candidato[i].cpf));
-		printf("profissoes [%d]: %s\t%ld\n\n", i+1, Candidato[i].profissoes, strlen(Candidato[i].profissoes));
-		// printf("separaProfissoesPorParte: %s\n\n", separaProfissoesPorParte(Candidato[i].profissoes));
+		printf("nome_candidato [%d]: %s\t%ld\n", i+1, Candidato[i].nome, strlen(Candidato[i].nome));
+		printf("data_candidato [%d]: %s\t%ld\n", i+1, Candidato[i].data, strlen(Candidato[i].data));
+		printf("cpf_candidato [%d]: %s\t%ld\n", i+1, Candidato[i].cpf, strlen(Candidato[i].cpf));
+		printf("profissoes_candidato [%d]: %s\t%ld\n\n", i+1, Candidato[i].profissoes, strlen(Candidato[i].profissoes));
+	}
+}
+
+void imprimeConcursos(concursos* Concurso, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		printf("nome_concurso [%d]: %s\t%ld\n", i+1, Concurso[i].nome_concurso, strlen(Concurso[i].nome_concurso));
+		printf("data_concurso [%d]: %s\t%ld\n", i+1, Concurso[i].data_concurso, strlen(Concurso[i].data_concurso));
+		printf("num_concurso [%d]: %s\t%ld\n", i+1, Concurso[i].num_concurso, strlen(Concurso[i].num_concurso));
+		printf("profissoes [%d]: %s\t%ld\n\n", i+1, Concurso[i].profissoes_concurso, strlen(Concurso[i].profissoes_concurso));
 	}
 }
 
@@ -134,6 +162,10 @@ void limpaCandidatos(candidatos* Candidato, int qtd){
 		free(Candidato[i].data);
 		free(Candidato[i].cpf);
 		free(Candidato[i].profissoes);
+		Candidato[i].nome = NULL;
+		Candidato[i].data = NULL;
+		Candidato[i].cpf = NULL;
+		Candidato[i].profissoes = NULL;
 	}
 	free(Candidato);
 }
@@ -146,11 +178,15 @@ void limpaConcursos(concursos* Concurso, int qtd){
 		free(Concurso[i].data_concurso);
 		free(Concurso[i].num_concurso);
 		free(Concurso[i].profissoes_concurso);
+		Concurso[i].nome_concurso = NULL;
+		Concurso[i]. data_concurso = NULL;
+		Concurso[i].num_concurso = NULL;
+		Concurso[i].profissoes_concurso = NULL;
 	}
 	free(Concurso);
 }
 
-candidatos* separaNome(char* string, candidatos* Candidato, int j){
+candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j){
 	int i = 0;
 
 	while(!isdigit(string[i])){
@@ -164,8 +200,22 @@ candidatos* separaNome(char* string, candidatos* Candidato, int j){
 	return Candidato;
 }
 
+concursos* separaNomeConcursos(char* string, concursos* Concurso, int j){
+	int i = 0;
+
+	while(!isdigit(string[i])){
+		Concurso[j].nome_concurso[i] = string[i];
+		i++;
+	}
+
+	//adicionando caracter que indica o fim de uma string
+	Concurso[j].nome_concurso[i] ='\0';
+
+	return Concurso;
+}
+
 //funcao para separar a data para a struct
-candidatos* separaData(char* string, candidatos* Candidato, int j){
+candidatos* separaDataCandidatos(char* string, candidatos* Candidato, int j){
 	int cont = 0;
 	int i = 0;
 	int k = 0;
@@ -185,8 +235,30 @@ candidatos* separaData(char* string, candidatos* Candidato, int j){
 	return Candidato;
 }
 
+concursos* separaDataConcursos(char* string, concursos* Concurso, int j){
+	int cont = 0;
+	int i = 0;
+	int k = 0;
+
+	while(string[i] != '\0'){
+		if(string[i] == ' '){
+			cont++;
+		}
+		i++;
+		if(cont == 1){
+			if(string[i] != ' '){
+				Concurso[j].data_concurso[k] = string[i];
+			k++;
+			}
+		}
+	}
+	Concurso[j].data_concurso[k]='\0';
+
+	return Concurso;
+}
+
 //funcao para separar o cpf para a struct
-candidatos* separaCpf(char* string, candidatos* Candidato, int j){
+candidatos* separaCpfCandidatos(char* string, candidatos* Candidato, int j){
 	int cont = 0;
 	int i = 0;
 	int k = 0;
@@ -207,7 +279,7 @@ candidatos* separaCpf(char* string, candidatos* Candidato, int j){
 }
 
 //funcao para separar a linha de profissoes para a struct
-candidatos* separaProfissoes(char* string, candidatos* Candidato, int j){
+candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int j){
 	int cont = 0;
 	int i = 0;
 	int k = 0;
@@ -270,8 +342,6 @@ char* separaProfissoesPorParte(char* string, char* aux){
 	int cont = 0;
 	char* prof = (char*)malloc(tam * sizeof(char));
 
-	// printf("teste> %s\n", string);
-
 	for(i = 0; i < strlen(string); i++){
 		if(string[i] != ','){
 			prof[i] = string[i];
@@ -280,7 +350,6 @@ char* separaProfissoesPorParte(char* string, char* aux){
 		}
 	}
 	prof[i] = '\0';
-	// printf("cont: %d\n", cont);
 
 	return prof;
 }
