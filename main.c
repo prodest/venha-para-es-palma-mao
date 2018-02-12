@@ -38,6 +38,8 @@ void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
 void imprimeCandidatos(candidatos* Candidato, int qtd);
 void imprimeConcursos(concursos* Concurso, int qtd);
+concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos, int qtd_concursos);
+int comparaString(char* string1, char* string2);
 
 //funcao principal
 int main(void){
@@ -48,6 +50,9 @@ int main(void){
 	char linha[500];
 	char* cpf_busca = "";
 	FILE* arq;
+	// char* linha;
+
+	// linha = (char*)malloc(500 * sizeof(char));
 
 	// qtd_linhas_candidatos = TAM;
 	// qtd_linhas_concursos = TAM;
@@ -102,14 +107,16 @@ int main(void){
 	}
 
 	//imprimindo os dados coletados do arquivo e armazenados na struct candidatos.txt
-	//imprimeCandidatos(Candidato, qtd_linhas_candidatos);
-	//imprimeConcursos(Concurso, qtd_linhas_concursos);
+	// imprimeCandidatos(Candidato, qtd_linhas_candidatos);
+	// imprimeConcursos(Concurso, qtd_linhas_concursos);
 
 	cpf_busca = (char*)malloc(tam_cpf_busca * sizeof(char));
 
 	printf("Digite o cpf do candidato(ex: 162.936.277-84): ");
 	scanf(" %[^\n]", cpf_busca);
 	printf("cpf_busca: %s\n", cpf_busca);
+
+	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos, qtd_linhas_concursos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
@@ -390,4 +397,38 @@ concursos* alocaConcursos(concursos* Concurso, int qtd){
 	}
 
 	return Concurso;
+}
+
+concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos, int qtd_concursos){
+	int i = 0;
+	// int j = 0;
+	int cont = 0;
+
+	for(i = 0; i < qtd_candidatos; i++){
+		if( (comparaString(Candidato[i].cpf, cpf)) == 14){
+			printf("nome: %s\n", Candidato[i].nome);
+			cont++;
+			break;
+		}
+	}
+	if(cont == 0){
+		printf("Cpf não encontrado!\n");
+	}
+
+	return Concurso;
+}
+
+int comparaString(char* string1, char* string2){
+	int i = 0;
+	int j = 0;
+	int cont = 0;
+
+	for(i = 0; i < 15; i++){
+		if(string1[i] == string2[j]){
+			cont++;
+			j++;
+		}
+	}
+
+	return cont;
 }
