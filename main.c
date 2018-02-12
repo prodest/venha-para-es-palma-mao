@@ -38,8 +38,9 @@ void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
 void imprimeCandidatos(candidatos* Candidato, int qtd);
 void imprimeConcursos(concursos* Concurso, int qtd);
-concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos, int qtd_concursos);
+concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
 int comparaString(char* string1, char* string2);
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag);
 
 //funcao principal
 int main(void){
@@ -50,9 +51,6 @@ int main(void){
 	char linha[500];
 	char* cpf_busca = "";
 	FILE* arq;
-	// char* linha;
-
-	// linha = (char*)malloc(500 * sizeof(char));
 
 	// qtd_linhas_candidatos = TAM;
 	// qtd_linhas_concursos = TAM;
@@ -114,9 +112,9 @@ int main(void){
 
 	printf("Digite o cpf do candidato(ex: 162.936.277-84): ");
 	scanf(" %[^\n]", cpf_busca);
-	printf("cpf_busca: %s\n", cpf_busca);
+	printf("CPF Candidato: %s\n", cpf_busca);
 
-	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos, qtd_linhas_concursos);
+	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
@@ -399,14 +397,14 @@ concursos* alocaConcursos(concursos* Concurso, int qtd){
 	return Concurso;
 }
 
-concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos, int qtd_concursos){
+concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos){
 	int i = 0;
-	// int j = 0;
 	int cont = 0;
 
 	for(i = 0; i < qtd_candidatos; i++){
 		if( (comparaString(Candidato[i].cpf, cpf)) == 14){
-			printf("nome: %s\n", Candidato[i].nome);
+			printf("Nome Candidato: %s\n", Candidato[i].nome);
+			comparaProfissoes(Candidato, Concurso, 1000, i);
 			cont++;
 			break;
 		}
@@ -429,6 +427,22 @@ int comparaString(char* string1, char* string2){
 			j++;
 		}
 	}
+
+	return cont;
+}
+
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag){
+	int i = 0;
+	int cont = 0;
+
+	printf("|Órgãos\t\t|Código\t\t|Editais\n");
+	for(i = 0; i < qtd_concursos; i++){
+		if(comparaString(Candidato[flag].profissoes, Concurso[i].profissoes_concurso) > 10){
+			printf("%.9s   \t%.9s   \t%.15s\n", Concurso[i].nome_concurso, Concurso[i].data_concurso, Concurso[i].num_concurso);
+			cont++;
+		}
+	}
+	printf("\ncont_base: %d\n\n", cont);
 
 	return cont;
 }
