@@ -63,8 +63,8 @@ int main(void){
 	// qtd_linhas_concursos = TAM;
 	qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
 	qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
-	printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
-	printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
+	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
+	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
 
 	//alocando espaço para a minha estrutura que ira armazenar os dados do arquivo candidatos.txt
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
@@ -442,6 +442,7 @@ int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concur
 	int i = 0;
 	int cont = 0;
 
+	printf("Concursos Vigentes:\n");
 	printf("|Órgãos\t\t|Código\t\t|Editais\n");
 	for(i = 0; i < qtd_concursos; i++){
 		if(comparaString(Candidato[flag].profissoes, Concurso[i].profissoes_concurso) > 10){
