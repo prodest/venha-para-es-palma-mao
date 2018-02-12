@@ -60,7 +60,7 @@ while texto != '':
     i += 1
 
     if texto != '' :
-        # # # após a limpeza, corto o texto em partes novamente
+        # # # apos a limpeza, corto o texto em partes novamente
         informacoes = texto.split(" ", 3)
         list_prof = informacoes[3].split(",")
 

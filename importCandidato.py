@@ -65,6 +65,7 @@ while texto != '':
     print("salvando Candidato", i)
     i += 1
     if texto != '' :
+        # # # apos a limpeza, corto o texto em partes novamente
         informacoes = texto.split(" ", 4)
         list_prof = informacoes[4].split(",")
 

@@ -17,7 +17,7 @@ def candidato_list(request):
         if candidatos.filter(cpf=var_get_search).exists() : 
             candidatos = candidatos.filter(cpf=var_get_search)
             for elem in candidatos : 
-                concursos = Concurso.objects.filter(vagas=elem.profissao)
+                concursos.append(Concurso.objects.filter(vagas=elem.profissao)[0:50])
         else:
             verifica_concurso = True
     return render(request, url, {'concursos':concursos, 'verifica':verifica_concurso})
@@ -34,7 +34,7 @@ def concurso_list(request):
         if concursos.filter(codigo_curso=var_get_search).exists() :
             concursos = concursos.filter(codigo_curso=var_get_search)
             for elem in concursos : 
-                candidatos = Candidato.objects.filter(profissao=elem.vagas)
+                candidatos.append(Candidato.objects.filter(profissao=elem.vagas)[0:50])
         else:
             verifica_concurso = True
     return render(request, url, {'candidatos':candidatos, 'verifica':verifica_concurso})
