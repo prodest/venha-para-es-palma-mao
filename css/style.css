@@ -66,6 +66,7 @@ input[name='escolha'] {
     appearance: none;
     outline: none;
 }
+
 input[name='escolha']:after {
     font-family: Arial,Helvetica,sans-serif;
     display: inline-block;

@@ -72,3 +72,6 @@ O candidato será desclassifiado nas seguintes situações:
 1. Submeter um solução que não funcione; 
 2. Não cumprir os critérios presentes no seção **Avaliação**
 3. Plágio
+
+
+[![Build Status](https://travis-ci.org/magnoDev/venha-para-es-palma-mao.svg?branch=master)](https://travis-ci.org/magnoDev/venha-para-es-palma-mao)
