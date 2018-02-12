@@ -1,3 +1,10 @@
+/*Nome: Pablo dos Santos Garajau
+E-mail: rspablo97@gmail.comp
+Cel: (27) 9 95806863
+
+Obs.: Codigo feito para o ps da PRODEST*/
+
+//bibliotecas
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -110,7 +117,7 @@ int main(void){
 
 	cpf_busca = (char*)malloc(tam_cpf_busca * sizeof(char));
 
-	printf("Digite o cpf do candidato(ex: 162.936.277-84): ");
+	printf("Digite o cpf do candidato(ex: 177.666.000-14): ");
 	scanf(" %[^\n]", cpf_busca);
 	printf("CPF Candidato: %s\n", cpf_busca);
 
