@@ -32,6 +32,8 @@ candidatos* alocaCandidatos(candidatos* Candidato, int qtd);
 concursos* alocaConcursos(concursos* Concurso, int qtd);
 concursos* separaNomeConcursos(char* string, concursos* Concurso, int j);
 concursos* separaDataConcursos(char* string, concursos* Concurso, int j);
+concursos* separaNumConcursos(char* string, concursos* Concurso, int j);
+concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j);
 void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
 void imprimeCandidatos(candidatos* Candidato, int qtd);
@@ -92,6 +94,8 @@ int main(void){
 	while( fgets(linha, sizeof(linha), arq)!= NULL && i < qtd_linhas_concursos ){
 		separaNomeConcursos(linha, Concurso, i);
 		separaDataConcursos(linha, Concurso, i);
+		separaNumConcursos(linha, Concurso, i);
+		separaProfissoesConcursos(linha, Concurso, i);
 		i++;
 	}
 
@@ -278,6 +282,28 @@ candidatos* separaCpfCandidatos(char* string, candidatos* Candidato, int j){
 	return Candidato;
 }
 
+concursos* separaNumConcursos(char* string, concursos* Concurso, int j){
+	int cont = 0;
+	int i = 0;
+	int k = 0;
+
+	while(string[i] != '\0'){
+		if(string[i] == ' '){
+			cont++;
+		}
+		i++;
+		if(cont == 2){
+			if(string[i] != ' '){
+				Concurso[j].num_concurso[k] = string[i];
+			k++;
+			}
+		}
+	}
+	Concurso[j].num_concurso[k]='\0';
+
+	return Concurso;
+}
+
 //funcao para separar a linha de profissoes para a struct
 candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int j){
 	int cont = 0;
@@ -299,6 +325,28 @@ candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int 
 	Candidato[j].profissoes[k] = '\0';
 
 	return Candidato;
+}
+
+concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j){
+	int cont = 0;
+	int i = 0;
+	int k = 0;
+
+	while(string[i] != ']'){
+		if(string[i] == ' '){
+			cont++;
+		}
+		if(cont > 2){
+			if(string[i] != '['){
+				Concurso[j].profissoes_concurso[k] = string[i];
+				k++;
+			}
+		}
+		i++;
+	}
+	Concurso[j].profissoes_concurso[k] = '\0';
+
+	return Concurso;
 }
 
 candidatos* alocaCandidatos(candidatos* Candidato, int qtd){
@@ -333,23 +381,4 @@ concursos* alocaConcursos(concursos* Concurso, int qtd){
 	}
 
 	return Concurso;
-}
-
-//funcao que separa as linha de profissões por parte para cada candidato do arquivo candidatos.txt
-char* separaProfissoesPorParte(char* string, char* aux){
-	int i = 0;
-	int tam = 50;
-	int cont = 0;
-	char* prof = (char*)malloc(tam * sizeof(char));
-
-	for(i = 0; i < strlen(string); i++){
-		if(string[i] != ','){
-			prof[i] = string[i];
-		}else{
-			cont++;
-		}
-	}
-	prof[i] = '\0';
-
-	return prof;
 }
