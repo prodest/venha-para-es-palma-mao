@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+//definindo um tamanho máximo para os testes
 #define TAM 5
 
 //estrutura para armazenar meus dados lidos dos arquivos
@@ -13,6 +14,13 @@ typedef struct{
 	char* profissoes;
 } candidatos;
 
+//estrutura para alocar cada profissao
+typedef struct{
+	char* prof1;
+	char* prof2;
+	char* prof3;
+} cadaProfissao;
+
 //cabecalho das minhas funcoes
 int leQtdLinhasArq(char* arquivo);
 void limpa(candidatos* Candidato, int qtd);
@@ -21,7 +29,7 @@ char* separaData(char* string);
 char* separaCpf(char* string);
 char* separaProfissoes(char* string);
 void imprime(candidatos* Candidato, int qtd);
-char* separaProfissoesPorParte(char* string);
+//char* separaProfissoesPorParte(char* string);
 
 //funcao principal
 int main(void){
@@ -33,6 +41,7 @@ int main(void){
 	// qtd_linhas_candidatos = leQtdLinhasArq("candidatos.txt");
 	// qtd_linhas_concursos = leQtdLinhasArq("concursos.txt");
 
+	//alocando espaço para a minha estrutura que ira armazenar os dados do arquivo candidatos.txt
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
 	for(i = 0; i < qtd_linhas_candidatos; i++){
 		Candidato[i].nome = (char*)malloc(sizeof(char));
@@ -41,6 +50,7 @@ int main(void){
 		Candidato[i].profissoes = (char*)malloc(sizeof(char));
 	}
 
+	//abrindo arquivo candidatos.txt
 	arq = fopen("candidatos.txt", "r");
 	if(arq == NULL){
 		printf("Erro ao abrir o arquivo para leitura!\n");
@@ -48,6 +58,7 @@ int main(void){
 	}
 	i = 0;
 
+	//separando os dados do arquivo para a minha estrutura
 	while( fgets(linha, sizeof(linha), arq)!=NULL && i < qtd_linhas_candidatos ){
 		Candidato[i].nome = separaNome(linha);
 		Candidato[i].data = separaData(linha);
@@ -60,14 +71,17 @@ int main(void){
 	// printf("qtd_linhas_candidatos: %d\n", leQtdLinhasArq("candidatos.txt"));
 	// printf("qtd_linhas_concursos: %d\n", leQtdLinhasArq("concursos.txt"));
 
+	//imprimindo os dados coletados do arquivo e armazenados na struct -> candidatos.txt
 	imprime(Candidato, qtd_linhas_candidatos);
 
+	//dando um free na memoria apos o uso
 	limpa(Candidato, qtd_linhas_candidatos);
 	fclose(arq);
 	return 0;
 }
 
 //funcoes
+//essa funcao le a qtd de linhas de qualquer arquivo
 int leQtdLinhasArq(char* arquivo){
 	FILE* arq;
 	char ch;
@@ -89,6 +103,7 @@ int leQtdLinhasArq(char* arquivo){
 	return cont;
 }
 
+//funcao sem retorno para imprimir os dados armazenados na minha struct
 void imprime(candidatos* Candidato, int qtd){
 	int i;
 
@@ -97,11 +112,12 @@ void imprime(candidatos* Candidato, int qtd){
 		printf("data [%d]: %s\n", i+1, Candidato[i].data);
 		printf("cpf [%d]: %s\n", i+1, Candidato[i].cpf);
 		printf("profissoes [%d]: %s\n", i+1, Candidato[i].profissoes);
-		printf("prof1: %s\n", separaProfissoesPorParte(Candidato[i].profissoes));
+		//printf("prof1: %s\n", separaProfissoesPorParte(Candidato[i].profissoes));
 		printf("---------------------------------------\n");
 	}
 }
 
+//funcao que libera espaco de memoria apos o uso
 void limpa(candidatos* Candidato, int qtd){
 	int i = 0;
 
@@ -127,6 +143,7 @@ char* separaNome(char* string){
 	return aux;
 }
 
+//funcao para separar a data para a struct
 char* separaData(char* string){
 	int cont = 0, i = 0, j = 0, tam = 30;
 	char* aux = (char*)malloc(tam * sizeof(char));
@@ -146,6 +163,7 @@ char* separaData(char* string){
 	return aux;
 }
 
+//funcao para separar o cpf para a struct
 char* separaCpf(char* string){
 	int cont = 0, i = 0, j = 0, tam = 30;
 	char* aux = (char*)malloc(tam * sizeof(char));
@@ -165,6 +183,7 @@ char* separaCpf(char* string){
 	return aux;
 }
 
+//funcao para separar a linha de profissoes para a struct
 char* separaProfissoes(char* string){
 	int cont = 0, i = 0, j = 0, tam = 100;
 	char* aux = (char*)malloc(tam * sizeof(char));
@@ -186,15 +205,11 @@ char* separaProfissoes(char* string){
 	return aux;
 }
 
+//funcao que separa as linha de profissões por parte para cada candidato do arquivo candidatos.txt
 char* separaProfissoesPorParte(char* string){
-	int i = 0, tam = 80;
-	char* profissao1 = (char*)malloc(tam * sizeof(char));
+	int i = 0, j = 0, cont = 0, tam = 40;
 
-	while(string[i] != ',' && string[i] != '\0'){
-		profissao1[i] = string[i];
-		i++;
-	}
-	profissao1[i] = '\0';
+	
 
 	return profissao1;
 }
