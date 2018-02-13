@@ -19,6 +19,11 @@
                 </tbody>
              </table>
             </div>
+            <div class="row">
+                <ul class="pagination center-align">
+                    <?php include ("../control/paginationController.php"); ?>
+                </ul>
+            </div>
         </div>
     </body>
     <?php include ("footer.html"); ?>

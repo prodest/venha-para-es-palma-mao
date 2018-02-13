@@ -9,7 +9,7 @@
                     encaixam no perfil do concurso</p>
             </div>
             <div class="row">
-                <form action="concursosTable.php" method="POST">
+                <form action="concursosTable.php" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">description</i>
                         <input name="cod_concurso" id="cod_concurso" type="text" class="validate" required>

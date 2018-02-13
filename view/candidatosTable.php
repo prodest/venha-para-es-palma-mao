@@ -5,19 +5,24 @@
         <?php include ("navBar.html"); ?>
         <div class="container">
             <div class="row">
-            <table class="bordered highlight">
-                <thead>
-                <tr>
-                    <th>Órgão</th>
-                    <th>Edital</th>
-                    <th>Código do Concurso</th>
-                    <th>Lista de vagas</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php include ("../control/tableController.php"); ?>
-                </tbody>
-             </table>
+                <table class="bordered highlight">
+                    <thead>
+                    <tr>
+                        <th>Órgão</th>
+                        <th>Edital</th>
+                        <th>Código do Concurso</th>
+                        <th>Lista de vagas</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php include ("../control/tableController.php"); ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <ul class="pagination center-align">
+                    <?php include ("../control/paginationController.php"); ?>
+                </ul>
             </div>
         </div>
     </body>

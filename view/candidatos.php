@@ -9,7 +9,7 @@
                     encaixam no seu perfil</p>
             </div>
             <div class="row">
-                <form action="candidatosTable.php" method="POST">
+                <form action="candidatosTable.php" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">credit_card</i>
                         <input id="cpf" type="text" class="validate" name="cpf" required>

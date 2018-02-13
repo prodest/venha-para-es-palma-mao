@@ -12,24 +12,24 @@
             $this->listaDeVagas = $listaDeVagas;
         }
 
-        function getOrgao(){
+        public function getOrgao(){
             return $this->orgao;
         }
         
-        function getEdital(){
+        public function getEdital(){
             return $this->edital;
         }
 
-        function getCodigo(){
+        public function getCodigo(){
             return $this->codConcurso;
         }
 
-        function getListaDeVagasString(){
+        public function getListaDeVagasString(){
             $stringAux = substr($this->listaDeVagas, 1, strlen($this->listaDeVagas)-2);
             return $stringAux;
         }
 
-        function getListaDeVagas(){
+        public function getListaDeVagas(){
             $stringAux = substr($this->listaDeVagas, 1, strlen($this->listaDeVagas)-2);
             $list = explode(", ", $stringAux);
             return $list;
