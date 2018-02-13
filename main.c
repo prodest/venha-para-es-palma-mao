@@ -1,5 +1,5 @@
 /*Nome: Pablo dos Santos Garajau
-E-mail: rspablo97@gmail.comp
+E-mail: rspablo97@gmail.com
 Cel: (27) 9 95806863
 
 Obs.: Codigo feito para o ps da PRODEST*/
@@ -36,6 +36,12 @@ typedef struct{
 	char* prof3;
 } profissoes;
 
+typedef struct{
+	char* prof_concurso1;
+	char* prof_concurso2;
+	char* prof_concurso3;
+} profissoes_concursos;
+
 //cabecalho das minhas funcoes
 int leQtdLinhasArq(char* arquivo);
 candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j);
@@ -46,28 +52,29 @@ candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int 
 candidatos* alocaCandidatos(candidatos* Candidato, int qtd);
 concursos* alocaConcursos(concursos* Concurso, int qtd);
 profissoes* alocaProfissoes(profissoes* Profissao, int qtd);
+profissoes_concursos* alocaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd);
 
 concursos* separaNomeConcursos(char* string, concursos* Concurso, int j);
 concursos* separaDataConcursos(char* string, concursos* Concurso, int j);
 concursos* separaNumConcursos(char* string, concursos* Concurso, int j);
 concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j);
 profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candidato, int pont);
+profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concursos, concursos* Concurso, int pont);
 
 void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
+void limpaProfissoes(profissoes* Profissao, int qtd);
+void limpaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd);
 
 void imprimeCandidatos(candidatos* Candidato, int qtd);
 void imprimeConcursos(concursos* Concurso, int qtd);
+void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd);
+void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, int qtd);
 
 concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
 
 int comparaString(char* string1, char* string2);
 int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag);
-
-void limpaProfissoes(profissoes* Profissao, int qtd);
-void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd);
-
-
 
 //funcao principal
 int main(void){
@@ -90,6 +97,7 @@ int main(void){
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
 	concursos* Concurso = (concursos*)malloc(qtd_linhas_concursos * sizeof(concursos));
 	profissoes* Profissao = (profissoes*)malloc(qtd_linhas_candidatos * sizeof(profissoes));
+	profissoes_concursos* Prof_Concursos = (profissoes_concursos*)malloc(qtd_linhas_concursos * sizeof(profissoes_concursos));
 
 	//alocando os espaços na memoria para dados dos candidatos
 	alocaCandidatos(Candidato, qtd_linhas_candidatos);
@@ -99,6 +107,9 @@ int main(void){
 
 	//
 	alocaProfissoes(Profissao, qtd_linhas_candidatos);
+
+	//
+	alocaProfissoesConcursos(Prof_Concursos, qtd_linhas_concursos);
 
 	//abrindo arquivo candidatos.txt
 	arq = fopen("candidatos.txt", "r");
@@ -133,6 +144,7 @@ int main(void){
 		separaDataConcursos(linha, Concurso, i);
 		separaNumConcursos(linha, Concurso, i);
 		separaProfissoesConcursos(linha, Concurso, i);
+		separaConcursoPorPartes(Prof_Concursos, Concurso, i);
 		i++;
 	}
 
@@ -147,14 +159,14 @@ int main(void){
 	printf("CPF Candidato: %s\n", cpf_busca);
 
 	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
-	imprimeProfissaoCandidatoPorPartes(Profissao, qtd_linhas_candidatos);
+	imprimeProfissaoConcursosPorPartes(Prof_Concursos, qtd_linhas_concursos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
 	limpaCandidatos(Candidato, qtd_linhas_candidatos);
 	limpaProfissoes(Profissao, qtd_linhas_candidatos);
+	limpaProfissoesConcursos(Prof_Concursos, qtd_linhas_concursos);
 	free(cpf_busca);
-
 
 	fclose(arq);
 	return 0;
@@ -200,9 +212,20 @@ void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd){
 	int i = 0;
 
 	for(i = 0; i < qtd; i++){
-		printf("Candidato [%d]:\nprof1: %s\n", i+1, Profissao[i].prof1);
-		printf("prof2: %s\n", Profissao[i].prof2);
-		printf("prof3: %s\n\n", Profissao[i].prof3);
+		printf("Candidato [%d]:\nprof1: %s\ttam: %ld\n", i+1, Profissao[i].prof1, strlen(Profissao[i].prof1));
+		printf("prof2: %s\ttam: %ld\n", Profissao[i].prof2, strlen(Profissao[i].prof2));
+		printf("prof3: %s\ttam: %ld\n\n", Profissao[i].prof3, strlen(Profissao[i].prof3));
+	}
+}
+
+//
+void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		printf("Concurso [%d]:\nprof_concurso1: %s\t %ld\n", i+1, Prof_Concursos[i].prof_concurso1, strlen(Prof_Concursos[i].prof_concurso1));
+		printf("prof_concurso2: %s\t %ld\n", Prof_Concursos[i].prof_concurso2, strlen(Prof_Concursos[i].prof_concurso2));
+		printf("prof_concurso3: %s\t %ld\n\n", Prof_Concursos[i].prof_concurso3, strlen(Prof_Concursos[i].prof_concurso3));
 	}
 }
 
@@ -265,6 +288,21 @@ void limpaProfissoes(profissoes* Profissao, int qtd){
 		Profissao[i].prof3 = NULL;
 	}
 	free(Profissao);
+}
+
+//
+void limpaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		free(Prof_Concurso[i].prof_concurso1);
+		free(Prof_Concurso[i].prof_concurso2);
+		free(Prof_Concurso[i].prof_concurso3);
+		Prof_Concurso[i].prof_concurso1 = NULL;
+		Prof_Concurso[i].prof_concurso2 = NULL;
+		Prof_Concurso[i].prof_concurso3 = NULL;
+	}
+	free(Prof_Concurso);
 }
 
 //
@@ -461,6 +499,20 @@ profissoes* alocaProfissoes(profissoes* Profissao, int qtd){
 }
 
 //
+profissoes_concursos* alocaProfissoesConcursos(profissoes_concursos* Prof_Concursos, int qtd){
+	int i = 0;
+	int tam = 80;
+
+	for(i = 0; i < qtd; i++){
+		Prof_Concursos[i].prof_concurso1 = (char*)malloc(tam * sizeof(char));
+		Prof_Concursos[i].prof_concurso2 = (char*)malloc(tam * sizeof(char));
+		Prof_Concursos[i].prof_concurso3 = (char*)malloc(tam * sizeof(char));
+	}
+
+	return Prof_Concursos;
+}
+
+//
 concursos* alocaConcursos(concursos* Concurso, int qtd){
 	int i = 0;
 	int tam_nome_concurso = 10;
@@ -561,4 +613,38 @@ profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candida
 	Profissao[pont].prof3[k] = '\0';
 
 	return Profissao;
+}
+
+profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concursos, concursos* Concurso, int pont){
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	int flag = 0;
+	int cont = 0;
+
+	for(i = 0; Concurso[pont].profissoes_concurso[i] != '\0'; i++){
+		if(Concurso[pont].profissoes_concurso[i] == ','){
+			cont++;
+		}
+
+		if(cont == 0){
+			Prof_Concursos[pont].prof_concurso1[i] = Concurso[pont].profissoes_concurso[i];
+			flag++;
+		}else if(cont == 1){
+			if(Concurso[pont].profissoes_concurso[i] != ',' && Concurso[pont].profissoes_concurso[i] != '\0'){
+				Prof_Concursos[pont].prof_concurso2[j] = Concurso[pont].profissoes_concurso[i];
+				j++;
+			}
+		}else if(cont == 2){
+			if(Concurso[pont].profissoes_concurso[i] != ',' && Concurso[pont].profissoes_concurso[i] != '\0'){
+				Prof_Concursos[pont].prof_concurso3[k] = Concurso[pont].profissoes_concurso[i];
+				k++;
+			}
+		}
+	}
+	Prof_Concursos[pont].prof_concurso1[flag] = '\0';
+	Prof_Concursos[pont].prof_concurso2[j] = '\0';
+	Prof_Concursos[pont].prof_concurso3[k] = '\0';
+
+	return Prof_Concursos;
 }
