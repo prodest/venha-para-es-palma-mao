@@ -29,25 +29,45 @@ typedef struct{
 	char* profissoes_concurso;
 } concursos;
 
+//estrutura para armazenar as profissoes separadamente
+typedef struct{
+	char* prof1;
+	char* prof2;
+	char* prof3;
+} profissoes;
+
 //cabecalho das minhas funcoes
 int leQtdLinhasArq(char* arquivo);
 candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j);
 candidatos* separaDataCandidatos(char* string, candidatos* Candidato, int j);
 candidatos* separaCpfCandidatos(char* string, candidatos* Candidato, int j);
 candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int j);
+
 candidatos* alocaCandidatos(candidatos* Candidato, int qtd);
 concursos* alocaConcursos(concursos* Concurso, int qtd);
+profissoes* alocaProfissoes(profissoes* Profissao, int qtd);
+
 concursos* separaNomeConcursos(char* string, concursos* Concurso, int j);
 concursos* separaDataConcursos(char* string, concursos* Concurso, int j);
 concursos* separaNumConcursos(char* string, concursos* Concurso, int j);
 concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j);
+profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candidato, int pont);
+
 void limpaCandidatos(candidatos* Candidato, int qtd);
 void limpaConcursos(concursos* Concurso, int qtd);
+
 void imprimeCandidatos(candidatos* Candidato, int qtd);
 void imprimeConcursos(concursos* Concurso, int qtd);
+
 concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
+
 int comparaString(char* string1, char* string2);
 int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag);
+
+void limpaProfissoes(profissoes* Profissao, int qtd);
+void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd);
+
+
 
 //funcao principal
 int main(void){
@@ -69,12 +89,16 @@ int main(void){
 	//alocando espaço para a minha estrutura que ira armazenar os dados do arquivo candidatos.txt
 	candidatos* Candidato = (candidatos*)malloc(qtd_linhas_candidatos * sizeof(candidatos));
 	concursos* Concurso = (concursos*)malloc(qtd_linhas_concursos * sizeof(concursos));
+	profissoes* Profissao = (profissoes*)malloc(qtd_linhas_candidatos * sizeof(profissoes));
 
 	//alocando os espaços na memoria para dados dos candidatos
 	alocaCandidatos(Candidato, qtd_linhas_candidatos);
 
 	//alocando os espaços na memoria para dados dos concursos
 	alocaConcursos(Concurso, qtd_linhas_concursos);
+
+	//
+	alocaProfissoes(Profissao, qtd_linhas_candidatos);
 
 	//abrindo arquivo candidatos.txt
 	arq = fopen("candidatos.txt", "r");
@@ -91,6 +115,7 @@ int main(void){
 		separaDataCandidatos(linha, Candidato, i);
 		separaCpfCandidatos(linha, Candidato, i);
 		separaProfissoesCandidatos(linha, Candidato, i);
+		separaProfissoesPorPartes(Profissao, Candidato, i);
 		i++;
 	}
 
@@ -122,11 +147,14 @@ int main(void){
 	printf("CPF Candidato: %s\n", cpf_busca);
 
 	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
+	imprimeProfissaoCandidatoPorPartes(Profissao, qtd_linhas_candidatos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
 	limpaCandidatos(Candidato, qtd_linhas_candidatos);
+	limpaProfissoes(Profissao, qtd_linhas_candidatos);
 	free(cpf_busca);
+
 
 	fclose(arq);
 	return 0;
@@ -167,6 +195,18 @@ void imprimeCandidatos(candidatos* Candidato, int qtd){
 	}
 }
 
+//
+void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		printf("Candidato [%d]:\nprof1: %s\n", i+1, Profissao[i].prof1);
+		printf("prof2: %s\n", Profissao[i].prof2);
+		printf("prof3: %s\n\n", Profissao[i].prof3);
+	}
+}
+
+//
 void imprimeConcursos(concursos* Concurso, int qtd){
 	int i = 0;
 
@@ -195,6 +235,7 @@ void limpaCandidatos(candidatos* Candidato, int qtd){
 	free(Candidato);
 }
 
+//
 void limpaConcursos(concursos* Concurso, int qtd){
 	int i = 0;
 
@@ -211,6 +252,22 @@ void limpaConcursos(concursos* Concurso, int qtd){
 	free(Concurso);
 }
 
+//
+void limpaProfissoes(profissoes* Profissao, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		free(Profissao[i].prof1);
+		free(Profissao[i].prof2);
+		free(Profissao[i].prof3);
+		Profissao[i].prof1 = NULL;
+		Profissao[i].prof2 = NULL;
+		Profissao[i].prof3 = NULL;
+	}
+	free(Profissao);
+}
+
+//
 candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j){
 	int i = 0;
 
@@ -225,6 +282,7 @@ candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j){
 	return Candidato;
 }
 
+//
 concursos* separaNomeConcursos(char* string, concursos* Concurso, int j){
 	int i = 0;
 
@@ -370,6 +428,7 @@ concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j){
 	return Concurso;
 }
 
+//
 candidatos* alocaCandidatos(candidatos* Candidato, int qtd){
 	int i = 0;
 	int tam_nome = 30;
@@ -387,6 +446,21 @@ candidatos* alocaCandidatos(candidatos* Candidato, int qtd){
 	return Candidato;
 }
 
+//
+profissoes* alocaProfissoes(profissoes* Profissao, int qtd){
+	int i = 0;
+	int tam = 80;
+
+	for(i = 0; i < qtd; i++){
+		Profissao[i].prof1 = (char*)malloc(tam * sizeof(char));
+		Profissao[i].prof2 = (char*)malloc(tam * sizeof(char));
+		Profissao[i].prof3 = (char*)malloc(tam * sizeof(char));
+	}
+
+	return Profissao;
+}
+
+//
 concursos* alocaConcursos(concursos* Concurso, int qtd){
 	int i = 0;
 	int tam_nome_concurso = 10;
@@ -453,4 +527,38 @@ int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concur
 	printf("\ncont_base: %d\n\n", cont);
 
 	return cont;
+}
+
+profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candidato, int pont){
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	int flag = 0;
+	int cont = 0;
+
+	for(i = 0; Candidato[pont].profissoes[i] != '\0'; i++){
+		if(Candidato[pont].profissoes[i] == ','){
+			cont++;
+		}
+
+		if(cont == 0){
+			Profissao[pont].prof1[i] = Candidato[pont].profissoes[i];
+			flag++;
+		}else if(cont == 1){
+			if(Candidato[pont].profissoes[i] != ',' && Candidato[pont].profissoes[i] != '\0'){
+				Profissao[pont].prof2[j] = Candidato[pont].profissoes[i];
+				j++;
+			}
+		}else if(cont == 2){
+			if(Candidato[pont].profissoes[i] != ',' && Candidato[pont].profissoes[i] != '\0'){
+				Profissao[pont].prof3[k] = Candidato[pont].profissoes[i];
+				k++;
+			}
+		}
+	}
+	Profissao[pont].prof1[flag] = '\0';
+	Profissao[pont].prof2[j] = '\0';
+	Profissao[pont].prof3[k] = '\0';
+
+	return Profissao;
 }
