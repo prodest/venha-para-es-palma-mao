@@ -1,3 +1,63 @@
+## Bem vindo ao repositório do projeto venha para o es na palma da mao
+
+### Introdução
+
+Este repositório contém o código do sistema web, que foi desenvolvido em Python utilizando a framework Django, para a avaliação técnica do processo seletivo do projeto ES na palma da mão
+
+### Pré-Requisitos do Sistema
+* **Python >= 3.5.2**
+* **Virtualenv >= 15.0.2**
+* **Pip >= 8.1.2**
+* **python3-dev**
+
+
+### Processo de Instalação
+
+1. Faça o download do Código:
+ * [Download Zip](https://github.com/lukasg18/venha-para-es-palma-mao.git)
+ * Caso possua o git instalado, ao invés de baixar o zip, execute, em um terminal, o seguinte comnando na pasta onde desejar salvar o projeto:
+      
+		git clone https://github.com/lukasg18/venha-para-es-palma-mao.git
+
+2. Abra um terminal e vá até a pasta onde o projeto se econtra. 
+3. Crie um ambiente virtual na raiz do projeto executando o comando:
+
+		virtualenv --python=python3.5 myvenv
+
+4. Em seguida ative-o com o comando:
+
+		source myvenv/bin/activate
+
+6. Execute o comando:
+
+		pip install -r requirements.pip
+
+7. Para a criação de um usuário com direitos administrativos no sistema, execute o comando:
+
+		python3 manage.py createsuperuser 
+
+### Executando o projeto
+
+Para executar o projeto vá até a pasta 'raiz do projeto', com o ambiente virtual ativado, e execute o comando:
+
+    python3 manage.py runserver
+    
+O servidor estará disponível no endereço:
+
+    http://localhost:8000/
+
+
+## Considerações 
+
+### Para alterar o banco de dados
+
+1- Abra o arquivo settings.py localizado na pasta avaliacao/  
+2- Edite as variáveis das linhas 110 a 115
+
+
+
+###################################################################################
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
