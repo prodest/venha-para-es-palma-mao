@@ -77,12 +77,6 @@ WSGI_APPLICATION = 'avaliacao.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'espalma',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '123456',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432', # 8000 is default
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fyocwvpm',
