@@ -74,4 +74,4 @@ O candidato será desclassifiado nas seguintes situações:
 3. Plágio
 
 
-[![Build Status](https://travis-ci.org/magnoDev/venha-para-es-palma-mao.svg?branch=master)](https://travis-ci.org/magnoDev/venha-para-es-palma-mao)
+[![Build Status](https://travis-ci.org/magnoDev/venha-para-es-palma-mao.svg?branch=magno750781)](https://travis-ci.org/magnoDev/venha-para-es-palma-mao)
