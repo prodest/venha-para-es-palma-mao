@@ -1,4 +1,4 @@
-## Bem vindo ao repositório do projeto venha para o es na palma da mao
+## Bem vindo ao repositório do projeto venha para o ES na palma da mão
 
 ### Introdução
 
@@ -8,7 +8,6 @@ Este repositório contém o código do sistema web, que foi desenvolvido em Pyth
 * **Python >= 3.5.2**
 * **Virtualenv >= 15.0.2**
 * **Pip >= 8.1.2**
-* **python3-dev**
 
 
 ### Processo de Instalação
@@ -49,10 +48,36 @@ O servidor estará disponível no endereço:
 
 ## Considerações 
 
-### Para alterar o banco de dados
+### Arquitetura utilizada
 
-1- Abra o arquivo settings.py localizado na pasta avaliacao/  
-2- Edite as variáveis das linhas 110 a 115
+O django utiliza a arquitetura MVT: Model, Template e View. As Models sao as classes, cada classe do modelo se compara a uma tabela do banco de dados, e as instâncias destas classes, representam os registros destas tabelas. A camada é reposnsavel pela comunicaçao com a Model e a Template, cadastrando e tratando as informações recebidas. Templates é a camada que retorna a visão para o usuário do programa. Essa camada é composta por, HTML,CSS, javascript.
+As models se encontram no diretorio 'programa/models.py', as views em 'programa/views.py' e os templates em 'programa/templates/'
+
+### Decisao do Banco de Dados
+
+Para este projeto foi utilizado o banco PostgreSQL. O mesmo se encontra online, sendo possivel ser acessado em qualquer maquina atraves das configurações que se encontram no arquivo 'settings.py' dentro da pasta 'avaliacao'. Para a comunicação com o banco externo, foi utlizado o Psycopg, que é o adaptador de banco de dados PostgreSQL.
+
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fyocwvpm',
+        'USER': 'fyocwvpm',
+        'PASSWORD': 'XckV06wyMit55Cy4LxDKkCzhpB4uu1Zp',
+        'HOST': 'baasu.db.elephantsql.com',
+        'PORT': '5432', # 8000 is default
+Foi criado quatro tabelas no banco de dados, sendo elas: profissao, orgao, candidato e concurso.
+
+### Importando arquivos do arquivo para o banco de dados
+
+Dois algoritmos foram criados para importar os dois arquivos .txt para o banco de dados, sendo eles: importCandidato.py e importConcurso.py, ambos encontrados no diretório raiz do projeto. 
+
+### Integrações Adicionais
+
+Os diferenciais implementados no projeto são:
+1. Travis
+2. Qualidade do codigo SonnarQube
+3. Travis + SonnarQube
+4. Padrão de programação da tecnologia escolhida
+5. Utilizar Banco de Dados
+6. Clean Code
 
 
 
