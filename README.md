@@ -57,12 +57,7 @@ As models se encontram no diretorio 'programa/models.py', as views em 'programa/
 
 Para este projeto foi utilizado o banco PostgreSQL. O mesmo se encontra online, sendo possivel ser acessado em qualquer maquina atraves das configurações que se encontram no arquivo 'settings.py' dentro da pasta 'avaliacao'. Para a comunicação com o banco externo, foi utlizado o Psycopg, que é o adaptador de banco de dados PostgreSQL.
 
-	'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fyocwvpm',
-        'USER': 'fyocwvpm',
-        'PASSWORD': 'XckV06wyMit55Cy4LxDKkCzhpB4uu1Zp',
-        'HOST': 'baasu.db.elephantsql.com',
-        'PORT': '5432', # 8000 is default
+	'ENGINE': 'django.db.backends.postgresql_psycopg2'
 Foi criado quatro tabelas no banco de dados, sendo elas: profissao, orgao, candidato e concurso.
 
 ### Importando arquivos do arquivo para o banco de dados
@@ -72,12 +67,13 @@ Dois algoritmos foram criados para importar os dois arquivos .txt para o banco d
 ### Integrações Adicionais
 
 Os diferenciais implementados no projeto são:
-1. Travis
-2. Qualidade do codigo SonnarQube
+1. [Travis](https://travis-ci.org/lukasg18/venha-para-es-palma-mao)
+2. [Qualidade do codigo SonnarQube](https://sonarcloud.io/dashboard?id=lukasg18)
 3. Travis + SonnarQube
 4. Padrão de programação da tecnologia escolhida
 5. Utilizar Banco de Dados
 6. Clean Code
+7. [Wakatime](https://wakatime.com/@c5c52eda-9bed-4a7a-b1fd-98544474d827/projects/zzrynnmtog?start=2018-02-01&end=2018-02-14)
 
 
 
