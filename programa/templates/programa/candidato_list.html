@@ -1,0 +1,41 @@
+{% extends 'programa/base.html' %} 
+
+{% block content %} 
+<form class="navbar-form navbar-right post" action="." method="get">
+    <div class="input-group mb-3">
+        <input id="search_box" name="search_box" type="text" placeholder="Informe o CPF... Exemplo: 133.133.133-45" class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="btn  btn-outline-success form-control"><span class="glyphicon glyphicon-search"></span>enviar</button>
+        </div>
+    </div>
+</form>
+
+{% if verifica %}
+    <div class="alert alert-success" role="alert">
+        CPF nao existe!
+    </div>  
+{% endif %}
+
+    {% for list_aux in concursos %}
+        {% for con in list_aux %}
+            <div class="post">
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Orgão</th>
+                                <th scope="col">Edital</th>
+                                <th scope="col">Código do concurso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ con.orgao }}</th>
+                                <td>{{ con.edital }}</td>
+                                <td>{{ con.codigo_curso }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}        
+    {% endfor %}
+{% endblock %}

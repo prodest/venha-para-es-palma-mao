@@ -1,0 +1,28 @@
+dist: trusty
+sudo: false
+language: python
+python:
+- '3.4'
+
+jdk:
+- oraclejdk8
+
+addons:
+  sonarcloud:
+    organization: lukasg18
+    token:
+      secure: "$KEY"
+
+branches:
+  only:
+  - master
+  - lucas
+
+install:
+- pip install -r requeriments.pip
+
+script:
+# - cd wsgi/gde
+- python manage.py makemigrations
+- python manage.py migrate
+- sonar-scanner

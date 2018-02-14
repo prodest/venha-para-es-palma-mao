@@ -1,0 +1,24 @@
+{% extends 'programa/base.html' %} {% block content %}
+<div class="post">
+
+    <table class="table">
+        <thead class="table-success">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Data nascimento</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Profissao</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ candidatos.nome }}</th>
+                <td>{{ candidatos.data_nascimento }}</td>
+                <td>{{ candidatos.cpf }}</td>
+                <td>{{ candidatos.profissao }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

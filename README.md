@@ -1,3 +1,94 @@
+## Bem vindo ao repositório do projeto venha para o ES na palma da mão
+
+### Introdução
+
+Este repositório contém o código do sistema web, que foi desenvolvido em Python utilizando a framework Django, para a avaliação técnica do processo seletivo do projeto ES na palma da mão
+
+### Pré-Requisitos do Sistema
+* **Python >= 3.5.2**
+* **Virtualenv >= 15.0.2**
+* **Pip >= 8.1.2**
+
+
+### Processo de Instalação
+
+1. Faça o download do Código:
+ * [Download Zip](https://github.com/lukasg18/venha-para-es-palma-mao.git)
+ * Caso possua o git instalado, ao invés de baixar o zip, execute, em um terminal, o seguinte comnando na pasta onde desejar salvar o projeto:
+      
+		git clone https://github.com/lukasg18/venha-para-es-palma-mao.git
+
+2. Abra um terminal e vá até a pasta onde o projeto se econtra. 
+3. Crie um ambiente virtual na raiz do projeto executando o comando:
+
+		virtualenv --python=python3.5 myvenv
+
+4. Em seguida ative-o com o comando:
+
+		source myvenv/bin/activate
+
+5. Entre no diretorio:
+
+		cd venha-para-es-palma-mao/
+
+6. Execute o comando para instalar as depedencias do projeto:
+
+		pip install -r requeriments.pip
+
+7. Para a criação de um usuário com direitos administrativos no sistema, execute o comando:
+
+		python3 manage.py createsuperuser 
+
+### Executando o projeto
+
+Para executar o projeto vá para o dirtorio raiz, com o ambiente virtual ativado, e execute o comando:
+
+    python3 manage.py runserver
+    
+O servidor estará disponível no endereço:
+
+    http://localhost:8000/
+
+
+## Considerações 
+
+### Arquitetura utilizada
+
+O django utiliza a arquitetura MVT: Model, Template e View. As Models sao as classes, cada classe do modelo se compara a uma tabela do banco de dados, e as instâncias destas classes, representam os registros destas tabelas. A camada é reposnsavel pela comunicaçao com a Model e a Template, cadastrando e tratando as informações recebidas. Templates é a camada que retorna a visão para o usuário do programa. Essa camada é composta por, HTML,CSS, javascript.
+* **models se encontram no diretorio: 'programa/models.py'** 
+* **views em: 'programa/views.py'**  
+* **templates em: 'programa/templates/'**
+
+
+### Decisao do Banco de Dados
+
+Para este projeto foi utilizado o banco PostgreSQL. O mesmo se encontra online, sendo possivel ser acessado em qualquer maquina atraves das configurações que se encontram no arquivo 'settings.py' dentro da pasta 'avaliacao'. Para a comunicação com o banco externo, foi utlizado o Psycopg, que é o adaptador de banco de dados PostgreSQL.
+
+	'ENGINE': 'django.db.backends.postgresql_psycopg2'
+Foi criado quatro tabelas no banco de dados, sendo elas: profissao, orgao, candidato e concurso. As tablas do banco de dados, foram criadas em cima das classes criadas dentro de 'models.py'(dito no topico anterior). Após a criação das classes, um comando é executado, sendo ele: 
+
+	python3 manage.py migrate
+o mesmo é responsavel por criar as tabelas no banco de dados em cima das classes que se encontram em 'models.py'
+
+### Importando arquivos do arquivo para o banco de dados
+
+Dois algoritmos foram criados para importar os dois arquivos .txt para o banco de dados, sendo eles: importCandidato.py e importConcurso.py, ambos encontrados no diretório raiz do projeto.
+
+### Integrações Adicionais
+
+Os diferenciais implementados no projeto são:
+1. [Travis](https://travis-ci.org/lukasg18/venha-para-es-palma-mao)
+2. [Qualidade do codigo SonnarQube](https://sonarcloud.io/dashboard?id=lukasg94)
+3. Travis + SonnarQube
+4. Padrão de programação da tecnologia escolhida
+5. Utilizar Banco de Dados
+6. Clean Code(exceto testes)
+7. [Wakatime](https://wakatime.com/@c5c52eda-9bed-4a7a-b1fd-98544474d827/projects/zzrynnmtog?start=2018-02-01&end=2018-02-14)
+
+
+
+###################################################################################
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 

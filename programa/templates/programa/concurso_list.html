@@ -1,0 +1,40 @@
+{% extends 'programa/base.html' %} 
+
+{% block content %} 
+<form class="navbar-form navbar-right post" action="." method="get">
+    <div class="input-group mb-3">
+        <input id="search_box" name="search_box" type="text" placeholder="Informe o codigo do concurso... Exemplo: 133133133" class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="btn  btn-outline-success form-control"><span class="glyphicon glyphicon-search"></span>enviar</button>
+        </div>
+    </div>
+</form>
+{% if verifica %}
+    <div class="alert alert-success" role="alert">
+        Código do concurso não existe!
+    </div>  
+{% endif %}
+    {% for list_aux in candidatos %}
+        {% for cand in list_aux %}
+            <div class="post">
+
+                    <table class="table">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Data de nascimento</th>
+                                <th scope="col">CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ cand.nome }}</th>
+                                <td>{{ cand.data_nascimento }}</td>
+                                <td>{{ cand.cpf }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}        
+    {% endfor %}
+{% endblock %}

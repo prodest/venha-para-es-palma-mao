@@ -1,0 +1,13 @@
+{% extends 'programa/base.html' %} 
+
+{% block content %} 
+<div class="card post border-success mb-3">
+        <h5 class="card-header">Sistema de Pesquisa de Concursos</h5>
+        <div class="card-body">
+          <p class="card-text">Selecione uma das opções abaixo para realizar uma pesquisa</p>
+          <a class="post btn btn-outline-success btn-outline-primary btn-lg" href="{% url 'candidato_list' %}" role="button">Pesquisa pelo CPF</a>
+          <a class="post btn btn-outline-success btn-outline-primary btn-lg" href="{% url 'concurso_list' %}" role="button">Pesquisa pelo Código do Curso </a>
+        </div>
+      </div>
+
+{% endblock %}
