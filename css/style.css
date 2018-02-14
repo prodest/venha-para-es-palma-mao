@@ -1,6 +1,7 @@
-/* Efeitos do background gerado atraves do colorzilla.com
+/* Folha de estilo do background gerado atraves do colorzilla.com
 afim de causar o efeito gradiente de fundo, se preocupando
 que seja executado pelos principais navegadores existentes */
+
 body{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7b0d+0,ffa84c+100 */
     background: #ff7b0d; /* Old browsers */
@@ -10,8 +11,9 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', endColorstr='#ffa84c',GradientType=1 ); /* IE6-9 */
 }
 
-/* Efeitos e posicionamento da div inputMain
+/* Folha de estilo da div inputMain
 onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
+
 #inputMain{
     background-color:#FFE4B5;
     border:none;
@@ -23,7 +25,18 @@ onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
     box-shadow: 3px 2px 10px rgba(0,0,0,0.5);
 }
 
-/* Efeitos para o input search */
+/* Folha de estilo da div tabela */
+
+#tabela{
+    background-color:transparent;
+    border:none;
+    width:700px;
+    left:25%;
+    top:70%;
+    position:absolute;
+}
+
+/* Folha de estilo para o input search */
 #txtPesquisa{
     float:left;
     background-color:transparent;
@@ -35,12 +48,12 @@ onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
     width:350px;
 }
 
-/* Efeitos para a mensagem de 'Aguarde' */
+/* Folha de estilo para a div 'divCarregando' */
 #divCarregando{
     display: none;
     position: fixed;
     left: 45%;
-    top: 70%;
+    top: 65%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
@@ -49,7 +62,6 @@ onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
     font-weight: bold;
     font-size: 20px;
     text-shadow: 3px 2px 10px rgba(0,0,0,0.5);
-    font-weight: bold;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0,0,0,0.5);
     border-radius: 15px;
@@ -57,14 +69,14 @@ onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
     width: 120px;
 }
 
-/* Configuracao do posicionamento da div radiosMain
+/* Folha de estilo da div radiosMain
 onde se encontram o titulo e o input radio */
 #radiosMain{
     left:30%;
     top:25%;
     position:absolute;
 }
-/* Efeitos do tituloMain */
+/* Folha de estilo do tituloMain */
 #tituloMain{
     font-family: Arial,Helvetica,sans-serif; 
     color: rgba(255, 255, 255, 1.0);
@@ -79,7 +91,25 @@ onde se encontram o titulo e o input radio */
 }
 
 
-/* Efeitos do radio button */
+/* Folha de estilo para o botao de volta ao topo */
+
+#scrollup {
+    opacity:0.5;
+    width:50px;
+    height:50px;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    -webkit-transition:.150s;
+    transition:.150s;
+}
+ 
+#scrollup:hover {opacity:0.9;}
+
+
+/* Folha de estilo para o conjunto de radio button */
+
 input[name='escolha'] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -106,4 +136,39 @@ input[name='escolha']:checked:after {
     box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 255, 1.0);
     font-weight: bold;
+}
+
+/* Folha de estilo para a tabela com as informações solicitadas */
+
+table {
+    border-collapse: collapse;
+    border-color: rgba(255, 123, 13, 0.5);
+    margin-bottom: 3em;
+    width: 100%;
+    background: #fff;
+    box-shadow: 3px 2px 10px rgba(0,0,0,0.5);
+}
+td, th {
+    padding: 0.75em 1.5em;
+    text-align: left;
+}
+
+th {
+    background-color: #ffa84c;
+    font-weight: bold;
+    color: #fff;
+    font-family: Arial,Helvetica,sans-serif; 
+    font-size: 16px;
+    text-shadow: 3px 2px 10px rgba(0,0,0,0.5);
+    white-space: nowrap;
+}
+tbody th {
+	background-color: #ffa84c;
+}
+tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+}
+tbody tr:hover {
+    background-color: rgba(255,165,0,.3);
 }
