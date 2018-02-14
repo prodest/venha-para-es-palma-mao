@@ -1,60 +1,12 @@
+/*PROGRAMA QUE LE DOIS ARQUIVOS, UM COM OS CANDIDATOS E OUTRO COM OS CONCURSOS E RECEBE O CPF DE
+UM CANDIDATO RETORNANDO CASO ELE EXISTA NA BASE DE DADOS QUAIS OS CONCURSOS VIGENTES PARA O PERFIL
+DO CANDIDATO, OU SEJA, DE ACORDO COM AS PROFISSOES POR ELE ALMEJADA*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-
-typedef struct{
-	char* nome;
-	char* data;
-	char* cpf;
-	char* profissoes;
-} candidatos;
-
-typedef struct{
-	char* nome_concurso;
-	char* data_concurso;
-	char* num_concurso;
-	char* profissoes_concurso;
-} concursos;
-
-typedef struct{
-	char* prof1;
-	char* prof2;
-	char* prof3;
-} profissoes;
-
-typedef struct{
-	char* prof_concurso1;
-	char* prof_concurso2;
-	char* prof_concurso3;
-} profissoes_concursos;
-
-int leQtdLinhasArq(char* arquivo);
-candidatos* separaNomeCandidatos(char* string, candidatos* Candidato, int j);
-candidatos* separaDataCandidatos(char* string, candidatos* Candidato, int j);
-candidatos* separaCpfCandidatos(char* string, candidatos* Candidato, int j);
-candidatos* separaProfissoesCandidatos(char* string, candidatos* Candidato, int j);
-candidatos* alocaCandidatos(candidatos* Candidato, int qtd);
-concursos* alocaConcursos(concursos* Concurso, int qtd);
-profissoes* alocaProfissoes(profissoes* Profissao, int qtd);
-profissoes_concursos* alocaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd);
-concursos* separaNomeConcursos(char* string, concursos* Concurso, int j);
-concursos* separaDataConcursos(char* string, concursos* Concurso, int j);
-concursos* separaNumConcursos(char* string, concursos* Concurso, int j);
-concursos* separaProfissoesConcursos(char* string, concursos* Concurso, int j);
-profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candidato, int pont);
-profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concursos, concursos* Concurso, int pont);
-void limpaCandidatos(candidatos* Candidato, int qtd);
-void limpaConcursos(concursos* Concurso, int qtd);
-void limpaProfissoes(profissoes* Profissao, int qtd);
-void limpaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd);
-void imprimeCandidatos(candidatos* Candidato, int qtd);
-void imprimeConcursos(concursos* Concurso, int qtd);
-void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd);
-void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, int qtd);
-int busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
-int comparaString(char* string1, char* string2);
-int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag);
+#include "biblioteca.h"
 
 int main(void){
 	int i = 0;
@@ -114,12 +66,12 @@ int main(void){
 	scanf(" %[^\n]", cpf_busca);
 
 	i = busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
-	printf("%d\n", i);
 	if(i == -1){
 		printf("Cpf não encontrado!\n");
-		return 1;
 	}else{
 		printf("Nome: %s\n", Candidato[i].nome);
+		printf("Data de Nascimento: %s\n", Candidato[i].data);
+		printf("CPF: %s\n\n", Candidato[i].cpf);
 		comparaProfissoes(Candidato, Concurso, Prof_Concursos, Profissao, i);
 	}
 
