@@ -74,7 +74,7 @@ Dois algoritmos foram criados para importar os dois arquivos .txt para o banco d
 
 Os diferenciais implementados no projeto são:
 1. [Travis](https://travis-ci.org/lukasg18/venha-para-es-palma-mao)
-2. [Qualidade do codigo SonnarQube](https://sonarcloud.io/dashboard?id=lukasg18)
+2. [Qualidade do codigo SonnarQube](https://sonarcloud.io/dashboard?id=lukasg94)
 3. Travis + SonnarQube
 4. Padrão de programação da tecnologia escolhida
 5. Utilizar Banco de Dados
