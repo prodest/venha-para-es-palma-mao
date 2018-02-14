@@ -27,7 +27,7 @@ Este repositório contém o código do sistema web, que foi desenvolvido em Pyth
 
 		source myvenv/bin/activate
 
-6. Execute o comando:
+6. Execute o comando para instalar as depedencias do projeto:
 
 		pip install -r requirements.pip
 
@@ -51,18 +51,24 @@ O servidor estará disponível no endereço:
 ### Arquitetura utilizada
 
 O django utiliza a arquitetura MVT: Model, Template e View. As Models sao as classes, cada classe do modelo se compara a uma tabela do banco de dados, e as instâncias destas classes, representam os registros destas tabelas. A camada é reposnsavel pela comunicaçao com a Model e a Template, cadastrando e tratando as informações recebidas. Templates é a camada que retorna a visão para o usuário do programa. Essa camada é composta por, HTML,CSS, javascript.
-As models se encontram no diretorio 'programa/models.py', as views em 'programa/views.py' e os templates em 'programa/templates/'
+* **models se encontram no diretorio: 'programa/models.py'** 
+* **views em: 'programa/views.py'**  
+* **templates em: 'programa/templates/'**
+
 
 ### Decisao do Banco de Dados
 
 Para este projeto foi utilizado o banco PostgreSQL. O mesmo se encontra online, sendo possivel ser acessado em qualquer maquina atraves das configurações que se encontram no arquivo 'settings.py' dentro da pasta 'avaliacao'. Para a comunicação com o banco externo, foi utlizado o Psycopg, que é o adaptador de banco de dados PostgreSQL.
 
 	'ENGINE': 'django.db.backends.postgresql_psycopg2'
-Foi criado quatro tabelas no banco de dados, sendo elas: profissao, orgao, candidato e concurso.
+Foi criado quatro tabelas no banco de dados, sendo elas: profissao, orgao, candidato e concurso. As tablas do banco de dados, foram criadas em cima das classes criadas dentro de 'models.py'(dito no topico anterior). Após a criação das classes, um comando é executado, sendo ele: 
+
+	python3 manage.py migrate
+o mesmo é responsavel por criar as tabelas no banco de dados em cima das classes que se encontram em 'models.py'
 
 ### Importando arquivos do arquivo para o banco de dados
 
-Dois algoritmos foram criados para importar os dois arquivos .txt para o banco de dados, sendo eles: importCandidato.py e importConcurso.py, ambos encontrados no diretório raiz do projeto. 
+Dois algoritmos foram criados para importar os dois arquivos .txt para o banco de dados, sendo eles: importCandidato.py e importConcurso.py, ambos encontrados no diretório raiz do projeto.
 
 ### Integrações Adicionais
 
@@ -72,7 +78,7 @@ Os diferenciais implementados no projeto são:
 3. Travis + SonnarQube
 4. Padrão de programação da tecnologia escolhida
 5. Utilizar Banco de Dados
-6. Clean Code
+6. Clean Code(exceto testes)
 7. [Wakatime](https://wakatime.com/@c5c52eda-9bed-4a7a-b1fd-98544474d827/projects/zzrynnmtog?start=2018-02-01&end=2018-02-14)
 
 
