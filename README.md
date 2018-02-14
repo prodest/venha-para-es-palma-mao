@@ -27,9 +27,13 @@ Este repositório contém o código do sistema web, que foi desenvolvido em Pyth
 
 		source myvenv/bin/activate
 
+5. Entre no diretorio:
+
+		cd venha-para-es-palma-mao/
+
 6. Execute o comando para instalar as depedencias do projeto:
 
-		pip install -r requirements.pip
+		pip install -r requeriments.pip
 
 7. Para a criação de um usuário com direitos administrativos no sistema, execute o comando:
 
