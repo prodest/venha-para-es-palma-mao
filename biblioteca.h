@@ -104,7 +104,7 @@ void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, in
 //BUSCA SE O CPF ESTA NA BASE DE DADOS
 int busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
 
-//COMPARA STRING SPF
+//COMPARA STRING CPF
 int comparaString(char* string1, char* string2);
 
 //COMPARA PROFISSOES
