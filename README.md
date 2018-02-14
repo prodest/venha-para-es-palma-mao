@@ -37,7 +37,7 @@ Este repositório contém o código do sistema web, que foi desenvolvido em Pyth
 
 ### Executando o projeto
 
-Para executar o projeto vá até a pasta 'raiz do projeto', com o ambiente virtual ativado, e execute o comando:
+Para executar o projeto vá para o dirtorio raiz, com o ambiente virtual ativado, e execute o comando:
 
     python3 manage.py runserver
     
