@@ -71,10 +71,10 @@ void imprimeConcursos(concursos* Concurso, int qtd);
 void imprimeProfissaoCandidatoPorPartes(profissoes* Profissao, int qtd);
 void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, int qtd);
 
-concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
+int busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos);
 
 int comparaString(char* string1, char* string2);
-int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag);
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag);
 
 //funcao principal
 int main(void){
@@ -156,10 +156,21 @@ int main(void){
 
 	printf("Digite o cpf do candidato(ex: 177.666.000-14): ");
 	scanf(" %[^\n]", cpf_busca);
-	printf("CPF Candidato: %s\n", cpf_busca);
+	// printf("CPF Candidato: %s\n", cpf_busca);
 
-	busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
-	imprimeProfissaoConcursosPorPartes(Prof_Concursos, qtd_linhas_concursos);
+	i = busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
+	if(i == -1){
+		printf("Cpf não encontrado!\n");
+	}else{
+		printf("Nome: %s\n", Candidato[i].nome);
+	}
+
+	comparaProfissoes(Candidato, Concurso, Prof_Concursos, Profissao, i);
+	printf("%s\n", Candidato[i].profissoes);
+	// printf("import: %d\n", strcmp());
+
+	// printf("teste: %d\n\n", strcmp(Prof_Concursos[1].prof_concurso3, Profissao[1].prof3));
+	// imprimeProfissaoConcursosPorPartes(Prof_Concursos, qtd_linhas_concursos);
 
 	//dando um free na memoria apos o uso
 	limpaConcursos(Concurso, qtd_linhas_concursos);
@@ -167,6 +178,7 @@ int main(void){
 	limpaProfissoes(Profissao, qtd_linhas_candidatos);
 	limpaProfissoesConcursos(Prof_Concursos, qtd_linhas_concursos);
 	free(cpf_busca);
+
 
 	fclose(arq);
 	return 0;
@@ -223,7 +235,7 @@ void imprimeProfissaoConcursosPorPartes(profissoes_concursos* Prof_Concursos, in
 	int i = 0;
 
 	for(i = 0; i < qtd; i++){
-		printf("Concurso [%d]:\nprof_concurso1: %s\t %ld\n", i+1, Prof_Concursos[i].prof_concurso1, strlen(Prof_Concursos[i].prof_concurso1));
+		printf("Concurso [%d]\nprof_concurso1: %s\t %ld\n", i+1, Prof_Concursos[i].prof_concurso1, strlen(Prof_Concursos[i].prof_concurso1));
 		printf("prof_concurso2: %s\t %ld\n", Prof_Concursos[i].prof_concurso2, strlen(Prof_Concursos[i].prof_concurso2));
 		printf("prof_concurso3: %s\t %ld\n\n", Prof_Concursos[i].prof_concurso3, strlen(Prof_Concursos[i].prof_concurso3));
 	}
@@ -530,23 +542,24 @@ concursos* alocaConcursos(concursos* Concurso, int qtd){
 	return Concurso;
 }
 
-concursos* busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos){
+int busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_candidatos){
 	int i = 0;
 	int cont = 0;
+	int flag = 0;
 
 	for(i = 0; i < qtd_candidatos; i++){
 		if( (comparaString(Candidato[i].cpf, cpf)) == 14){
-			printf("Nome Candidato: %s\n", Candidato[i].nome);
-			comparaProfissoes(Candidato, Concurso, 1000, i);
 			cont++;
+			flag = i;
 			break;
 		}
 	}
-	if(cont == 0){
-		printf("Cpf não encontrado!\n");
-	}
 
-	return Concurso;
+	if(cont == 0){
+		return -1;
+	}else{
+		return flag;
+	}
 }
 
 int comparaString(char* string1, char* string2){
@@ -554,7 +567,7 @@ int comparaString(char* string1, char* string2){
 	int j = 0;
 	int cont = 0;
 
-	for(i = 0; i < 15; i++){
+	for(i = 0; string1[i] != '\0'; i++){
 		if(string1[i] == string2[j]){
 			cont++;
 			j++;
@@ -564,19 +577,41 @@ int comparaString(char* string1, char* string2){
 	return cont;
 }
 
-int comparaProfissoes(candidatos* Candidato, concursos* Concurso, int qtd_concursos, int flag){
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag){
 	int i = 0;
 	int cont = 0;
+	int lin = 0;
 
 	printf("Concursos Vigentes:\n");
 	printf("|Órgãos\t\t|Código\t\t|Editais\n");
-	for(i = 0; i < qtd_concursos; i++){
-		if(comparaString(Candidato[flag].profissoes, Concurso[i].profissoes_concurso) > 10){
-			printf("%.9s   \t%.9s   \t%.15s\n", Concurso[i].nome_concurso, Concurso[i].data_concurso, Concurso[i].num_concurso);
+	for(i = 0; i < 1000; i++){
+		if( (strcmp(Profissao[flag].prof1, Prof_Concursos[i].prof_concurso1)) == 0){
 			cont++;
+		}else if( (strcmp(Profissao[flag].prof1, Prof_Concursos[i].prof_concurso2)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof1, Prof_Concursos[i].prof_concurso3)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof2, Prof_Concursos[i].prof_concurso1)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof2, Prof_Concursos[i].prof_concurso2)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof2, Prof_Concursos[i].prof_concurso3)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof3, Prof_Concursos[i].prof_concurso1)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof3, Prof_Concursos[i].prof_concurso2)) == 0 ){
+			cont++;
+		}else if( (strcmp(Profissao[flag].prof3, Prof_Concursos[i].prof_concurso3)) == 0 ){
+			cont++;
+		}else if(cont > 0){
+			printf("%.9s   \t%.9s   \t%.15s\n", Concurso[i].nome_concurso, Concurso[i].data_concurso, Concurso[i].num_concurso);
+			cont = 0;
+			lin++;
+		}else{
+			cont = 0;
 		}
 	}
-	printf("\ncont_base: %d\n\n", cont);
+	printf("\nqtd: %d\n\n", lin);
 
 	return cont;
 }
