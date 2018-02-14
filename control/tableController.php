@@ -26,8 +26,8 @@
                 echo "<br><b>Volte e preencha o campo de busca corretamente !</b><br>";
             }
             else{
-                $concursosResult = $db->executeQuery("SELECT * FROM concursos");
-                $candidatosResult = $db->executeQuery("SELECT * FROM candidatos WHERE cpf = '{$_GET['cpf']}'");
+                $concursosResult = $db->executeQuery("SELECT * FROM concurso");
+                $candidatosResult = $db->executeQuery("SELECT * FROM candidato WHERE cpf = '{$_GET['cpf']}'");
                 if(count($candidatosResult)){
                     $candidato = new Candidato($candidatosResult['nome'], $candidatosResult['cpf'], 
                     $candidatosResult['data_nascimento'], $candidatosResult['profissoes']);
@@ -50,8 +50,8 @@
                 echo "<br><b>Volte e preencha o campo de busca corretamente !</b><br>";
             }
             else{
-                $concursosResult = $db->executeQuery("SELECT * FROM concursos WHERE cod_concurso = '{$_GET['cod_concurso']}'");
-                $candidatosResult = $db->executeQuery("SELECT * FROM candidatos");
+                $concursosResult = $db->executeQuery("SELECT * FROM concurso WHERE cod_concurso = '{$_GET['cod_concurso']}'");
+                $candidatosResult = $db->executeQuery("SELECT * FROM candidato");
                 if(count($concursosResult)){
                     $concurso = new Concurso($concursosResult['orgao'], $concursosResult['edital'], 
                     $concursosResult['cod_concurso'], $concursosResult['lista_de_vagas']);

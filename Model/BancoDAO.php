@@ -1,10 +1,10 @@
 <?php
     class BancoDAO{
 
-        private $HOST = "sql10.freesqldatabase.com:3306";
-        private $USERNAME = "sql10219733";
-        private $PASSWORD = "LkR4dH66iL";
-        private $DATABASE = "sql10219733";
+        private $HOST = "den1.mysql6.gear.host:3306";
+        private $USERNAME = "prodest";
+        private $PASSWORD = "Uy1i1-10B3-7";
+        private $DATABASE = "prodest";
         private $connection;
 
         function __construct(){

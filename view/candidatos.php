@@ -9,12 +9,15 @@
                     encaixam no seu perfil</p>
             </div>
             <div class="row">
-                <form action="candidatosTable.php" method="GET">
+                <form action="" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">credit_card</i>
                         <input id="cpf" type="text" class="validate" name="cpf" required>
                         <label for="cpf">CPF do candidato</label>
                     </div>
+                </div>
+                <div class="row">
+                    <?php include ("../control/cpfValidate.php"); ?>
                 </div>
                 <div class="row">
                     <button class="btn waves-effect waves-light" type="submit" name="entidade" value="candidato">Procurar
@@ -26,5 +29,5 @@
             </div>
         </div>
     </body>
-    <?php include ("footer.html"); ?>
+    <?php include ("footer.html");?>
 </html> 

@@ -38,12 +38,13 @@
         private function setCandidatoPagination(){
             $i = $this->inicio;
             $j = $i;
+        
             foreach ($this->candidatoResult->getProfissoes() as $prof){
                 while ($i < $this->limite && $j < count($this->concursoResult)){
-                    
+                    //Erro aparece apartir daqui
                     $concurso = new Concurso($this->concursoResult[$j]['orgao'], $this->concursoResult[$j]['edital'], 
                      $this->concursoResult[$j]['cod_concurso'], $this->concursoResult[$j]['lista_de_vagas']);
-
+                    
                     foreach ($concurso->getListaDeVagas() as $vaga){
                         if ($prof == $vaga){
                             echo "<tr>";

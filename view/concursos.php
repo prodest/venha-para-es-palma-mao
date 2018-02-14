@@ -9,12 +9,15 @@
                     encaixam no perfil do concurso</p>
             </div>
             <div class="row">
-                <form action="concursosTable.php" method="GET">
+                <form action="" method="GET">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">description</i>
-                        <input name="cod_concurso" id="cod_concurso" type="text" class="validate" required>
+                        <input name="cod_concurso" id="cod_concurso" type="tel" class="validate" required>
                         <label for="cod_concurso">Código do concurso</label>
                     </div>
+                </div>
+                <div class="row">
+                    <?php include ("../control/cdValidate.php"); ?>
                 </div>
                 <div class="row">
                     <button class="btn waves-effect waves-light" type="submit" name="entidade" value="concurso">Procurar
@@ -26,5 +29,5 @@
             </div>
         </div>
     </body>
-    <?php include ("footer.html"); ?>
+    <?php include ("footer.html");?>
 </html> 
