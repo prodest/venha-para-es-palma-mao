@@ -4,7 +4,14 @@
 - Persistência de dados: Estou utilizando [GearHost](https://www.gearhost.com/), um banco de dados MySQL gratuito e online. 
 
 # O que foi feito
-Primeiramente, foi preciso melhorar a padronização dos arquivos de dados. Pra isso, o **EXCEL** me ajudou bastante. Não queria fazer um código para fazer o que ele faz, com umas duas ferramentas do Excel, consegui padronizar os arquivos para um formato melhor. Com os arquivos padronizados, fiz a importação dos dados para o banco.
+Primeiramente, foi preciso melhorar a padronização dos arquivos de dados. Pra isso, o **EXCEL** me ajudou bastante. Não queria fazer um código para fazer o que ele faz, com umas duas ferramentas do Excel, consegui padronizar os arquivos para um formato melhor. Com os arquivos padronizados, fiz a importação dos dados para o banco. (imagem do aqruivo)
+
+Com o banco de dados pronto para uso, eu fiz todas as telas que seriam necessárias e testei a conexão com o banco via PHP.
+Depois disso eu fiz os arquivos que controlariam as tabela.
+
+Na hora de fazer a paginação eu dediquei um tempo especial, pois queria deixar ela da forma mais pratica possivel. Fiz um código que sempre exibirá a pagina que o usuário está no meio (imagem da paginação)
+
+Por último fiz a validação da entrada de dados do usuário. No caso do cpf, em específico, fiz com que o código aceitasse o formato padrão nnn.nnn.nnn-nn ou apenas os números nnnnnnnnnnn, sendo n um numero qualquer.
 
 # Teste para o projeto ES na Palma da mão
 
