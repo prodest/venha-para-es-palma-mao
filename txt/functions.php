@@ -97,13 +97,35 @@
     return $profissoes;
   }
 
-  function retira_caracter($str,$caracter){
+  function retira_caracter_invalido($str){
     $nova_palavra = "";
+    $pattern = '/[0-9a-zA-ZÀ-Úà-ú ]+/';
 
     for ($i=0; $i < strlen($str); $i++) {
-      if($str[$i] != $caracter){
+      if(preg_match($pattern, $str[$i])){
         $nova_palavra .= $str[$i];
       }
     }
     return $nova_palavra;
+  }
+
+  function retira_espaco_ini_fim($str){
+    $nova_palavra = "";
+
+    for ($i=0; $i < strlen($str); $i++) {
+      if(($i == 0 || $i == (strlen($str)-1)) && $str[$i] == ' ' ){
+        continue;
+      }
+      $nova_palavra .= $str[$i];
+    }
+    return $nova_palavra;
+  }
+
+  //considerei que os codigos são compostos apenas por numeros.
+  function retorna_codigo($vet){
+    foreach ($vet as $palavra) {
+      if(is_numeric($palavra)){
+        return $palavra;
+      }
+    }
   }

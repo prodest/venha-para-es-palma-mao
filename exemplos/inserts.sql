@@ -6,6 +6,12 @@ INSERT INTO `vaga_profissao`
 (`vaga_profissao_id`, `vaga_profissao_descricao_varchar`)
 VALUES (NULL, 'profissao');
 
-INSERT INTO `candidato_profissao`
-(`candidato_profissao_id`, `candidato_id`, `vaga_profissao_id`)
-VALUES (NULL, '3', '6');
+INSERT INTO `candidato_profissao` (`candidato_profissao_id`, `candidato_id`, `vaga_profissao_id`)
+VALUES (NULL, '1', '1'), (NULL, '1', '2');
+
+/* INSERT sem repetições */
+INSERT INTO `vaga_profissao`(`vaga_profissao_id`, `vaga_profissao_descricao_varchar`)
+    SELECT NULL, 'tecnico de futebol'
+    FROM DUAL
+    WHERE NOT EXISTS(SELECT `vaga_profissao_descricao_varchar` FROM `vaga_profissao`
+    WHERE `vaga_profissao_descricao_varchar` = 'tecnico de futebol');

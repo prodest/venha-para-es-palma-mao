@@ -1,107 +1,190 @@
--- MySQL Workbench Forward Engineering
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Tempo de geração: 15/02/2018 às 22:07
+-- Versão do servidor: 10.1.26-MariaDB
+-- Versão do PHP: 7.0.23
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- -----------------------------------------------------
--- Schema es_na_palma_da_mao
--- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Schema es_na_palma_da_mao
--- -----------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `es_na_palma_da_mao`
+--
 CREATE SCHEMA IF NOT EXISTS `es_na_palma_da_mao` DEFAULT CHARACTER SET utf8 ;
 USE `es_na_palma_da_mao` ;
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `es_na_palma_da_mao`.`candidato`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `es_na_palma_da_mao`.`candidato` (
-  `idcandidato` INT NOT NULL AUTO_INCREMENT,
-  `candidato_nome_varchar` VARCHAR(45) NOT NULL,
-  `candidato_nasciment_date` DATE NOT NULL,
-  `candidato_cpf_int` INT(11) NOT NULL,
-  PRIMARY KEY (`idcandidato`),
-  UNIQUE INDEX `idcandidato_UNIQUE` (`idcandidato` ASC),
-  UNIQUE INDEX `candidato_cpf_int_UNIQUE` (`candidato_cpf_int` ASC))
-ENGINE = InnoDB;
+--
+-- Estrutura para tabela `candidato`
+--
 
+CREATE TABLE IF NOT EXISTS `candidato` (
+  `candidato_id` int(11) NOT NULL,
+  `candidato_nome_varchar` varchar(45) NOT NULL,
+  `candidato_nascimento_date` date NOT NULL,
+  `candidato_cpf_varchar` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- -----------------------------------------------------
--- Table `es_na_palma_da_mao`.`concurso`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `es_na_palma_da_mao`.`concurso` (
-  `idconcurso` INT NOT NULL AUTO_INCREMENT,
-  `concurso_orgao_varchar` VARCHAR(45) NOT NULL,
-  `concurso_edital_varchar` VARCHAR(10) NOT NULL,
-  `concurso_codigo_int` INT(11) NOT NULL,
-  PRIMARY KEY (`idconcurso`),
-  UNIQUE INDEX `idconcurso_UNIQUE` (`idconcurso` ASC),
-  UNIQUE INDEX `concurso_codigo_int_UNIQUE` (`concurso_codigo_int` ASC))
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estrutura para tabela `candidato_profissao`
+--
 
--- -----------------------------------------------------
--- Table `es_na_palma_da_mao`.`vaga_profissao`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `es_na_palma_da_mao`.`vaga_profissao` (
-  `idvaga_profissao` INT NOT NULL AUTO_INCREMENT,
-  `vaga_profissao_descrição_varchar` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idvaga_profissao`),
-  UNIQUE INDEX `idvaga_profissao_UNIQUE` (`idvaga_profissao` ASC),
-  UNIQUE INDEX `vaga_profissao_descrição_varchar_UNIQUE` (`vaga_profissao_descrição_varchar` ASC))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `candidato_profissao` (
+  `candidato_profissao_id` int(11) NOT NULL,
+  `candidato_id` int(11) NOT NULL,
+  `vaga_profissao_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `es_na_palma_da_mao`.`candidato_profissao`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `es_na_palma_da_mao`.`candidato_profissao` (
-  `idcandidato_profissao` INT NOT NULL AUTO_INCREMENT,
-  `candidato_id` INT NOT NULL,
-  `vaga_profissao_id` INT NOT NULL,
-  PRIMARY KEY (`idcandidato_profissao`),
-  UNIQUE INDEX `idcandidato_profissao_UNIQUE` (`idcandidato_profissao` ASC),
-  INDEX `fk_candidato_profissao_candidato_idx` (`candidato_id` ASC),
-  INDEX `fk_candidato_profissao_vaga_profissao1_idx` (`vaga_profissao_id` ASC),
-  CONSTRAINT `fk_candidato_profissao_candidato`
-    FOREIGN KEY (`candidato_id`)
-    REFERENCES `es_na_palma_da_mao`.`candidato` (`idcandidato`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_candidato_profissao_vaga_profissao1`
-    FOREIGN KEY (`vaga_profissao_id`)
-    REFERENCES `es_na_palma_da_mao`.`vaga_profissao` (`idvaga_profissao`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Estrutura para tabela `concurso`
+--
 
+CREATE TABLE IF NOT EXISTS `concurso` (
+  `concurso_id` int(11) NOT NULL,
+  `concurso_orgao_varchar` varchar(45) NOT NULL,
+  `concurso_edital_varchar` varchar(10) NOT NULL,
+  `concurso_codigo_varchar` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- -----------------------------------------------------
--- Table `es_na_palma_da_mao`.`concurso_vaga`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `es_na_palma_da_mao`.`concurso_vaga` (
-  `idconcurso_vaga` INT NOT NULL AUTO_INCREMENT,
-  `vaga_profissao_id` INT NOT NULL,
-  `concurso_id` INT NOT NULL,
-  PRIMARY KEY (`idconcurso_vaga`),
-  UNIQUE INDEX `idconcurso_vaga_UNIQUE` (`idconcurso_vaga` ASC),
-  INDEX `fk_concurso_vaga_vaga_profissao1_idx` (`vaga_profissao_id` ASC),
-  INDEX `fk_concurso_vaga_concurso1_idx` (`concurso_id` ASC),
-  CONSTRAINT `fk_concurso_vaga_vaga_profissao1`
-    FOREIGN KEY (`vaga_profissao_id`)
-    REFERENCES `es_na_palma_da_mao`.`vaga_profissao` (`idvaga_profissao`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_concurso_vaga_concurso1`
-    FOREIGN KEY (`concurso_id`)
-    REFERENCES `es_na_palma_da_mao`.`concurso` (`idconcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estrutura para tabela `concurso_vaga`
+--
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+CREATE TABLE IF NOT EXISTS `concurso_vaga` (
+  `concurso_vaga_id` int(11) NOT NULL,
+  `vaga_profissao_id` int(11) NOT NULL,
+  `concurso_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `vaga_profissao`
+--
+
+CREATE TABLE IF NOT EXISTS `vaga_profissao` (
+  `vaga_profissao_id` int(11) NOT NULL,
+  `vaga_profissao_descricao_varchar` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `candidato`
+--
+ALTER TABLE `candidato`
+  ADD PRIMARY KEY (`candidato_id`),
+  ADD UNIQUE KEY `candidato_id_UNIQUE` (`candidato_id`),
+  ADD UNIQUE KEY `candidato_cpf_varchar_UNIQUE` (`candidato_cpf_varchar`);
+
+--
+-- Índices de tabela `candidato_profissao`
+--
+ALTER TABLE `candidato_profissao`
+  ADD PRIMARY KEY (`candidato_profissao_id`),
+  ADD UNIQUE KEY `candidato_profissao_id_UNIQUE` (`candidato_profissao_id`),
+  ADD UNIQUE KEY `uk_candidato_profissao` (`candidato_id`,`vaga_profissao_id`),
+  ADD KEY `fk_candidato_profissao_candidato_idx` (`candidato_id`),
+  ADD KEY `fk_candidato_profissao_vaga_profissao1_idx` (`vaga_profissao_id`);
+
+--
+-- Índices de tabela `concurso`
+--
+ALTER TABLE `concurso`
+  ADD PRIMARY KEY (`concurso_id`),
+  ADD UNIQUE KEY `concurso_id_UNIQUE` (`concurso_id`),
+  ADD UNIQUE KEY `concurso_codigo_varchar_UNIQUE` (`concurso_codigo_varchar`);
+
+--
+-- Índices de tabela `concurso_vaga`
+--
+ALTER TABLE `concurso_vaga`
+  ADD PRIMARY KEY (`concurso_vaga_id`),
+  ADD UNIQUE KEY `concurso_vaga_id_UNIQUE` (`concurso_vaga_id`),
+  ADD UNIQUE KEY `uk_concurso_vaga` (`concurso_id`,`vaga_profissao_id`),
+  ADD KEY `fk_concurso_vaga_vaga_profissao1_idx` (`vaga_profissao_id`),
+  ADD KEY `fk_concurso_vaga_concurso1_idx` (`concurso_id`);
+
+--
+-- Índices de tabela `vaga_profissao`
+--
+ALTER TABLE `vaga_profissao`
+  ADD PRIMARY KEY (`vaga_profissao_id`),
+  ADD UNIQUE KEY `vaga_profissao_id_UNIQUE` (`vaga_profissao_id`),
+  ADD UNIQUE KEY `vaga_profissao_descricao_varchar_UNIQUE` (`vaga_profissao_descricao_varchar`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `candidato`
+--
+ALTER TABLE `candidato`
+  MODIFY `candidato_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `candidato_profissao`
+--
+ALTER TABLE `candidato_profissao`
+  MODIFY `candidato_profissao_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `concurso`
+--
+ALTER TABLE `concurso`
+  MODIFY `concurso_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `concurso_vaga`
+--
+ALTER TABLE `concurso_vaga`
+  MODIFY `concurso_vaga_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `vaga_profissao`
+--
+ALTER TABLE `vaga_profissao`
+  MODIFY `vaga_profissao_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para dumps de tabelas
+--
+
+--
+-- Restrições para tabelas `candidato_profissao`
+--
+ALTER TABLE `candidato_profissao`
+  ADD CONSTRAINT `fk_candidato_profissao_candidato` FOREIGN KEY (`candidato_id`) REFERENCES `candidato` (`candidato_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_candidato_profissao_vaga_profissao1` FOREIGN KEY (`vaga_profissao_id`) REFERENCES `vaga_profissao` (`vaga_profissao_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para tabelas `concurso_vaga`
+--
+ALTER TABLE `concurso_vaga`
+  ADD CONSTRAINT `fk_concurso_vaga_concurso1` FOREIGN KEY (`concurso_id`) REFERENCES `concurso` (`concurso_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_concurso_vaga_vaga_profissao1` FOREIGN KEY (`vaga_profissao_id`) REFERENCES `vaga_profissao` (`vaga_profissao_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
