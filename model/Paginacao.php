@@ -39,12 +39,12 @@
         }
 
         private function setCandidatoPagination(){
-            $i = $this->inicio;
-            $j = $i;
-        
+            
             foreach ($this->candidatoResult->getProfissoes() as $prof){
+                $i = $this->inicio;
+                $j = $i;
                 while ($i < $this->limite && $j < count($this->concursoResult)){
-                    //Erro aparece apartir daqui
+    
                     $concurso = new Concurso($this->concursoResult[$j]['orgao'], $this->concursoResult[$j]['edital'], 
                      $this->concursoResult[$j]['cod_concurso'], $this->concursoResult[$j]['lista_de_vagas']);
                     
@@ -66,9 +66,10 @@
         }
 
         private function setConcursoPagination(){
-            $i = $this->inicio;
-            $j = $i;
+
             foreach ($this->concursoResult->getListaDeVagas() as $vaga){
+                $i = $this->inicio;
+                $j = $i;
                 while ($i < $this->limite && $j < count($this->candidatoResult)){
                     
                     $candidato = new Candidato($this->candidatoResult[$j]['nome'], $this->candidatoResult[$j]['cpf'],
