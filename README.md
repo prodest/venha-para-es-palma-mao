@@ -1,3 +1,11 @@
+# Tecnologias escolhidas
+- Back-end: foi escolhido **PHP**, pelo falo de ser uma aplicação pequena e simples. O PHP me serviu muito bem, por ser simples e versátil
+- Font-end: HTML com [Materializecss](http://materializecss.com/)
+- Persistência de dados: Estou utilizando [GearHost](https://www.gearhost.com/), um banco de dados MySQL gratuito e online. 
+
+# O que foi feito
+Primeiramente, foi preciso melhorar a padronização dos arquivos de dados. Pra isso, o **EXCEL** me ajudou bastante. Não queria fazer um código para fazer o que ele faz, com umas duas ferramentas do Excel, consegui padronizar os arquivos para um formato melhor. Com os arquivos padronizados, fiz a importação dos dados para o banco.
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
