@@ -1,7 +1,7 @@
 <?php
     
     include ("functions.php");
-
+    /*Código que validará a entrada de dados do Código de Concurso*/
     if(isset($_GET['cod_concurso'])){
         
         $cd = $_GET['cod_concurso'];

@@ -1,5 +1,6 @@
 <?php
 
+    /*Arquivo que que cria as variaveis para serem exibidas na paginação*/ 
     require_once("../model/Concurso.php");
     require_once("../model/BancoDAO.php");
     require_once("../model/Candidato.php");

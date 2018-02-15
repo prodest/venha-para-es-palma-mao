@@ -2,15 +2,16 @@
     require_once('Candidato.php');
     require_once('Concurso.php');
 
+    /*Classe responsavél por colocar na tabela os dados correspondentes à pesquisa (E dentro da paginação)*/
     class Paginacao{
 
-        private $concursoResult;  
-        private $candidatoResult; 
-        private $entidade;
-        private $pagina;
-        private $inicio;
-        private $limite;
-        private $intervalo = 10;
+        private $concursoResult;        //Armazenará os resultados da consulta dos concursos
+        private $candidatoResult;       //Armazenará os resultados da consulta dos candidatos
+        private $entidade;              //Define em quem será 'controlado'
+        private $pagina;                //Pagina atual
+        private $inicio;                //Indice de inicio da listagem na tabela (De algum dos resultados)
+        private $limite;                //Indice de final da listagem na tabela (De algum dos resultados)
+        private $intervalo = 10;        //Quantidade máxima de linhas que a tabela terá
 
         function __construct($candidatoResult, $concursoResult, $entidade, $pagina){
             $this->candidatoResult = $candidatoResult;
@@ -18,6 +19,7 @@
             $this->entidade = $entidade;
             $this->pagina = $pagina;
 
+            /*Dessa forma se define o inicio e final da listagem dependendo da pagina que está*/
             $this->inicio = ($pagina-1) * $this->intervalo;
             $this->limite = $this->inicio + $this->intervalo;
         }
@@ -26,6 +28,7 @@
             return $this->intervalo;
         }
 
+        /*Principal funcao de controle, depende da entidade. Cada entidade chamará uma funcao de controle*/
         public function setPagination(){
             if ($this->entidade == "candidato"){
                 $this->setCandidatoPagination();
