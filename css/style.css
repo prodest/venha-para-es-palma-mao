@@ -31,7 +31,7 @@ onde se encontram o input search e o 'botao' de pesquisa (imagem da lupa) */
     background-color:transparent;
     border:none;
     width:700px;
-    left:25%;
+    left:23%;
     top:70%;
     position:absolute;
 }
@@ -95,8 +95,8 @@ onde se encontram o titulo e o input radio */
 
 #scrollup {
     opacity:0.5;
-    width:50px;
-    height:50px;
+    width:70px;
+    height:70px;
     position:fixed;
     bottom:50px;
     right:100px;
@@ -152,7 +152,6 @@ td, th {
     padding: 0.75em 1.5em;
     text-align: left;
 }
-
 th {
     background-color: #ffa84c;
     font-weight: bold;
