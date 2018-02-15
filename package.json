@@ -1,0 +1,22 @@
+{
+    "author": "Magno Macedo <magno_macedo2099@hotmail.com>",
+    "name": "travis-ci-Venha-Para-ES-Palma-Mao",
+    "description": "Configuração de arquivo de teste para o travis com javascript",
+    "version": "0.0.0",
+    "homepage": "https://travis-ci.org/magnoDev/venha-para-es-palma-mao",
+    "main": "index.hml",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/magnoDev/venha-para-es-palma-mao.git"
+    },
+    "scripts": {
+        "teste" : "jshint js/main.js"
+    },
+    "engines": {
+        "node": ">= 0.4"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "jshint" : "^2.9.5"
+    }
+}
