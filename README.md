@@ -1,74 +1,45 @@
 # Teste para o projeto ES na Palma da mão
 
-O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
-1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
-2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
+**Autor**: Magno Macedo de Oliveira
 
-O arquivo **candidatos.txt** contém as informações dos candidatos:
+**Nome do programa**: Morpheus System
 
-| Nome  | Data de Nascimento  | CPF |  Profissões|
-|---|---|---|---|
-| Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
-| Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
-| Cory Mendoza |   11/02/1957 |  565.512.353-92  |  [carpinteiro, marceneiro] |
+**Ferramentas utulizadas**
 
-O arquivo **concursos.txt** contém as informações dos concursos públicos:
+- HTML5
+- CSS3
+- jQuery
+- JSON
+- NodeJS, apenas para:
+    * Gerar um serviço HTTP:
+        + Foi feito a instalação do http-server 'npm install http-server -g' (sem aspas), para rodar um serviço simples HTTP;
+            - Para excutar o serviço é só digitar o seguinte comando 'http-server . -p 8000' (sem aspas);
+    * E auxiliar na integração com o Travis:
+        + Instalação do jshint 'npm install jshint --save-dev';
+        + E configuração do '.travis.yml' e o 'package.json'.
 
-| Órgão  | Edital  | Código do Concurso |  Lista de vagas|
-|---|---|---|---|
-| SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
-| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
-| SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
+**OBS**: A solução em si foi desenvolvida com o jQuery + JSON, utilizando do HTML5 e CSS3 para a criação e personalização da interface.
 
-**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+**Restrições**
 
-Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+- Necessário utilizar:
+    * Chrome, recomenda-se versão 62.0.3202.94 ou superior;
+    * Ou Firefox, recomenda-se versão 58.0.2 ou superior.
+- Testes realizados com o Interner Explorer demostraram problemas no carregamento de elementos essenciais para a interface. 
 
-**É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
+**Como funciona**
 
-Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
-1. Documentação da solução;
-2. Lista dos diferenciais implementados
-3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
+A ideia foi criar uma tela onde o usuário escolhe se a pesquisa será feita através do candidato ou através do concurso. Uma vez selecionado a opção, é solicitado que ele informe o CPF do candidato ou o código do concurso, logo em seguida ele deve clicar no botão de pesquisa (lupa) e assim aguardar o sistema fazer o levantamento, e entrega, das informações requeridas.
 
-## Avaliação
+A escolha por utilizar ferramentas voltas a web, em especial à front-end, foi devido a facilidade de uso e a possibilidade de montar uma interface mais convidativa ao usuário.
 
-O programa será avaliado levando em conta os seguintes critérios:
+Destaca-se a utilização de jQuery que demostrou amplo e eficaz, tanto na interação da tela quanto na mamipulação dos dados, e o tratamento feito com os arquivos .txt para gerar os aquivos .json que facilitaram, bastante, na busca pelas informações contidas.
 
-| Critério  | Valor | 
-|---|---|
-| Legibilidade do Código |  10  |
-| Documentação do código|  10  |
-| Documentação da solução|  10  |
-| Tratamento de Erros| 10| 
-| Total| 40|
+**OBS**: Analisando os CPFs dos candidatos registrados foi detectado que não passavam no teste da soma dos numeros. Logo está sendo considerado CPF válido qualquer sequência numérica que possuir 11 digitos.
 
-A pontuação do candidato será a soma dos valores obtidos nos critérios acima.
+- **Link do projeto no [WakaTime](https://wakatime.com/@0d7e8590-bea0-4c4e-837f-8b6284e3befc/projects/sunbofxesw?start=2018-02-09&end=2018-02-15).**  
 
 ## Diferenciais 
 
-O candidato pode aumentar a sua pontuação na seleção implementando um ou mais dos itens abaixo:
-
-| Item  | Pontos Ganhos | 
-|---|---|
-| Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
-| Utilizar banco de dados| 30|
-| Implementar Clean Code |  20  |
-| Implementar o padrão de programação da tecnologia escolhida |  20  |
-| Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |
-| Implementar testes unitários |  15  |
-| Implementar testes comportamentais |  15  |
-| Implementar integração com [Travis](https://travis-ci.org/)  |  10  |
-| Implementar integração com Travis + SonarQube |  10  |
-| Implementar usando Docker| 5|
-| Total| 170|
-
-A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
-
-## Penalizações
-
-O candidato será desclassifiado nas seguintes situações:
-
-1. Submeter um solução que não funcione; 
-2. Não cumprir os critérios presentes no seção **Avaliação**
-3. Plágio
+- **Integração com o Travis**
+[![Build Status](https://travis-ci.org/magnoDev/venha-para-es-palma-mao.svg?branch=magno750781)](https://travis-ci.org/magnoDev/venha-para-es-palma-mao)

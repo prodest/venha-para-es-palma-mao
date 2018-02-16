@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <title>Morpheus System</title>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" type = "text/css" media = "screen" href = "css/style.css" />
+        <script type = "text/javascript" src = "js/jquery-3.3.1.min.js"></script>
+        <script type = "text/javascript" src = "js/jquery.mask.js"></script>
+        <script type = "text/javascript" src = "js/main.js"></script>
+    </head>
+    <body>
+        
+        <div id = "radiosMain">
+            <label id = "tituloMain">Olá!</label>
+            <br>
+            <label id = "tituloMain">Escolha se deseja pesquisar por:</label>
+            <div id = "inputRadios">
+                <input type = "radio" name = "escolha" value = "candidato" data-icon = 'Candidato' data-placeholder = "Informe o CPF do candidato..."/>
+                <input type = "radio" name = "escolha" value = "concurso" data-icon = 'Concurso' data-placeholder = "Informe o Código do concurso..."/>
+            </div>
+        </div>
+        
+        <div id = "inputMain">
+            <input type = "search" id = "txtPesquisa" placeholder = "Selecione Candidato ou Concurso..." disabled/>
+            <input type = "image" id = "btnBusca" src = "imagens/search.png" alt = "clique aqui para fazer a pesquisa"/>
+        </div>
+        
+        <div id = "info"></div>
+
+        <div id = "tabela"></div>
+        
+        <div id = "divCarregando">
+                <br>
+                <span>Aguarde...</span>
+        </div>
+
+        <input type = "image" id = "scrollup" src = "imagens/square-arrow.png" alt = "voltar ao topo"/>
+    
+    </body>
+</html>
