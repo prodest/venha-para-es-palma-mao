@@ -531,14 +531,14 @@ profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concurs
 //
 int buscaCodigoConcurso(concursos* Concurso, char* num_concurso, int qtd){
 	int i = 0;
+	printf("%ld\n", strlen(Concurso[2].num_concurso));
 
 	for(i = 0; i < qtd; i++){
-		if(num_concurso[i] != ' '){
-			if( (comparaString(Concurso[i].num_concurso, num_concurso)) >= 10){
+		printf("%d\n", (strcmp(Concurso[i].num_concurso, num_concurso)));
+			if( (strcmp(Concurso[i].num_concurso, num_concurso)) == 0){
 				return i;
-		}
-		}else{
-			return -1;
-		}
+			}else{
+				return -1;
+			}
 	}
 }

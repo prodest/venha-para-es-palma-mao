@@ -83,11 +83,10 @@ int main(void){
 			free(cpf_busca);
 		}
 	}else if(opcao == 2){
-		printf("Digite o codigo do concurso: ");
 		cod_concurso = (char*)malloc(tam_cod_concurso * sizeof(char));
+		printf("Digite o codigo do concurso: ");
 		scanf("%s", cod_concurso);
 		i = buscaCodigoConcurso(Concurso, cod_concurso, qtd_linhas_concursos);
-		free(cod_concurso);
 		if(i == -1){
 			printf("Código do concurso não localizado!\n");
 		}else{
@@ -95,6 +94,7 @@ int main(void){
 			printf("Edital: %s\n", Concurso[i].data_concurso);
 			printf("Código: %s\n", Concurso[i].num_concurso);
 			printf("Vagas: [%s]\n", Concurso[i].profissoes_concurso);
+			free(cod_concurso);
 		}
 	}
 
@@ -102,7 +102,6 @@ int main(void){
 	limpaCandidatos(Candidato, qtd_linhas_candidatos);
 	limpaProfissoes(Profissao, qtd_linhas_candidatos);
 	limpaProfissoesConcursos(Prof_Concursos, qtd_linhas_concursos);
-
 	fclose(arq);
 	return 0;
 }
