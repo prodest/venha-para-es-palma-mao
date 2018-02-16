@@ -1,8 +1,8 @@
 <?php
 
   require_once('../includes/mysqli.php');
-  require_once('functions.php');
-  require_once('functionsSql.php');
+  require_once('../includes/functions.php');
+  require_once('../includes/functionsSql.php');
 
   header("Content-Type: text/html; charset=utf-8",true);
   ini_set('default_charset', 'UTF-8');

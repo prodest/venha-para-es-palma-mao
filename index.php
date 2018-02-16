@@ -1,44 +1,105 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Venha para ES</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  </head>
-  <body>
+<?php
 
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-sm-2">
+  header("Content-Type: text/html; charset=utf-8",true);
+  ini_set('default_charset', 'UTF-8');
 
-        </div>
-        <div class="col-sm-8">
+  require_once('includes/functions.php');
+  require_once('includes/mysqli.php');
+  require_once('includes/functionsBusca.php');
 
-          <form class="formulario" action="busca.php" method="post">
-            <div class="form-group">
-              <input class="form-control" type="text" id="busca" name="busca" placeholder="Busca">
-            </div>
+  require_once('includes/head.php');
+  require_once('busca.php');
 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="tipo" id="cpf" value="cpf" checked>
-              <label class="form-check-label" for="cpf">CPF</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="tipo" id="codigo" value="codigo">
-              <label class="form-check-label" for="inlineRadio2">Código do Concurso</label>
-            </div>
-            <br><button type="submit" class="btn btn-primary">Buscar</button>
-          </form>
+  global $MySQLi;
 
-        </div>
-      </div>
-    </div>
+  if(!empty($_POST['busca'])){
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-</html>
+    if(!strcmp($_POST['tipo'], "cpf")){
+      $cpf = somente_numeros($_POST['busca']);
+      $vet_profissoes = retorna_vet_profissoes_cpf($cpf);
+      $sql_concurso = sql_busca_concursos_por_profissoes($vet_profissoes);
+
+      //preparando o html
+      $i = 1;
+      $tabela = "<table class=\"table table-striped\">
+                  <thead>
+                    <tr>
+                      <th scope=\"col\">#</th>
+                      <th scope=\"col\">Órgão</th>
+                      <th scope=\"col\">Código</th>
+                      <th scope=\"col\">Edital</th>
+                    </tr>
+                  </thead>
+                  <tbody>";
+
+      //realizando a busca
+      $resultado = $MySQLi->query($sql_concurso) OR trigger_error($MySQLi->error, E_USER_ERROR);
+      //capturando o resultado
+      while($concurso = mysqli_fetch_row($resultado)){
+        $tabela .= "<tr>
+                      <th scope=\"row\">".$i."</th>
+                      <td>".$concurso[0]."</td>
+                      <td>".$concurso[1]."</td>
+                      <td>".$concurso[2]."</td>
+                    </tr>";
+        $i++;
+      }
+      $tabela .= " </tbody> </table>";
+
+      echo $tabela;
+
+    }else if(!strcmp($_POST['tipo'], "codigo")){
+
+      $codigo = somente_numeros($_POST['busca']);
+
+      $vet_vagas = retorna_vet_vagas_codigo($codigo);
+
+      $sql_candidatos = "SELECT DISTINCT candidato.candidato_nome_varchar, candidato.candidato_nascimento_date, candidato.candidato_cpf_varchar
+      FROM candidato JOIN candidato_profissao JOIN vaga_profissao
+      WHERE candidato.candidato_id = candidato_profissao.candidato_id
+      AND candidato_profissao.vaga_profissao_id = vaga_profissao.vaga_profissao_id
+      AND (";
+
+      foreach ($vet_vagas as $vaga) {
+        $sql_candidatos .= "vaga_profissao.vaga_profissao_descricao_varchar = \"".$vaga."\" OR ";
+      }
+      for ($i=(strlen($sql_candidatos)-4); $i < strlen($sql_candidatos); $i++) {
+        if($i==(strlen($sql_candidatos)-4)){
+          $sql_candidatos[$i] = ')';
+        }else {
+          $sql_candidatos[$i] = ' ';
+        }
+      }
+
+      //preparando o html
+      $i = 1;
+      $tabela = "<table class=\"table table-striped\">
+                  <thead>
+                    <tr>
+                      <th scope=\"col\">#</th>
+                      <th scope=\"col\">Nome</th>
+                      <th scope=\"col\">Data de Nascimento</th>
+                      <th scope=\"col\">CPF</th>
+                    </tr>
+                  </thead>
+                  <tbody>";
+
+      //realizando a busca
+      $resultado = $MySQLi->query($sql_candidatos) OR trigger_error($MySQLi->error, E_USER_ERROR);
+      //capturando o resultado
+      while($candidato = mysqli_fetch_row($resultado)){
+        $tabela .= "<tr>
+                      <th scope=\"row\">".$i."</th>
+                      <td>".$candidato[0]."</td>
+                      <td>".$candidato[1]."</td>
+                      <td>".$candidato[2]."</td>
+                    </tr>";
+        $i++;
+      }
+      $tabela .= " </tbody> </table>";
+
+      echo $tabela;
+    }
+  }
+
+  require_once('includes/footer.php');
