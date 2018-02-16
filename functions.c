@@ -403,14 +403,14 @@ int comparaString(char* string1, char* string2){
 }
 
 //
-int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag){
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag, int qtd){
 	int i = 0;
 	int cont = 0;
 	int lin = 0;
 
 	printf("Concursos Vigentes:\n");
 	printf("|Órgãos\t\t|Código\t\t|Editais\n");
-	for(i = 0; i < 1000; i++){
+	for(i = 0; i < qtd; i++){
 		if( (strcmp(Profissao[flag].prof1, Prof_Concursos[i].prof_concurso1)) == 0){
 			cont++;
 		}else if( (strcmp(Profissao[flag].prof1, Prof_Concursos[i].prof_concurso2)) == 0 ){
@@ -439,6 +439,7 @@ int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_con
 			cont = 0;
 		}
 	}
+	printf("\nQuantidade de concursos: %d\n", lin);
 
 	return cont;
 }
@@ -525,4 +526,16 @@ profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concurs
 	}
 
 	return Prof_Concursos;
+}
+
+int buscaCodigoConcurso(concursos* Concurso, char* num_concurso, int qtd){
+	int i = 0;
+
+	for(i = 0; i < qtd; i++){
+		if( (strcmp(Concurso[i].num_concurso, num_concurso)) == 0){
+			return i;
+		}else{
+			return -1;
+		}
+	}
 }

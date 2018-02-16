@@ -108,4 +108,7 @@ int busca_cpf(candidatos* Candidato, concursos* Concurso, char* cpf, int qtd_can
 int comparaString(char* string1, char* string2);
 
 //COMPARA PROFISSOES
-int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag);
+int comparaProfissoes(candidatos* Candidato, concursos* Concurso, profissoes_concursos* Prof_Concursos, profissoes* Profissao, int flag, int qtd);
+
+//BUSCA CODIGO DO CONCURSO
+int buscaCodigoConcurso(concursos* Concurso, char* num_concurso, int qtd);
