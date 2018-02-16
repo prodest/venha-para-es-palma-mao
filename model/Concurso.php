@@ -1,4 +1,5 @@
 <?php
+
     /*Classe responsavel pelo controle dos Concursos*/
     class Concurso{
 

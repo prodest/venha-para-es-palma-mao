@@ -3,20 +3,6 @@
     include ("functions.php");
     /*Código que fará a validação da entrada de dados do usuário*/ 
 
-    /*Funcao que normaliza o cpf. Aceita o formato padrao e o formato de apenas numeros*/
-    function normalizarCPF($cpf){
-        if (strlen($cpf) == 14){
-            return $cpf;
-        }
-        else if (strlen($cpf) == 11){
-            $initialString = substr($cpf, 0, 9);
-            $initialString = chunk_split($initialString, 3, '.');
-            $initialString[11] = '-';
-            $finalString = substr($cpf, 9);
-            return $initialString.$finalString;
-        }
-    }
-
     if(isset($_GET['cpf'])){
 
         $count = 0;         //Contador que servira para fazer contagem de caracter correto

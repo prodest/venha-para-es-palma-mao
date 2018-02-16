@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 <ul class="pagination center-align">
-                    <?php include ("../control/paginationController.php"); ?>
+                    <?php include ("../control/pageController.php"); ?>
                 </ul>
             </div>
         </div>

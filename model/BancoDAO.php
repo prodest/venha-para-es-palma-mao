@@ -1,4 +1,5 @@
 <?php
+
     /*Classe que realiza conexao e iteração com banco de dados */
     class BancoDAO{
         /* Para mudar de banco de dados basta apenas mudar os dados */

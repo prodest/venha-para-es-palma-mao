@@ -11,7 +11,7 @@
         private $pagina;                //Pagina atual
         private $inicio;                //Indice de inicio da listagem na tabela (De algum dos resultados)
         private $limite;                //Indice de final da listagem na tabela (De algum dos resultados)
-        private $intervalo = 10;        //Quantidade máxima de linhas que a tabela terá
+        private $intervalo = 5;         //Quantidade máxima de linhas que a tabela terá
 
         function __construct($candidatoResult, $concursoResult, $entidade, $pagina){
             $this->candidatoResult = $candidatoResult;
@@ -30,11 +30,13 @@
 
         /*Principal funcao de controle, depende da entidade. Cada entidade chamará uma funcao de controle*/
         public function setPagination(){
-            if ($this->entidade == "candidato"){
-                $this->setCandidatoPagination();
-            }
-            else if ($this->entidade == "concurso"){
-                $this->setConcursoPagination();
+            switch ($this->entidade){
+                case "candidato":
+                    $this->setCandidatoPagination();
+                    break;
+                case "concurso":
+                    $this->setConcursoPagination();
+                    break;
             }
         }
 
