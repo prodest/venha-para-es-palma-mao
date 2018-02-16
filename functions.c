@@ -528,12 +528,15 @@ profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concurs
 	return Prof_Concursos;
 }
 
+//
 int buscaCodigoConcurso(concursos* Concurso, char* num_concurso, int qtd){
 	int i = 0;
 
 	for(i = 0; i < qtd; i++){
-		if( (strcmp(Concurso[i].num_concurso, num_concurso)) == 0){
-			return i;
+		if(num_concurso[i] != ' '){
+			if( (comparaString(Concurso[i].num_concurso, num_concurso)) >= 10){
+				return i;
+		}
 		}else{
 			return -1;
 		}

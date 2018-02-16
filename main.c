@@ -66,37 +66,36 @@ int main(void){
 
 	printf(" - Pesquisar por CPF digite 1\n - Pesquisar por número do concurso digite 2\nDigite a opção desejada:");
 	scanf("%d", &opcao);
-	// while(opcao != 1 || opcao != 2){
-		if(opcao == 1){
-			cpf_busca = (char*)malloc(tam_cpf_busca * sizeof(char));
-			printf("Digite o cpf do candidato(ex: 177.666.000-14): ");
-			scanf(" %[^\n]", cpf_busca);
-			i = busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
-			if(i == -1){
-				printf("Cpf não encontrado!\n");
-			}else{
-				printf("Nome: %s\n", Candidato[i].nome);
-				printf("Data de Nascimento: %s\n", Candidato[i].data);
-				printf("CPF: %s\n", Candidato[i].cpf);
-				printf("Profissões: [%s]\n\n", Candidato[i].profissoes);
-				comparaProfissoes(Candidato, Concurso, Prof_Concursos, Profissao, i, qtd_linhas_concursos);
-				free(cpf_busca);
-			}
-		}else if(opcao == 2){
-			printf("Digite o codigo do concurso: ");
-			cod_concurso = (char*)malloc(tam_cod_concurso * sizeof(char));
-			scanf("%s", cod_concurso);
-			i = buscaCodigoConcurso(Concurso, cod_concurso, qtd_linhas_concursos);
-			free(cod_concurso);
-			if(i == -1){
-				printf("Código do concurso não localizado!\n");
-			}else{
-				printf("Órgão: %s\n", Concurso[i].nome_concurso);
-				printf("Edital: %s\n", Concurso[i].data_concurso);
-				printf("Código: %s\n", Concurso[i].num_concurso);
-				printf("Vagas: [%s]\n", Concurso[i].profissoes_concurso);
-			}
-		// }
+
+	if(opcao == 1){
+		cpf_busca = (char*)malloc(tam_cpf_busca * sizeof(char));
+		printf("Digite o cpf do candidato(ex: 177.666.000-14): ");
+		scanf(" %[^\n]", cpf_busca);
+		i = busca_cpf(Candidato, Concurso, cpf_busca, qtd_linhas_candidatos);
+		if(i == -1){
+			printf("Cpf não encontrado!\n");
+		}else{
+			printf("Nome: %s\n", Candidato[i].nome);
+			printf("Data de Nascimento: %s\n", Candidato[i].data);
+			printf("CPF: %s\n", Candidato[i].cpf);
+			printf("Profissões: [%s]\n\n", Candidato[i].profissoes);
+			comparaProfissoes(Candidato, Concurso, Prof_Concursos, Profissao, i, qtd_linhas_concursos);
+			free(cpf_busca);
+		}
+	}else if(opcao == 2){
+		printf("Digite o codigo do concurso: ");
+		cod_concurso = (char*)malloc(tam_cod_concurso * sizeof(char));
+		scanf("%s", cod_concurso);
+		i = buscaCodigoConcurso(Concurso, cod_concurso, qtd_linhas_concursos);
+		free(cod_concurso);
+		if(i == -1){
+			printf("Código do concurso não localizado!\n");
+		}else{
+			printf("Órgão: %s\n", Concurso[i].nome_concurso);
+			printf("Edital: %s\n", Concurso[i].data_concurso);
+			printf("Código: %s\n", Concurso[i].num_concurso);
+			printf("Vagas: [%s]\n", Concurso[i].profissoes_concurso);
+		}
 	}
 
 	limpaConcursos(Concurso, qtd_linhas_concursos);
