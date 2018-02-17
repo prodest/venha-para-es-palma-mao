@@ -7,8 +7,6 @@ Após isso, renomeie a pasta copiada, que foi colocada dentro do servidor, para 
 - Font-end: HTML5 com [Materializecss](http://materializecss.com/)
 - Persistência de dados: Estou utilizando [GearHost](https://www.gearhost.com/), um banco de dados MySQL gratuito e online. 
 
-### Importação dos dados para o banco de dados
-O banco já está criado e com os dados dentro, mas caso precise mudar de banco, basta alterar os dados de conexão (no arquivo model/BancoDAO.php) para o banco que deseja. E para importar o banco ...DA SEGUINTE FORMA...
 
 ### Diferenciais implementados
   - Banco de dados
