@@ -40,6 +40,7 @@
             }
         }
 
+        /*Exibe dentro de uma tabela e por paginas definidas por um limite os concursos achados para o canditato*/
         private function setCandidatoPagination(){
             
             foreach ($this->candidatoResult->getProfissoes() as $prof){
@@ -67,6 +68,7 @@
             }
         }
 
+        /*Exibe dentro de uma tabela e por paginas definidas por um limite os candidatos achados para um concurso*/
         private function setConcursoPagination(){
 
             foreach ($this->concursoResult->getListaDeVagas() as $vaga){

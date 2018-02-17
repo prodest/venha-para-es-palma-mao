@@ -32,6 +32,9 @@
                 redirectMsg("CPF INCORRETO",2,"candidatos.php");
             }
         }
+        else if (strlen($cpf) > 14){
+            redirectMsg("CPF INVÁLIDO",2,"candidatos.php");
+        }
         else{
             redirectMsg("CPF INCOMPLETO",2,"candidatos.php");
         }
