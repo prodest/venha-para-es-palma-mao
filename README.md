@@ -1,3 +1,4 @@
+# TESTE PARA PRODEST 2018
 ### Instalação
 O projeto deve ser executao em algum servidor que, de preferência, tenha um servidor apache. Caso não possua, basta baixar [esse](https://github.com/MatheusRBarbosa/webserver) servidor(local) e copiar a pasta desse repositório dentro do servidor que foi baixado. 
 Após isso, renomeie a pasta copiada, que foi colocada dentro do servidor, para 'root'. Com isso, basta iniciar o servidor clicanco em 'usbwebserver.exe', e para abrir, basta clicar na aba 'general' e depois em localhost, ou digitar 'localhost:8080' na url do navegador
@@ -10,9 +11,16 @@ Após isso, renomeie a pasta copiada, que foi colocada dentro do servidor, para 
 
 ### Diferenciais implementados
   - Banco de dados
-  - Wakatime
+  - [Wakatime](https://wakatime.com/@44c37bfc-b7a8-45a2-9154-06fddd1c175f/projects/aylngysfdh?start=2018-02-11&end=2018-02-17)
   - Padrão de programação da tecnologia escolhida
   - Clean code
+
+### Documentação
+Dentro da pasta 'Documentação' existem dois PDF's
+
+**Documentação técnica** Onde eu falo um pouco sobre o papel de cada classe e arquivo de controle. Nas classes e funções usadas eu descrevo seus parametros de entrada e seus retornos, quando existem. E falo um pouco do que o método/função faz.
+
+**Teste funcional PRODEST** Onde eu faço um teste funcional, testando todas as funcionalidades da aplicação. Testo todas as possivels interações com o sistema e se essas interações correspondem com o esperado.
 
 ### O que foi feito
 Primeiramente, foi preciso melhorar a padronização dos arquivos de dados. Pra isso, o **EXCEL** me ajudou bastante. Não queria fazer um código para fazer o que ele faz, com umas duas ferramentas do Excel, consegui padronizar os arquivos para um formato melhor. Com os arquivos padronizados, fiz a importação dos dados para o banco. (imagem do aqruivo)
