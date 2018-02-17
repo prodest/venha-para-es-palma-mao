@@ -9,6 +9,7 @@
 
 
     <body>
+      <br><br>
 
       <div class="container text-center">
         <div class="row">
@@ -16,3 +17,6 @@
 
           </div>
           <div class="col-sm-8">
+
+            <img src="img/es-palma-mao.jpg" class="img-fluid" alt="Responsive image">
+            <br><br>

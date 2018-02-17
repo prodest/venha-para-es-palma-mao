@@ -2,7 +2,7 @@
 
           <form class="formulario" action="index.php" method="post">
             <div class="form-group">
-              <input class="form-control" type="text" id="busca" name="busca" placeholder="Busca">
+              <input class="form-control" type="text" id="busca" name="busca" placeholder="CPF / Código do concurso">
             </div>
 
             <div class="form-check form-check-inline">

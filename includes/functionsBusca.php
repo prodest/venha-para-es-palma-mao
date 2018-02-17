@@ -64,3 +64,54 @@
     return $vet_vagas;
 
   }
+
+  function existe_candidato($cpf){
+    global $MySQLi;
+    if(!empty($cpf)){
+      $sql = "SELECT * FROM `candidato` WHERE candidato.candidato_cpf_varchar = ".$cpf.";";
+      $resultado = $MySQLi->query($sql);
+      if($resultado->num_rows){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function existe_concurso($codigo){
+    global $MySQLi;
+    if(!empty($codigo)){
+      $sql = "SELECT * FROM `concurso` WHERE concurso.concurso_codigo_varchar = ".$codigo.";";
+      $resultado = $MySQLi->query($sql);
+      if($resultado->num_rows){
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+    function retorna_vet_candidato($cpf){
+      global $MySQLi;
+      if(!empty($cpf)){
+        $sql = "SELECT * FROM `candidato` WHERE candidato.candidato_cpf_varchar = ".$cpf.";";
+        $resultado = $MySQLi->query($sql);
+        if($resultado->num_rows){
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function mascara_cpf($cpf){
+      $novo_cpf = "";
+      for ($i=0; $i < strlen($cpf); $i++) {
+        if($i==3 || $i==6){
+          $novo_cpf .= '.';
+        }
+        if($i==9){
+          $novo_cpf .= '-';
+        }
+        $novo_cpf .= $cpf[$i];
+      }
+      return $novo_cpf;
+    }
