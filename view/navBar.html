@@ -1,0 +1,21 @@
+
+  <nav>
+    <div class="nav-wrapper navColor">
+      <a href="home.php" class="brand-logo" style="padding-left: 10px">PRODEST</a>
+      <a href="home.php" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="hide-on-med-and-down" style="padding-left: 170px">
+        <li><a href="candidatos.php">Candidatos</a></li>
+        <li><a href="concursos.php">Concursos</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="candidatos.php">Candidatos</a></li>
+        <li><a href="concursos.php">Concursos</a></li>
+      </ul>
+    </div>
+  </nav>
+          
+<script>
+  $( document ).ready(function(){
+     $(".button-collapse").sideNav();
+  })
+</script>
