@@ -2,6 +2,8 @@ O sistema foi desenvolvido na IDE NetBeans8.2 sobre a plataforma Linux Debian 9 
 
 OBSERVAÇÃO IMPORTANTE: por alguma razão o driver do MySQL não está funcionando diretamente ao rodar a aplicação em outra maquina. a resolução é simples: importe o Driver .jar do MySQL que está na pasta LIBs para as bibliotecas da aplicação no netbeans.
 
+SE O SERVIDOR ESTIVER EM OUTRA MAQUINA, CERTIFIQUE-SE QUE O SERVIDOR MYSQL ESTEJA ACEITANDO CONEXÕES EXTERNAS
+
 1) Documentação da Solução:
 
 A Pasta Documentação possui alguns dos diagramas de funcionamento básico do sistema que podem ajudar a esclarescer seu comportamento
