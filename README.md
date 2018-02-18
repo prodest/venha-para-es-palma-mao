@@ -43,8 +43,8 @@ agora que configuramos os dados basta abrir o terminal na raiz do projeto ```ctr
 | Implementar Clean Code |  20  |X|
 | Implementar o padrão de programação da tecnologia escolhida |  20  |X|
 | Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |-|
-| Implementar testes unitários |  15  |X|
-| Implementar testes comportamentais |  15  |X|
+| Implementar testes unitários |  15  |-|
+| Implementar testes comportamentais |  15  |-|
 | Implementar integração com [Travis](https://travis-ci.org/)  |  10  |-|
 | Implementar integração com Travis + SonarQube |  10  |-|
 | Total| 140|-|
