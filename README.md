@@ -1,29 +1,29 @@
-#ES na palma da mão
+# ES na palma da mão
 
 ## Documentação
 
-###problema e solução
-#####O problema
+### problema e solução
+##### O problema
 Dado o desafio de comparar dois arquivos de dados nos quais possuiam informações sobre candidatos e editais de concursos, no qual havia a necessidade encontrar candidados para a vaga do concurso especifico ou localizar vaga para o candidato, sendo pesquisado por seu código do concurso ou cpf respectivamente.
-#####soluçao
+##### soluçao
 para solucionar este desafio tentando usar o máximo de requisitos pensei em uma linguagem web e na captura dos dados em um banco, sendo um desafio de pouca complexidade também optei por usar programação procedural, pois orientação a objeto faria uma solução mais complexa do que o proprio dasafio proposto e utilizei também arquitetura MVC(Model View Control).
 
-###tecnologias
+### tecnologias
 * PHP
 * Postgresql
 * HTML
 * JavaScript
 * CSS
 
-###Utilizando o projeto
+### Utilizando o projeto
 
-#####instalações necessárias
+##### instalações necessárias
  * php7.0
  * php7.0-pgsql
  * postgresql
  * pgadmin (Opcional)
 
-#####Configurações iniciais
+##### Configurações iniciais
 após clonar o projeto ```git clone git@github.com:icarodgl/venha-para-es-palma-mao.git``` será necessário importar os dados para o postgres, eles estão na pasta **dados** em formato **sql**, executando primeiro o arquivo **criabanco.sql**.
 
 as configurações da conexão com o banco estão no arquivo ```/apps/controles/connect.php``` basta subistituir as informações.
@@ -32,7 +32,7 @@ agora que configuramos os dados basta abrir o terminal na raiz do projeto ```ctr
 
 
 
-##lista de diferenciais
+## lista de diferenciais
 | Critério  | Valor | Feito? |
 |---|---|---|
 | Legibilidade do Código |  10  |X|
