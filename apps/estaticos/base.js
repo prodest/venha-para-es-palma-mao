@@ -23,10 +23,10 @@ function govagas() {
 }
 
 window.onload = function () {
-    document.getElementById("candidatos").addEventListener("click",function(){
+    document.getElementById("candidatos").addEventListener("click", function () {
         gocandidato()
-    } )
-    document.getElementById("vagas").addEventListener("click",function(){
+    })
+    document.getElementById("vagas").addEventListener("click", function () {
         govagas()
-    } )
+    })
 }

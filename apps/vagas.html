@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 
 <html>
-    
-<head>
-        <meta charset="UTF-8">  
-        <title>ES palma da mão</title>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->   
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <title>ES palma da mão</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">ES na palma da mão</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a id="candidatosX" href="/apps/candidatos.html">Candidatos</a></li>
-            <li><a id="vagasX" href="/apps/vagas.html">Vagas</a></li>
-          </ul>
-        </div>
-      </nav>
-        <div class="container">
-     <div class="row">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">ES na palma da mão</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a id="candidatosX" href="/apps/candidatos.html">Candidatos</a>
+        </li>
+        <li>
+          <a id="vagasX" href="/apps/vagas.html">Vagas</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
 
-        <form class="col" action="./controles/listavaga.php" method="post">
-          <div class="row">
-              <span>Formato do cpf: 000.000.000-00</span>
-            <div class="input-field">
-              <input placeholder="Cpf do candidato" type="text" title="CPF inválido" required pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2,3}" class="validate" name="cpf">
-              <label for="cpf">Cpf</label>
-            </div>
+      <form class="col" action="./controles/listavaga.php" method="post">
+        <div class="row">
+          <span>Formato do cpf: 000.000.000-00</span>
+          <div class="input-field">
+            <input placeholder="Cpf do candidato" type="text" title="CPF inválido" required pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2,3}"
+              class="validate" name="cpf">
+            <label for="cpf">Cpf</label>
           </div>
-            <input type="submit" value="Enviar">
-        </form>
+        </div>
+        <input type="submit" value="Enviar">
+      </form>
 
-</div>
-</div>
+    </div>
+  </div>
 </body>
 <script type="text/javascript" src="/apps/estaticos/base.js"></script>
 <link rel="stylesheet" type="text/css" href="/apps/estaticos/base.css">
+
 </html>
