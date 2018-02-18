@@ -1,7 +1,7 @@
 <?php 
-/*
-monta a pagina
-*/
+/**
+ * monta a pagina
+ */
 include_once 'cabeca.php';
 echo '<h1>Lista de candidatos:</h1>';
 require_once 'connect.php';
@@ -15,20 +15,20 @@ function listarCandidato(){
 if (!empty($_POST["codigo"])) {
     $codigo = $_POST["codigo"];
     /**
-     * query que confere se os arrays dos candidatos e dos cursos possuem algum item em comum.
+     * query que confere se os arrays de cursos dos candidatos e das vagas dos cursos
+     * possuem algum item em comum.
      */
     $query = "select * from candidato 
     where curso && 
     (select vaga from concurso where codigo = '$codigo')";
-    /**
-     * funcao de conexao com o banco do arquivo connect.php
-     */
     $result = conecta($query);
-
-    /**
-     * impressao do conteudo na tela já formatado.
-     */
     echo "Candidatos para : $codigo <br>".pg_num_rows($result). " resultados";
+    imprimeResultado($result);
+} else {
+   echo "Digite um Codigo valido.";
+}
+}
+function imprimeResultado($result){
     if (pg_num_rows($result) > 0) {
         echo '<ul class="collection section scrollspy">';
         while ($linha = pg_fetch_array($result)){
@@ -40,8 +40,4 @@ if (!empty($_POST["codigo"])) {
     } else {
        echo'<br>Codigo inexistente ou sem candidatos a vaga ;( <br> ';
     }
-    
-
-} else {
-   echo "Digite um Codigo valido.";
-}}
+}
