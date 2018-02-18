@@ -1,10 +1,19 @@
 language: php
 php:
     - '7.0'
+jdk:
+- oraclejdk8
+
 
 branches:
   only:
   - master
 
+addons:
+  sonarcloud:
+    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
+    token:
+      secure: "$sonarcloud"
 script:
   - sonar-scanner
+
