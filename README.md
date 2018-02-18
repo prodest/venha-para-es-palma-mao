@@ -26,3 +26,8 @@ SEJUS	17/2017	95655123539	[professor de matemática]
 * Para popular o banco rode o arquivo candidatos.php e concursos.php que estao em txt, certifique-se de que os arquivos de texto estejam na mesma pasta.
 * Realize as buscas através do index.php
 
+
+Link do projeto no WakaTime: https://wakatime.com/@9a2a56e5-1b76-47e9-9879-cd8605212dd5/projects/mpgvsdzxrq
+Link para testes no sistema: www.dapinformatica.com.br/venha-para-es-na-palma-da-mao
+
+
