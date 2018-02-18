@@ -11,9 +11,9 @@ branches:
 
 addons:
   sonarcloud:
-    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
+    organization: "icarodgl-github"
     token:
-      secure: "$sonarcloud"
+      secure: "3827c0b8f119c6fa054354cff32f681402ef0d09"
 script:
   - sonar-scanner
 
