@@ -11,5 +11,4 @@ matrix:
 install:
   - sudo apt install php7.0-pgsql
 
-  before_script:
-    - php -S localhost:8080
+script: php -S localhost:8080
