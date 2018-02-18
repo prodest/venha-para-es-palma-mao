@@ -2,7 +2,7 @@
 function gocandidato() {
 
     $.ajax({
-        url: "/apps/candidatos.php",
+        url: "/apps/candidatos.html",
         cache: false,
         success: function (result) {
             document.getElementById("corpo").innerHTML = result
@@ -13,7 +13,7 @@ function gocandidato() {
 function govagas() {
 
     $.ajax({
-        url: "/apps/vagas.php",
+        url: "/apps/vagas.html",
         cache: false,
         success: function (result) {
             document.getElementById("corpo").innerHTML = result

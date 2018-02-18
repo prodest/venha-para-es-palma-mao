@@ -20,30 +20,16 @@
     </head>
 
     <body>
-    <div>
     <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">ES na palma da mão</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a id="candidatos" href="#">Candidatos</a></li>
-        <li><a id="vagas" href="#">Vagas</a></li>
+        <li><a id="candidatosX" href="/apps/candidatos.html">Candidatos</a></li>
+        <li><a id="vagasX" href="/apps/vagas.html">Vagas</a></li>
       </ul>
     </div>
   </nav>
     </div>
     <main>
-    <?php 
-    require_once './apps/controles/conexao.php';
-    require_once './apps/controles/listacandidato.php';
-    require_once './apps/controles/connect.php';
-    
 
-    ?>
     <div id="corpo" class="container">
-
-    </div>
-    </main>
-    </body>
-    <script type="text/javascript" src="/apps/estaticos/base.js"></script>
-    <link rel="stylesheet" type="text/css" href="/apps/estaticos/base.css">
-</html>
