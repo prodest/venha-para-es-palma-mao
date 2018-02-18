@@ -1,0 +1,19 @@
+language: php
+php:
+    - '7.0'
+jdk:
+- oraclejdk8
+
+
+branches:
+  only:
+  - master
+
+addons:
+  sonarcloud:
+    organization: "icarodgl-github"
+    token:
+      secure: "d14283768b77a35da8695f640ed937c20f355529"
+script:
+  - sonar-scanner
+
