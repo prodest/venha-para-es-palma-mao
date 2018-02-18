@@ -13,7 +13,7 @@ addons:
   sonarcloud:
     organization: "icarodgl-github"
     token:
-      secure: "3827c0b8f119c6fa054354cff32f681402ef0d09"
+      secure: "87071c29f653ad99e5074982ee5092ea43e50f52"
 script:
   - sonar-scanner
 
