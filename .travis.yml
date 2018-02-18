@@ -1,19 +1,11 @@
 language: php
-  php:
+php:
     - '7.0'
     - hhvm # on Trusty only
-  jdk:
-    - oraclejdk8
 
 branches:
   only:
   - master
-
-addons:
-  sonarcloud:
-    organization: icarodgl
-    token:
-secure: "$sonarcloud"
 
 matrix:
   fast_finish: true
