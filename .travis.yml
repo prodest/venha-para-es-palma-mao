@@ -2,6 +2,18 @@ language: php
   php:
     - '7.0'
     - hhvm # on Trusty only
+  jdk:
+    - oraclejdk8
+
+branches:
+  only:
+  - master
+
+addons:
+  sonarcloud:
+    organization: icarodgl
+    token:
+secure: "$sonarcloud"
 
 matrix:
   fast_finish: true
@@ -10,15 +22,7 @@ matrix:
 
 install:
   - sudo apt install php7.0-pgsql php7.0-cgi
-  # add composer's global bin directory to the path
-  # see: https://github.com/drush-ops/drush#install---composer
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-  # install drush globally
-- composer global require drush/drush:6.*
-
-before_script:
-  - drush runserver 127.0.0.1:8080 &
-  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
-
-script: drush test-run 'Travis-CI Drupal Module Example' --uri=http://127.0.0.1:8080
+script:
+  - php -S localhost:8080
+  - sonar-scanner
