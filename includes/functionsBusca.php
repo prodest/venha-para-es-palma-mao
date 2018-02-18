@@ -1,6 +1,18 @@
 <?php
+  /*
+  * AQUI VOCÊ ENCONTRARÁ FUNÇÕES RELACIONADAS AO BD MUITO UTILIZADAS PELO INDEX.PHP
+  */
+
+
   require_once('includes/mysqli.php');
 
+
+  /*
+  * RETORNA UM VETOR COM AS PROFISSOES DE UM CANDIDATO COM BASE EM SEU CPF
+  * PRÉ-REQUISITO: CPF deve estar cadastrado no bd
+  * INPUT: string (cpf do candidato apenas com numeros)
+  * OUTPUT: vetor de profissoes do candidato
+  */
   function retorna_vet_profissoes_cpf($cpf){
     global $MySQLi;
 
@@ -22,7 +34,12 @@
 
   }
 
-
+  /*
+  * GERA UM SQL QUE PERMITE BUSCAR TODOS OS CONCURSOS QUE CONTENHAM TAIS PROFISSOES
+  * PRÉ-REQUISITO: vetor de profissoes nao nulo
+  * INPUT: vetor de string com no minimo uma profissao
+  * OUTPUT: string (sql que permite realizar a busca)
+  */
   function sql_busca_concursos_por_profissoes($vet_profissoes){
     $sql_concurso = "SELECT DISTINCT C.concurso_orgao_varchar, C.concurso_codigo_varchar, C.concurso_edital_varchar
     FROM concurso AS C JOIN concurso_vaga AS CV JOIN vaga_profissao AS VP
@@ -44,6 +61,12 @@
     return $sql_concurso;
   }
 
+  /*
+  * RETORNA UM VETOR COM AS VAGAS DE UM CONCURSO COM BASE EM SEU CÓDIGO
+  * PRÉ-REQUISITO: Código deve estar cadastrado no bd
+  * INPUT: string (código do concurso apenas com numeros)
+  * OUTPUT: vetor de string com as vagas do concurso
+  */
   function retorna_vet_vagas_codigo($codigo){
     global $MySQLi;
 
@@ -65,6 +88,12 @@
 
   }
 
+  /*
+  * VERIFICA SE UM CANDIDATO ESTA CADASTRADO NO BD COM BASE EM SEU CPF
+  * PRÉ-REQUISITO: string contendo o CPF não nulo
+  * INPUT: string (cpf do candidato apenas com numeros)
+  * OUTPUT: true caso encontre no bd, false caso contrario
+  */
   function existe_candidato($cpf){
     global $MySQLi;
     if(!empty($cpf)){
@@ -77,6 +106,12 @@
     return false;
   }
 
+  /*
+  * VERIFICA SE UM CONCURSO ESTA CADASTRADO NO BD COM BASE EM SEU CÓDIGO
+  * PRÉ-REQUISITO: string contendo o CÓDIGO não nulo
+  * INPUT: string (código do concurso apenas com numeros)
+  * OUTPUT: true caso encontre no bd, false caso contrario
+  */
   function existe_concurso($codigo){
     global $MySQLi;
     if(!empty($codigo)){
@@ -89,29 +124,64 @@
     return false;
   }
 
-
-    function retorna_vet_candidato($cpf){
-      global $MySQLi;
-      if(!empty($cpf)){
-        $sql = "SELECT * FROM `candidato` WHERE candidato.candidato_cpf_varchar = ".$cpf.";";
-        $resultado = $MySQLi->query($sql);
-        if($resultado->num_rows){
-          return true;
-        }
+  /*
+  * DADO UM CPF COM APENAS NUMEROS RETORNA UM CPF NO FORMATO XXX.XXX.XXX-XX
+  * PRÉ-REQUISITO: string contendo o cpf não nulo
+  * INPUT: string (cpf apenas com numeros)
+  * OUTPUT: cpf no formato xxx.xxx.xxx-xx
+  */
+  function mascara_cpf($cpf){
+    $novo_cpf = "";
+    for ($i=0; $i < strlen($cpf); $i++) {
+      if($i==3 || $i==6){
+        $novo_cpf .= '.';
       }
-      return false;
-    }
-
-    function mascara_cpf($cpf){
-      $novo_cpf = "";
-      for ($i=0; $i < strlen($cpf); $i++) {
-        if($i==3 || $i==6){
-          $novo_cpf .= '.';
-        }
-        if($i==9){
-          $novo_cpf .= '-';
-        }
-        $novo_cpf .= $cpf[$i];
+      if($i==9){
+        $novo_cpf .= '-';
       }
-      return $novo_cpf;
+      $novo_cpf .= $cpf[$i];
     }
+    return $novo_cpf;
+  }
+
+  function total_candidatos(){
+    global $MySQLi;
+    //query
+    $sql = "SELECT COUNT(*) AS 'total' FROM candidato";
+
+    //realizando a busca
+    $resultado = $MySQLi->query($sql) OR trigger_error($MySQLi->error, E_USER_ERROR);
+    //capturando o resultado
+    $total = $resultado->fetch_object();
+    //retorna total_candidatos
+    return $total->total;
+
+  }
+
+  function total_concursos(){
+    global $MySQLi;
+    //query
+    $sql = "SELECT COUNT(*) AS 'total' FROM concurso";
+
+    //realizando a busca
+    $resultado = $MySQLi->query($sql) OR trigger_error($MySQLi->error, E_USER_ERROR);
+    //capturando o resultado
+    $total = $resultado->fetch_object();
+    //retorna total_candidatos
+    return $total->total;
+
+  }
+
+  function total_profissoes(){
+    global $MySQLi;
+    //query
+    $sql = "SELECT COUNT(*) AS 'total' FROM vaga_profissao";
+
+    //realizando a busca
+    $resultado = $MySQLi->query($sql) OR trigger_error($MySQLi->error, E_USER_ERROR);
+    //capturando o resultado
+    $total = $resultado->fetch_object();
+    //retorna total_candidatos
+    return $total->total;
+
+  }

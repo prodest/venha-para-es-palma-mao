@@ -19,7 +19,7 @@
       if(existe_candidato($cpf)){
         $vet_profissoes = retorna_vet_profissoes_cpf($cpf);
         $sql_concurso = sql_busca_concursos_por_profissoes($vet_profissoes);
-        $vet_candidato = retorna_vet_candidato($cpf);
+
         //preparando o html
         $i = 1;
         $tabela = "<br><table class=\"table table-striped\">
