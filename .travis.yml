@@ -1,4 +1,15 @@
 language: php
-php:
-  - '7.0'
-  - hhvm # on Trusty only
+  php:
+    - '7.0'
+    - hhvm # on Trusty only
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+
+install:
+  - sudo apt install php7.0-pgsql
+
+  before_script:
+    - php -S localhost:8080
