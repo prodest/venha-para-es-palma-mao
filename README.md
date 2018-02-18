@@ -5,14 +5,13 @@
 ### problema e solução
 ##### O problema
 Dado o desafio de comparar dois arquivos de dados nos quais possuiam informações sobre candidatos e editais de concursos, no qual havia a necessidade encontrar candidados para a vaga do concurso especifico ou localizar vaga para o candidato, sendo pesquisado por seu código do concurso ou cpf respectivamente.
-##### soluçao
+##### A soluçao
 para solucionar este desafio tentando usar o máximo de requisitos pensei em uma linguagem web e na captura dos dados em um banco, sendo um desafio de pouca complexidade também optei por usar programação procedural, pois orientação a objeto faria uma solução mais complexa do que o proprio dasafio proposto e utilizei também arquitetura MVC(Model View Control).
 
 ### tecnologias
 * PHP
 * Postgresql
 * HTML
-* JavaScript
 * CSS
 
 ### Utilizando o projeto
