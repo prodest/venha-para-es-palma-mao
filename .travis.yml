@@ -5,3 +5,6 @@ php:
 branches:
   only:
   - master
+
+script:
+  - sonar-scanner
