@@ -6,10 +6,6 @@ branches:
   only:
   - master
 
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install php-pgsql -y
-
 script:
   - php -S localhost:8080
   - sonar-scanner
