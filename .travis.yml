@@ -5,7 +5,3 @@ php:
 branches:
   only:
   - master
-
-script:
-  - php -S localhost:8080
-  - sonar-scanner
