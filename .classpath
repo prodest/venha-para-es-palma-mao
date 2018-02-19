@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="SolucaoCompleta/src"/>
+	<classpathentry kind="lib" path="SolucaoCompleta/dist/lib/mysql-connector-java-5.1.45-bin.jar"/>
+	<classpathentry kind="lib" path="SolucaoCompleta/dist/SolucaoCompleta.jar"/>
+	<classpathentry kind="lib" path="SolucaoCompleta/LIBs/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
+	<classpathentry kind="lib" path="SolucaoCompleta/LIBs/mysql-connector-java-5.1.45-bin.jar"/>
+	<classpathentry kind="output" path="SolucaoCompleta/build/classes"/>
+</classpath>
