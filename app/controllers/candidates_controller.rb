@@ -5,8 +5,8 @@ class CandidatesController < ApplicationController
 
   def public_tenders
     @candidate = Candidate.find_by(document_number: search_params[:document_number])
-    @public_tenders = PublicTender.where(tags: @candidate.tags).page(params[:page])
-  end
+    @public_tenders = PublicTender.where(:tags.in => @candidate.tags).page(params[:page])
+  end  
 
   private
 
