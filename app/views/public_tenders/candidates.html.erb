@@ -1,0 +1,30 @@
+<div class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <h2>Candidatos Afins | Órgão: <%= @public_tender.department %></h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data de Nascimento</th>
+            <th>Profissões</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @candidates.each do |candidate| %>
+          <tr>
+            <td><%= candidate.name %></td>
+            <td><%= candidate.document_number %></td>
+            <td><%= candidate.birthdate %></td>
+            <td><%= candidate.tags %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <%= paginate @candidates, theme: 'twitter-bootstrap-4' %>
+    </div>
+  </div>
+</div>

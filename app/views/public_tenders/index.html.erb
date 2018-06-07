@@ -1,0 +1,38 @@
+<div class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <%= form_for(:search, url: "/concursos/candidatos-afins", method: "GET", html: { class: "form-inline" }) do |f| %>
+        <div class="form-group mb-2">
+          <%= f.text_field :document_number, class: "form-control", placeholder: "Código do Concurso" %>
+        </div>
+        <%= f.submit "Buscar candidatos", class: "btn btn-primary mb-2" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <h2>Concursos</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Órgão</th>
+            <th>Edital</th>
+            <th>Código do Concurso</th>
+            <th>Lista de vagas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @public_tenders.each do |public_tender| %>
+          <tr>
+            <td><%= public_tender.department %></td>
+            <td><%= public_tender.document_number %></td>
+            <td><%= public_tender.code %></td>
+            <td><%= public_tender.tags %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <%= paginate @public_tenders, theme: 'twitter-bootstrap-4' %>
+    </div>
+  </div>
+</div>
