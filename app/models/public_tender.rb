@@ -21,7 +21,7 @@ class PublicTender
 
   def self.search(params)
     results = Array.new
-    PublicTender.any_of({:department => /.*#{params[:q]}.*/ }, {code: /.*#{params[:q]}.*/}).only(:id, :department, :code).each do |public_tender|
+    PublicTender.any_of({:department => /.*#{params[:q].upcase}.*/ }, {code: /.*#{params[:q]}.*/}).only(:id, :department, :code).each do |public_tender|
       results << {
         id: public_tender.id.to_s,
         text: public_tender.department + " | " + public_tender.code

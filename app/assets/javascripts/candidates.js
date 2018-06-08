@@ -1,6 +1,3 @@
-// --- Select2
-//= require select2/dist/js/select2
-
 var searchBox = document.getElementById("search-box");
 if (searchBox)
 $("#search-box").select2({
@@ -28,5 +25,9 @@ $("#search-box").select2({
 });
 
 $('#search-box').on("select2:select", function(e) {
-  window.location = "/candidatos/" + $(e.currentTarget).val() + "/concursos";
+  if (hasNumber($(e.currentTarget).val())){
+    window.location = "/candidatos/" + $(e.currentTarget).val() + "/concursos";
+  } else {
+    swal("Nenhum resultado encontrado", "Tente buscar com outras informações", "warning");
+  }
 });

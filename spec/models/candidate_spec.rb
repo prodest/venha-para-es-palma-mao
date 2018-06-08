@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Candidate do
-  describe "#validate candidates?" do
+  describe "#validate candidates" do
     it "Should be valid candidate" do
       candidate1 = Candidate.new(name: "Lindsey Craft", document_number: "122.885.607-97", birthdate: "19/05/1976")
       expect(candidate1.valid?).to eq(true)
@@ -18,5 +18,5 @@ describe Candidate do
       candidate5 = Candidate.new
       expect(candidate5.valid?).to eq(false)
     end
-  end
+  end  
 end

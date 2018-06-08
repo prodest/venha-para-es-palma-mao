@@ -37,7 +37,7 @@ class Candidate
 
   def self.search(params)
     results = Array.new
-    any_of({:name => /.*#{params[:q]}.*/ }, {document_number: /.*#{params[:q]}.*/}).only(:id, :name, :document_number).each do |candidate|
+    any_of({:name => /.*#{params[:q].titleize}.*/ }, {document_number: /.*#{params[:q].scan(/.{1,3}/).join(".")}.*/}).only(:id, :name, :document_number).each do |candidate|
       results << {
         id: candidate.id.to_s,
         text: candidate.name + " | " + candidate.document_number
