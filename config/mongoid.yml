@@ -155,16 +155,12 @@ development:
 test:
   clients:
     default:
-      database: espm_test
-      hosts:
-        - localhost:27017
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+      uri: mongodb://busca-vaga-espm-test:busca-vaga-espm-test2018@ds153700.mlab.com:53700/busca-vaga-espm-test
+  options:
+    raise_not_found_error: false
 production:
   clients:
     default:
       uri: mongodb://busca-vaga-espm:busca-vaga-espm2018@ds141454.mlab.com:41454/busca-vaga-espm
   options:
-    raise_not_found_error: false   
+    raise_not_found_error: false
