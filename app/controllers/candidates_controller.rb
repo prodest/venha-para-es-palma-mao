@@ -8,11 +8,7 @@ class CandidatesController < ApplicationController
     @public_tenders = PublicTender.where(:tags.in => @candidate.tags).page(params[:page])
   end
 
-  def search
-    respond_to do |format|
-      format.json {
-        render :json => Candidate.search(params)
-      }
-    end
+  def search    
+    render :json => Candidate.search(params)
   end
 end

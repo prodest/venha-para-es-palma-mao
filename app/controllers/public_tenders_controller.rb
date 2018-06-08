@@ -9,10 +9,6 @@ class PublicTendersController < ApplicationController
   end
 
   def search
-    respond_to do |format|
-      format.json {
-        render :json => PublicTender.search(params)
-      }
-    end
+    render :json => PublicTender.search(params), status: 200
   end
 end
