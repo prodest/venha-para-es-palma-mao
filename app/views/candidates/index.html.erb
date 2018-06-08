@@ -1,13 +1,14 @@
 <div class="py-5 bg-light">
   <div class="container">
-    <div class="row">
-      <%= form_for(:search, url: "/candidatos/concursos-afins", method: "GET", html: { class: "form-inline" }) do |f| %>
-        <div class="form-group mb-2">
-          <%= f.text_field :document_number, class: "form-control", placeholder: "CPF" %>
-        </div>
-        <%= f.submit "Buscar concursos", class: "btn btn-primary mb-2" %>
-      <% end %>
-    </div>
+    <center>
+      <form name="form-inline">
+        <div class="form-group mb">
+           <div class="col-md-6">
+              <select id="search-box" class="form-control"></select>
+           </div>
+         </div>
+       </form>
+     </center>
     <div class="row">
       <h2>Candidatos</h2>
       <table class="table">
@@ -22,8 +23,8 @@
         <tbody>
           <% @candidates.each do |candidate| %>
           <tr>
-            <td><%= candidate.name %></td>
-            <td><%= candidate.document_number %></td>
+            <td><%= link_to candidate.name, public_tenders_path(candidate) %></td>
+            <td><%= link_to candidate.document_number, public_tenders_path(candidate) %></td>
             <td><%= candidate.birthdate %></td>
             <td><%= candidate.tags %></td>
           </tr>

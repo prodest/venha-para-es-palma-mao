@@ -1,7 +1,7 @@
 class Candidate
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::TagCollectible::Tagged  
+  include Mongoid::TagCollectible::Tagged
 
   field :name #Nome do Candidato
   field :document_number #CPF
@@ -33,5 +33,16 @@ class Candidate
 
   def downcase_tags
     tags = tags.map(&:downcase) if tags
+  end
+
+  def self.search(params)
+    results = Array.new
+    any_of({:name => /.*#{params[:q]}.*/ }, {document_number: /.*#{params[:q]}.*/}).only(:id, :name, :document_number).each do |candidate|
+      results << {
+        id: candidate.id.to_s,
+        text: candidate.name + " | " + candidate.document_number
+      }
+    end
+    {results: results}
   end
 end

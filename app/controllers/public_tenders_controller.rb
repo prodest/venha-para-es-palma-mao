@@ -4,13 +4,15 @@ class PublicTendersController < ApplicationController
   end
 
   def candidates
-    @public_tender = PublicTender.find_by(code: search_params[:document_number])
+    @public_tender = PublicTender.find(params[:id])
     @candidates = Candidate.where(:tags.in => @public_tender.tags).page(params[:page])
   end
 
-  private
-
-  def search_params
-    params.require(:search).permit(:document_number)
+  def search
+    respond_to do |format|
+      format.json {
+        render :json => PublicTender.search(params)
+      }
+    end
   end
 end

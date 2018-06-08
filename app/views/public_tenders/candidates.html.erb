@@ -1,7 +1,10 @@
 <div class="py-5 bg-light">
   <div class="container">
-    <div class="row">
+    <center>
       <h2>Candidatos Afins | Órgão: <%= @public_tender.department %></h2>
+      <p>Edital: <%= @public_tender.document_number %> | Código do Concurso: <%= @public_tender.code %> | Lista de Vagas: <%= @public_tender.tags %></p>
+    </center>
+    <div class="row">
       <table class="table">
         <thead>
           <tr>
@@ -14,8 +17,8 @@
         <tbody>
           <% @candidates.each do |candidate| %>
           <tr>
-            <td><%= candidate.name %></td>
-            <td><%= candidate.document_number %></td>
+            <td><%= link_to candidate.name, public_tenders_path(candidate) %></td>
+            <td><%= link_to candidate.document_number, public_tenders_path(candidate) %></td>
             <td><%= candidate.birthdate %></td>
             <td><%= candidate.tags %></td>
           </tr>
