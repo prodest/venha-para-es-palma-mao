@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     #get "/candidatos-afins", to: "public_tenders#candidates"
     get "/:id/candidatos", to: "public_tenders#candidates", as: :candidates
     get "/buscar", to: "public_tenders#search"
-  end  
+  end
+
+  get '*path' => redirect('/')
 end
