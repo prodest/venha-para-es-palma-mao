@@ -162,3 +162,9 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+production:
+  clients:
+    default:
+      uri: mongodb://busca-vaga-espm:busca-vaga-espm2018@ds141454.mlab.com:41454/busca-vaga-espm
+  options:
+    raise_not_found_error: false   
