@@ -9,4 +9,3 @@ script:
 language: ruby
 rvm:
   - 2.5.1
-ea4b297f5b3fad9d0339a1b267bef0789f6f2058
