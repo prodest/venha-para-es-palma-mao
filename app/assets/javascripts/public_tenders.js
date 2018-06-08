@@ -30,7 +30,3 @@ $("#search-box").select2({
 $('#search-box').on("select2:select", function(e) {
   window.location = "/concursos/" + $(e.currentTarget).val() + "/candidatos";
 });
-
-function hasNumber(string) {
-  return /\d/.test(string);
-}
