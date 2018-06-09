@@ -7,7 +7,7 @@ Com estes dois arquivos convertidos em mãos, pude criar uma tarefa de importaç
 
 Como minha intenção era criar um sistema web, optei por utilizar o Bootstrap, um conhecido franework web, com recursos para uma mínima experiência de usuário. isso para que o sistema pudesse paracer, ao máximo com algo real.
 
-É importante informar que durante o processo de importação dos dados, a maior parte dos documentos informados foi considerada inválida. Tive que desabilitar a validação para concluir con sucesso este processo.
+É importante informar que durante o processo de importação dos dados, a maior parte dos documentos informados foi considerada inválida. Tive que desabilitar a validação para concluir com sucesso este processo.
 
 Para as buscas, também foi implementada a opção 'Auto Complemento' que se dá através de:
 - Nome ou CPF no caso de candidatos
