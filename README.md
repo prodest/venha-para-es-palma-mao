@@ -27,7 +27,7 @@ Para uma maior velocidade nas buscas, optei por definir dois índices:
 - Candidate (Candidato): document_number
 - Public Tender (Concurso Público): code
 
-A biblioteca de conexão utilizado foi o [MongoID](https://docs.mongodb.com/mongoid/master/), que é oficialmente mantido pelo MongoDB.
+A biblioteca de conexão utilizada foi a [MongoID](https://docs.mongodb.com/mongoid/master/), que é oficialmente mantido pelo MongoDB.
 
 Os modelos estão definidos na pasta 'app/models'.
 
