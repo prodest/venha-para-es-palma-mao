@@ -1,6 +1,7 @@
 # Documentação do teste para o projeto ES na Palma da Mão | [Veja a demonstração on-line](https://busca-vaga-espm.herokuapp.com/)
 # Desafios
 Implementar um sistema de busca de candidatos e vagas afins e concursos públicos e candidatos afins.
+
 O primero desafio foi transformar os arquivos de dados originais, que estavam no formato '.txt' em algo que pudesse ser interpretado por alguma linguagem de programação. Escolhi convertê-los para o formato '.csv'. Para tal, utilizei os recursos de 'find & replace with regular expressions' do editor [Sublime Text](https://www.sublimetext.com/), onde facilmente, através de padrões, pude identificar e separar por ',' os campos e seus respectivos valores.
 Com estes dois arquivos convertidos em mãos, pude criar uma tarefa de importação que fez todo o trabalho de leitura e cadastro dos 10.000 candidatos e dos 1.000 concursos no banco de dados.
 
@@ -20,9 +21,21 @@ Ao descobrir que o SonarQube não mais suporta Ruby, resolvi não insistir com o
 Duas classes principais compõem o sistema. São elas:
   - Candidate: Representando os candidatos
   - PublicTender: Representando os concursos públicos
+
+O banco de dados se encontra populado e operante, estando hospedado no SAAS (Software as a Service) Mongo Lab.
+Para uma maior velocidade nas buscas, optei por definir dois índices:
+- Candidate (Candidato): document_number
+- Public Tender (Concurso Público): code
+
+Os modelos estão definidos na pasta 'app/models'.
+Os testes estão definidos na pasta 'spec'.
+As views estão definidas na pasta 'app/views'.
+
+Todo o projeto foi desenvolvido utilizando o padrão MVC (Model View Controller) e OO (Orientação a Objetos).
 # Ferramentas e Tecnologias
   - Linguagem/Framework: [Ruby on Rails](https://rubyonrails.org/)
   - Banco de Dados: [MongoDB](https://www.mongodb.com/)
+  - Banco Hospedado em: [Mongo Lab](https://mlab.com/login/)
   - Framework Web: [Bootstrap v4.1.1](https://getbootstrap.com/)
   - Servidor Web: [Puma](https://puma.io/)
   - Biblioteca de Testes: [RSpec](https://rspec.info/)
