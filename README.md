@@ -9,7 +9,7 @@ Como minha intenção era criar um sistema web, optei por utilizar o Bootstrap, 
 
 É importante informar que durante o processo de importação dos dados, a maior parte dos documentos informados foi considerada inválida. Tive que desabilitar a validação para concluir con sucesso este processo.
 
-Para as buscas, também foi implementada a opção 'Auto Complemeto' que se dá através de:
+Para as buscas, também foi implementada a opção 'Auto Complemento' que se dá através de:
 - Nome ou CPF no caso de candidatos
 - Órgão ou código no caso de concursos
 
