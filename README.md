@@ -28,7 +28,9 @@ Para uma maior velocidade nas buscas, optei por definir dois índices:
 - Public Tender (Concurso Público): code
 
 Os modelos estão definidos na pasta 'app/models'.
+
 Os testes estão definidos na pasta 'spec'.
+
 As views estão definidas na pasta 'app/views'.
 
 Todo o projeto foi desenvolvido utilizando o padrão MVC (Model View Controller) e OO (Orientação a Objetos).
