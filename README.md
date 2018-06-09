@@ -27,11 +27,15 @@ Para uma maior velocidade nas buscas, optei por definir dois índices:
 - Candidate (Candidato): document_number
 - Public Tender (Concurso Público): code
 
+A biblioteca de conexão utilizado foi o [MongoID](https://docs.mongodb.com/mongoid/master/), que é oficialmente mantido pelo MongoDB.
+
 Os modelos estão definidos na pasta 'app/models'.
 
-Os testes estão definidos na pasta 'spec'.
-
 As views estão definidas na pasta 'app/views'.
+
+Os controllers estão definidos na pasta 'app/controllers'.
+
+Os testes estão definidos na pasta 'spec'.
 
 Todo o projeto foi desenvolvido utilizando o padrão MVC (Model View Controller) e OO (Orientação a Objetos).
 # Ferramentas e Tecnologias
