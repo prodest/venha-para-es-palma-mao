@@ -1,11 +1,3 @@
-addons:
-  sonarcloud:
-    organization: "derickhoganpimenta-github" # the key of the org you chose at step #3
-    token:
-      secure: "YWMy6rBPCxPMRSLPb2Ol8CijtTF06ZzSbEU/0MW2ATvG/Y0oCxi6NF1bzKxPYMRsZu/7r26pjSHHhIBwMeCVcpchHSNpwqOhFINtIxYm90si0qbXy31fvWa0/9KjO0xbLWZJScvprKTGae/UvsNJAP2Ez2OOSKtzOyJtk+rORGHSBu+x/Q6X8DR2hotbfDUD9oE5hhUVBePioG+2VurhDMbEni++MLAibjWIWwrJfhlbHFrAzRjmwtF66VqnCXsRNz/X0ZJIoAGalR6RAc2qxjOHTf0+pBj8AYjFJIDEZvHmMm7Jhb7ojvP7jOnEautsqGf8zs6Dr8qhEqPyO973LTR0f82Foi1adpuQpyW97RU/D1fbJ7t4Lv4WZp5CgFbtRK+5XZleF5i0MUrbJnD2YiKBgUBmN8ivucIi0zkyz3ChnWwe5uMaui/mBz3Zi0S087B21g/dTyof2Cd8WYFcBCg3JTkAehj5+R4bXz5hCrarjcNa7gaBrEZEwdni9pWuH/dKW2MtD/9F7uGqVk1lK+goh/8amo+MQfGNNU9Bq5Hpo2+stLcIMUHoWPPL9VvGzNCFcUL2CGeV1DkgrtmGvcjiZP+MFa6ECIVTK9CvFl7Jmazzoe1P+gwIBjqYoaBRKex71npsXZL8PpSKboAgB/1DyfPWYFixD2S99N2Sm10="
-script:
-  # other script steps might be done before running the actual analysis
-  - sonar-scanner
 language: ruby
 rvm:
   - 2.5.1
