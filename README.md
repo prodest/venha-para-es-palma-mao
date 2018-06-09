@@ -12,6 +12,11 @@ Para as buscas, também foi implementada a opção 'Auto Complemeto' que se dá 
 - Nome ou CPF no caso de candidatos
 - Órgão ou código no caso de concursos
 
+Na pasta 'doc' se encontra o diagrama de classes dos projetos.
+Nas classes e nos controllers utilizados, se encontram comentários sobre as funções e o que elas fazem
+
+Ao descobrir que o SonarQube não mais suporta Ruby, resolvi não insistir com o seu uso.
+
 Duas classes principais compõem o sistema. São elas:
   - Candidate: Representando os candidatos
   - PublicTender: Representando os concursos públicos
@@ -23,3 +28,6 @@ Duas classes principais compõem o sistema. São elas:
   - Biblioteca de Testes: [RSpec](https://rspec.info/)
   - Biblioteca JavaScript: [JQuery](https://jquery.com/)
   - Hospedado em: [Heroku](https://www.heroku.com/)
+
+# Wakatime
+[Link do projeto](https://wakatime.com/@05dd98fe-23df-4032-aadd-e313c1089137/projects/udllwfrygz)
