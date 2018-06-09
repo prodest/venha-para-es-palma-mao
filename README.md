@@ -31,3 +31,7 @@ Duas classes principais compõem o sistema. São elas:
 
 # Wakatime
 [Link do projeto](https://wakatime.com/@05dd98fe-23df-4032-aadd-e313c1089137/projects/udllwfrygz)
+
+# Meus dados
+ - Nome: Dérick Hogan Pimenta
+ - Número de Inscrição: 1032054
