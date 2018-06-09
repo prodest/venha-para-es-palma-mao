@@ -5,7 +5,7 @@ Implementar um sistema de busca de candidatos e vagas afins e concursos público
 O primero desafio foi transformar os arquivos de dados originais, que estavam no formato '.txt' em algo que pudesse ser interpretado por alguma linguagem de programação. Escolhi convertê-los para o formato '.csv'. Para tal, utilizei os recursos de 'find & replace with regular expressions' do editor [Sublime Text](https://www.sublimetext.com/), onde facilmente, através de padrões, pude identificar e separar por ',' os campos e seus respectivos valores.
 Com estes dois arquivos convertidos em mãos, pude criar uma tarefa de importação que fez todo o trabalho de leitura e cadastro dos 10.000 candidatos e dos 1.000 concursos no banco de dados.
 
-Como minha intenção era criar um sistema web, optei por utilizar o Bootstrap, um conhecido franework web, com recursos para uma mínima experiência de usuário. isso para que o sistema pudesse paracer, ao máximo com algo real.
+Como minha intenção era criar um sistema web, optei por utilizar o Bootstrap, um conhecido framework web, com recursos para uma mínima experiência de usuário. isso para que o sistema pudesse parecer, ao máximo com algo real.
 
 É importante informar que durante o processo de importação dos dados, a maior parte dos documentos informados foi considerada inválida. Tive que desabilitar a validação para concluir com sucesso este processo.
 
