@@ -1,0 +1,39 @@
+<div class="py-5 bg-light">
+  <div class="container">
+    <center>
+      <form name="form-inline">
+        <div class="form-group mb">
+           <div class="col-md-6">
+              <select id="search-box" class="form-control"></select>
+           </div>
+         </div>
+       </form>
+     </center>
+    <div class="row">
+      <h2>Concursos</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Órgão</th>
+            <th>Edital</th>
+            <th>Código do Concurso</th>
+            <th>Lista de vagas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @public_tenders.each do |public_tender| %>
+          <tr>
+            <td><%= link_to public_tender.department, candidates_path(public_tender) %></td>
+            <td><%= public_tender.document_number %></td>
+            <td><%= link_to public_tender.code, candidates_path(public_tender) %></td>
+            <td><%= public_tender.tags %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <%= paginate @public_tenders, theme: 'twitter-bootstrap-4' %>
+    </div>
+  </div>
+</div>

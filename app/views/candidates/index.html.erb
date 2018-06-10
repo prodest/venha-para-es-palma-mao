@@ -1,0 +1,39 @@
+<div class="py-5 bg-light">
+  <div class="container">
+    <center>
+      <form name="form-inline">
+        <div class="form-group mb">
+           <div class="col-md-6">
+              <select id="search-box" class="form-control"></select>
+           </div>
+         </div>
+       </form>
+     </center>
+    <div class="row">
+      <h2>Candidatos</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data de Nascimento</th>
+            <th>Profissões</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @candidates.each do |candidate| %>
+          <tr>
+            <td><%= link_to candidate.name, public_tenders_path(candidate) %></td>
+            <td><%= link_to candidate.document_number.gsub(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "\\1.\\2.\\3-\\4"), public_tenders_path(candidate) %></td>
+            <td><%= candidate.birthdate %></td>
+            <td><%= candidate.tags %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <%= paginate @candidates, theme: 'twitter-bootstrap-4' %>
+    </div>
+  </div>
+</div>

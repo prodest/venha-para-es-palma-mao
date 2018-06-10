@@ -1,74 +1,56 @@
-# Teste para o projeto ES na Palma da mão
+# Documentação do teste para o projeto ES na Palma da Mão | [Veja a demonstração on-line](https://busca-vaga-espm.herokuapp.com/)
+# Desafios
+Implementar um sistema de busca de candidatos e vagas afins e concursos públicos e candidatos afins.
 
-O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
-1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
-2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
+O primero desafio foi transformar os arquivos de dados originais, que estavam no formato '.txt' em algo que pudesse ser interpretado por alguma linguagem de programação. Escolhi convertê-los para o formato '.csv'. Para tal, utilizei os recursos de 'find & replace with regular expressions' do editor [Sublime Text](https://www.sublimetext.com/), onde facilmente, através de padrões, pude identificar e separar por ',' os campos e seus respectivos valores.
+Com estes dois arquivos convertidos em mãos, pude criar uma tarefa de importação que fez todo o trabalho de leitura e cadastro dos 10.000 candidatos e dos 1.000 concursos no banco de dados.
 
-O arquivo **candidatos.txt** contém as informações dos candidatos:
+Como minha intenção era criar um sistema web, optei por utilizar o Bootstrap, um conhecido framework web, com recursos para uma mínima experiência de usuário. isso para que o sistema pudesse parecer, ao máximo com algo real.
 
-| Nome  | Data de Nascimento  | CPF |  Profissões|
-|---|---|---|---|
-| Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
-| Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
-| Cory Mendoza |   11/02/1957 |  565.512.353-92  |  [carpinteiro, marceneiro] |
+É importante informar que durante o processo de importação dos dados, a maior parte dos documentos informados foi considerada inválida. Tive que desabilitar a validação para concluir com sucesso este processo.
 
-O arquivo **concursos.txt** contém as informações dos concursos públicos:
+Para as buscas, também foi implementada a opção 'Auto Complemento' que se dá através de:
+- Nome ou CPF no caso de candidatos
+- Órgão ou código no caso de concursos
 
-| Órgão  | Edital  | Código do Concurso |  Lista de vagas|
-|---|---|---|---|
-| SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
-| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
-| SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
+Na pasta 'doc' se encontra o diagrama de classes dos projetos.
+Nas classes e nos controllers utilizados, se encontram comentários sobre as funções e o que elas fazem
 
-**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+Ao descobrir que o SonarQube não mais suporta Ruby, resolvi não insistir com o seu uso.
 
-Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+Duas classes principais compõem o sistema. São elas:
+  - Candidate: Representando os candidatos
+  - PublicTender: Representando os concursos públicos
 
-**É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
+O banco de dados se encontra populado e operante, estando hospedado no SAAS (Software as a Service) Mongo Lab.
+Para uma maior velocidade nas buscas, optei por definir dois índices:
+- Candidate (Candidato): document_number
+- Public Tender (Concurso Público): code
 
-Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
-1. Documentação da solução;
-2. Lista dos diferenciais implementados
-3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
+A biblioteca de conexão utilizada foi a [MongoID](https://docs.mongodb.com/mongoid/master/), que é oficialmente mantido pelo MongoDB.
 
-## Avaliação
+Os modelos estão definidos na pasta 'app/models'.
 
-O programa será avaliado levando em conta os seguintes critérios:
+As views estão definidas na pasta 'app/views'.
 
-| Critério  | Valor | 
-|---|---|
-| Legibilidade do Código |  10  |
-| Documentação do código|  10  |
-| Documentação da solução|  10  |
-| Tratamento de Erros| 10| 
-| Total| 40|
+Os controllers estão definidos na pasta 'app/controllers'.
 
-A pontuação do candidato será a soma dos valores obtidos nos critérios acima.
+Os testes estão definidos na pasta 'spec'.
 
-## Diferenciais 
+Todo o projeto foi desenvolvido utilizando o padrão MVC (Model View Controller) e OO (Orientação a Objetos).
+# Ferramentas e Tecnologias
+  - Linguagem/Framework: [Ruby on Rails](https://rubyonrails.org/)
+  - Banco de Dados: [MongoDB](https://www.mongodb.com/)
+  - Banco Hospedado em: [Mongo Lab](https://mlab.com/login/)
+  - Framework Web: [Bootstrap v4.1.1](https://getbootstrap.com/)
+  - Servidor Web: [Puma](https://puma.io/)
+  - Biblioteca de Testes: [RSpec](https://rspec.info/)
+  - Biblioteca JavaScript: [JQuery](https://jquery.com/)
+  - Hospedado em: [Heroku](https://www.heroku.com/)
 
-O candidato pode aumentar a sua pontuação na seleção implementando um ou mais dos itens abaixo:
+# Wakatime
+[Link do projeto](https://wakatime.com/@05dd98fe-23df-4032-aadd-e313c1089137/projects/udllwfrygz)
 
-| Item  | Pontos Ganhos | 
-|---|---|
-| Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
-| Utilizar banco de dados| 30|
-| Implementar Clean Code |  20  |
-| Implementar o padrão de programação da tecnologia escolhida |  20  |
-| Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |
-| Implementar testes unitários |  15  |
-| Implementar testes comportamentais |  15  |
-| Implementar integração com [Travis](https://travis-ci.org/)  |  10  |
-| Implementar integração com Travis + SonarQube |  10  |
-| Implementar usando Docker| 5|
-| Total| 170|
-
-A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
-
-## Penalizações
-
-O candidato será desclassifiado nas seguintes situações:
-
-1. Submeter um solução que não funcione; 
-2. Não cumprir os critérios presentes no seção **Avaliação**
-3. Plágio
+# Meus dados
+ - Nome: Dérick Hogan Pimenta
+ - Número de Inscrição: 1032054

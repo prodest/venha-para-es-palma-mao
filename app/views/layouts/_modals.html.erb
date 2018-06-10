@@ -1,0 +1,29 @@
+<div class="modal fade" id="aboutModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sobre</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Projeto desenvolvido com o objetivo de pleitear uma bolsa de fomento para o desenvolvimento do projeto ES na Palma da Mão</p>
+        <p>
+          Foram utilizadas algumas das tecnologias mais modernas, disponíveis atualmente. Tais como:
+          <ul>
+            <li><strong>Linguagem/Framework</strong>: <%= link_to "Ruby on Rails", "https://rubyonrails.org/" %></li>
+            <li><strong>Banco de Dados</strong>: <%= link_to "MongoDB", "https://www.mongodb.com/" %></li>
+            <li><strong>Framework Web</strong>: <%= link_to "Bootstrap v4.1.1", "https://getbootstrap.com/" %></li>
+            <li><strong>Servidor Web</strong>: <%= link_to "Puma", "https://puma.io/" %></li>
+            <li><strong>Biblioteca de Testes</strong>: <%= link_to "RSpec", "https://rspec.info/" %></li>
+            <li><strong>Biblioteca JavaScript</strong>: <%= link_to "JQuery", "https://jquery.com/" %></li>
+            <li><strong>Hospedado em</strong>: <%= link_to "Heroku", "https://www.heroku.com/" %></li>
+          </ul>
+        </p>
+        <p>Orgulhosamente desenvolvido no <%= link_to "Espírito Santo", "http://amores.es.gov.br/" %> por <%= link_to "Dérick Hogan Pimenta", "https://www.linkedin.com/in/derick-hogan-pimenta/" %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
