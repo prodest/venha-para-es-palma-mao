@@ -10,3 +10,7 @@
 function hasNumber(string) {
   return /\d/.test(string);
 }
+
+function isObjectID(string){
+  return string.match(/^[0-9a-fA-F]{24}$/);
+}

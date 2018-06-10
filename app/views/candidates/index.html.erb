@@ -24,7 +24,7 @@
           <% @candidates.each do |candidate| %>
           <tr>
             <td><%= link_to candidate.name, public_tenders_path(candidate) %></td>
-            <td><%= link_to candidate.document_number, public_tenders_path(candidate) %></td>
+            <td><%= link_to candidate.document_number.gsub(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "\\1.\\2.\\3-\\4"), public_tenders_path(candidate) %></td>
             <td><%= candidate.birthdate %></td>
             <td><%= candidate.tags %></td>
           </tr>

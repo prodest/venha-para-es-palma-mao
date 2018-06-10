@@ -43,7 +43,7 @@ class Candidate
     #Varável do tipo array, onde os resultados da query seguinte serão armazenados, se houverem dados a armazenar
     results = Array.new
     #Query onde, os registros são buscados no banco de dados. As buscas são realizadas tanto pelo nome do Candidato, quanto pelo CPF
-    candidates = any_of({:name => /.*#{params[:q].titleize}.*/ }, {document_number: /.*#{params[:q].scan(/.{1,3}/).join(".")}.*/}).only(:id, :name, :document_number)
+    candidates = any_of({:name => /.*#{params[:q].titleize}.*/ }, {document_number: /.*#{params[:q].gsub(".", "").gsub("-", "")}.*/}).only(:id, :name, :document_number)
     #Atribuição dos resultados da query no array declarado acima
     candidates.each do |candidate|
       #Foi utilizada a biblioteca Select2, que implementa o recurso 'Auto Complete'.

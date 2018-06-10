@@ -25,7 +25,7 @@ $("#search-box").select2({
 });
 
 $('#search-box').on("select2:select", function(e) {
-  if (hasNumber($(e.currentTarget).val())){
+  if (isObjectID($(e.currentTarget).val())){
     window.location = "/candidatos/" + $(e.currentTarget).val() + "/concursos";
   } else {
     swal("Nenhum resultado encontrado", "Tente buscar com outras informações", "warning");
