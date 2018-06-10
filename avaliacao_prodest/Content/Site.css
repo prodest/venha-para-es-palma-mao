@@ -1,0 +1,354 @@
+﻿/*
+ * - Feito por Lucas Negreiros Coradine
+ * - 07/06/2018
+ */
+
+:root {
+    --blue: #28a5ff;
+    --blue-hover: #3c86fc;
+    --dark: #2d2d2d;
+    --red: #f23232;
+    --red-hover: #dd2a2a;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: var(--blue);
+    font-family: 'Roboto', sans-serif;
+}
+
+body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 0 50px;
+    background: white;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+    header .creditos {
+        width: 100%;
+        font-size: 12px;
+        font-style: italic;
+        color: var(--dark);
+        opacity: .15;
+        text-align: left;
+        position: absolute;
+        right: 0;
+        padding: 5px 15px;
+        cursor: default;
+    }
+
+        header .creditos:hover {
+            opacity: .3;
+        }
+
+
+    header .filtros {
+        list-style: none;
+        padding-top: 1%;
+    }
+
+        header .filtros li {
+            display: inline;
+            padding-bottom: 10px;
+        }
+
+            header .filtros li a {
+                display: inline-block;
+                padding: 10px 15px;
+                color: var(--dar);
+                position: relative;
+                font-family: "Roboto", sans-serif;
+                font-size: 15px;
+                letter-spacing: 0.09em;
+                -webkit-transition: all 0.2s ease 0s;
+                -o-transition: all 0.2s ease 0s;
+                transition: all 0.2s ease 0s;
+                text-decoration: none;
+            }
+
+                header .filtros li a:hover:not(.active) {
+                    color: var(--blue);
+                }
+
+        header .filtros a.active {
+            color: white;
+            background-color: var(--blue);
+            border-radius: 3px;
+        }
+
+    header .atualizar-db a {
+        color: red;
+    }
+
+    header li.atualizar-db a:hover:not(.active) {
+        color: var(--red-hover);
+    }
+
+.loader {
+    font-size: 42px;
+    color: white;
+    margin-top: 80px;
+}
+
+    .loader p {
+        font-size: 14px;
+        color: white;
+    }
+
+.conteudo {
+    padding-top: 50px;
+    position: relative;
+}
+
+    .conteudo h2 {
+        color: white;
+        font-family: "Oswald", sans-serif;
+        margin-bottom: 20px;
+    }
+
+    .conteudo h5 {
+        color: white;
+    }
+
+.modal-body h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.modal-body p {
+    font-size: 14px;
+}
+
+/*Alterar texto do loader da modal*/
+@keyframes alterarTexto {
+    0% {
+        content: "Aguarde...";
+    }
+
+    50% {
+        color: white;
+    }
+
+    100% {
+        content: "Isso deve demorar...";
+    }
+}
+
+.modal-content {
+    text-align: center;
+}
+
+    .modal-content .modal-loader {
+        color: var(--dark);
+        font-size: 16px;
+        padding: 15px;
+    }
+
+        .modal-content .modal-loader span {
+            font-size: 22px;
+        }
+
+        .modal-content .modal-loader .loader-text:after {
+            color: var(--dark);
+            content: "";
+            animation: alterarTexto 3s linear infinite alternate;
+        }
+
+    .modal-content .fa-check {
+        font-size: 22px;
+        color: green;
+    }
+
+    .modal-content .fa-times {
+        font-size: 22px;
+        color: var(--red-hover);
+    }
+
+.tabela .table {
+    text-align: left;
+    font-size: 14px;
+    border-radius: 6px !important;
+    overflow: hidden;
+}
+
+    .tabela .table tbody {
+        background-color: white;
+    }
+
+        .tabela .table tbody td .expandir-lista {
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+    .tabela .table th {
+        border: none;
+    }
+
+    .tabela .table td p {
+        margin: 0;
+    }
+
+.tabela .dataTables_filter {
+    color: white;
+    border-radius: 6px;
+}
+
+.body {
+    width: 100%;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.busca {
+    width: 100%;
+}
+
+    .busca .searchbar {
+        position: relative;
+        font-size: 20px;
+        max-width: 800px;
+        width: 800px;
+        background-color: white;
+        color: var(--dark);
+        border: none;
+        border-radius: 6px;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .busca button {
+        position: absolute;
+        padding: 19px 15px;
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        margin-left: -50px;
+    }
+
+        .busca button:focus {
+            outline: none;
+        }
+
+        .busca button i {
+            color: dimgray;
+        }
+
+        .busca button:hover i {
+            color: var(--dark);
+        }
+
+    .busca input::placeholder {
+        font-style: italic;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /*Para navegadores que utilizam -webkit-*/
+    .busca input::-webkit-input-placeholder {
+        font-style: italic;
+        font-size: 18px;
+        text-align: center;
+    }
+
+.btn.btn-danger {
+    background-color: var(--red-hover) !important;
+}
+/*Responsivo*/
+/*Tablet*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .busca .searchbar {
+        width: 600px;
+        text-align: center;
+    }
+}
+
+/*Mobile tela grande*/
+@media only screen and (max-width: 767px) {
+    .busca .searchbar {
+        width: 330px;
+        text-align: center;
+    }
+
+    .busca button i {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .busca .searchbar::placeholder {
+        font-size: 12px;
+    }
+
+    .tabela .table {
+        font-size: 14px;
+        overflow: auto;
+    }
+
+    header .creditos {
+        padding-right: 80%;
+    }
+
+    header .filtros {
+        padding: 3% 0 1% 0;
+        margin: 0;
+    }
+
+        header .filtros li {
+            display: block;
+        }
+
+    .conteudo h2 {
+        font-size: 22px;
+    }
+
+    .conteudo h5 {
+        font-size: 16px;
+    }
+
+    .table thead th {
+        font-size: 12px;
+    }
+
+    .table tbody td {
+        font-size: 12px;
+    }
+}
+
+/*Mobile tela pequena*/
+@media only screen and (max-width: 479px) {
+    .busca .searchbar {
+        width: 290px;
+        text-align: center;
+    }
+
+    .tabela .table {
+        overflow: auto;
+    }
+}

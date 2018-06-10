@@ -1,0 +1,47 @@
+﻿@* Tabela de Concursos *@
+
+@model List<avaliacao_prodest.Models.ConcursoViewModel>
+@using avaliacao_prodest.Helpers;
+
+<div class="tabela table-responsive">
+
+    @if (!Model.Vazia())
+    {
+        <h2>Concursos</h2>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Órgão</th>
+                    <th class="text-center">Edital</th>
+                    <th class="text-center">Código</th>
+                    <th>Candidatos</th>
+                </tr>
+
+            <tbody>
+                @{ var idLista = 0; }
+
+                @foreach (var concurso in Model)
+                {
+                    <tr>
+                        <td class="col-md-3">@concurso.Orgao</td>
+                        <td class="text-center">@concurso.Edital</td>
+                        <td class="text-center">@concurso.Codigo</td>
+                        <td class="col-md-3">@Html.ExibirListaTopico(concurso.Candidatos, 2, idLista++)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        if (Model != null)
+        {
+            <h5>Nenhum concurso foi encontrado.</h5>
+        }
+        else
+        {
+            <h5>Digite um valor para realizar a pesquisa.</h5>
+        }
+    }
+</div>

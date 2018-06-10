@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AvaliacaoProdestDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidatos">
+          <Key>
+            <PropertyRef Name="CPF" />
+          </Key>
+          <Property Name="Nome" Type="varchar(max)" Nullable="false" />
+          <Property Name="DataNascimento" Type="date" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concursos">
+          <Key>
+            <PropertyRef Name="IdConcurso" />
+          </Key>
+          <Property Name="Orgao" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Edital" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdConcurso" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfissaoCandidato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CPFCandidato" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Profissao" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VagaConcurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="IdConcurso" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Vaga" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CandidatoProfissao">
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="1" />
+          <End Role="ProfissaoCandidato" Type="Self.ProfissaoCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="CPF" />
+            </Principal>
+            <Dependent Role="ProfissaoCandidato">
+              <PropertyRef Name="CPFCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcursoVaga">
+          <End Role="Concursos" Type="Self.Concursos" Multiplicity="1" />
+          <End Role="VagaConcurso" Type="Self.VagaConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concursos">
+              <PropertyRef Name="IdConcurso" />
+            </Principal>
+            <Dependent Role="VagaConcurso">
+              <PropertyRef Name="IdConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AvaliacaoProdestDbModelStoreContainer">
+          <EntitySet Name="Candidatos" EntityType="Self.Candidatos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Concursos" EntityType="Self.Concursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfissaoCandidato" EntityType="Self.ProfissaoCandidato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VagaConcurso" EntityType="Self.VagaConcurso" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CandidatoProfissao" Association="Self.FK_CandidatoProfissao">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="ProfissaoCandidato" EntitySet="ProfissaoCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcursoVaga" Association="Self.FK_ConcursoVaga">
+            <End Role="Concursos" EntitySet="Concursos" />
+            <End Role="VagaConcurso" EntitySet="VagaConcurso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AvaliacaoProdestDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AvaliacaoProdestDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidatos" EntityType="AvaliacaoProdestDbModel.Candidatos" />
+          <EntitySet Name="ProfissaoCandidato" EntityType="AvaliacaoProdestDbModel.ProfissaoCandidato" />
+          <AssociationSet Name="FK_CandidatoProfissao" Association="AvaliacaoProdestDbModel.FK_CandidatoProfissao">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="ProfissaoCandidato" EntitySet="ProfissaoCandidato" />
+          </AssociationSet>
+          <EntitySet Name="Concursos" EntityType="AvaliacaoProdestDbModel.Concursos" />
+          <EntitySet Name="VagaConcurso" EntityType="AvaliacaoProdestDbModel.VagaConcurso" />
+          <AssociationSet Name="FK_ConcursoVaga" Association="AvaliacaoProdestDbModel.FK_ConcursoVaga">
+            <End Role="Concursos" EntitySet="Concursos" />
+            <End Role="VagaConcurso" EntitySet="VagaConcurso" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Candidatos">
+          <Key>
+            <PropertyRef Name="CPF" />
+          </Key>
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CPF" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProfissaoCandidato" Relationship="AvaliacaoProdestDbModel.FK_CandidatoProfissao" FromRole="Candidatos" ToRole="ProfissaoCandidato" />
+        </EntityType>
+        <EntityType Name="ProfissaoCandidato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CPFCandidato" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Profissao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidatos" Relationship="AvaliacaoProdestDbModel.FK_CandidatoProfissao" FromRole="ProfissaoCandidato" ToRole="Candidatos" />
+        </EntityType>
+        <Association Name="FK_CandidatoProfissao">
+          <End Type="AvaliacaoProdestDbModel.Candidatos" Role="Candidatos" Multiplicity="1" />
+          <End Type="AvaliacaoProdestDbModel.ProfissaoCandidato" Role="ProfissaoCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="CPF" />
+            </Principal>
+            <Dependent Role="ProfissaoCandidato">
+              <PropertyRef Name="CPFCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Concursos">
+          <Key>
+            <PropertyRef Name="IdConcurso" />
+          </Key>
+          <Property Name="Orgao" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Edital" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdConcurso" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VagaConcurso" Relationship="AvaliacaoProdestDbModel.FK_ConcursoVaga" FromRole="Concursos" ToRole="VagaConcurso" />
+        </EntityType>
+        <EntityType Name="VagaConcurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdConcurso" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Vaga" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Concursos" Relationship="AvaliacaoProdestDbModel.FK_ConcursoVaga" FromRole="VagaConcurso" ToRole="Concursos" />
+        </EntityType>
+        <Association Name="FK_ConcursoVaga">
+          <End Type="AvaliacaoProdestDbModel.Concursos" Role="Concursos" Multiplicity="1" />
+          <End Type="AvaliacaoProdestDbModel.VagaConcurso" Role="VagaConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concursos">
+              <PropertyRef Name="IdConcurso" />
+            </Principal>
+            <Dependent Role="VagaConcurso">
+              <PropertyRef Name="IdConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AvaliacaoProdestDbModelStoreContainer" CdmEntityContainer="AvaliacaoProdestDbEntities1">
+          <EntitySetMapping Name="Candidatos">
+            <EntityTypeMapping TypeName="AvaliacaoProdestDbModel.Candidatos">
+              <MappingFragment StoreEntitySet="Candidatos">
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfissaoCandidato">
+            <EntityTypeMapping TypeName="AvaliacaoProdestDbModel.ProfissaoCandidato">
+              <MappingFragment StoreEntitySet="ProfissaoCandidato">
+                <ScalarProperty Name="Profissao" ColumnName="Profissao" />
+                <ScalarProperty Name="CPFCandidato" ColumnName="CPFCandidato" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Concursos">
+            <EntityTypeMapping TypeName="AvaliacaoProdestDbModel.Concursos">
+              <MappingFragment StoreEntitySet="Concursos">
+                <ScalarProperty Name="IdConcurso" ColumnName="IdConcurso" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Edital" ColumnName="Edital" />
+                <ScalarProperty Name="Orgao" ColumnName="Orgao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VagaConcurso">
+            <EntityTypeMapping TypeName="AvaliacaoProdestDbModel.VagaConcurso">
+              <MappingFragment StoreEntitySet="VagaConcurso">
+                <ScalarProperty Name="Vaga" ColumnName="Vaga" />
+                <ScalarProperty Name="IdConcurso" ColumnName="IdConcurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

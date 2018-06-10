@@ -1,0 +1,52 @@
+﻿@* Tabela de Candidatos *@
+
+@model List<avaliacao_prodest.Models.CandidatoViewModel>
+@using avaliacao_prodest.Helpers;
+
+<div class="tabela">
+    @if (!Model.Vazia())
+    {
+        <h2>Candidatos</h2>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th class="text-center">Data de nascimento</th>
+                    <th class="text-center">CPF</th>
+                    <th>Profissões</th>
+                </tr>
+
+            <tbody>
+                @{ var idLista = 0; }
+
+                @foreach (var candidato in Model)
+                {
+                    <tr>
+                        <td class="col-md-3">@candidato.Nome</td>
+                        <td class="text-center">@candidato.DataNascimento.ToShortDateString()</td>
+                        <td class="text-center">
+                            @string.Format("{0}.{1}.{2}-{3}",
+                                     candidato.CPF.Substring(0, 3),
+                                     candidato.CPF.Substring(3, 3),
+                                     candidato.CPF.Substring(6, 3),
+                                     candidato.CPF.Substring(9, 2))
+                        </td>
+                        <td class="col-md-3">@Html.ExibirListaTopico(candidato.VagasConcurso, 2, idLista++)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        if (Model != null)
+        {
+            <h5>Nenhum candidato foi encontrado.</h5>
+        }
+        else
+        {
+            <h5>Digite um valor para realizar a pesquisa.</h5>
+        }
+    }
+</div>
