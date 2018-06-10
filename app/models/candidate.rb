@@ -50,7 +50,7 @@ class Candidate
       #Os campos 'id' e 'text' são necessários para que o usuário escolha a opção correta e o sistema entanda a qual registro pertence a opção selecionada
       results << {
         id: candidate.id.to_s,
-        text: candidate.name + " | " + candidate.document_number
+        text: candidate.name + " | " + candidate.document_number.gsub(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "\\1.\\2.\\3-\\4")
       }
     end
     {results: results}
