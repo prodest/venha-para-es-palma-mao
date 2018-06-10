@@ -2,7 +2,7 @@
   <div class="container">
       <center>
         <h2>Concursos Afins | Candidato: <%= @candidate.name %></h2>
-        <p>CPF: <%= @candidate.document_number %> | Profissões: <%= @candidate.tags %></p>
+        <p>CPF: <%= @candidate.document_number.gsub(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "\\1.\\2.\\3-\\4") %> | Profissões: <%= @candidate.tags %></p>
       </center>
     <div class="row">
       <table class="table">
