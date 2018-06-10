@@ -72,3 +72,21 @@ O candidato será desclassifiado nas seguintes situações:
 1. Submeter um solução que não funcione; 
 2. Não cumprir os critérios presentes no seção **Avaliação**
 3. Plágio
+
+## Documentação da solução
+
+A solução desenvolvida é um simples script utilizando a linguagem de programação python 3.6.5. Para rodar a solução é necessário um interpretador de python que pode ser baixado no site do [python](https://www.python.org/).
+
+Para que o script funcione é necessário que o interpretador seja compatível com a versão e que os arquivos estejam no mesmo diretório do script.
+
+É apresentado um pequeno menu com opções para o usuário, onde ele pode escolher entre listar as informações dos concursos disponíveis para um candidato ou listar as informações dos candidatos aptos para um concurso.
+
+A função **pegar_cargos** recebe uma linha do arquivo texto e retorna uma lista com strings correspondentes às profissões. Ela funciona tanto para o arquivo de concursos como para o arquivo de candidatos, pois a formatação é identica.
+
+As funções **listar_candidatos** e **listar_concursos** funcionam de forma semelhante: primeiro lêem as linhas do arquivo até achar o candidato ou concurso correspondentes ao cpf ou código fornecido. Depois utilizam a função **pegar_cargos** para retornar a lista de profissões do candidato ou concurso. Finalmente lêem as linhas do outro arquivo e verificam se há profissões em comum entre as duas listas de profissões. Se sim, a linha é mostrada no console.
+
+## Lista de diferenciais implementados
+
+## Link do Wakatime
+
+[https://wakatime.com/@402a2ddb-1fce-45ab-9102-4f3439b0e69b/projects/bdppojqzuy?start=2018-06-04&end=2018-06-10](https://wakatime.com/@402a2ddb-1fce-45ab-9102-4f3439b0e69b/projects/bdppojqzuy?start=2018-06-04&end=2018-06-10)
