@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="18fbf63c-0743-4bde-96dc-df637b7b0cbd" Title="avaliacao_prodest" Url="html/3cbb18a4-1806-22c3-ac6b-0d97d5e6f34f.htm">
+    <HelpTOCNode Id="a3b06e76-4598-4389-a9bb-df15b9eab4c4" Title="Classe BundleConfig" Url="html/17d34294-66da-e73f-4bde-9509cb557925.htm">
+      <HelpTOCNode Title="BundleConfig Construtores " Url="html/a9e06c62-a4cc-21e2-7405-0cfd344086df.htm" />
+      <HelpTOCNode Id="5b42710e-fd5c-4632-8f00-a76dc7138fc5" Title="BundleConfig M&#233;todos" Url="html/06b009cd-2e97-a329-2dcc-b51c18bf01e9.htm">
+        <HelpTOCNode Title="RegisterBundles M&#233;todos " Url="html/84079c27-57e0-da71-8430-b182fd1b1d24.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="46974259-c81e-4653-900a-abfbb7cf925f" Title="Classe FilterConfig" Url="html/91229bc2-0a70-9424-4a2e-1904770bf11e.htm">
+      <HelpTOCNode Title="FilterConfig Construtores " Url="html/dc9f4b46-9aa2-71fd-199d-6aff7907ffeb.htm" />
+      <HelpTOCNode Id="3c491e4f-c3e6-468a-a3f1-497c9ad77418" Title="FilterConfig M&#233;todos" Url="html/7145e417-2717-0ea3-e578-f2c2cf4ebc2f.htm">
+        <HelpTOCNode Title="RegisterGlobalFilters M&#233;todos " Url="html/c84f32f9-130b-ba15-4da7-f87db6475b58.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="71e4b772-0829-4fa6-8d9f-209933867ba8" Title="Classe MvcApplication" Url="html/e2fbb0ff-5e95-6850-eb08-8fab304186d1.htm">
+      <HelpTOCNode Title="MvcApplication Construtores " Url="html/ca2f1dce-7eb5-6906-97e5-490c9a2c81d2.htm" />
+      <HelpTOCNode Id="83542b38-b26d-44b6-8102-5ccf652c7579" Title="MvcApplication M&#233;todos" Url="html/0926ed70-1133-39ad-4689-0dbfbae6557e.htm">
+        <HelpTOCNode Title="Application_Start M&#233;todos " Url="html/a2efa09c-71c1-f99d-9705-eb7865638e76.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1af7e0cb-d4ab-47fa-a28c-acadba2326c9" Title="Classe RouteConfig" Url="html/d5f3706c-7eaf-f106-c710-150de63970f2.htm">
+      <HelpTOCNode Title="RouteConfig Construtores " Url="html/03caa136-f9fb-4e8c-3540-88cb860bd50e.htm" />
+      <HelpTOCNode Id="5cd7df61-0462-4c17-b5c3-2aed2484c181" Title="RouteConfig M&#233;todos" Url="html/a5ee3f4f-6665-88b1-c8d0-5de2ee2ffb16.htm">
+        <HelpTOCNode Title="RegisterRoutes M&#233;todos " Url="html/b4f29cb0-5aea-696c-e918-b0432f555c5d.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="1a9ee6c0-b105-47c0-a323-2e7351677f17" Title="avaliacao_prodest.Controllers" Url="html/30328653-cd6a-6987-1b97-566d17a0ea44.htm">
+    <HelpTOCNode Id="9c37dcf7-6ca1-4eff-9550-e04ab979639e" Title="Classe CandidatoController" Url="html/856524d9-36b4-f451-f9d7-1b9910908a97.htm">
+      <HelpTOCNode Title="CandidatoController Construtores " Url="html/f461101a-c43b-0153-665a-d46819bfd197.htm" />
+      <HelpTOCNode Id="a3440de9-af9a-4dd6-afc0-a38ec495d578" Title="CandidatoController M&#233;todos" Url="html/9345c8f3-ef8d-29d7-8cec-3447612719a7.htm">
+        <HelpTOCNode Title="AtualizarCandidatosDB M&#233;todos " Url="html/fcac8411-23f0-1870-54f2-1b4de4e55a09.htm" />
+        <HelpTOCNode Title="Index M&#233;todos " Url="html/317ac56b-2bcd-10df-e8da-4803191beb5f.htm" />
+        <HelpTOCNode Title="MapearCandidatosTxt M&#233;todos " Url="html/dcdb8c98-116d-e3e9-e6bd-e9286dc97295.htm" />
+        <HelpTOCNode Title="RecuperarCandidatos M&#233;todos " Url="html/77c2b11b-1e54-0a04-ba34-14e3b5c05840.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="de84360b-0182-4a33-b2e2-0a4ac22651ae" Title="Classe ConcursoController" Url="html/a121a4cc-dce9-dc85-1c55-98a9f85bf348.htm">
+      <HelpTOCNode Title="ConcursoController Construtores " Url="html/dc3081ee-6002-ade3-07f2-72826bf20f02.htm" />
+      <HelpTOCNode Id="cda8bb06-f49b-4c1e-91db-1317a219204a" Title="ConcursoController M&#233;todos" Url="html/54f71704-5a52-e90f-f28d-8186a1cf281e.htm">
+        <HelpTOCNode Title="AtualizarConcursosDB M&#233;todos " Url="html/88ff52fc-ec84-773f-95df-cf898e086861.htm" />
+        <HelpTOCNode Title="Index M&#233;todos " Url="html/89dcd1e7-d2e6-e19d-2b00-04dfcb2dff5c.htm" />
+        <HelpTOCNode Title="MapearConcursosTxt M&#233;todos " Url="html/a23037f3-e072-c016-2f84-64e2fdd5ac76.htm" />
+        <HelpTOCNode Title="RecuperarConcursos M&#233;todos " Url="html/3ff2a392-ee39-c438-9007-0773b1e9f308.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5501d3ef-21e4-4b0d-9ac5-a00f1db9bec3" Title="Classe HomeController" Url="html/44b99afc-2f89-62b8-5d5c-cd31fc7f9542.htm">
+      <HelpTOCNode Title="HomeController Construtores " Url="html/b102f980-e4ae-fd8b-a335-f99177c752bb.htm" />
+      <HelpTOCNode Id="486066ed-7389-4f5f-b0d3-eb552c178af7" Title="Propriedades HomeController " Url="html/95fe00c5-fb6e-b840-58d4-acb37a0ec282.htm">
+        <HelpTOCNode Title="Model Propriedades " Url="html/76b84326-ebfe-9d26-6b2a-cc3cd8831c4f.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="2d10a4bb-5e3f-45e5-9164-2b5e36cef15f" Title="HomeController M&#233;todos" Url="html/43f45193-62d4-9fd0-e7c8-03f9883fb249.htm">
+        <HelpTOCNode Title="AtualizarDb M&#233;todos " Url="html/632c2752-deba-a5d2-c35e-a78696b2f74f.htm" />
+        <HelpTOCNode Title="Buscar M&#233;todos " Url="html/232745e2-b6e4-fb87-2d4e-91898860a766.htm" />
+        <HelpTOCNode Title="Index M&#233;todos " Url="html/0c28cbe3-7c0c-12af-30bf-af0a9f290da4.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="7aa7c412-2a10-4fe8-968f-e9f1c8c33563" Title="avaliacao_prodest.Database" Url="html/adb616f0-da83-082e-2b45-76348f371348.htm">
+    <HelpTOCNode Id="b677d2dd-4cc8-4a3e-a98a-300d368ba332" Title="Classe AvaliacaoProdestDbEntities" Url="html/355b9789-3460-e05d-b6e0-f51636756ee7.htm">
+      <HelpTOCNode Title="AvaliacaoProdestDbEntities Construtores " Url="html/f3c528e4-4c3d-4b5e-feaf-d93fab7a6e99.htm" />
+      <HelpTOCNode Id="e6357299-3dc2-473b-a7d3-578081015468" Title="Propriedades AvaliacaoProdestDbEntities " Url="html/8c280280-cd3c-2c5d-0bd3-22a5479e250c.htm">
+        <HelpTOCNode Title="Candidatos Propriedades " Url="html/465507e7-7ef5-fc91-26d9-fefe88cc3109.htm" />
+        <HelpTOCNode Title="Concursos Propriedades " Url="html/d4958d7f-cd34-9a9d-b929-f64d89d07372.htm" />
+        <HelpTOCNode Title="ProfissaoCandidato Propriedades " Url="html/e3c8b0b5-83a9-f2c0-91d1-41a086567b52.htm" />
+        <HelpTOCNode Title="VagaConcurso Propriedades " Url="html/28e5d059-da92-3bbf-2570-0c8432af05a5.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5dfd6065-0549-42e6-94af-19e2b96bc17a" Title="AvaliacaoProdestDbEntities M&#233;todos" Url="html/b63a7362-efe5-d612-0a98-afb6360d47f8.htm">
+        <HelpTOCNode Title="OnModelCreating M&#233;todos " Url="html/c9972be4-f496-717e-28d3-b0e6bc960de6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="59814344-bd4d-41f0-a7d4-dac929ef8167" Title="Classe Candidatos" Url="html/4e79c27d-7827-3d12-b90e-fa4f494605a6.htm">
+      <HelpTOCNode Title="Candidatos Construtores " Url="html/7830ef6c-5ba4-8f0e-5fe3-08de12e26fe7.htm" />
+      <HelpTOCNode Id="fe4dedf6-d88a-4911-b2ec-3a0a94c61aa8" Title="Propriedades Candidatos " Url="html/bc782cd9-b115-3f51-1995-716d6c982680.htm">
+        <HelpTOCNode Title="CPF Propriedades " Url="html/236322ab-c390-f0e2-0688-e4ce7169cb3d.htm" />
+        <HelpTOCNode Title="DataNascimento Propriedades " Url="html/f7ff0c1e-5eb7-499b-9032-6ee28bb75011.htm" />
+        <HelpTOCNode Title="Nome Propriedades " Url="html/977f1306-3571-9cc8-55f1-08bbd8aa39bf.htm" />
+        <HelpTOCNode Title="ProfissaoCandidato Propriedades " Url="html/cb8d3263-10e1-d495-00b9-ac03658a9b84.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e28d2906-92c3-4438-8fe2-4ef30774a611" Title="Classe Concursos" Url="html/ecdd8ac4-9f59-70df-15f9-574af2f38e33.htm">
+      <HelpTOCNode Title="Concursos Construtores " Url="html/6da7748c-8bc5-f2d0-8c47-24a1cb0a72e5.htm" />
+      <HelpTOCNode Id="8bf5f33f-e803-44a2-b262-235cb51d016f" Title="Propriedades Concursos " Url="html/176a0f80-5c26-6a94-c23c-76ad77ed37da.htm">
+        <HelpTOCNode Title="Codigo Propriedades " Url="html/a532a125-bfbe-a244-28fc-1d133ef9aedc.htm" />
+        <HelpTOCNode Title="Edital Propriedades " Url="html/370974ec-7e69-1cba-6c90-2041dd67112d.htm" />
+        <HelpTOCNode Title="IdConcurso Propriedades " Url="html/8372c3d5-bc51-5c61-8d68-40d79ddd6b85.htm" />
+        <HelpTOCNode Title="Orgao Propriedades " Url="html/2b9117ef-4a49-dab5-d75d-974afbfd5ec9.htm" />
+        <HelpTOCNode Title="VagaConcurso Propriedades " Url="html/f1b91592-9351-7e65-46f3-b5bcdb1c6513.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c82591e6-3d71-4ee5-8237-39641b970bdb" Title="Classe ProfissaoCandidato" Url="html/7bff10d4-92bf-7aea-b72a-bdd970820524.htm">
+      <HelpTOCNode Title="ProfissaoCandidato Construtores " Url="html/c08501ce-3117-a6d0-8eac-949ba08b8aae.htm" />
+      <HelpTOCNode Id="a25f9165-a0bb-42cd-9fa8-016dbcce7c9f" Title="Propriedades ProfissaoCandidato " Url="html/3d4f935d-87c0-07aa-4d5e-de378f772ada.htm">
+        <HelpTOCNode Title="Candidatos Propriedades " Url="html/6e461c4a-caf1-e608-eaa4-b1f8dbe701e3.htm" />
+        <HelpTOCNode Title="CPFCandidato Propriedades " Url="html/9f0dfee3-41bd-e9a2-adc9-c66287bf8e8f.htm" />
+        <HelpTOCNode Title="Id Propriedades " Url="html/4f8cb6c6-35e6-cbc1-9b9c-29aa48a9d4f3.htm" />
+        <HelpTOCNode Title="Profissao Propriedades " Url="html/0427003e-4a46-59b9-1462-d2866f0727ac.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="715d714d-e8e4-42ce-88f0-308ad6a28db5" Title="Classe VagaConcurso" Url="html/0a16ef33-88e9-7a57-5c85-44924bdcdd14.htm">
+      <HelpTOCNode Title="VagaConcurso Construtores " Url="html/d8e0dd08-1143-3155-a9d0-3c0f81213acb.htm" />
+      <HelpTOCNode Id="3be59fbc-e211-46df-b35f-f7ef6819ea3d" Title="Propriedades VagaConcurso " Url="html/4f85419b-be6d-fac4-3d7b-1135fec64903.htm">
+        <HelpTOCNode Title="Concursos Propriedades " Url="html/f870b0dd-6fe3-7968-7281-dfd15af45a99.htm" />
+        <HelpTOCNode Title="Id Propriedades " Url="html/92c1f9dd-587f-a09f-a9ce-fc2cf1bfaaba.htm" />
+        <HelpTOCNode Title="IdConcurso Propriedades " Url="html/124c14cb-9034-ca30-dc8b-5737aa086251.htm" />
+        <HelpTOCNode Title="Vaga Propriedades " Url="html/fe6d3c0c-3e64-bd5b-ef4f-7b8de208e240.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="6b557992-d69c-4333-a508-175424cedc19" Title="avaliacao_prodest.Enums" Url="html/edf05023-0e67-bd34-f84e-342eac902153.htm">
+    <HelpTOCNode Title="TipoBuscaEnum Enumera&#231;&#227;o" Url="html/ce9248f8-67d5-3699-092f-62ecd6d0a3c4.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="52efa6b8-6f74-4532-a29f-c690e19ad1ab" Title="avaliacao_prodest.Helpers" Url="html/42871376-c87e-7de5-b385-5a6dd0adbc22.htm">
+    <HelpTOCNode Id="faff62ee-9620-428c-bf89-818b6312f363" Title="Classe EnumerableExtension" Url="html/eb335f2b-3caa-0a56-8ede-df5e6ee1f3c9.htm">
+      <HelpTOCNode Id="35056ca6-c65d-4e2b-b287-54a51a921d42" Title="EnumerableExtension M&#233;todos" Url="html/2b444323-15bc-3155-dbc7-a274c88da341.htm">
+        <HelpTOCNode Title="Vazia(T) M&#233;todos " Url="html/f46f8034-b479-5c15-4276-005932722231.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2c2df2e0-38fc-4f75-ad60-a11a3d331d19" Title="Classe EnumExtension" Url="html/1ee58135-076d-4993-e566-33d622a1e502.htm">
+      <HelpTOCNode Id="abf055ff-377f-4126-8557-8133eb459338" Title="EnumExtension M&#233;todos" Url="html/b2400e32-9bed-f165-617f-4cdceaa44f98.htm">
+        <HelpTOCNode Title="GetDescription M&#233;todos " Url="html/e465aedb-1911-0ea6-0b4f-4eb83579c1f8.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="cb818ae1-122b-4dd3-9ba5-d0d1a0d8660f" Title="Classe HtmlHelpers" Url="html/cae70bea-d053-4ceb-b634-5d22bec4e5d4.htm">
+      <HelpTOCNode Id="fb6dc8f0-aef7-42c6-97aa-2edcd2d17b53" Title="HtmlHelpers M&#233;todos" Url="html/532ee2a3-0ded-1c45-6a8e-92a0284cbf11.htm">
+        <HelpTOCNode Id="eae4c758-d4e3-4c56-ba6b-42db12f57ee6" Title="ExibirListaTopico M&#233;todos " Url="html/ab3f183e-ec8e-8190-6b40-321ffcf3b0fb.htm">
+          <HelpTOCNode Title="ExibirListaTopico M&#233;todos (HtmlHelper, List(Candidatos), Int32, Int32)" Url="html/08550a7d-eb2b-4aab-1464-80efa64cfe1c.htm" />
+          <HelpTOCNode Title="ExibirListaTopico M&#233;todos (HtmlHelper, List(Concursos), Int32, Int32)" Url="html/9860a767-7fc6-84dc-7659-d57080ddacd4.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="58414079-02fd-48a6-8028-2410febbcf03" Title="Classe StringExtension" Url="html/35d789a5-5c81-215c-7e73-23383002b044.htm">
+      <HelpTOCNode Id="ab552db4-f035-4b79-a918-b074cfc0b1ab" Title="StringExtension M&#233;todos" Url="html/031ff883-a361-2217-f37c-385de1299571.htm">
+        <HelpTOCNode Title="Posicao M&#233;todos " Url="html/541cb555-a2cf-bc8a-0e71-7b75d3763f3b.htm" />
+        <HelpTOCNode Title="Remover M&#233;todos " Url="html/64cae04a-8532-106f-e3b1-ed071ede1342.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="723a6be2-8525-4fc9-a052-143fd739afe0" Title="avaliacao_prodest.Models" Url="html/2f481dc7-567a-ce57-05eb-5805d6465bf9.htm">
+    <HelpTOCNode Id="45fa0ef1-0a89-4e02-b21f-4db64cc14753" Title="Classe CandidatoViewModel" Url="html/be86fcfb-734f-b9f0-1b5a-0134c47d58e0.htm">
+      <HelpTOCNode Title="CandidatoViewModel Construtores " Url="html/0bcf5c04-6dce-4409-1669-746514070333.htm" />
+      <HelpTOCNode Id="666273fc-6e0b-4891-bdf7-7ca44658bcc4" Title="Propriedades CandidatoViewModel " Url="html/f15cb510-fc77-38dc-98fd-4849ec84bda3.htm">
+        <HelpTOCNode Title="CPF Propriedades " Url="html/75a6221a-c750-7743-bda7-4a3c77a38d09.htm" />
+        <HelpTOCNode Title="DataNascimento Propriedades " Url="html/fa8caa2c-e67e-725f-8d5f-5c800e1c72b0.htm" />
+        <HelpTOCNode Title="Nome Propriedades " Url="html/df2b2550-dc52-565d-bb7a-89f3d1287352.htm" />
+        <HelpTOCNode Title="Profissoes Propriedades " Url="html/5f9e570b-ca8e-8cf7-9be0-cb0f01d86f11.htm" />
+        <HelpTOCNode Title="VagasConcurso Propriedades " Url="html/7e15bb00-8b02-c86e-6e5a-975f75764c0b.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="df1be7c0-d393-4b2c-b055-ac8ecf7adcd7" Title="Classe ConcursoViewModel" Url="html/03dd1f98-bc2a-9c9a-f6c0-29572498713c.htm">
+      <HelpTOCNode Title="ConcursoViewModel Construtores " Url="html/c96d5f1f-bc24-a191-0851-e7ca807f920c.htm" />
+      <HelpTOCNode Id="9328f002-e861-4ee7-bac6-4e21f87f100e" Title="Propriedades ConcursoViewModel " Url="html/95cc1830-1b58-2425-20c3-d5d6066bb738.htm">
+        <HelpTOCNode Title="Candidatos Propriedades " Url="html/c21fc90f-c4dd-f964-1633-be627b351f44.htm" />
+        <HelpTOCNode Title="Codigo Propriedades " Url="html/43002175-85a2-3e53-5333-c68e04c3dfb6.htm" />
+        <HelpTOCNode Title="Edital Propriedades " Url="html/b21435b4-6cf4-14e1-ac2d-35036cddbe2b.htm" />
+        <HelpTOCNode Title="IdConcurso Propriedades " Url="html/57239e8d-0759-37a4-4c97-fee7d5f49ba1.htm" />
+        <HelpTOCNode Title="Orgao Propriedades " Url="html/253a27f9-45d4-0a3a-3a41-db19bd93ca03.htm" />
+        <HelpTOCNode Title="Vagas Propriedades " Url="html/f4c5b018-f5eb-f8ec-f9bb-37be03d5a2db.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="892b5a0d-54c4-47cc-98be-1fb578cc1c20" Title="Classe HomeViewModel" Url="html/31f38f28-c4b8-34b2-3e1c-da52067ba23c.htm">
+      <HelpTOCNode Title="HomeViewModel Construtores " Url="html/7ffc1726-255c-fd2e-b08b-abf9020ceb50.htm" />
+      <HelpTOCNode Id="63a7ac6c-851b-444c-b2e1-4470d61f8722" Title="Propriedades HomeViewModel " Url="html/35417e7e-f384-cca2-e2c6-5a12656a020b.htm">
+        <HelpTOCNode Title="Busca Propriedades " Url="html/d0bedac8-7f1a-4fa3-6a1c-c85cdbc24b7b.htm" />
+        <HelpTOCNode Title="Erro Propriedades " Url="html/008162da-ed49-6fae-5ea1-eb27c4d6c8c0.htm" />
+        <HelpTOCNode Title="TipoBusca Propriedades " Url="html/b50f6bbe-eb74-d814-a8a3-b8dbf299ef01.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

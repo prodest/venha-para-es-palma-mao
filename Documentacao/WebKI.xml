@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Application_Start m&#233;todos" Url="html/a2efa09c-71c1-f99d-9705-eb7865638e76.htm" />
+  <HelpKINode Title="AtualizarCandidatosDB m&#233;todos" Url="html/fcac8411-23f0-1870-54f2-1b4de4e55a09.htm" />
+  <HelpKINode Title="AtualizarConcursosDB m&#233;todos" Url="html/88ff52fc-ec84-773f-95df-cf898e086861.htm" />
+  <HelpKINode Title="AtualizarDb m&#233;todos" Url="html/632c2752-deba-a5d2-c35e-a78696b2f74f.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.AvaliacaoProdestDbEntities construtores" Url="html/f3c528e4-4c3d-4b5e-feaf-d93fab7a6e99.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.Candidatos propriedade" Url="html/465507e7-7ef5-fc91-26d9-fefe88cc3109.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.Concursos propriedade" Url="html/d4958d7f-cd34-9a9d-b929-f64d89d07372.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.OnModelCreating m&#233;todos" Url="html/c9972be4-f496-717e-28d3-b0e6bc960de6.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.ProfissaoCandidato propriedade" Url="html/e3c8b0b5-83a9-f2c0-91d1-41a086567b52.htm" />
+  <HelpKINode Title="AvaliacaoProdestDbEntities.VagaConcurso propriedade" Url="html/28e5d059-da92-3bbf-2570-0c8432af05a5.htm" />
+  <HelpKINode Title="avaliacao_prodest namespace" Url="html/3cbb18a4-1806-22c3-ac6b-0d97d5e6f34f.htm" />
+  <HelpKINode Title="avaliacao_prodest.Controllers namespace" Url="html/30328653-cd6a-6987-1b97-566d17a0ea44.htm" />
+  <HelpKINode Title="avaliacao_prodest.Database namespace" Url="html/adb616f0-da83-082e-2b45-76348f371348.htm" />
+  <HelpKINode Title="avaliacao_prodest.Enums namespace" Url="html/edf05023-0e67-bd34-f84e-342eac902153.htm" />
+  <HelpKINode Title="avaliacao_prodest.Helpers namespace" Url="html/42871376-c87e-7de5-b385-5a6dd0adbc22.htm" />
+  <HelpKINode Title="avaliacao_prodest.Models namespace" Url="html/2f481dc7-567a-ce57-05eb-5805d6465bf9.htm" />
+  <HelpKINode Title="BundleConfig.BundleConfig construtores" Url="html/a9e06c62-a4cc-21e2-7405-0cfd344086df.htm" />
+  <HelpKINode Title="BundleConfig.RegisterBundles m&#233;todos" Url="html/84079c27-57e0-da71-8430-b182fd1b1d24.htm" />
+  <HelpKINode Title="Busca propriedade" Url="html/d0bedac8-7f1a-4fa3-6a1c-c85cdbc24b7b.htm" />
+  <HelpKINode Title="Buscar m&#233;todos" Url="html/232745e2-b6e4-fb87-2d4e-91898860a766.htm" />
+  <HelpKINode Title="CandidatoController.AtualizarCandidatosDB m&#233;todos" Url="html/fcac8411-23f0-1870-54f2-1b4de4e55a09.htm" />
+  <HelpKINode Title="CandidatoController.CandidatoController construtores" Url="html/f461101a-c43b-0153-665a-d46819bfd197.htm" />
+  <HelpKINode Title="CandidatoController.Index m&#233;todos" Url="html/317ac56b-2bcd-10df-e8da-4803191beb5f.htm" />
+  <HelpKINode Title="CandidatoController.MapearCandidatosTxt m&#233;todos" Url="html/dcdb8c98-116d-e3e9-e6bd-e9286dc97295.htm" />
+  <HelpKINode Title="CandidatoController.RecuperarCandidatos m&#233;todos" Url="html/77c2b11b-1e54-0a04-ba34-14e3b5c05840.htm" />
+  <HelpKINode Title="Candidatos propriedade">
+    <HelpKINode Title="AvaliacaoProdestDbEntities.Candidatos Propriedades " Url="html/465507e7-7ef5-fc91-26d9-fefe88cc3109.htm" />
+    <HelpKINode Title="ConcursoViewModel.Candidatos Propriedades " Url="html/c21fc90f-c4dd-f964-1633-be627b351f44.htm" />
+    <HelpKINode Title="ProfissaoCandidato.Candidatos Propriedades " Url="html/6e461c4a-caf1-e608-eaa4-b1f8dbe701e3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Candidatos.Candidatos construtores" Url="html/7830ef6c-5ba4-8f0e-5fe3-08de12e26fe7.htm" />
+  <HelpKINode Title="Candidatos.CPF propriedade" Url="html/236322ab-c390-f0e2-0688-e4ce7169cb3d.htm" />
+  <HelpKINode Title="Candidatos.DataNascimento propriedade" Url="html/f7ff0c1e-5eb7-499b-9032-6ee28bb75011.htm" />
+  <HelpKINode Title="Candidatos.Nome propriedade" Url="html/977f1306-3571-9cc8-55f1-08bbd8aa39bf.htm" />
+  <HelpKINode Title="Candidatos.ProfissaoCandidato propriedade" Url="html/cb8d3263-10e1-d495-00b9-ac03658a9b84.htm" />
+  <HelpKINode Title="CandidatoViewModel.CandidatoViewModel construtores" Url="html/0bcf5c04-6dce-4409-1669-746514070333.htm" />
+  <HelpKINode Title="CandidatoViewModel.CPF propriedade" Url="html/75a6221a-c750-7743-bda7-4a3c77a38d09.htm" />
+  <HelpKINode Title="CandidatoViewModel.DataNascimento propriedade" Url="html/fa8caa2c-e67e-725f-8d5f-5c800e1c72b0.htm" />
+  <HelpKINode Title="CandidatoViewModel.Nome propriedade" Url="html/df2b2550-dc52-565d-bb7a-89f3d1287352.htm" />
+  <HelpKINode Title="CandidatoViewModel.Profissoes propriedade" Url="html/5f9e570b-ca8e-8cf7-9be0-cb0f01d86f11.htm" />
+  <HelpKINode Title="CandidatoViewModel.VagasConcurso propriedade" Url="html/7e15bb00-8b02-c86e-6e5a-975f75764c0b.htm" />
+  <HelpKINode Title="classe AvaliacaoProdestDbEntities ">
+    <HelpKINode Title="Classe AvaliacaoProdestDbEntities" Url="html/355b9789-3460-e05d-b6e0-f51636756ee7.htm" />
+    <HelpKINode Title="construtores" Url="html/f3c528e4-4c3d-4b5e-feaf-d93fab7a6e99.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/b63a7362-efe5-d612-0a98-afb6360d47f8.htm" />
+    <HelpKINode Title="propriedades" Url="html/8c280280-cd3c-2c5d-0bd3-22a5479e250c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe avaliacao_prodest.BundleConfig " Url="html/17d34294-66da-e73f-4bde-9509cb557925.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Controllers.CandidatoController " Url="html/856524d9-36b4-f451-f9d7-1b9910908a97.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Controllers.ConcursoController " Url="html/a121a4cc-dce9-dc85-1c55-98a9f85bf348.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Controllers.HomeController " Url="html/44b99afc-2f89-62b8-5d5c-cd31fc7f9542.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Database.AvaliacaoProdestDbEntities " Url="html/355b9789-3460-e05d-b6e0-f51636756ee7.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Database.Candidatos " Url="html/4e79c27d-7827-3d12-b90e-fa4f494605a6.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Database.Concursos " Url="html/ecdd8ac4-9f59-70df-15f9-574af2f38e33.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Database.ProfissaoCandidato " Url="html/7bff10d4-92bf-7aea-b72a-bdd970820524.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Database.VagaConcurso " Url="html/0a16ef33-88e9-7a57-5c85-44924bdcdd14.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.FilterConfig " Url="html/91229bc2-0a70-9424-4a2e-1904770bf11e.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Helpers.EnumerableExtension " Url="html/eb335f2b-3caa-0a56-8ede-df5e6ee1f3c9.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Helpers.EnumExtension " Url="html/1ee58135-076d-4993-e566-33d622a1e502.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Helpers.HtmlHelpers " Url="html/cae70bea-d053-4ceb-b634-5d22bec4e5d4.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Helpers.StringExtension " Url="html/35d789a5-5c81-215c-7e73-23383002b044.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Models.CandidatoViewModel " Url="html/be86fcfb-734f-b9f0-1b5a-0134c47d58e0.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Models.ConcursoViewModel " Url="html/03dd1f98-bc2a-9c9a-f6c0-29572498713c.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.Models.HomeViewModel " Url="html/31f38f28-c4b8-34b2-3e1c-da52067ba23c.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.MvcApplication " Url="html/e2fbb0ff-5e95-6850-eb08-8fab304186d1.htm" />
+  <HelpKINode Title="classe avaliacao_prodest.RouteConfig " Url="html/d5f3706c-7eaf-f106-c710-150de63970f2.htm" />
+  <HelpKINode Title="classe BundleConfig ">
+    <HelpKINode Title="Classe BundleConfig" Url="html/17d34294-66da-e73f-4bde-9509cb557925.htm" />
+    <HelpKINode Title="construtores" Url="html/a9e06c62-a4cc-21e2-7405-0cfd344086df.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/06b009cd-2e97-a329-2dcc-b51c18bf01e9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe CandidatoController ">
+    <HelpKINode Title="Classe CandidatoController" Url="html/856524d9-36b4-f451-f9d7-1b9910908a97.htm" />
+    <HelpKINode Title="construtores" Url="html/f461101a-c43b-0153-665a-d46819bfd197.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/9345c8f3-ef8d-29d7-8cec-3447612719a7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe Candidatos ">
+    <HelpKINode Title="Classe Candidatos" Url="html/4e79c27d-7827-3d12-b90e-fa4f494605a6.htm" />
+    <HelpKINode Title="construtores" Url="html/7830ef6c-5ba4-8f0e-5fe3-08de12e26fe7.htm" />
+    <HelpKINode Title="propriedades" Url="html/bc782cd9-b115-3f51-1995-716d6c982680.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe CandidatoViewModel ">
+    <HelpKINode Title="Classe CandidatoViewModel" Url="html/be86fcfb-734f-b9f0-1b5a-0134c47d58e0.htm" />
+    <HelpKINode Title="construtores" Url="html/0bcf5c04-6dce-4409-1669-746514070333.htm" />
+    <HelpKINode Title="propriedades" Url="html/f15cb510-fc77-38dc-98fd-4849ec84bda3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe ConcursoController ">
+    <HelpKINode Title="Classe ConcursoController" Url="html/a121a4cc-dce9-dc85-1c55-98a9f85bf348.htm" />
+    <HelpKINode Title="construtores" Url="html/dc3081ee-6002-ade3-07f2-72826bf20f02.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/54f71704-5a52-e90f-f28d-8186a1cf281e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe Concursos ">
+    <HelpKINode Title="Classe Concursos" Url="html/ecdd8ac4-9f59-70df-15f9-574af2f38e33.htm" />
+    <HelpKINode Title="construtores" Url="html/6da7748c-8bc5-f2d0-8c47-24a1cb0a72e5.htm" />
+    <HelpKINode Title="propriedades" Url="html/176a0f80-5c26-6a94-c23c-76ad77ed37da.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe ConcursoViewModel ">
+    <HelpKINode Title="Classe ConcursoViewModel" Url="html/03dd1f98-bc2a-9c9a-f6c0-29572498713c.htm" />
+    <HelpKINode Title="construtores" Url="html/c96d5f1f-bc24-a191-0851-e7ca807f920c.htm" />
+    <HelpKINode Title="propriedades" Url="html/95cc1830-1b58-2425-20c3-d5d6066bb738.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe EnumerableExtension ">
+    <HelpKINode Title="Classe EnumerableExtension" Url="html/eb335f2b-3caa-0a56-8ede-df5e6ee1f3c9.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/2b444323-15bc-3155-dbc7-a274c88da341.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe EnumExtension ">
+    <HelpKINode Title="Classe EnumExtension" Url="html/1ee58135-076d-4993-e566-33d622a1e502.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/b2400e32-9bed-f165-617f-4cdceaa44f98.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe FilterConfig ">
+    <HelpKINode Title="Classe FilterConfig" Url="html/91229bc2-0a70-9424-4a2e-1904770bf11e.htm" />
+    <HelpKINode Title="construtores" Url="html/dc9f4b46-9aa2-71fd-199d-6aff7907ffeb.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/7145e417-2717-0ea3-e578-f2c2cf4ebc2f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe HomeController ">
+    <HelpKINode Title="Classe HomeController" Url="html/44b99afc-2f89-62b8-5d5c-cd31fc7f9542.htm" />
+    <HelpKINode Title="construtores" Url="html/b102f980-e4ae-fd8b-a335-f99177c752bb.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/43f45193-62d4-9fd0-e7c8-03f9883fb249.htm" />
+    <HelpKINode Title="propriedades" Url="html/95fe00c5-fb6e-b840-58d4-acb37a0ec282.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe HomeViewModel ">
+    <HelpKINode Title="Classe HomeViewModel" Url="html/31f38f28-c4b8-34b2-3e1c-da52067ba23c.htm" />
+    <HelpKINode Title="construtores" Url="html/7ffc1726-255c-fd2e-b08b-abf9020ceb50.htm" />
+    <HelpKINode Title="propriedades" Url="html/35417e7e-f384-cca2-e2c6-5a12656a020b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe HtmlHelpers ">
+    <HelpKINode Title="Classe HtmlHelpers" Url="html/cae70bea-d053-4ceb-b634-5d22bec4e5d4.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/532ee2a3-0ded-1c45-6a8e-92a0284cbf11.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe MvcApplication ">
+    <HelpKINode Title="Classe MvcApplication" Url="html/e2fbb0ff-5e95-6850-eb08-8fab304186d1.htm" />
+    <HelpKINode Title="construtores" Url="html/ca2f1dce-7eb5-6906-97e5-490c9a2c81d2.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/0926ed70-1133-39ad-4689-0dbfbae6557e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe ProfissaoCandidato ">
+    <HelpKINode Title="Classe ProfissaoCandidato" Url="html/7bff10d4-92bf-7aea-b72a-bdd970820524.htm" />
+    <HelpKINode Title="construtores" Url="html/c08501ce-3117-a6d0-8eac-949ba08b8aae.htm" />
+    <HelpKINode Title="propriedades" Url="html/3d4f935d-87c0-07aa-4d5e-de378f772ada.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe RouteConfig ">
+    <HelpKINode Title="Classe RouteConfig" Url="html/d5f3706c-7eaf-f106-c710-150de63970f2.htm" />
+    <HelpKINode Title="construtores" Url="html/03caa136-f9fb-4e8c-3540-88cb860bd50e.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/a5ee3f4f-6665-88b1-c8d0-5de2ee2ffb16.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe StringExtension ">
+    <HelpKINode Title="Classe StringExtension" Url="html/35d789a5-5c81-215c-7e73-23383002b044.htm" />
+    <HelpKINode Title="m&#233;todos" Url="html/031ff883-a361-2217-f37c-385de1299571.htm" />
+  </HelpKINode>
+  <HelpKINode Title="classe VagaConcurso ">
+    <HelpKINode Title="Classe VagaConcurso" Url="html/0a16ef33-88e9-7a57-5c85-44924bdcdd14.htm" />
+    <HelpKINode Title="construtores" Url="html/d8e0dd08-1143-3155-a9d0-3c0f81213acb.htm" />
+    <HelpKINode Title="propriedades" Url="html/4f85419b-be6d-fac4-3d7b-1135fec64903.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Codigo propriedade">
+    <HelpKINode Title="Concursos.Codigo Propriedades " Url="html/a532a125-bfbe-a244-28fc-1d133ef9aedc.htm" />
+    <HelpKINode Title="ConcursoViewModel.Codigo Propriedades " Url="html/43002175-85a2-3e53-5333-c68e04c3dfb6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConcursoController.AtualizarConcursosDB m&#233;todos" Url="html/88ff52fc-ec84-773f-95df-cf898e086861.htm" />
+  <HelpKINode Title="ConcursoController.ConcursoController construtores" Url="html/dc3081ee-6002-ade3-07f2-72826bf20f02.htm" />
+  <HelpKINode Title="ConcursoController.Index m&#233;todos" Url="html/89dcd1e7-d2e6-e19d-2b00-04dfcb2dff5c.htm" />
+  <HelpKINode Title="ConcursoController.MapearConcursosTxt m&#233;todos" Url="html/a23037f3-e072-c016-2f84-64e2fdd5ac76.htm" />
+  <HelpKINode Title="ConcursoController.RecuperarConcursos m&#233;todos" Url="html/3ff2a392-ee39-c438-9007-0773b1e9f308.htm" />
+  <HelpKINode Title="Concursos propriedade">
+    <HelpKINode Title="AvaliacaoProdestDbEntities.Concursos Propriedades " Url="html/d4958d7f-cd34-9a9d-b929-f64d89d07372.htm" />
+    <HelpKINode Title="VagaConcurso.Concursos Propriedades " Url="html/f870b0dd-6fe3-7968-7281-dfd15af45a99.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Concursos.Codigo propriedade" Url="html/a532a125-bfbe-a244-28fc-1d133ef9aedc.htm" />
+  <HelpKINode Title="Concursos.Concursos construtores" Url="html/6da7748c-8bc5-f2d0-8c47-24a1cb0a72e5.htm" />
+  <HelpKINode Title="Concursos.Edital propriedade" Url="html/370974ec-7e69-1cba-6c90-2041dd67112d.htm" />
+  <HelpKINode Title="Concursos.IdConcurso propriedade" Url="html/8372c3d5-bc51-5c61-8d68-40d79ddd6b85.htm" />
+  <HelpKINode Title="Concursos.Orgao propriedade" Url="html/2b9117ef-4a49-dab5-d75d-974afbfd5ec9.htm" />
+  <HelpKINode Title="Concursos.VagaConcurso propriedade" Url="html/f1b91592-9351-7e65-46f3-b5bcdb1c6513.htm" />
+  <HelpKINode Title="ConcursoViewModel.Candidatos propriedade" Url="html/c21fc90f-c4dd-f964-1633-be627b351f44.htm" />
+  <HelpKINode Title="ConcursoViewModel.Codigo propriedade" Url="html/43002175-85a2-3e53-5333-c68e04c3dfb6.htm" />
+  <HelpKINode Title="ConcursoViewModel.ConcursoViewModel construtores" Url="html/c96d5f1f-bc24-a191-0851-e7ca807f920c.htm" />
+  <HelpKINode Title="ConcursoViewModel.Edital propriedade" Url="html/b21435b4-6cf4-14e1-ac2d-35036cddbe2b.htm" />
+  <HelpKINode Title="ConcursoViewModel.IdConcurso propriedade" Url="html/57239e8d-0759-37a4-4c97-fee7d5f49ba1.htm" />
+  <HelpKINode Title="ConcursoViewModel.Orgao propriedade" Url="html/253a27f9-45d4-0a3a-3a41-db19bd93ca03.htm" />
+  <HelpKINode Title="ConcursoViewModel.Vagas propriedade" Url="html/f4c5b018-f5eb-f8ec-f9bb-37be03d5a2db.htm" />
+  <HelpKINode Title="CPF propriedade">
+    <HelpKINode Title="Candidatos.CPF Propriedades " Url="html/236322ab-c390-f0e2-0688-e4ce7169cb3d.htm" />
+    <HelpKINode Title="CandidatoViewModel.CPF Propriedades " Url="html/75a6221a-c750-7743-bda7-4a3c77a38d09.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CPFCandidato propriedade" Url="html/9f0dfee3-41bd-e9a2-adc9-c66287bf8e8f.htm" />
+  <HelpKINode Title="DataNascimento propriedade">
+    <HelpKINode Title="Candidatos.DataNascimento Propriedades " Url="html/f7ff0c1e-5eb7-499b-9032-6ee28bb75011.htm" />
+    <HelpKINode Title="CandidatoViewModel.DataNascimento Propriedades " Url="html/fa8caa2c-e67e-725f-8d5f-5c800e1c72b0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Edital propriedade">
+    <HelpKINode Title="Concursos.Edital Propriedades " Url="html/370974ec-7e69-1cba-6c90-2041dd67112d.htm" />
+    <HelpKINode Title="ConcursoViewModel.Edital Propriedades " Url="html/b21435b4-6cf4-14e1-ac2d-35036cddbe2b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EnumerableExtension.Vazia(Of T) m&#233;todos" Url="html/f46f8034-b479-5c15-4276-005932722231.htm" />
+  <HelpKINode Title="EnumerableExtension.Vazia&lt;T&gt; m&#233;todos" Url="html/f46f8034-b479-5c15-4276-005932722231.htm" />
+  <HelpKINode Title="EnumExtension.GetDescription m&#233;todos" Url="html/e465aedb-1911-0ea6-0b4f-4eb83579c1f8.htm" />
+  <HelpKINode Title="Erro propriedade" Url="html/008162da-ed49-6fae-5ea1-eb27c4d6c8c0.htm" />
+  <HelpKINode Title="eumera&#231;&#227;o avaliacao_prodest.Enums.TipoBuscaEnum" Url="html/ce9248f8-67d5-3699-092f-62ecd6d0a3c4.htm" />
+  <HelpKINode Title="eumera&#231;&#227;o TipoBuscaEnum" Url="html/ce9248f8-67d5-3699-092f-62ecd6d0a3c4.htm" />
+  <HelpKINode Title="ExibirListaTopico m&#233;todos" Url="html/ab3f183e-ec8e-8190-6b40-321ffcf3b0fb.htm" />
+  <HelpKINode Title="FilterConfig.FilterConfig construtores" Url="html/dc9f4b46-9aa2-71fd-199d-6aff7907ffeb.htm" />
+  <HelpKINode Title="FilterConfig.RegisterGlobalFilters m&#233;todos" Url="html/c84f32f9-130b-ba15-4da7-f87db6475b58.htm" />
+  <HelpKINode Title="GetDescription m&#233;todos" Url="html/e465aedb-1911-0ea6-0b4f-4eb83579c1f8.htm" />
+  <HelpKINode Title="HomeController.AtualizarDb m&#233;todos" Url="html/632c2752-deba-a5d2-c35e-a78696b2f74f.htm" />
+  <HelpKINode Title="HomeController.Buscar m&#233;todos" Url="html/232745e2-b6e4-fb87-2d4e-91898860a766.htm" />
+  <HelpKINode Title="HomeController.HomeController construtores" Url="html/b102f980-e4ae-fd8b-a335-f99177c752bb.htm" />
+  <HelpKINode Title="HomeController.Index m&#233;todos" Url="html/0c28cbe3-7c0c-12af-30bf-af0a9f290da4.htm" />
+  <HelpKINode Title="HomeController.Model propriedade" Url="html/76b84326-ebfe-9d26-6b2a-cc3cd8831c4f.htm" />
+  <HelpKINode Title="HomeViewModel.Busca propriedade" Url="html/d0bedac8-7f1a-4fa3-6a1c-c85cdbc24b7b.htm" />
+  <HelpKINode Title="HomeViewModel.Erro propriedade" Url="html/008162da-ed49-6fae-5ea1-eb27c4d6c8c0.htm" />
+  <HelpKINode Title="HomeViewModel.HomeViewModel construtores" Url="html/7ffc1726-255c-fd2e-b08b-abf9020ceb50.htm" />
+  <HelpKINode Title="HomeViewModel.TipoBusca propriedade" Url="html/b50f6bbe-eb74-d814-a8a3-b8dbf299ef01.htm" />
+  <HelpKINode Title="HtmlHelpers.ExibirListaTopico m&#233;todos" Url="html/ab3f183e-ec8e-8190-6b40-321ffcf3b0fb.htm" />
+  <HelpKINode Title="Id propriedade">
+    <HelpKINode Title="ProfissaoCandidato.Id Propriedades " Url="html/4f8cb6c6-35e6-cbc1-9b9c-29aa48a9d4f3.htm" />
+    <HelpKINode Title="VagaConcurso.Id Propriedades " Url="html/92c1f9dd-587f-a09f-a9ce-fc2cf1bfaaba.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IdConcurso propriedade">
+    <HelpKINode Title="Concursos.IdConcurso Propriedades " Url="html/8372c3d5-bc51-5c61-8d68-40d79ddd6b85.htm" />
+    <HelpKINode Title="ConcursoViewModel.IdConcurso Propriedades " Url="html/57239e8d-0759-37a4-4c97-fee7d5f49ba1.htm" />
+    <HelpKINode Title="VagaConcurso.IdConcurso Propriedades " Url="html/124c14cb-9034-ca30-dc8b-5737aa086251.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Index m&#233;todos">
+    <HelpKINode Title="CandidatoController.Index M&#233;todos " Url="html/317ac56b-2bcd-10df-e8da-4803191beb5f.htm" />
+    <HelpKINode Title="ConcursoController.Index M&#233;todos " Url="html/89dcd1e7-d2e6-e19d-2b00-04dfcb2dff5c.htm" />
+    <HelpKINode Title="HomeController.Index M&#233;todos " Url="html/0c28cbe3-7c0c-12af-30bf-af0a9f290da4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MapearCandidatosTxt m&#233;todos" Url="html/dcdb8c98-116d-e3e9-e6bd-e9286dc97295.htm" />
+  <HelpKINode Title="MapearConcursosTxt m&#233;todos" Url="html/a23037f3-e072-c016-2f84-64e2fdd5ac76.htm" />
+  <HelpKINode Title="membro da enumera&#231;&#227;o Candidato" Url="html/ce9248f8-67d5-3699-092f-62ecd6d0a3c4.htm" />
+  <HelpKINode Title="membro da enumera&#231;&#227;o Concurso" Url="html/ce9248f8-67d5-3699-092f-62ecd6d0a3c4.htm" />
+  <HelpKINode Title="Model propriedade" Url="html/76b84326-ebfe-9d26-6b2a-cc3cd8831c4f.htm" />
+  <HelpKINode Title="MvcApplication.Application_Start m&#233;todos" Url="html/a2efa09c-71c1-f99d-9705-eb7865638e76.htm" />
+  <HelpKINode Title="MvcApplication.MvcApplication construtores" Url="html/ca2f1dce-7eb5-6906-97e5-490c9a2c81d2.htm" />
+  <HelpKINode Title="Nome propriedade">
+    <HelpKINode Title="Candidatos.Nome Propriedades " Url="html/977f1306-3571-9cc8-55f1-08bbd8aa39bf.htm" />
+    <HelpKINode Title="CandidatoViewModel.Nome Propriedades " Url="html/df2b2550-dc52-565d-bb7a-89f3d1287352.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnModelCreating m&#233;todos" Url="html/c9972be4-f496-717e-28d3-b0e6bc960de6.htm" />
+  <HelpKINode Title="Orgao propriedade">
+    <HelpKINode Title="Concursos.Orgao Propriedades " Url="html/2b9117ef-4a49-dab5-d75d-974afbfd5ec9.htm" />
+    <HelpKINode Title="ConcursoViewModel.Orgao Propriedades " Url="html/253a27f9-45d4-0a3a-3a41-db19bd93ca03.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Posicao m&#233;todos" Url="html/541cb555-a2cf-bc8a-0e71-7b75d3763f3b.htm" />
+  <HelpKINode Title="Profissao propriedade" Url="html/0427003e-4a46-59b9-1462-d2866f0727ac.htm" />
+  <HelpKINode Title="ProfissaoCandidato propriedade">
+    <HelpKINode Title="AvaliacaoProdestDbEntities.ProfissaoCandidato Propriedades " Url="html/e3c8b0b5-83a9-f2c0-91d1-41a086567b52.htm" />
+    <HelpKINode Title="Candidatos.ProfissaoCandidato Propriedades " Url="html/cb8d3263-10e1-d495-00b9-ac03658a9b84.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProfissaoCandidato.Candidatos propriedade" Url="html/6e461c4a-caf1-e608-eaa4-b1f8dbe701e3.htm" />
+  <HelpKINode Title="ProfissaoCandidato.CPFCandidato propriedade" Url="html/9f0dfee3-41bd-e9a2-adc9-c66287bf8e8f.htm" />
+  <HelpKINode Title="ProfissaoCandidato.Id propriedade" Url="html/4f8cb6c6-35e6-cbc1-9b9c-29aa48a9d4f3.htm" />
+  <HelpKINode Title="ProfissaoCandidato.Profissao propriedade" Url="html/0427003e-4a46-59b9-1462-d2866f0727ac.htm" />
+  <HelpKINode Title="ProfissaoCandidato.ProfissaoCandidato construtores" Url="html/c08501ce-3117-a6d0-8eac-949ba08b8aae.htm" />
+  <HelpKINode Title="Profissoes propriedade" Url="html/5f9e570b-ca8e-8cf7-9be0-cb0f01d86f11.htm" />
+  <HelpKINode Title="RecuperarCandidatos m&#233;todos" Url="html/77c2b11b-1e54-0a04-ba34-14e3b5c05840.htm" />
+  <HelpKINode Title="RecuperarConcursos m&#233;todos" Url="html/3ff2a392-ee39-c438-9007-0773b1e9f308.htm" />
+  <HelpKINode Title="RegisterBundles m&#233;todos" Url="html/84079c27-57e0-da71-8430-b182fd1b1d24.htm" />
+  <HelpKINode Title="RegisterGlobalFilters m&#233;todos" Url="html/c84f32f9-130b-ba15-4da7-f87db6475b58.htm" />
+  <HelpKINode Title="RegisterRoutes m&#233;todos" Url="html/b4f29cb0-5aea-696c-e918-b0432f555c5d.htm" />
+  <HelpKINode Title="Remover m&#233;todos" Url="html/64cae04a-8532-106f-e3b1-ed071ede1342.htm" />
+  <HelpKINode Title="RouteConfig.RegisterRoutes m&#233;todos" Url="html/b4f29cb0-5aea-696c-e918-b0432f555c5d.htm" />
+  <HelpKINode Title="RouteConfig.RouteConfig construtores" Url="html/03caa136-f9fb-4e8c-3540-88cb860bd50e.htm" />
+  <HelpKINode Title="StringExtension.Posicao m&#233;todos" Url="html/541cb555-a2cf-bc8a-0e71-7b75d3763f3b.htm" />
+  <HelpKINode Title="StringExtension.Remover m&#233;todos" Url="html/64cae04a-8532-106f-e3b1-ed071ede1342.htm" />
+  <HelpKINode Title="TipoBusca propriedade" Url="html/b50f6bbe-eb74-d814-a8a3-b8dbf299ef01.htm" />
+  <HelpKINode Title="Vaga propriedade" Url="html/fe6d3c0c-3e64-bd5b-ef4f-7b8de208e240.htm" />
+  <HelpKINode Title="VagaConcurso propriedade">
+    <HelpKINode Title="AvaliacaoProdestDbEntities.VagaConcurso Propriedades " Url="html/28e5d059-da92-3bbf-2570-0c8432af05a5.htm" />
+    <HelpKINode Title="Concursos.VagaConcurso Propriedades " Url="html/f1b91592-9351-7e65-46f3-b5bcdb1c6513.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VagaConcurso.Concursos propriedade" Url="html/f870b0dd-6fe3-7968-7281-dfd15af45a99.htm" />
+  <HelpKINode Title="VagaConcurso.Id propriedade" Url="html/92c1f9dd-587f-a09f-a9ce-fc2cf1bfaaba.htm" />
+  <HelpKINode Title="VagaConcurso.IdConcurso propriedade" Url="html/124c14cb-9034-ca30-dc8b-5737aa086251.htm" />
+  <HelpKINode Title="VagaConcurso.Vaga propriedade" Url="html/fe6d3c0c-3e64-bd5b-ef4f-7b8de208e240.htm" />
+  <HelpKINode Title="VagaConcurso.VagaConcurso construtores" Url="html/d8e0dd08-1143-3155-a9d0-3c0f81213acb.htm" />
+  <HelpKINode Title="Vagas propriedade" Url="html/f4c5b018-f5eb-f8ec-f9bb-37be03d5a2db.htm" />
+  <HelpKINode Title="VagasConcurso propriedade" Url="html/7e15bb00-8b02-c86e-6e5a-975f75764c0b.htm" />
+  <HelpKINode Title="Vazia(Of T) m&#233;todos" Url="html/f46f8034-b479-5c15-4276-005932722231.htm" />
+  <HelpKINode Title="Vazia&lt;T&gt; m&#233;todos" Url="html/f46f8034-b479-5c15-4276-005932722231.htm" />
+</HelpKI>

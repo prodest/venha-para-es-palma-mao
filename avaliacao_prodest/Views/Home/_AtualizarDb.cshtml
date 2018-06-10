@@ -1,0 +1,43 @@
+﻿@model avaliacao_prodest.Models.HomeViewModel
+@{ Layout = null; }
+@using avaliacao_prodest.Helpers;
+
+@using (Ajax.BeginForm("AtualizarDb", "Home",
+        new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "msg-sucesso", InsertionMode = InsertionMode.Replace, OnComplete = "modalOnComplete" }, 
+        new { id = "modal-atualizar-db" }))
+{
+    @Html.HiddenFor(m => m.TipoBusca, new { id = "tipo_busca_modal" })
+
+    <div class="modal fade" id="modal-atualizar" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atualizar Tabela</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-loader">
+                    <span class="fas fa-spinner fa-pulse"></span>
+                    <p class="loader-text"></p>
+                </div>
+
+                <div id="modal-conteudo" class="modal-body">
+                    <div id="msg-atualizar">
+                        <h5>Deseja atualizar a tabela <span id="nome-tabela"></span>?</h5>
+                        <p>Isso pode demorar.</p>
+                    </div>
+
+                    <div id="msg-sucesso">                        
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="botao-cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="botao-continuar" class="btn btn-primary">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

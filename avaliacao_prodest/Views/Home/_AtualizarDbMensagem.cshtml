@@ -1,0 +1,17 @@
+﻿@model avaliacao_prodest.Models.HomeViewModel
+
+@{ Layout = null; }
+
+<div>
+    @if (string.IsNullOrEmpty(Model.Erro))
+    {
+        <span class="fas fa-check"></span>
+        <h5>Tabela atualizada com sucesso!</h5>
+    }
+    else
+    {
+        <span class="fas fa-times"></span>
+        <h5>Não foi possível atualizar a tabela!</h5>
+        <p>Erro: @Model.Erro</p>
+    }
+</div>

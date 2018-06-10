@@ -1,0 +1,35 @@
+﻿@* Página principal *@
+
+@Scripts.Render("~/Scripts/index.js")
+@model avaliacao_prodest.Models.HomeViewModel
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@using (Ajax.BeginForm("Buscar", "Home",
+        new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "conteudo", InsertionMode = InsertionMode.Replace, OnSuccess = "onSuccess" },
+        new { id = "result-form" }))
+{
+    <div class="body">
+        <div class="busca">
+            <div id="searchbar">
+                @Html.TextBoxFor(m => m.Busca, new { @class = "searchbar", maxlenght = "11" })
+                <button id="botaoPesquisa" type="submit" form="result-form"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="loader">
+            <span class="fas fa-spinner fa-pulse"></span>
+            <p>Carregando...</p>
+        </div>
+
+        @Html.HiddenFor(m => m.TipoBusca, new { id = "tipo_busca" })
+        @Html.HiddenFor(m => m.Busca, new { id = "valor_busca" })
+
+        <div id="conteudo" class="conteudo">
+        </div>
+    </div>
+}
+
+@Html.Partial("~/Views/Home/_AtualizarDb.cshtml", Model)
+
+
+@Scripts.Render("~/Scripts/jquery/jquery.unobtrusive-ajax.min.js")
