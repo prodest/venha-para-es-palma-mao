@@ -23,75 +23,54 @@
 	
 	if (post('submit')) {
 		
-		// Verifica se o POST tem algum valor
-		if ( !isset( $_POST ) || empty( $_POST ) ) {
-			$erro = 'Nada foi postado.';
-		}
-
-		// Cria as variáveis dinamicamente
-		foreach ( $_POST as $chave => $valor ) {
-			// Remove todas as tags HTML
-			// Remove os espaços em branco do valor
-			$chave = trim( strip_tags( $valor ) );
-			
-			// Verifica se tem algum valor nulo
-			if ( empty ( $valor ) ) {
-				$erro = 'Existem campos em branco.';
-			}
-		}
-
-		//$codigo recebe o valor pesquisado
-		$codigo = post('codigo');
-
-		// Verifica se $codigo realmente existe e se é um número. 
-		// Também verifica se não existe nenhum erro anterior
-
-		if ( ( ! isset( $codigo ) || ! is_numeric( $codigo ) ) && !$erro ) {
-			$erro = 'O código deve ser um número.';
-		}
-
-		// Verifica se $codigo tem 11 números. 
-		// Também verifica se não existe nenhum erro anterior
-		if ( ( ! isset( $codigo ) ||  (strlen($codigo)!=11 )) && !$erro ) {
-			$erro = 'O código deve possuir 11 números.';
-		}
+        //$codigo recebe o valor pesquisado
+		$codigo =  $_POST["cpf"];
+        
+        // Verifica se o POST tem algum valor
+		if ( !isset( $codigo ) && !empty( $codigo ) ) {
+            if(is_numeric( $codigo ))
+            {
+                 // Verifica se $codigo tem 11 números.
+                if(strlen($codigo)==11){
+                     
+                  //Procura codigo do concurso no BD
+                    $concursos=  db::find('all', "SELECT * FROM concurso co INNER JOIN concurso_vaga cv ON co.id_concurso=cv.id_concurso INNER JOIN vaga v ON v.id_vaga=cv.id_vaga AND co.codigo = $codigo ORDER BY co.orgao");
 
 
-	
-		 else {
-			// Senão há erro, faz a pesquisa no Banco de Dados
-	
-			//Procura codigo do concurso no BD
-			$concursos=  db::find('all', "SELECT * FROM concurso co INNER JOIN concurso_vaga cv ON co.id_concurso=cv.id_concurso INNER JOIN vaga v ON v.id_vaga=cv.id_vaga AND co.codigo = $codigo ORDER BY co.orgao");
+
+                    //Busca candidatos para cruzar com os dados da vaga
+                    $candidatos=  db::find('all', "SELECT * FROM candidato c INNER JOIN candidato_profissao cp ON c.id_candidato=cp.id_candidato INNER JOIN profissao p ON p.id_profissao=cp.id_profissao ORDER BY c.nome");
 
 
-			
-			//Busca candidatos para cruzar com os dados da vaga
-			$candidatos=  db::find('all', "SELECT * FROM candidato c INNER JOIN candidato_profissao cp ON c.id_candidato=cp.id_candidato INNER JOIN profissao p ON p.id_profissao=cp.id_profissao ORDER BY c.nome");
 
-		
+                    //Busca candidatos
+                    foreach ($concursos as $concursos_vagas) {
+                        foreach ($candidatos as $candidatos_profissao) {
+                            if($concursos_vagas['nome_vaga'] == $candidatos_profissao['nome_profissao']){
 
-			//Busca candidatos
-			foreach ($concursos as $concursos_vagas) {
-				foreach ($candidatos as $candidatos_profissao) {
-					if($concursos_vagas['nome_vaga'] == $candidatos_profissao['nome_profissao']){
-						
-						//Array de candidatos habilitados para o código buscado
-						$concursos_candidatos[]=$candidatos_profissao;
+                                //Array de candidatos habilitados para o código buscado
+                                $concursos_candidatos[]=$candidatos_profissao;
 
-						//Número de registros encontrados
-						$total++;			
-					}
-				}
-			}
-
-			
-
-		}
-			
-		
-	
-	}
+                                //Número de registros encontrados
+                                $total++;			
+                            }
+                        }
+                    }
+                }
+                 else
+                 {
+                    $erro = 'O código deve possuir 11 números.';
+                } 
+            }
+            else {
+                $erro = 'O código deve ser um número.';
+            }
+        }
+        else{
+              $erro = 'Existem campos em branco.';             
+        }
+    
+    }
 ?>
 
 
