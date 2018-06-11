@@ -1,0 +1,52 @@
+{
+  "days": [
+    {
+      "categories": [],
+      "date": "2018-06-10",
+      "dependencies": [],
+      "editors": [],
+      "grand_total": {
+        "digital": "0:00",
+        "hours": 0,
+        "minutes": 0,
+        "text": "0 secs",
+        "total_seconds": 0
+      },
+      "languages": [],
+      "operating_systems": [],
+      "projects": []
+    }
+  ],
+  "range": {
+    "end": 1528685999,
+    "start": 1528599600
+  },
+  "user": {
+    "created_at": "2018-06-10T23:52:09Z",
+    "display_name": "Anonymous User",
+    "email": "lygia_botelho@outlook.com",
+    "email_public": false,
+    "full_name": null,
+    "has_premium_features": false,
+    "human_readable_website": null,
+    "id": "e73c2b01-1c7e-45d9-9fa0-9647c280fe04",
+    "is_email_confirmed": false,
+    "is_hireable": false,
+    "languages_used_public": false,
+    "last_heartbeat": null,
+    "last_plugin": null,
+    "last_plugin_name": null,
+    "last_project": null,
+    "location": null,
+    "logged_time_public": false,
+    "modified_at": null,
+    "photo": "https://wakatime.com/gravatar/13288e7bfba63adce7e86814daa672b1",
+    "photo_public": true,
+    "plan": "basic",
+    "timeout": 15,
+    "timezone": "America/Sao_Paulo",
+    "username": null,
+    "website": null,
+    "writes_only": false
+  }
+}
