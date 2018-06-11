@@ -1,4 +1,4 @@
-# Documentação Solução
+# Documentação da Solução
 
 A presente solução foi implementada na liguagem PHP  tomando como base o padrão MVC 
 onde pode ser observado a separação dos arquivos para melhor entendimento da mesma para edição
