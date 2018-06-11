@@ -1,3 +1,21 @@
+# Projeto ES na Palma da mão
+
+Sobre a proposta:
+  Foi proposto desenvolver um programa que permita realizar buscas baseadas em duas informações, o CPF ou o Código do Concurso. Sendo assim ao informar o nº do CPF, o programa deve ser capaz de informar todos os concursos que esse candidato previamente cadastrado pode pleitear. Da mesma maneira, ao informar o Código do Concurso o programa deve ser capaz de informar todos os candidatos que baseados nas suas competências profissionais podem realizar o concurso.
+  
+Sobre a resolução:
+  Para resolver esse desafio achei por bem usar a linguagem Java para desenvolver, e para gerir os dados utilizei um banco junto da aplicação.
+
+## Tecnologias
+  - Java
+  - SQLite
+  - HTML
+  - CSS
+
+
+
+
+______________________________________________________________
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
