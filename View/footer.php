@@ -4,6 +4,8 @@
               <div class="col l6 s12">
                 <h5 class="black-text">Dados Candidato</h5>
                 <p class="black-text text-lighten-4">Nome: Paulo Vinicius Fereira Lima</p>
+                <p class="black-text text-lighten-4">CPF: 136.984.317-85</p>
+                <p class="black-text text-lighten-4">Número de Inscrição: 1033353</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
