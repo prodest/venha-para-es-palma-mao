@@ -12,7 +12,15 @@ Sobre a resolução:
   - HTML
   - CSS
 
+## Pré-requisito
+ - NetBeans
+ - Glassfish
 
+## Execução
+
+  - Importar o projeto no Netbeans
+  - Construir
+  - Executar
 
 
 ______________________________________________________________
