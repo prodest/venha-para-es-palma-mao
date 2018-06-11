@@ -1,0 +1,44 @@
+h1{
+
+    font-size: 20px;
+}
+
+h3{
+    text-align: center;
+}
+.tituloB{
+    text-align: center;
+    color: #e7820f;
+    font-family: 'Anton', sans-serif;
+
+
+}
+
+.tituloCab{
+    text-align: center;
+    color: #ffffffb6;
+    font-family: 'Anton', sans-serif;
+}
+.icones{
+    text-align: center;
+}
+.icones>a>i{
+    text-decoration: none;
+   color: rgb(6, 15, 94);
+}
+
+.icones>a>i:hover{
+    color: brown;
+}
+
+.desenvolvedor{
+    text-decoration: none;
+    color: #ffffff;
+}
+.desenvolvedor:hover{
+    color: darkblue;
+}
+
+header{
+    
+}
