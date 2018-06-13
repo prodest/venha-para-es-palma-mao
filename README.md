@@ -27,9 +27,160 @@ Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra
 **É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
 
 Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
+
+
 1. Documentação da solução;
+
+---------------------------------------------------------------------------------------------
+
+
+O sistema foi feito em PHP com uso de base de Dados Mysql
+Usuário Banco de dados: root
+Senha: 
+
+
+Documento de Especificação de Requisitos
+
+Projeto: Venha para o ES na Palma da mão
+Responsável: Lygia Botelho
+
+
+Histórico de Revisões
+Data	Versão	Descrição	Autor
+10/06/18	1.0	Versão inicial	Lygia Botelho
+			
+
+
+1.	Prefácio
+
+A elaboração deste documento, em sua versão inicial, tem por objetivo principal documentar as fases de criação de um software visando dentre outros resguardar uma característica essencial, que é a manutenibilidade e está destinado em especial aos profissionais de TI.
+
+
+
+2.	Introdução
+
+Este documento apresenta a especificação dos requisitos do Sistema de Consulta de Concursos do teste para projeto ES na palma da Mão.  A atividade de análise foi conduzida aplicando-se técnicas de modelagem de casos de uso e modelagem de classes. Os modelos apresentados foram elaborados usando a UML.
+Este documento está organizado da seguinte forma: a seção 03 apresenta o propósito do sistema; a seção 04 apresenta o diagrama de casos de uso, incluindo descrições de atores; a seção 05 apresenta a descrição dos casos de uso e a seção 06 apresenta o diagrama de classes do sistema.
+
+3.	Descrição do propósito do Sistema
+
+Desenvolver um programa que permita realizar as seguintes buscas:
+1.	Listar os órgãos, códigos e editais dos concursos públicos que encaixam no perfil do candidato tomando como base o CPF do candidato;
+2.	Listar o nome, data de nascimento e o CPF dos candidatos que se encaixam no perfil do concurso tomando como base o Código do Concurso do concurso público;
+
+
+4.	Diagrama de Casos de Uso e descrição de atores
+
+Este diagrama mostra atores (pessoas ou outros usuários do sistema), casos de
+uso (os cenários onde eles usam o sistema), e seus relacionamentos. O ator identificado no contexto deste projeto está descrito na tabela 1.
+
+Tabela 1 – Descrição dos atores
+Nome	Função
+Usuário	Corresponde a pessoa que realiza consultas por dados do candidato ou por dados do concurso
+	
+
+
+
+ 
+Figura 1 - Diagrama de Caso de Uso (Vide imagem Documentacao/DiagramadeCasosdeUso.png)
+
+
+
+
+
+5.	Descrição dos Casos de Uso
+
+A descrição do caso de uso pode descrever em uma sequência razoavelmente
+completa de passos, todas as atividades que ocorrem em reação a um evento
+acionador ao sistema e como o mesmo reagiria ao evento.
+A seguir são apresentadas as descrições dos casos de uso do pacote Concurso.
+
+Caso de Uso 01
+Caso de uso: Buscar concursos do candidato
+Descrição: Lista os órgãos, códigos e editais dos concursos públicos que encaixam no perfil de um candidato tomando como base o CPF do candidato.
+Ator: usuário
+Fluxo Principal de sucesso:
+1.	O sistema apresenta o formulário para listar os concursos que se encaixam no perfil do candidato através do CPF do candidato.
+2.	O usuário insere os dados no campo selecionado.
+3.	O sistema valida o campo e faz a busca.
+4.	O usuário confere os dados da consulta.
+5.	O usuário fecha a janela.
+
+Fluxo alternativo:
+1.	Candidato não encontrado:
+a.	O sistema alerta o usuário que os dados não foram encontrados.
+
+2.	Campo em branco:
+a.	O sistema alerta o usuário que o campo obrigatório está em branco.
+
+3.	Campos com caracteres inválidos:
+a.	O sistema alerta o usuário que existem campos com caracteres inválidos.
+
+4.	Campos com caracteres incompletos:
+a.	O sistema alerta o usuário que existem campos com caracteres incompletos.
+
+5.	Nova pesquisa:
+a.	Após conferir os dados da consulta o usuário pode fazer uma nova pesquisa.
+
+
+Caso de Uso 02
+Caso de uso: Buscar candidatos do concurso
+Descrição: Listar o nome, data de nascimento e o CPF dos candidatos que se encaixam no perfil de um concurso tomando como base o Código do Concurso do concurso público;
+Ator: usuário
+
+Fluxo Principal de sucesso:
+1.	O sistema apresenta o formulário para buscar os candidatos que se encaixam no perfil do concurso através do código do concurso.
+2.	O usuário insere os dados no campo selecionado.
+3.	O sistema valida o campo e faz a busca.
+4.	O usuário confere os dados.
+5.	O usuário fecha a janela.
+
+Fluxo alternativo:
+1.	Concurso não encontrado:
+a.	O sistema alerta ao usuário que os dados não foram encontrados.
+
+2.	Campo em branco:
+a.	O sistema alerta ao usuário que o campo obrigatório está em branco.
+
+3.	Campos com caracteres inválidos:
+a.	O sistema alerta ao usuário que existem campos com caracteres inválidos.
+
+4.	Campos com caracteres incompletos:
+a.	O sistema alerta ao usuário que existem campos com caracteres incompletos.
+
+5.	Nova pesquisa:
+a.	Após conferir os dados da consulta o usuário pode fazer uma nova pesquisa.
+
+
+
+6.	Diagrama de classes
+
+O diagrama de classes mostra as classes e os relacionamentos entre elas, a
+figura 2 representam o diagrama de classes utilizado:
+
+ 
+Figura 2 - Diagrama de Classes (Vide imagem Documentacao/DiagramadeClasses.png)
+
+
+---------------------------------------------------------------------------------------------
+
+
 2. Lista dos diferenciais implementados
+
+
+Utilização de Banco de Dados Mysql.
+
+
+---------------------------------------------------------------------------------------------
+
+
 3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
+
+
+https://wakatime.s3.amazonaws.com/coding-activity-exports/e73c2b01-1c7e-45d9-9fa0-9647c280fe04/wakatime-lygia_botelhooutlook.com-e73c2b011c7e45d99fa09647c280fe04.json?Signature=CK6pLtMu1Ea%2BKG9P6R57OYskRuk%3D&AWSAccessKeyId=AKIAIUAL6LCFUN5DDH2Q&Expires=1528721701
+
+---------------------------------------------------------------------------------------------
+
 
 ## Avaliação
 
