@@ -1,6 +1,6 @@
 /*TAD BIBLIOTECA.H*/
 
-//ESTRUTURA PARA ALOCAR DADOS DOS CANDIDATOS
+//ESTRUTURA PARA ALOCAR CANDIDATOS
 typedef struct{
 	char* nome;
 	char* data;
@@ -8,7 +8,7 @@ typedef struct{
 	char* profissoes;
 } candidatos;
 
-//ESTRUTURA PARA ALOCAR DADOS DOS CONCURSOS
+//ESTRUTURA PARA ALOCAR CONCURSOS
 typedef struct{
 	char* nome_concurso;
 	char* data_concurso;
@@ -31,7 +31,6 @@ typedef struct{
 } profissoes_concursos;
 
 //CABECALHOS DAS FUNCOES
-
 //FUNCAO QUE RETORNA A QUANTIDADE DE LINHAS DE UM ARQUIVO
 int leQtdLinhasArq(char* arquivo);
 
@@ -77,16 +76,16 @@ profissoes* separaProfissoesPorPartes(profissoes* Profissao, candidatos* Candida
 //SEPARA CADA PROFISSAO DOS CONCURSOS SEPARADAMENTE
 profissoes_concursos* separaConcursoPorPartes(profissoes_concursos* Prof_Concursos, concursos* Concurso, int pont);
 
-//DA UM FREE NA ESTRUTURA ALOCADA CANDIDATOS
+//LIBERA ESTRUTURA ALOCADA CANDIDATOS
 void limpaCandidatos(candidatos* Candidato, int qtd);
 
-//DA UM FREE NA ESTRUTURA ALOCADA CONCURSOS
+//LIBERA ESTRUTURA ALOCADA CONCURSOS
 void limpaConcursos(concursos* Concurso, int qtd);
 
-//DA UM FREE NA ESTRUTURA ALOCADA PROFISSOES
+//LIBERA ESTRUTURA ALOCADA PROFISSOES
 void limpaProfissoes(profissoes* Profissao, int qtd);
 
-//DA UM FREE NA ESTRUTURA ALOCADA PROFISSOES DOS CONCURSOS
+//LIBERA ESTRUTURA ALOCADA PROFISSOES DOS CONCURSOS
 void limpaProfissoesConcursos(profissoes_concursos* Prof_Concurso, int qtd);
 
 //IMPRIME CASO SEJA PRECISO TODOS OS CANDIDATOS E SEUS DADOS ALOCADOS
