@@ -19,6 +19,10 @@ import testprodest.cgd.CanconDAO;
 public class Apl {
 
     CanconDAO canconDao = new CanconDAO();
+    List<Concurso> listaConcurso = new ArrayList<>();
+    List<String> listVagas = new ArrayList<>();
+    List<Candidato> listaCandidato = new ArrayList<>();
+    List<String> listProfissoes = new ArrayList<>();
 
     public Apl() {
         //Construtor
@@ -42,7 +46,7 @@ public class Apl {
 
     public String resultado(String codigo, String cpf) throws SQLException, ClassNotFoundException {
         String a = null;
-        String b = null;
+
         if ((!cpf.equals("")) && codigo.equals("") && (existeCPF(cpf))) {
             a = buscaConcursos(cpf);
             if (a.isEmpty()) {
@@ -56,47 +60,46 @@ public class Apl {
                 return "Não há candidatos para esse concurso!";
             } else if (!a.isEmpty()) {
                 return "Candidatos que se encaixam no perfil do concurso: <br>" + a;
-            } 
-        } else if (a.equals(b)) {
+            }
+        } else if (a == null) {
             return "Informe um e somente um dos campo ao lado!";
         }
         return null;
     }
 
     public String buscaConcursos(String cpf) throws ClassNotFoundException, SQLException {
-        List<Concurso> listaConcurso = new ArrayList<>();
-        List<String> vagas = new ArrayList<>();
+
         String a = "<br>";
         String[] profissoes;
         listaConcurso = canconDao.selectCon();
         profissoes = buscarPorCPF(cpf);
-
+        StringBuilder builder = new StringBuilder();
+        
         for (Concurso edital : listaConcurso) {
-            vagas = edital.getLista_vagas();
+            listVagas = edital.getListaVagas();
             for (String profissao : profissoes) {
 
-                if (vagas.contains(profissao)) {
-                    a = a + "Órgão: " + edital.getOrgao() + " | Código: " + edital.getCodigo() + " | Edital: " + edital.getEdital() + "<br><br>";
+                if (listVagas.contains(profissao)) {
+                    builder.append("Órgão: ").append(edital.getOrgao()).append(" | Código: ").append(edital.getCodigo()).append(" | Edital: ").append(edital.getEdital()).append("<br><br>");
                     break;
                 }
             }
         }
 
-        return a;
+        return builder.toString();
     }
 
     public String buscaCandidatos(String cpf) throws ClassNotFoundException, SQLException {
-        List<Candidato> listaCandidato = new ArrayList<>();
-        List<String> profissoes = new ArrayList<>();
+
         String a = "<br>";
         String[] vagas;
         listaCandidato = canconDao.selectCan();
         vagas = buscarPorCOD(cpf);
 
         for (Candidato candidato : listaCandidato) {
-            profissoes = candidato.getLista_profissoes();
+            listProfissoes = candidato.getListaProfissoes();
             for (String vaga : vagas) {
-                if (profissoes.contains(vaga)) {
+                if (listProfissoes.contains(vaga)) {
                     a = a + "Nome: " + candidato.getNome() + " | Data de Nascimento: " + candidato.getDataNascimento() + " | CPF: " + candidato.getCpf() + "<br><br>";
                     break;
                 }

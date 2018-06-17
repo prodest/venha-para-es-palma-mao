@@ -57,7 +57,7 @@ public class Concurso {
         this.edital = edital;
     }
 
-    public List<String> getLista_vagas() {
+    public List<String> getListaVagas() {
         return listaVagas;
     }
 

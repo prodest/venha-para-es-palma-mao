@@ -57,7 +57,7 @@ public class Candidato {
         this.cpf = cpf;
     }
 
-    public List<String> getLista_profissoes() {
+    public List<String> getListaProfissoes() {
         return listaProfissoes;
     }
 

@@ -21,18 +21,16 @@ public class Conector {
 
             return con;
         } catch (SQLException e) {
-            System.out.println("E:" + e.toString());
+            throw new SQLException(e);
         }
-        return null;
+
     }
 
     protected void closeConnection(Connection con) throws SQLException {
-        try {
-            if (con != null) {
-                con.close();
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro ao fechar conexão: " + ex);
+
+        if (con != null) {
+            con.close();
         }
+
     }
 }
