@@ -18,7 +18,7 @@ public class Concurso {
     private String codigo;
     private String orgao;
     private String edital;
-    private List<String> lista_vagas = new ArrayList<>();
+    private List<String> listaVagas = new ArrayList<>();
 
     public Concurso(String orgao, String edital, String codigo, String vagas) {
      
@@ -26,7 +26,7 @@ public class Concurso {
         this.orgao = orgao;
         this.edital = edital;
         String[] vaga = vagas.split(",");
-        this.lista_vagas.addAll(Arrays.asList(vaga));
+        this.listaVagas.addAll(Arrays.asList(vaga));
     }
 
     public Concurso() {
@@ -58,11 +58,11 @@ public class Concurso {
     }
 
     public List<String> getLista_vagas() {
-        return lista_vagas;
+        return listaVagas;
     }
 
     public void addVaga(String vaga) {
-        this.lista_vagas.add(vaga);
+        this.listaVagas.add(vaga);
     }
 
     @Override

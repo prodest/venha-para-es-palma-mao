@@ -18,14 +18,14 @@ public class Candidato {
     private String nome;
     private String dataNascimento;
     private String cpf;
-    private List<String> lista_profissoes = new ArrayList<>();
+    private List<String> listaProfissoes = new ArrayList<>();
 
     public Candidato(String nome, String dataNascimento, String cpf, String profissoes) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         String[] profissao = profissoes.split(",");
-        this.lista_profissoes.addAll(Arrays.asList(profissao));
+        this.listaProfissoes.addAll(Arrays.asList(profissao));
     }
 
     public Candidato() {
@@ -58,11 +58,11 @@ public class Candidato {
     }
 
     public List<String> getLista_profissoes() {
-        return lista_profissoes;
+        return listaProfissoes;
     }
 
     public void addProfissao(String profissao) {
-        this.lista_profissoes.add(profissao);
+        this.listaProfissoes.add(profissao);
     }
 
     @Override

@@ -42,50 +42,41 @@ public class Apl {
 
     public String resultado(String codigo, String cpf) throws SQLException, ClassNotFoundException {
         String a = null;
-        if ((!cpf.equals("")) && (codigo.equals(""))) {
-            if (existeCPF(cpf)) {
-                a = buscaConcursos(cpf);
-
-                if (a.isEmpty()) {
-                    a = "Não há concursos para esse candidato!";
-                } else {
-                    a = "Concursos que se encaixam no perfil do candidato: <br>" + a;
-                }
-            } else {
-                a = "Candidato não cadastrado em nosso banco!";
+        String b = null;
+        if ((!cpf.equals("")) && codigo.equals("") && (existeCPF(cpf))) {
+            a = buscaConcursos(cpf);
+            if (a.isEmpty()) {
+                return "Não há concursos para esse candidato!";
+            } else if (!a.isEmpty()) {
+                return "Concursos que se encaixam no perfil do candidato: <br>" + a;
             }
-        } else if ((cpf.equals("")) && (!codigo.equals(""))) {
-
-            if (existeCOD(codigo)) {
-                a = buscaCandidatos(codigo);
-                if (a.isEmpty()) {
-                    a = "Não há candidatos para esse concurso!";
-                } else {
-                    a = "Candidatos que se encaixam no perfil do concurso: <br>" + a;
-                }
-            } else {
-                a = "Concurso não encontrado!";
-            }
-        } else if (a == null) {
-            a = "Informe um e somente um dos campo ao lado!";
+        } else if ((cpf.equals("")) && (!codigo.equals("")) && (existeCOD(codigo))) {
+            a = buscaCandidatos(codigo);
+            if (a.isEmpty()) {
+                return "Não há candidatos para esse concurso!";
+            } else if (!a.isEmpty()) {
+                return "Candidatos que se encaixam no perfil do concurso: <br>" + a;
+            } 
+        } else if (a.equals(b)) {
+            return "Informe um e somente um dos campo ao lado!";
         }
-        return a;
+        return null;
     }
 
     public String buscaConcursos(String cpf) throws ClassNotFoundException, SQLException {
-        List<Concurso> lista_concurso = new ArrayList<>();
+        List<Concurso> listaConcurso = new ArrayList<>();
         List<String> vagas = new ArrayList<>();
         String a = "<br>";
         String[] profissoes;
-        lista_concurso = canconDao.selectCon();
+        listaConcurso = canconDao.selectCon();
         profissoes = buscarPorCPF(cpf);
 
-        for (Concurso edital : lista_concurso) {
+        for (Concurso edital : listaConcurso) {
             vagas = edital.getLista_vagas();
             for (String profissao : profissoes) {
 
                 if (vagas.contains(profissao)) {
-                    a += "Órgão: " + edital.getOrgao() + " | Código: " + edital.getCodigo() + " | Edital: " + edital.getEdital() + "<br><br>";
+                    a = a + "Órgão: " + edital.getOrgao() + " | Código: " + edital.getCodigo() + " | Edital: " + edital.getEdital() + "<br><br>";
                     break;
                 }
             }
@@ -95,18 +86,18 @@ public class Apl {
     }
 
     public String buscaCandidatos(String cpf) throws ClassNotFoundException, SQLException {
-        List<Candidato> lista_candidato = new ArrayList<>();
+        List<Candidato> listaCandidato = new ArrayList<>();
         List<String> profissoes = new ArrayList<>();
         String a = "<br>";
         String[] vagas;
-        lista_candidato = canconDao.selectCan();
+        listaCandidato = canconDao.selectCan();
         vagas = buscarPorCOD(cpf);
 
-        for (Candidato candidato : lista_candidato) {
+        for (Candidato candidato : listaCandidato) {
             profissoes = candidato.getLista_profissoes();
             for (String vaga : vagas) {
                 if (profissoes.contains(vaga)) {
-                    a += "Nome: " + candidato.getNome() + " | Data de Nascimento: " + candidato.getDataNascimento() + " | CPF: " + candidato.getCpf() + "<br><br>";
+                    a = a + "Nome: " + candidato.getNome() + " | Data de Nascimento: " + candidato.getDataNascimento() + " | CPF: " + candidato.getCpf() + "<br><br>";
                     break;
                 }
             }
