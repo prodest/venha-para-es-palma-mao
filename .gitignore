@@ -1,3 +1,4 @@
 node_modules/
 projeto/
+build/
 .env
