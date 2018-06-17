@@ -45,7 +45,7 @@ public class Apl {
     }
 
     public String resultado(String codigo, String cpf) throws SQLException, ClassNotFoundException {
-        String a = "true";
+        String a = "";
        
         if ((!cpf.equals("")) && codigo.equals("") && (existeCPF(cpf))) {
             a = buscaConcursos(cpf);
@@ -63,7 +63,7 @@ public class Apl {
             } else if (!a.isEmpty()) {
                 return "Candidatos que se encaixam no perfil do concurso: <br>" + a;
             }
-        } else if (a.equals(true)) {
+        } else if (a.isEmpty()) {
             return "Informe um e somente um dos campo ao lado!";
         }
         return null;
