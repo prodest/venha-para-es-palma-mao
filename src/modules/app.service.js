@@ -3,17 +3,17 @@ import ConcursoService from "./concursos/concurso.service";
 
 class AppService {
   static listarCandidatos(codigo_concurso) {
-    const concurso;
+    let concurso;
     ConcursoService.read(codigo_concurso, (found) => {
       concurso = found;
     });
 
-    const candidatos;
+    let candidatos;
     CandidatoService.readAll((found) => {
       candidatos = found;
     });
 
-    var candidatosPossiveis = [];
+    let candidatosPossiveis = [];
     candidatos.forEach((candidato) => {
       candidato.profissoes.forEach((profissao) => {
         if (profissao in concuso.vagas) {
@@ -29,17 +29,17 @@ class AppService {
   }
 
   static listarConcursos(cpf_candidato) {
-    const candidato;
+    let candidato;
     CandidatoService.read(cpf_candidato, (found) => {
       candidato = found;
     });
 
-    const concursos;
+    let concursos;
     ConcursoService.readAll((found) =>{
       concursos = found;
     });
 
-    var concursosPossiveis;
+    let concursosPossiveis;
     concursos.forEach((concurso) => {
       concurso.vagas.forEach((vaga) => {
         if (vaga in candidato.profissoes) {

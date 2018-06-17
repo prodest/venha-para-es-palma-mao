@@ -45,6 +45,17 @@ class MongoDB {
     }
   }
 
+  insertMany(collection, data) {
+    if (collection && data) {
+      this.connect((db) => {
+        if (process.env.LOGS) console.log("MongoDB: inserindo array de dados.");
+        collection = db.collection(collection);
+        collection.insertMany(data);
+        if (process.env.LOGS) console.log("MongoDB: array de dados inserido.");
+      });
+    }
+  }
+
   find(collection, params = {}, callback = () => {}) {
     if (collection) {
       this.connect((db) => {

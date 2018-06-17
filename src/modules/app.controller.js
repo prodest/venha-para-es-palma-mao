@@ -1,5 +1,5 @@
 import express from "express";
-import AppService from "./appService";
+import AppService from "./app.service";
 
 class AppController {
   constructor() {

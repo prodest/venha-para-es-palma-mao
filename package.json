@@ -7,6 +7,7 @@
     "start": "nodemon src/index.js --exec babel-node",
     "build": "rimraf build && babel src -d build",
     "start:prod": "node build/index.js",
+    "fill-mongo": "babel-node fill_db.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "dotenv": "^6.0.0",
+    "fs": "0.0.1-security",
     "nodemon": "^1.17.5",
     "rimraf": "^2.6.2"
   }
