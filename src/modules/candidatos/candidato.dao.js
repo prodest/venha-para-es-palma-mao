@@ -21,6 +21,7 @@ class CandidatoDAO {
     MongoDB.find(this.collection, {cpf: cpf}, (docs) => {
       if (!docs) {
         callback(null);
+        return;
       }
       const result = docs[0];
       callback(new Candidato(result.nome, result.nascimento, result.cpf, result.profissoes, result._id));
@@ -28,7 +29,17 @@ class CandidatoDAO {
   }
 
   findAll(callback) {
-    MongoDB.find(this.collection, {}, callback);
+    MongoDB.find(this.collection, {}, (docs) => {
+      if (!docs[0]) {
+        callback(null);
+        return;
+      }
+      let candidatos = [];
+      docs.map((doc) => {
+        candidatos.push(new Candidato(doc.nome, doc.nascimento, doc.cpf, doc.profissoes, doc._id));
+      });
+      callback(candidatos);
+    });
   }
 }
 
