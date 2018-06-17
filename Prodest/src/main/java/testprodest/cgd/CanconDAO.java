@@ -53,13 +53,13 @@ public class CanconDAO extends Conector {
                 PreparedStatement statement = connection.prepareStatement(SELECT_3)) {
             statement.setString(1, codigo);
 
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                if (!result.getString("codigo").equals("")) {
-                    return true;
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    if (!result.getString("codigo").equals("")) {
+                        return true;
+                    }
                 }
             }
-
         } finally {
             this.closeConnection(con);
         }
@@ -72,11 +72,10 @@ public class CanconDAO extends Conector {
                 PreparedStatement statement = connection.prepareStatement(SELECT_1)) {
             statement.setString(1, codigo);
 
-            ResultSet result = statement.executeQuery();
-
-            result.next();
-            resposta = result.getString("vagas").split(",");
-
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                resposta = result.getString("vagas").split(",");
+            }
         } finally {
             this.closeConnection(con);
         }
@@ -90,11 +89,11 @@ public class CanconDAO extends Conector {
                 PreparedStatement statement = connection.prepareStatement(SELECT_2)) {
             statement.setString(1, cpf);
 
-            ResultSet result = statement.executeQuery();
+            try (ResultSet result = statement.executeQuery()) {
 
-            result.next();
-            split = result.getString("profissoes").split(",");
-
+                result.next();
+                split = result.getString("profissoes").split(",");
+            }
         } finally {
             this.closeConnection(con);
         }
