@@ -95,9 +95,9 @@ O candidato será desclassifiado nas seguintes situações:
 
 O serviço pode ser usado por meio da url es-palma-mao-teste-gary.herokuapp.com/api.
 
-Uma requisição GET em es-palma-mao-teste-gary.herokuapp.com/api/concursos/:cpf_candidato retorna a lista de concursos que se encaixam no perfil do candidato informado.
+Uma requisição GET em [/api/concursos/:cpf_candidato](https://es-palma-mao-teste-gary.herokuapp.com/api/concursos/319.655.881-15) retorna a lista de concursos que se encaixam no perfil do candidato informado no formato JSON.
 
-Uma requisição GET em es-palma-mao-teste-gary.herokuapp.com/api/candidatos/:codigo_concurso retorna a lista de candidatos que se encaixam no perfil do concurso informado.
+Uma requisição GET em [/api/candidatos/:codigo_concurso](https://es-palma-mao-teste-gary.herokuapp.com/api/candidatos/87795432060) retorna a lista de candidatos que se encaixam no perfil do concurso informado no formato JSON.
 
 ### Banco de dados
 
@@ -105,4 +105,4 @@ A solução foi desenvolvida sobre a ferramenta de banco de dados não relaciona
 
 ### Integração com Travis
 
-O TravisCI foi utilizado para deploys automatizados.
+O TravisCI foi utilizado para automatizar o deploy.
