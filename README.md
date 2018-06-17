@@ -87,7 +87,7 @@ O candidato será desclassifiado nas seguintes situações:
 ![Diagrama de projeto](/docs/Diagrama_de_classes_-_projeto.png)
 
 ### Diagrama de Persistência
-![Diagrama de persistência](/docs/Diagrama_de_persistencia.png)
+![Diagrama de persistência](/docs/Diagrama_de_persistência.png)
 
 ## Diferenciais implementados
 
