@@ -1,5 +1,6 @@
 class Candidato {
-  constructor(nome, nascimento, cpf, profissoes) {
+  constructor(nome, nascimento, cpf, profissoes, id) {
+    this.id = id;
     this.nome = nome;
     this.nascimento = nascimento;
     this.cpf = cpf;
