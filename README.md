@@ -20,7 +20,7 @@ Sobre a resolução:
 
   ### Caso possua o git instalado:
   - Execute o seguinte comando em um terminal na pasta que deseja salvar o projeto:
-    git clone https://github.com/helenfranca/venha-para-es-palma-mao.git
+      git clone https://github.com/helenfranca/venha-para-es-palma-mao.git
   - Importe o projeto no Netbeans
   - Dê um Clean & Build
   - Execute o projeto
