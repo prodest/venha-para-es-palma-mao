@@ -8,6 +8,10 @@ class CandidatoService {
     return candidato;
   }
 
+  static createMany(candidatos) {
+    CandidatoDAO.insertMany(candidatos);
+  }
+
   static read(cpf, callback) {
     CandidatoDAO.findOne(cpf, callback);
   }

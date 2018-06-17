@@ -8,6 +8,10 @@ class ConcursoService {
     return concurso;
   }
 
+  static createMany(concursos) {
+    ConcursoDAO.insertMany(concursos);
+  }
+
   static read(codigo, callback) {
     ConcursoDAO.findOne(codigo, callback);
   }

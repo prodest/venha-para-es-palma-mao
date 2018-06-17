@@ -17,6 +17,10 @@ class CandidatoDAO {
     return true;
   }
 
+  insertMany(candidatos) {
+    MongoDB.insertMany(this.collection, candidatos);
+  }
+
   findOne(cpf, callback) {
     MongoDB.find(this.collection, {cpf: cpf}, (docs) => {
       if (!docs) {

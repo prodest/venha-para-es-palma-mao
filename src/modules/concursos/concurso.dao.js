@@ -18,6 +18,10 @@ class ConcursoDAO {
     return true;
   }
 
+  insertMany(concursos) {
+    MongoDB.insertMany(this.collection, concursos);
+  }
+
   findOne(codigo, callback) {
     MongoDB.find(this.collection, {codigo: codigo}, (docs) => {
       if (!docs) {
