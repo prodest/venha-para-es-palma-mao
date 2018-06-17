@@ -8,5 +8,5 @@ branches:
     - master
     
 script:
-  - cd Prodest
-  - mvn clean install
+    - cd Prodest
+    - mvn clean install
