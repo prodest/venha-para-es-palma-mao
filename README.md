@@ -22,12 +22,11 @@ Luiz H. A. A. de Lima - Inscricao 1031947
 
 # Links
 
-Link para o projeto (código dentro da pasta /ProdesteTeste/src/): https://drive.google.com/file/d/1cKodTq38UAsOzrH9ZwhUas3YorDw5XkF/view?usp=sharing
-
 Link do WakaTime: https://wakatime.com/@a671e39b-ab96-4b0c-9ab8-25f432ef8b6d/projects/gtuskpwtsa?start=2018-06-11&end=2018-06-17
 OBS: alguns dados do dia 16 não apareceram.
 
-
+PS: Link abaixo desnecessário após upload no git, mas manterei por backup.
+Projeto (código dentro da pasta /ProdesteTeste/src/): https://drive.google.com/file/d/1cKodTq38UAsOzrH9ZwhUas3YorDw5XkF/view?usp=sharing
 
 
 
