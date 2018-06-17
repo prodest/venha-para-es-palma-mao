@@ -102,3 +102,7 @@ Uma requisição GET em es-palma-mao-teste-gary.herokuapp.com/api/candidatos/:co
 ### Banco de dados
 
 A solução foi desenvolvida sobre a ferramenta de banco de dados não relacional MongoDB.
+
+### Integração com Travis
+
+O TravisCI foi utilizado para deploys automatizados.
