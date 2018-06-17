@@ -101,7 +101,7 @@ Uma requisição GET em [/api/candidatos/:codigo_concurso](https://es-palma-mao-
 
 ### Banco de dados
 
-A solução foi desenvolvida sobre a ferramenta de banco de dados não relacional MongoDB.
+A solução foi desenvolvida utilizando o banco de dados não relacional MongoDB.
 
 ### Integração com Travis
 
