@@ -1,11 +1,12 @@
 language: java
 
-sudo: enable
-dist: trusty
-
 jdk:
  - oraclejdk8 
 
 branches:
   only:
     - master
+    
+script:
+  - cd Prodest
+  - mvn clean install
