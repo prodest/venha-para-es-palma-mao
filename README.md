@@ -72,3 +72,37 @@ O candidato será desclassifiado nas seguintes situações:
 1. Submeter um solução que não funcione; 
 2. Não cumprir os critérios presentes no seção **Avaliação**
 3. Plágio
+
+# Solução
+
+## Documentação
+
+### Diagrama de Casos de uso
+![Casos de uso](/docs/Diagrama_de_casos_de_uso.png)
+
+### Diagrama de Classes
+![Diagrama de classes](/docs/Diagrama_de_classes.png)
+
+### Diagrama de Projeto
+![Diagrama de projeto](/docs/Diagrama_de_classes_-_projeto.png)
+
+### Diagrama de Persistência
+![Diagrama de persistência](/docs/Diagrama_de_persistência.png)
+
+## Diferenciais implementados
+
+### Implementação com serviço
+
+O serviço pode ser usado por meio da url es-palma-mao-teste-gary.herokuapp.com/api.
+
+Uma requisição GET em [/api/concursos/:cpf_candidato](https://es-palma-mao-teste-gary.herokuapp.com/api/concursos/319.655.881-15) retorna a lista de concursos que se encaixam no perfil do candidato informado no formato JSON.
+
+Uma requisição GET em [/api/candidatos/:codigo_concurso](https://es-palma-mao-teste-gary.herokuapp.com/api/candidatos/87795432060) retorna a lista de candidatos que se encaixam no perfil do concurso informado no formato JSON.
+
+### Banco de dados
+
+A solução foi desenvolvida utilizando o banco de dados não relacional MongoDB.
+
+### Integração com Travis
+
+O TravisCI foi utilizado para automatizar o deploy.
