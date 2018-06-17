@@ -20,7 +20,7 @@ import testprodest.db.Conector;
  */
 public class CanconDAO extends Conector {
 
-    //private static final String SELECT_0 = "SELECT cpf FROM candidato WHERE cpf = ?;";
+    private static final String SELECT_0 = "SELECT cpf FROM candidato WHERE cpf = ?;";
     private static final String SELECT_1 = "SELECT vagas FROM concurso WHERE codigo = ? ;";
     private static final String SELECT_2 = "SELECT profissoes FROM candidato WHERE cpf = ? ;";
     private static final String SELECT_3 = "SELECT codigo FROM concurso WHERE codigo = ?;";
@@ -30,15 +30,17 @@ public class CanconDAO extends Conector {
     public boolean verificaCPF(String cpf) throws SQLException, ClassNotFoundException {
 
         try (Connection connection = this.openConnection();
-                PreparedStatement statement = connection.prepareStatement("SELECT cpf FROM candidato WHERE cpf ="+ cpf +";");
-                ResultSet result = statement.executeQuery()){
+                PreparedStatement statement = connection.prepareStatement(SELECT_0)) {
 
-            while (result.next()) {
-                if (!result.getString("cpf").equals("")) {
-                    return true;
+            statement.setString(1, cpf);
+
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    if (!result.getString("cpf").equals("")) {
+                        return true;
+                    }
                 }
             }
-
         } finally {
             this.closeConnection(con);
         }
