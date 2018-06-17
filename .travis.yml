@@ -1,5 +1,8 @@
 language: java
 
+sudo: enable
+dist: trusty
+
 jdk:
  - oraclejdk8 
 
