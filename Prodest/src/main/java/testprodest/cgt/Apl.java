@@ -45,11 +45,11 @@ public class Apl {
     }
 
     public String resultado(String codigo, String cpf) throws SQLException, ClassNotFoundException {
-        String a = null;
-        boolean b = true;
+        String a = "true";
+       
         if ((!cpf.equals("")) && codigo.equals("") && (existeCPF(cpf))) {
             a = buscaConcursos(cpf);
-            b = false;
+            
             if (a.isEmpty()) {
                 return "Não há concursos para esse candidato!";
             } else if (!a.isEmpty()) {
@@ -57,13 +57,13 @@ public class Apl {
             }
         } else if ((cpf.equals("")) && (!codigo.equals("")) && (existeCOD(codigo))) {
             a = buscaCandidatos(codigo);
-            b = false;
+           
             if (a.isEmpty()) {
                 return "Não há candidatos para esse concurso!";
             } else if (!a.isEmpty()) {
                 return "Candidatos que se encaixam no perfil do concurso: <br>" + a;
             }
-        } else if (b) {
+        } else if (a.equals(true)) {
             return "Informe um e somente um dos campo ao lado!";
         }
         return null;
@@ -95,13 +95,14 @@ public class Apl {
         String a = "<br>";
         String[] vagas;
         listaCandidato = canconDao.selectCan();
+        StringBuilder builder = new StringBuilder();
         vagas = buscarPorCOD(cpf);
 
         for (Candidato candidato : listaCandidato) {
             listProfissoes = candidato.getListaProfissoes();
             for (String vaga : vagas) {
                 if (listProfissoes.contains(vaga)) {
-                    a = a + "Nome: " + candidato.getNome() + " | Data de Nascimento: " + candidato.getDataNascimento() + " | CPF: " + candidato.getCpf() + "<br><br>";
+                   builder.append("Nome: ").append(candidato.getNome()).append(" | Data de Nascimento: ").append(candidato.getDataNascimento()).append(" | CPF: ").append(candidato.getCpf()).append("<br><br>");
                     break;
                 }
             }
