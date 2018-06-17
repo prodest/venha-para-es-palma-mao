@@ -78,16 +78,16 @@ O candidato será desclassifiado nas seguintes situações:
 ## Documentação
 
 ### Diagrama de Casos de uso
-![Casos de uso](/docs/Diagrama de casos de uso.png)
+![Casos de uso](/docs/Diagrama_de_casos_de_uso.png)
 
 ### Diagrama de Classes
-![Diagrama de classes](/docs/Diagrama de classes.png)
+![Diagrama de classes](/docs/Diagrama_de_classes.png)
 
 ### Diagrama de Projeto
-![Diagrama de projeto](/docs/Diagrama de classes - projeto.png)
+![Diagrama de projeto](/docs/Diagrama_de_classes_-_projeto.png)
 
 ### Diagrama de Persistência
-![Diagrama de persistência](/docs/Diagrama de persistência.png)
+![Diagrama de persistência](/docs/Diagrama_de_persistencia.png)
 
 ## Diferenciais implementados
 
