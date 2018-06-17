@@ -1,4 +1,4 @@
 node_modules/
-projeto/
 build/
+*.asta
 .env
