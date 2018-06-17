@@ -3,6 +3,8 @@ node_js:
 - node
 install:
 - npm install
+script:
+- npm test
 deploy:
   provider: heroku
   api_key:
