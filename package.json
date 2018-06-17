@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Teste para processo seletivo Prodest",
   "main": "src/index.js",
+  "engines":{
+    "node": "8.9.3",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
     "build": "rimraf build && babel src -d build",
-    "start:prod": "node build/index.js",
+    "prod": "node build/index.js",
     "fill-mongo": "babel-node fill_db.js",
     "heroku-postbuild": "npm run build",
     "test": "exit 0"

@@ -93,7 +93,7 @@ O candidato será desclassifiado nas seguintes situações:
 
 ### Implementação com serviço
 
-O serviço pode ser usado por meio da url es-palma-mao-teste-gary.herokuapp.com/api.
+O serviço pode ser usado por meio da url https://es-palma-mao-teste-gary.herokuapp.com/.
 
 Uma requisição GET em [/api/concursos/:cpf_candidato](https://es-palma-mao-teste-gary.herokuapp.com/api/concursos/319.655.881-15) retorna a lista de concursos que se encaixam no perfil do candidato informado no formato JSON.
 
