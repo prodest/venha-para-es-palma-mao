@@ -32,4 +32,4 @@ class ConcursoDAO {
   }
 }
 
-export default new CandidatoDAO;
+export default new ConcursoDAO;
