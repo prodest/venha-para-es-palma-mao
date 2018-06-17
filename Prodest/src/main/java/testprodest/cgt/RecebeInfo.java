@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "RecebeInfo", urlPatterns = "/RecebeInfo")
 public class RecebeInfo extends HttpServlet {
 
-    Apl apl = new Apl();
+    public static Apl apl = new Apl();
     
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
