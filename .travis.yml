@@ -1,0 +1,20 @@
+language: java
+
+jdk:
+ - oraclejdk8
+ 
+addons:
+    sonarcloud:
+        organization: "helenfranca-github"
+        token:
+            secure: e88de5cf22b1e3ab8c339699ac90a25a53baf958
+
+branches:
+  only:
+    - master
+    
+script:
+    - cd Prodest
+    - mvn clean install
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+ 
