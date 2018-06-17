@@ -23,8 +23,7 @@ Sobre a resolução:
     <br>git clone https://github.com/helenfranca/venha-para-es-palma-mao.git
   - Importe o projeto no Netbeans
   - Dê um Clean & Build
-  - Execute o projeto
-    Irá abrir uma página no browser.
+  - Execute o projeto. Irá abrir uma página no browser.
     
   ### Caso **não** possua o git instalado:  
   - Baixe o projeto no link abaixo:
@@ -32,8 +31,7 @@ Sobre a resolução:
   - Descompacte na pasta desejada
   - Importe o projeto no Netbeans
   - Dê Clean & Build
-  - Execute o projeto
-    Irá abrir uma página no browser.
+  - Execute o projeto. Irá abrir uma página no browser.
     
    
 ## Diferenciais 
