@@ -1,3 +1,81 @@
+## Solução
+
+### * Documentação da solução
+Nessa solução foi utilizado o Python 3, o Django 2.0 e o banco de dados padrão do Django, o SQLite3.
+
+
+Primeiro vamos entrar na linha de comando e vamos até o diretório testePRODEST.
+Em seguida entraremos um ambient virtual com o comando:
+
+No Windows:
+```
+> env\Scripts\activate
+```
+No Linux e OS X:
+```
+$ source env/bin/activate
+```
+Se não funcionar o comando anterior:
+```
+$ . env/bin/activate
+```
+Verifique se o pip está atulizado:
+```
+$ python3 -m pip install --upgrade pip
+```
+Baixe o Django:
+```
+$ pip install django --user
+```
+Note: Se quiser criar um novo banco de dados siga esses passos:
+* Apague o arquivo db.sqlite3
+* Na linha de comando, já dentro do ambient virtual digite:
+    ```
+    $ python manage.py makemigrations projeto
+    ```
+    e
+    ```
+    $ python manage.py migrate projeto
+    ```
+    Isso cria o banco de dados SQLite3 e cria também as tabelas que
+    baseadas nos models que estão em projeto/models.py
+
+* Execute o tratar_e_popular_BD.py e indique o caminho caminho compelto em que estão os arquivos: candidatos.txt e concursos.txt:
+    ```
+    $ python tratar_e_popular_BD.py
+    Digite o caminho do arquivo dos candidatos: /home/user/testePRODEST/arquivos/candidatos.txt
+    Digite o caminho do arquivo dos concursos: /home/user/testePRODEST/arquivos/concursos.txt
+    ```
+    E aguarde, depedendo do tamanho do arquivo, pode demorar.
+    ```
+    Salvando candidatos no banco de dados. Aguarde...
+    Finalizado.
+    Salvando concursos no banco de dados. Aguarde...
+    Finalizado.
+    ```
+    
+Hora de rodar o servidor! escreva o comando no terminal:
+```
+$ python manage.py runserver
+```
+Entre em um navegador e acesse: **127.0.0.1:8000**
+
+Na página que carregar, digite no campo de busca o **CPF** do candidato ou o **Código** do concurso e selecione o tipo de busca: por Candidatos ou por Concursos.
+
+**PS: O CPF é preciso digitar todos os pontos e o traço para a ser buscado corretamente (xxx.xxx.xxx-xx).**
+
+
+### * Lista dos diferenciais implementados
+* Utilizar banco de dados
+* Implementar Clean Code
+* Implementar o padrão de programação da tecnologia escolhida
+
+
+
+_________________________________________________________________________________________
+
+
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
