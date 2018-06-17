@@ -11,18 +11,17 @@ import java.util.List;
 
 /**
  *
- * @author ISM
+ * @author Helen
  */
 public class Concurso {
 
-    private int id;
     private String codigo;
     private String orgao;
     private String edital;
     private List<String> lista_vagas = new ArrayList<>();
 
-    public Concurso(int id, String orgao, String edital, String codigo,String vagas) {
-        this.id = id;
+    public Concurso(String orgao, String edital, String codigo, String vagas) {
+     
         this.codigo = codigo;
         this.orgao = orgao;
         this.edital = edital;
@@ -30,13 +29,8 @@ public class Concurso {
         this.lista_vagas.addAll(Arrays.asList(vaga));
     }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Concurso() {
+        //Contrutor
     }
 
     public String getCodigo() {
@@ -73,7 +67,7 @@ public class Concurso {
 
     @Override
     public String toString() {
-        return "Órgão: " + this.getOrgao() + ", Código: " + this.getCodigo() + ", Edital: " +this.getEdital();
+        return "Órgão: " + this.getOrgao() + ", Código: " + this.getCodigo() + ", Edital: " + this.getEdital();
     }
 
 }

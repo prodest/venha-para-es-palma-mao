@@ -1,7 +1,5 @@
 package testprodest.cgt;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +8,6 @@ package testprodest.cgt;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -19,24 +16,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
- * @author ISM
+ * @author Helen
  */
-@WebServlet(name="RecebeInfo", urlPatterns="/RecebeInfo")
+@WebServlet(name = "RecebeInfo", urlPatterns = "/RecebeInfo")
 public class RecebeInfo extends HttpServlet {
 
     Apl apl = new Apl();
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ParseException {
+            throws IOException, SQLException, ClassNotFoundException, ServletException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String a = apl.resultado(request.getParameter("codigo"),request.getParameter("cpf"));
-
-           
+            String a = apl.resultado(request.getParameter("codigo"), request.getParameter("cpf"));
+            
             out.println("<!DOCTYPE html> <html><head>"
                     + "<title>Teste - Projeto ES na Palma da Mão</title>"
                     + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>"
@@ -46,7 +42,6 @@ public class RecebeInfo extends HttpServlet {
                     + "<header>"
                     + "<h1>Projeto ES na Palma da Mão</h1>"
                     + "</header>"
-                    
                     + "<nav>"
                     + "<ul>"
                     + "<form action='RecebeInfo' method='POST'>"
@@ -61,7 +56,6 @@ public class RecebeInfo extends HttpServlet {
                     + "<input type='submit' value='OK' autofocus >"
                     + "</fieldset>"
                     + "</form></ul> </nav> "
-                    
                     + "<nav> <ul> <form>"
                     + "<fieldset>"
                     + "<legend>Resultado da busca:</legend>"
@@ -79,19 +73,11 @@ public class RecebeInfo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException, ServletException {
         try {
-            try {
-                processRequest(request, response);
-
-            } catch (ParseException ex) {
-                Logger.getLogger(RecebeInfo.class
-                        .getName()).log(Level.SEVERE, null, ex);
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RecebeInfo.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            processRequest(request, response);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(RecebeInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -99,18 +85,11 @@ public class RecebeInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            try {
-                processRequest(request, response);
-
-            } catch (ParseException ex) {
-                Logger.getLogger(RecebeInfo.class
-                        .getName()).log(Level.SEVERE, null, ex);
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RecebeInfo.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            processRequest(request, response);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(RecebeInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     @Override

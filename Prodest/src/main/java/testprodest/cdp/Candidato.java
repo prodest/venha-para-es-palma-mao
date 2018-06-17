@@ -7,42 +7,31 @@ package testprodest.cdp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
- * @author ISM
+ * @author Helen
  */
 public class Candidato {
 
-    private int id;
     private String nome;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String cpf;
     private List<String> lista_profissoes = new ArrayList<>();
 
-    public Candidato(int id,String nome, Date dataNascimento, String cpf, String profissoes) {
-        this.id = id;
+    public Candidato(String nome, String dataNascimento, String cpf, String profissoes) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         String[] profissao = profissoes.split(",");
         this.lista_profissoes.addAll(Arrays.asList(profissao));
     }
-    
-    public Candidato(){
-        
-    }
-    
 
-    public int getId() {
-        return id;
+    public Candidato() {
+        //Construtor
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -52,11 +41,11 @@ public class Candidato {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

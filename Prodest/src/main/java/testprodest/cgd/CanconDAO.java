@@ -9,153 +9,139 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import testprodest.cdp.Cancon;
-import testprodest.db.SQLite;
+import java.util.ArrayList;
+import java.util.List;
+import testprodest.cdp.*;
+import testprodest.db.Conector;
 
 /**
  *
- * @author ISM
- * @param <GenericType>
+ * @author Helen
  */
-public class CanconDAO<GenericType> implements GenericDAO<GenericType> {
+public class CanconDAO extends Conector {
 
-    private final String INSERT = "INSERT INTO candidato_concurso (edital_concurso,cpf_candidato,codigo) VALUES(?,?,?);";
-    private final String SELECT = "SELECT * FROM candidato_concurso;";
-    private final String SELECT_0 = "SELECT cpf_candidato FROM candidato_concurso WHERE cpf_candidato = ?;";
-    private final String SELECT_1 = "SELECT DISTINCT nome, dataNascimento, cpf FROM candidato A INNER JOIN candidato_concurso B ON B.codigo = ? ;";
+    private static final String SELECT_0 = "SELECT cpf FROM candidato WHERE cpf = ?;";
+    private static final String SELECT_1 = "SELECT vagas FROM concurso WHERE codigo = ? ;";
+    private static final String SELECT_2 = "SELECT profissoes FROM candidato WHERE cpf = ? ;";
+    private static final String SELECT_3 = "SELECT codigo FROM concurso WHERE codigo = ?;";
+    private static final String SELECT_CAN = "SELECT * FROM candidato";
+    private static final String SELECT_CON = "SELECT * FROM concurso";
 
-    private final String SELECT_2 = "SELECT * FROM candidato_concurso A INNER JOIN concurso B ON A.cpf_candidato = ? AND"
-            + " B.edital = A.edital_concurso ;";
-    private final String SELECT_3 = "SELECT codigo FROM concurso WHERE codigo = ?;";
+    public boolean verificaCPF(String cpf) throws SQLException, ClassNotFoundException {
 
-    public boolean verificaCPF(String cpf) throws SQLException {
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_0)) {
 
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(SELECT_0)) {
-                statement.setString(1, cpf);
-                statement.execute();
-
-                ResultSet result = statement.executeQuery();
-                while (result.next()) {
-                    if (!result.getString("cpf_candidato").equals("")) {
-                        return true;
-                    }
+            statement.setString(1, cpf);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                if (!result.getString("cpf").equals("")) {
+                    return true;
                 }
             }
+
+        } finally {
+            this.closeConnection(con);
         }
         return false;
     }
 
-    public boolean verificaCOD(String codigo) throws SQLException {
+    public boolean verificaCOD(String codigo) throws SQLException, ClassNotFoundException {
 
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(SELECT_3)) {
-                statement.setString(1, codigo);
-                statement.execute();
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_3)) {
+            statement.setString(1, codigo);
 
-                ResultSet result = statement.executeQuery();
-                while (result.next()) {
-                    if (!result.getString("codigo").equals("")) {
-                        return true;
-                    }
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                if (!result.getString("codigo").equals("")) {
+                    return true;
                 }
             }
+
+        } finally {
+            this.closeConnection(con);
         }
         return false;
     }
 
-    public String getCandidato(String codigo) {
-        String resposta = "";
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(SELECT_1)) {
-                statement.setString(1, codigo);
-                statement.execute();
+    public String[] getConcurso(String codigo) throws ClassNotFoundException, SQLException {
+        String[] resposta;
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_1)) {
+            statement.setString(1, codigo);
 
-                ResultSet result = statement.executeQuery();
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                while (result.next()) {
-                    resposta += "<br> Nome: " + result.getString("nome") + " | "
-                            + "Data de Nascimento: " + formato.format(result.getDate("dataNascimento")) + ""
-                            + " | CPF: " + result.getString("cpf");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CanconDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ResultSet result = statement.executeQuery();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(CanconDAO.class.getName()).log(Level.SEVERE, null, ex);
+            result.next();
+            resposta = result.getString("vagas").split(",");
+
+        } finally {
+            this.closeConnection(con);
         }
         return resposta;
     }
 
-    public String getConcurso(String cpf) {
-        String resposta = "";
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(SELECT_2)) {
-                statement.setString(1, cpf);
-                statement.execute();
+    public String[] getCandidato(String cpf) throws ClassNotFoundException, SQLException {
+        String[] split;
 
-                ResultSet result = statement.executeQuery();
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_2)) {
+            statement.setString(1, cpf);
 
-                while (result.next()) {
-                    resposta += "<br> Órgao: " + result.getString("orgao") + ""
-                            + " | Edital: " + result.getString("edital") + ""
-                            + " | Código do Concurso: " + result.getString("codigo");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CanconDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ResultSet result = statement.executeQuery();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(CanconDAO.class.getName()).log(Level.SEVERE, null, ex);
+            result.next();
+            split = result.getString("profissoes").split(",");
+
+        } finally {
+            this.closeConnection(con);
         }
-        return resposta;
+        return split;
     }
 
-    @Override
-    public void insert(GenericType obj) {
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(INSERT)) {
+    public List<Candidato> selectCan() throws ClassNotFoundException, SQLException {
+        List<Candidato> candidatos = new ArrayList<>();
 
-                String edital_concurso = ((Cancon) obj).getEdital_concurso();
-                String cpf_candidato = ((Cancon) obj).getCpf_candidato();
-                String codigo = ((Cancon) obj).getCodigo();
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_CAN);
+                ResultSet result = statement.executeQuery()) {
+            Candidato candidato;
+            while (result.next()) {
+                candidato = new Candidato();
+                candidato.setNome(result.getString("nome"));
+                candidato.setCpf(result.getString("cpf"));
 
-                statement.setString(1, edital_concurso);
-                statement.setString(2, cpf_candidato);
-                statement.setString(3, codigo);
-
-                statement.execute();
-
+                candidato.setDataNascimento(result.getString("dataNascimento"));
+                candidato.addProfissao(result.getString("profissoes"));
+                candidatos.add(candidato);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CanconDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            this.closeConnection(con);
         }
+        return (List<Candidato>) candidatos;
     }
 
-    @Override
-    public int getNextId() {
-        int res = -0;
-        String ORDER = "ORDER BY id_concurso ASC;";
-        try (Connection connection = SQLite.getConnectionSQLite("prodestbd.db")) {
-            try (PreparedStatement statement = connection.prepareStatement(SELECT + ORDER,
-                    ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-                statement.execute();
-                ResultSet result = statement.executeQuery();
-                if (result.last()) {
-                    res = result.getInt("id_concurso");
-                    return res + 1;
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    public List<Concurso> selectCon() throws ClassNotFoundException, SQLException {
+        List<Concurso> concursos = new ArrayList<>();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        try (Connection connection = this.openConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_CON);
+                ResultSet result = statement.executeQuery()) {
+            Concurso concurso;
+            while (result.next()) {
+                concurso = new Concurso();
+                concurso.setOrgao(result.getString("orgao"));
+                concurso.setEdital(result.getString("edital"));
+
+                concurso.setCodigo(result.getString("codigo"));
+                concurso.addVaga(result.getString("vagas"));
+                concursos.add(concurso);
+            }
+        } finally {
+            this.closeConnection(con);
         }
-        return res;
+        return (List<Concurso>) concursos;
     }
+
 }
