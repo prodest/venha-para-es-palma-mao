@@ -6,11 +6,17 @@ class AppController {
     this.router = express.Router();
 
     this.router.get("/candidatos/:cod_concurso", (req, res) => {
-      res.json(AppService.listarCandidatos(req.params.cod_concurso));
+      AppService.listarCandidatos(req.params.cod_concurso)
+      .then((data) => {
+        res.json(data);
+      });
     });
 
     this.router.get("/concursos/:cpf_candidato", (req, res) => {
-      res.json(AppService.listarConcursos(req.params.cpf_candidato));
+      AppService.listarConcursos(req.params.cpf_candidato)
+      .then((data) => {
+        res.json(data);
+      });
     });
   }
 }

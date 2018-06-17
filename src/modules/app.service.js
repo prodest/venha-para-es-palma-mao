@@ -3,55 +3,64 @@ import ConcursoService from "./concursos/concurso.service";
 
 class AppService {
   static listarCandidatos(codigo_concurso) {
-    let concurso;
-    ConcursoService.read(codigo_concurso, (found) => {
-      concurso = found;
-    });
+    var concurso;
+    var candidatos;
+    var candidatosPossiveis = [];
 
-    let candidatos;
-    CandidatoService.readAll((found) => {
-      candidatos = found;
-    });
-
-    let candidatosPossiveis = [];
-    candidatos.forEach((candidato) => {
-      candidato.profissoes.forEach((profissao) => {
-        if (profissao in concuso.vagas) {
-          candidatosPossiveis.push({
-            nome: candidato.nome,
-            nascimento: candidato.nascimento,
-            cpf: candidato.cpf
-          });
-        }
+    return ConcursoService.read(codigo_concurso)
+    .then((res) => {
+      console.log("listar candidatos - read concurso", res);
+      concurso = res;
+      return CandidatoService.readAll();
+    })
+    .then((res) => {
+      candidatos = res;
+      return;
+    })
+    .then(() => {
+      candidatos.forEach((candidato) => {
+        candidato.profissoes.forEach((profissao) => {
+          if (concurso.vagas.includes(profissao)) {
+            candidatosPossiveis.push({
+              nome: candidato.nome,
+              nascimento: candidato.nascimento,
+              cpf: candidato.cpf
+            });
+          }
+        });
       });
+      return candidatosPossiveis;
     });
-    return candidatosPossiveis;    
   }
 
   static listarConcursos(cpf_candidato) {
-    let candidato;
-    CandidatoService.read(cpf_candidato, (found) => {
-      candidato = found;
-    });
+    var candidato;
+    var concursos;
+    var concursosPossiveis = [];
 
-    let concursos;
-    ConcursoService.readAll((found) =>{
-      concursos = found;
-    });
-
-    let concursosPossiveis;
-    concursos.forEach((concurso) => {
-      concurso.vagas.forEach((vaga) => {
-        if (vaga in candidato.profissoes) {
-          concursosPossiveis.push({
-            orgao: concurso.orgao,
-            codigo: concurso.codigo,
-            edital: concurso.edital
-          });
-        }
+    return CandidatoService.read(cpf_candidato)
+    .then((res) => {
+      candidato = res;
+      return ConcursoService.readAll();
+    })
+    .then((res) => {
+      concursos = res;
+      return;
+    })
+    .then(() => {
+      concursos.forEach((concurso) => {
+        concurso.vagas.forEach((vaga) => {
+          if (candidato.profissoes.includes(vaga)) {
+            concursosPossiveis.push({
+              orgao: concurso.orgao,
+              codigo: concurso.codigo,
+              edital: concurso.edital
+            });
+          }
+        });
       });
+      return concursosPossiveis;
     });
-    return concursosPossiveis;
   }
 }
 

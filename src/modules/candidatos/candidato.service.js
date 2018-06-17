@@ -12,12 +12,12 @@ class CandidatoService {
     CandidatoDAO.insertMany(candidatos);
   }
 
-  static read(cpf, callback) {
-    CandidatoDAO.findOne(cpf, callback);
+  static read(cpf) {
+    return CandidatoDAO.findOne(cpf);
   }
 
-  static readAll(callback) {
-    CandidatoDAO.findAll(callback);
+  static readAll() {
+    return CandidatoDAO.findAll();
   }
 }
 

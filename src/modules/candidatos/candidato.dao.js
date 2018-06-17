@@ -4,6 +4,7 @@ import Candidato from "./candidato";
 class CandidatoDAO {
   constructor() {
     this.collection = "candidatos";
+    this.MongoDB = new MongoDB;
   }
 
   insert(candidato) {
@@ -13,36 +14,30 @@ class CandidatoDAO {
       cpf: candidato.cpf,
       profissoes: candidato.profissoes
     };
-    MongoDB.insert(this.collection, data);
+    this.MongoDB.insert(this.collection, data);
     return true;
   }
 
   insertMany(candidatos) {
-    MongoDB.insertMany(this.collection, candidatos);
+    this.MongoDB.insertMany(this.collection, candidatos);
   }
 
-  findOne(cpf, callback) {
-    MongoDB.find(this.collection, {cpf: cpf}, (docs) => {
-      if (!docs) {
-        callback(null);
-        return;
-      }
-      const result = docs[0];
-      callback(new Candidato(result.nome, result.nascimento, result.cpf, result.profissoes, result._id));
+  findOne(cpf) {
+    return this.MongoDB.find(this.collection, {cpf: cpf})
+    .then((docs) => {
+      var result = docs[0];
+      return new Candidato(result.nome, result.nascimento, result.cpf, result.profissoes, result._id);
     });
   }
 
-  findAll(callback) {
-    MongoDB.find(this.collection, {}, (docs) => {
-      if (!docs[0]) {
-        callback(null);
-        return;
-      }
-      let candidatos = [];
+  findAll() {
+    return this.MongoDB.find(this.collection, {})
+    .then((docs) => {
+      var candidatos = [];
       docs.map((doc) => {
         candidatos.push(new Candidato(doc.nome, doc.nascimento, doc.cpf, doc.profissoes, doc._id));
       });
-      callback(candidatos);
+      return candidatos;
     });
   }
 }
