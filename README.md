@@ -1,4 +1,4 @@
-# Teste para o projeto ES na Palma da mão
+﻿# Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
 1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
@@ -72,3 +72,17 @@ O candidato será desclassifiado nas seguintes situações:
 1. Submeter um solução que não funcione; 
 2. Não cumprir os critérios presentes no seção **Avaliação**
 3. Plágio
+
+
+1.Documentação
+
+  A solução foi implementada utilizando a linguagem C. A interface de programação utilizada foi o Atom com 'gcc-compile' instalado.
+  As bibliotecas do código são padrões da linguagem C não sendo necessário instalação de adicionais.
+  Na execução do código é recomendado aumentar o buffer da tela devido a quantidade de informações impressas.
+  A busca pode ser realizada por cpf ou número de concurso utilizando o mesmo campo de digitação.
+
+2. Lista dos diferenciais implementados
+
+3. Link do projeto no [WakaTime]
+
+  https://wakatime.com/@69e94b3e-a881-4e95-99c7-d85df764bb8a/projects/hyhkzzlaaj?start=2018-06-11&end=2018-06-17
