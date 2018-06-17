@@ -16,5 +16,5 @@ branches:
 script:
     - cd Prodest
     - mvn clean install
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+    - mvn org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
  
