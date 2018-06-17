@@ -8,12 +8,16 @@ class CandidatoService {
     return candidato;
   }
 
-  static read(cpf, callback) {
-    CandidatoDAO.findOne(cpf, callback);
+  static createMany(candidatos) {
+    CandidatoDAO.insertMany(candidatos);
   }
 
-  static readAll(callback) {
-    CandidatoDAO.findAll(callback);
+  static read(cpf) {
+    return CandidatoDAO.findOne(cpf);
+  }
+
+  static readAll() {
+    return CandidatoDAO.findAll();
   }
 }
 

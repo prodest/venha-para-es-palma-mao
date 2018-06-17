@@ -4,6 +4,7 @@ import Concurso from "./concurso";
 class ConcursoDAO {
   constructor() {
     this.collection = "concursos";
+    this.MongoDB = new MongoDB;
   }
 
   insert(concurso) {
@@ -13,22 +14,31 @@ class ConcursoDAO {
       codigo: concurso.codigo,
       vagas: concurso.vagas
     };
-    MongoDB.insert(this.collection, data);
+    this.MongoDB.insert(this.collection, data);
     return true;
   }
 
+  insertMany(concursos) {
+    this.MongoDB.insertMany(this.collection, concursos);
+  }
+
   findOne(codigo, callback) {
-    MongoDB.find(this.collection, {codigo: codigo}, (docs) => {
-      if (!docs) {
-        callback(null);
-      }
-      const result = docs[0];
-      callback(new Concurso(result.orgao, result.edital, result.codigo, result.vagas, result._id));
+    return this.MongoDB.find(this.collection, {codigo: codigo})
+    .then((docs) => {
+      var result = docs[0];
+      return new Concurso(result.orgao, result.edital, result.codigo, result.vagas, result._id);
     });
   }
 
   findAll(callback) {
-    MongoDB.find(this.collection, {}, callback);
+    return this.MongoDB.find(this.collection, {})
+    .then((docs) => {
+      var concursos = [];
+      docs.map((doc) => {
+        concursos.push(new Concurso(doc.orgao, doc.edital, doc.codigo, doc.vagas, doc._id));
+      });
+      return concursos;
+    });
   }
 }
 

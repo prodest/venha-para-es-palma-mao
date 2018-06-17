@@ -5,28 +5,31 @@ class MongoDB {
   constructor() {
     this.connectionString = process.env.MONGO_CONNECTION;
     this.connection = null;
-    this.db = null;
+    this.clients = 0;
   }
 
-  connect(callback = ()=>{}, disconnect = false) {
-    mongodb.MongoClient.connect(this.connectionString, (err, conn) => {
-      if (err) {
-        if (process.env.LOGS) console.log("MongoDB: falha de conexão.\n", err);
-        return;
-      }
-
-      this.connection = conn;
-      this.db = conn.db(process.env.MONGO_DATABASE);
+  connect(collection) {
+    return mongodb.MongoClient.connect(this.connectionString)
+    /* conectar */
+    .then((conn) => {
       if (process.env.LOGS) console.log("MongoDB: conexão bem sucedida.");
-      callback(this.db);
-      if (disconnect) this.disconnect();
-      return this;
+      this.clients += 1;
+      this.connection = conn;
+      return conn.db(process.env.MONGO_DATABASE);
+    })
+    .catch((err) => {
+      if (process.env.LOGS) console.log("MongoDB: falha de conexão.\n");
+      throw err;
     });
   }
 
   disconnect() {
-    if (this.connection) {
+    if (this.clients) {
       if (process.env.LOGS) console.log("MongoDB: encerrando conexão.");
+      if (this.clients > 1) {
+        this.clients -= 1;
+        return true;
+      }
       this.connection.close();
     }
     if (process.env.LOGS) console.log("MongoDB: conexão encerrada.");
@@ -35,29 +38,49 @@ class MongoDB {
 
   insert(collection, data) {
     if (collection && data) {
-      this.connect((db) => {
-        if (process.env.LOGS) console.log("MongoBD: inserindo dados.");
-        collection = db.collection(collection);
-        collection.insert(data);
-        if (process.env.LOGS) console.log("MongoDB: dados inseridos.");
-        this.disconnect();
-      });
+      try {
+        this.connect(collection, (coll) => {
+          if (process.env.LOGS) console.log("MongoBD: inserindo dados.");
+          coll.insert(data);
+          if (process.env.LOGS) console.log("MongoDB: dados inseridos.");
+          return true;
+        });
+      } catch (err) {
+        console.log("MongoDB:", err);
+      }
     }
   }
 
-  find(collection, params = {}, callback = () => {}) {
-    if (collection) {
-      this.connect((db) => {
-        collection = db.collection(collection);
-        if (process.env.LOGS) console.log("MongoDB: buscando dados.");
-        collection.find(params).toArray((err, docs) => {
-          callback(docs);
-          if (process.env.LOGS) console.log("MongoDB: busca finalizada.");
-          this.disconnect();
+  insertMany(collection, data) {
+    if (collection && data) {
+      try {
+        this.connect(collection, (coll) => {
+          if (process.env.LOGS) console.log("MongoDB: inserindo array de dados.");
+          coll.insertMany(data);
+          if (process.env.LOGS) console.log("MongoDB: array de dados inserido.");
+          return true;
         });
+      } catch (err) {
+        console.log("MongoDB:", err);
+      }
+    }
+  }
+
+  find(collection, params = {}) {
+    if (collection) {
+      return this.connect(collection)
+      .then((db) => {
+        console.log("MONGO FIND THEN");
+        var coll = db.collection(collection);
+        return coll.find(params).toArray();
+      })
+      .then((docs) => {
+        if (process.env.LOGS) console.log("MongoDB: busca finalizada.");
+        this.disconnect();
+        return docs;
       });
     }
   }
 }
 
-export default new MongoDB;
+export default MongoDB;
