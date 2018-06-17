@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- node
+install:
+- npm install
+script:
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_API_KEY"
+  app:
+    master: es-palma-mao-teste-gary

@@ -8,7 +8,8 @@
     "build": "rimraf build && babel src -d build",
     "start:prod": "node build/index.js",
     "fill-mongo": "babel-node fill_db.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "npm run build",
+    "test": "exit 0"
   },
   "repository": {
     "type": "git",
