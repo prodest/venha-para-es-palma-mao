@@ -1,0 +1,30 @@
+{%extends 'projeto/base.html'%}
+
+{% block content %}
+    <h2>Candidatos encontrados</h2>
+
+    {% if candidatos %}
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de Nascimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in candidatos%}
+                <tr>
+                    <td>{{ c.nome }}</td>
+                    <td>{{ c.cpf }}</td>
+                    <td>{{ c.dataNasc }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else%}
+        <div>
+            <h4>Concurso não está cadastrado</h4>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{%extends 'projeto/base.html'%}
+
+{% block content %}
+    <h1>Buscar aqui</h1>
+
+    <div>
+    <form method="GET">
+        <div class="form-group">
+            Digite a busca: <input type="search" name="codigo" required> <br/>
+            Buscar por:<br/>
+            <input type="radio" name="tipoBusca" value="candidato" required> Cadidatos <br/>
+            <input type="radio" name="tipoBusca" value="concurso" required> Concursos <br/>
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+    </form>
+    </div>
+{% endblock %}
