@@ -119,7 +119,7 @@ public class CanconDAO extends Conector {
         } finally {
             this.closeConnection(con);
         }
-        return (List<Candidato>) candidatos;
+        return candidatos;
     }
 
     public List<Concurso> selectCon() throws ClassNotFoundException, SQLException {
@@ -141,7 +141,7 @@ public class CanconDAO extends Conector {
         } finally {
             this.closeConnection(con);
         }
-        return (List<Concurso>) concursos;
+        return concursos;
     }
 
 }

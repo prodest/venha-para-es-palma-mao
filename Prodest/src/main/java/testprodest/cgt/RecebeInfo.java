@@ -37,7 +37,7 @@ public class RecebeInfo extends HttpServlet {
                     + "<title>Teste - Projeto ES na Palma da Mão</title>"
                     + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>"
                     + "<link rel='stylesheet' type='text/css' href='tela.css'>"
-                    + "</head><body BGCOLOR='FFC0CB'>"
+                    + "</head><body>"
                     + "<div class ='container'>"
                     + "<header>"
                     + "<h1>Projeto ES na Palma da Mão</h1>"

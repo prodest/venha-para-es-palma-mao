@@ -46,9 +46,10 @@ public class Apl {
 
     public String resultado(String codigo, String cpf) throws SQLException, ClassNotFoundException {
         String a = null;
-
+        boolean b = true;
         if ((!cpf.equals("")) && codigo.equals("") && (existeCPF(cpf))) {
             a = buscaConcursos(cpf);
+            b = false;
             if (a.isEmpty()) {
                 return "Não há concursos para esse candidato!";
             } else if (!a.isEmpty()) {
@@ -56,12 +57,13 @@ public class Apl {
             }
         } else if ((cpf.equals("")) && (!codigo.equals("")) && (existeCOD(codigo))) {
             a = buscaCandidatos(codigo);
+            b = false;
             if (a.isEmpty()) {
                 return "Não há candidatos para esse concurso!";
             } else if (!a.isEmpty()) {
                 return "Candidatos que se encaixam no perfil do concurso: <br>" + a;
             }
-        } else if (a == null) {
+        } else if (b) {
             return "Informe um e somente um dos campo ao lado!";
         }
         return null;
@@ -69,12 +71,11 @@ public class Apl {
 
     public String buscaConcursos(String cpf) throws ClassNotFoundException, SQLException {
 
-        String a = "<br>";
         String[] profissoes;
         listaConcurso = canconDao.selectCon();
         profissoes = buscarPorCPF(cpf);
         StringBuilder builder = new StringBuilder();
-        
+
         for (Concurso edital : listaConcurso) {
             listVagas = edital.getListaVagas();
             for (String profissao : profissoes) {
