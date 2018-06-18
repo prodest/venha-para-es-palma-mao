@@ -13,18 +13,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% for c in concursos%}
+                {% for con in concursos%}
+                {% for c in con%}
                 <tr>
                     <td>{{ c.orgao }}</td>
                     <td>{{ c.edital }}</td>
                     <td>{{ c.codigoConcurso }}</td>
                 </tr>
                 {% endfor %}
+                {% endfor %}
             </tbody>
         </table>
     {% else%}
         <div>
-            <h4>Candidato não está cadastrado</h4>
+            <h4>Nada encontrado</h4>
         </div>
     {% endif %}
 {% endblock %}

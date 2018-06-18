@@ -13,18 +13,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% for c in candidatos%}
+                {% for cand in candidatos%}
+                {% for c in cand%}
                 <tr>
                     <td>{{ c.nome }}</td>
                     <td>{{ c.cpf }}</td>
                     <td>{{ c.dataNasc }}</td>
                 </tr>
                 {% endfor %}
+                {% endfor %}
             </tbody>
         </table>
-    {% else%}
+    {% else %}
         <div>
-            <h4>Concurso não está cadastrado</h4>
+            <h4>Nada encontrado</h4>
         </div>
     {% endif %}
 {% endblock %}
