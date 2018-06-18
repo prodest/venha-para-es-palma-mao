@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/garymsilva/venha-para-es-palma-mao.svg?branch=master)](https://travis-ci.org/garymsilva/venha-para-es-palma-mao)
+[![quality gate](https://sonarcloud.io/api/project_badges/measure?project=teste-prodest-gary&metric=alert_status)](https://sonarcloud.io/dashboard?id=teste-prodest-gary)
 
-https://sonarcloud.io/api/project_badges/measure?project=teste-prodest-gary&metric=alert_status
 
 # Teste para o projeto ES na Palma da mão
 
