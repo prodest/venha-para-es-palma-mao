@@ -14,20 +14,22 @@ def busca(request):
 
 def busca_candidatos(request, concurso):
     conc = Concursos.objects.filter(codigoConcurso__contains=concurso)
+    candidatos = []
     if conc:
         vagas = conc[0].vagas.split(', ')
         for v in vagas:
-            candidatos = Candidatos.objects.filter(profissoes__contains=v)
+            candidatos.append(Candidatos.objects.filter(profissoes__contains=v))
     else:
         candidatos = []
     return render(request, 'projeto/candidatos.html', {'candidatos' : candidatos})
 
 def busca_concursos(request, candidato):
     cand = Candidatos.objects.filter(cpf__contains=candidato)
+    concursos = []
     if cand:
         profissoes = cand[0].profissoes.split(', ')
         for p in profissoes:
-            concursos = Concursos.objects.filter(vagas__contains=p)
+            concursos.append(Concursos.objects.filter(vagas__contains=p))
     else:
         concursos = []
     return render(request, 'projeto/concursos.html', {'concursos' : concursos})
