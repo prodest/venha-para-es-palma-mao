@@ -1,0 +1,32 @@
+{%extends 'projeto/base.html'%}
+
+{% block content %}
+    <h2>Concursos encontrados</h2>
+
+    {% if concursos %}
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Orgao</th>
+                    <th scope="col">Edital</th>
+                    <th scope="col">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for con in concursos%}
+                {% for c in con%}
+                <tr>
+                    <td>{{ c.orgao }}</td>
+                    <td>{{ c.edital }}</td>
+                    <td>{{ c.codigoConcurso }}</td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else%}
+        <div>
+            <h4>Nada encontrado</h4>
+        </div>
+    {% endif %}
+{% endblock %}
