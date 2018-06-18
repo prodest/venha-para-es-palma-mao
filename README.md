@@ -90,13 +90,13 @@ O candidato será desclassifiado nas seguintes situações:
 ![Diagrama de persistência](/docs/Diagrama_de_persistência.png)
 
 ### Tecnologias utilizadas
-[NodeJS](https://nodejs.org/en/) - Motor JS baseado no Chrome V8
-[ExpressJS](http://expressjs.com/pt-br/) - Framework para criação de aplicações server-side
-[MongoDB](https://www.mongodb.com/) - Banco de dados orientado a documentos
+- [NodeJS](https://nodejs.org/en/) - Motor JS baseado no Chrome V8
+- [ExpressJS](http://expressjs.com/pt-br/) - Framework para criação de aplicações server-side
+- [MongoDB](https://www.mongodb.com/) - Banco de dados orientado a documentos
 
-#### Infraestrutura
-[Heroku](https://www.heroku.com/) - Platform-as-a-Service (PaaS).
-[mLab](https://mlab.com/) - Database-as-a-Service (DaaS) para MongoDB, gratuito para pequenas bases de dados.
+### Infraestrutura
+- [Heroku](https://www.heroku.com/) - Platform-as-a-Service (PaaS).
+- [mLab](https://mlab.com/) - Database-as-a-Service (DaaS) para MongoDB, gratuito para pequenas bases de dados.
 
 ## Diferenciais implementados
 
