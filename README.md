@@ -89,15 +89,24 @@ O candidato será desclassifiado nas seguintes situações:
 ### Diagrama de Persistência
 ![Diagrama de persistência](/docs/Diagrama_de_persistência.png)
 
+### Tecnologias utilizadas
+[NodeJS](https://nodejs.org/en/) - Motor JS baseado no Chrome V8
+[ExpressJS](http://expressjs.com/pt-br/) - Framework para criação de aplicações server-side
+[MongoDB](https://www.mongodb.com/) - Banco de dados orientado a documentos
+
+#### Infraestrutura
+[Heroku](https://www.heroku.com/) - Platform-as-a-Service (PaaS).
+[mLab](https://mlab.com/) - Database-as-a-Service (DaaS) para MongoDB, gratuito para pequenas bases de dados.
+
 ## Diferenciais implementados
 
 ### Implementação com serviço
 
 O serviço pode ser usado por meio da url https://es-palma-mao-teste-gary.herokuapp.com/.
 
-Uma requisição GET em [/api/concursos/:cpf_candidato](https://es-palma-mao-teste-gary.herokuapp.com/api/concursos/319.655.881-15) retorna a lista de concursos que se encaixam no perfil do candidato informado no formato JSON.
+Uma requisição GET em [/api/concursos/:cpf_candidato](https://es-palma-mao-teste-gary.herokuapp.com/api/concursos/319.655.881-15) retorna a lista de concursos que se encaixam no perfil do candidato informado, no formato JSON.
 
-Uma requisição GET em [/api/candidatos/:codigo_concurso](https://es-palma-mao-teste-gary.herokuapp.com/api/candidatos/87795432060) retorna a lista de candidatos que se encaixam no perfil do concurso informado no formato JSON.
+Uma requisição GET em [/api/candidatos/:codigo_concurso](https://es-palma-mao-teste-gary.herokuapp.com/api/candidatos/87795432060) retorna a lista de candidatos que se encaixam no perfil do concurso informado, no formato JSON.
 
 ### Banco de dados
 
@@ -105,4 +114,12 @@ A solução foi desenvolvida utilizando o banco de dados não relacional MongoDB
 
 ### Integração com Travis
 
-O TravisCI foi utilizado para automatizar o deploy.
+O [TravisCI](https://travis-ci.org/garymsilva/venha-para-es-palma-mao) foi utilizado para integração com o SonarQube e Heroku.
+
+### Qualidade de código com SonarQube && Integração TravisCI + SonarQube
+
+Link para o [SonarCLoud](https://sonarcloud.io/dashboard?id=teste-prodest-gary).
+
+## WakaTime do projeto
+
+Link para o [WakaTime](https://wakatime.com/project/venha-para-es-palma-mao).
