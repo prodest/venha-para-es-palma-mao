@@ -14,12 +14,11 @@ class CandidatoDAO {
       cpf: candidato.cpf,
       profissoes: candidato.profissoes
     };
-    this.MongoDB.insert(this.collection, data);
-    return true;
+    return this.MongoDB.insert(this.collection, data);
   }
 
   insertMany(candidatos) {
-    this.MongoDB.insertMany(this.collection, candidatos);
+    return this.MongoDB.insertMany(this.collection, candidatos);
   }
 
   findOne(cpf) {
