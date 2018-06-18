@@ -3,8 +3,13 @@ node_js:
 - node
 install:
 - npm install
+addons:
+  sonarcloud:
+    organization: "garymsilva-github"
+    token:
+      secure: "$SONAR_API_KEY"
 script:
-- npm test
+  - sonar-scanner
 deploy:
   provider: heroku
   api_key:
