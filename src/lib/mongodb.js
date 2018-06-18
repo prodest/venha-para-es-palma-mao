@@ -37,7 +37,7 @@ class MongoDB {
 
   insert(collection, data) {
     if (collection && data) {
-      return this.connect(collection)
+      return this.connect()
       .then((db) => {
         var coll = db.collection(collection);
         return coll.insert(data);
@@ -55,7 +55,7 @@ class MongoDB {
 
   insertMany(collection, data) {
     if (collection && data) {
-      return this.connect(collection)
+      return this.connect()
       .then((db) => {
         var coll = db.collection(collection);
         return coll.insertMany(data);
@@ -73,7 +73,7 @@ class MongoDB {
 
   find(collection, params = {}) {
     if (collection) {
-      return this.connect(collection)
+      return this.connect()
       .then((db) => {
         console.log("MONGO FIND THEN");
         var coll = db.collection(collection);
