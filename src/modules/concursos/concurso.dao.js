@@ -14,12 +14,11 @@ class ConcursoDAO {
       codigo: concurso.codigo,
       vagas: concurso.vagas
     };
-    this.MongoDB.insert(this.collection, data);
-    return true;
+    return this.MongoDB.insert(this.collection, data);
   }
 
   insertMany(concursos) {
-    this.MongoDB.insertMany(this.collection, concursos);
+    return this.MongoDB.insertMany(this.collection, concursos);
   }
 
   findOne(codigo, callback) {
