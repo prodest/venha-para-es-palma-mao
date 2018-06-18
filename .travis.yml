@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- node
+install:
+- npm install
+addons:
+  sonarcloud:
+    organization: "garymsilva-github"
+    token:
+      secure: "$SONAR_API_KEY"
+script:
+  - sonar-scanner
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_API_KEY"
+  app:
+    master: es-palma-mao-teste-gary
