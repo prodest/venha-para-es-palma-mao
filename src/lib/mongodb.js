@@ -8,9 +8,8 @@ class MongoDB {
     this.clients = 0;
   }
 
-  connect(collection) {
+  connect() {
     return mongodb.MongoClient.connect(this.connectionString)
-    /* conectar */
     .then((conn) => {
       if (process.env.LOGS) console.log("MongoDB: conexão bem sucedida.");
       this.clients += 1;
@@ -19,7 +18,7 @@ class MongoDB {
     })
     .catch((err) => {
       if (process.env.LOGS) console.log("MongoDB: falha de conexão.\n");
-      throw err;
+      throw(err);
     });
   }
 
@@ -38,31 +37,37 @@ class MongoDB {
 
   insert(collection, data) {
     if (collection && data) {
-      try {
-        this.connect(collection, (coll) => {
-          if (process.env.LOGS) console.log("MongoBD: inserindo dados.");
-          coll.insert(data);
-          if (process.env.LOGS) console.log("MongoDB: dados inseridos.");
-          return true;
-        });
-      } catch (err) {
-        console.log("MongoDB:", err);
-      }
+      return this.connect(collection)
+      .then((db) => {
+        var coll = db.collection(collection);
+        return coll.insert(data);
+      })
+      .catch((err) => {
+        throw(err);
+      })
+      .then((docs) => {
+        if (process.env.LOGS) console.log("MongoDB: inserção finalizada.");
+        this.disconnect();
+        return true;
+      });
     }
   }
 
   insertMany(collection, data) {
     if (collection && data) {
-      try {
-        this.connect(collection, (coll) => {
-          if (process.env.LOGS) console.log("MongoDB: inserindo array de dados.");
-          coll.insertMany(data);
-          if (process.env.LOGS) console.log("MongoDB: array de dados inserido.");
-          return true;
-        });
-      } catch (err) {
-        console.log("MongoDB:", err);
-      }
+      return this.connect(collection)
+      .then((db) => {
+        var coll = db.collection(collection);
+        return coll.insertMany(data);
+      })
+      .catch((err) => {
+        throw(err);
+      })
+      .then((docs) => {
+        if (process.env.LOGS) console.log("MongoDB: inserção múltipla finalizada.");
+        this.disconnect();
+        return true;
+      });
     }
   }
 
@@ -73,6 +78,9 @@ class MongoDB {
         console.log("MONGO FIND THEN");
         var coll = db.collection(collection);
         return coll.find(params).toArray();
+      })
+      .catch((err) => {
+        throw(err);
       })
       .then((docs) => {
         if (process.env.LOGS) console.log("MongoDB: busca finalizada.");
