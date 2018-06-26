@@ -1,3 +1,38 @@
+# Solução
+
+**Lidando com os dados**
+
+Para o desenvolvimento do programa proposto escolhi utilizar a linguagem Java com o apoio do NetBeans IDE. Com o intuito de organizar os dados, criei três classes: uma para armazenar as informações dos candidatos, uma para as informações dos concursos, e uma ultima para ligar as profissões a um numero de identificação (pensando nas consultas dos bancos de dados).
+
+O software carrega os dados dos arquivos de candidatos e concursos, e separa linha por linha em 4 seções diferentes: no caso do arquivo pertinente as candidatos, o programa lê todos os caracteres da linha até encontrar o primeiro algarismo numerico, e salva a união desses caracteres (após retirada de espaços desnecessários nas extremidades) no atributo nome de um objeto da classe candidato. A partir dai, continua lendo os caracteres até o primeiro espaço, salvando a data de nascimento, e o mesmo é feito para o CPF. Por fim, le os caracteres restantes, retira os colchetes, divide (split) a string resultante usando as vírgulas como parametro, retira os espaços redundantes e os salva no objeto de classe Cargos (referente as profissões), salvando no objeto Candidato apenas uma lista de inteiros com o id de cada profissão.
+
+Para os concursos é feito um processo bem similar, lendo os caracteres do Órgão, depois do edital, depois o código e por fim o mesmo processo das profissões é feito nas vagas.
+
+**Interface com o usuário**
+
+Para o programa ser utilizado foi criada uma interface simples através de JFrames com uma janela, 2 tabelas, 2 campos de pesquisa (um para pesquisar pelo cpf, outro para pesquisar por codigo de concurso) e dois botões associados com os campos de pesquisa. Se o botão é clicado sem nada digitado no campo, a lista completa de todos os candidatos (ou todos os concursos) é preenchida na tabela. Se é inserido um valor que não está presente no arquivo, nenhum valor é preenchido na tabela, e o mesmo ocorre se nenhum "match" é dado entre candidado e possíveis concursos. Se um código (ou cpf) correto é inserido, a respectiva tabela é atualizada com as entradas de candidatos disponíveis para um concurso (ou concursos disponíveis para um candidato).
+
+**Diferenciais**
+
+Após a implementação lidando apenas com a persistencia em arquivos, escrevi uma classe para tratar do banco de dados SQLite com criação das tabelas e resgate de dados salvos nelas. No entanto, a funcionalidade de salvar os dados tomou bastante tempo de execução e precisei finalizar o procedimento antes de terminar, portanto receio que precisaria de mais tempo para corrigir os problemas que vieram com essa feature.
+
+Tentei seguir o que pude dos padrões de código limpo como o uso de nomes descritivos e relevantes, funções na maioria de tamanho reduzido, maioria das funções documentadas mais ou menos de acordo com os padrões da linguagem, entre outros, mas pode ser eu tenha deixado passar algums detalhes, e vou ficar devendo os testes unitários com JUnit. 
+
+Luiz H. A. A. de Lima - Inscricao 1031947
+
+# Links
+
+Link do WakaTime: https://wakatime.com/@a671e39b-ab96-4b0c-9ab8-25f432ef8b6d/projects/gtuskpwtsa?start=2018-06-11&end=2018-06-17
+OBS: alguns dados do dia 16 não apareceram.
+
+PS: Link abaixo desnecessário após upload no git, mas manterei por backup.
+Projeto (código dentro da pasta /ProdesteTeste/src/): https://drive.google.com/file/d/1cKodTq38UAsOzrH9ZwhUas3YorDw5XkF/view?usp=sharing
+
+
+
+====================================================================================================
+README Original:
+
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
