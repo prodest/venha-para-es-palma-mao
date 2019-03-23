@@ -1,0 +1,29 @@
+# Roslyn cache directories
+*.ide/
+.vs/
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment
+.env*
+!.env.example
+
+# Node
+dist
+package-lock.json
+node_modules
+*.log
+
+# Prisma/Graphcool
+.graphcoolrc
+server/src/prisma-client/
+
