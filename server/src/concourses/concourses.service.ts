@@ -33,4 +33,17 @@ export class ConcoursesService extends BaseModelService<IConcourse> {
     const res = await instance.save();
     return res;
   }
+
+  /**
+   * @description find a document by code
+   * @author David Vilaça
+   * @date 2019-03-27
+   * @param {number} code
+   * @returns {(Promise<IConcourse | null>)}
+   * @memberof ConcoursesService
+   */
+  public async findByCode(code: number): Promise<IConcourse | null> {
+    const res = (await this.find({ code }))[0];
+    return res || null;
+  }
 }
