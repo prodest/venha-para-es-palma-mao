@@ -1,74 +1,55 @@
-# Teste para o projeto ES na Palma da mão
+# API NEST STARTER
 
-O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
-1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
-2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
+[![CircleCI](https://circleci.com/gh/davidpvilaca/api-nest-starter.svg?style=shield&circle-token=339c2a2d8ec08e4de36981ad0121f0ed3a155b7a)](https://circleci.com/gh/davidpvilaca/api-nest-starter)
+[![dependencies Status](https://david-dm.org/davidpvilaca/api-nest-starter/status.svg)](https://david-dm.org/davidpvilaca/api-nest-starter)
+[![NodeJS](https://img.shields.io/badge/node-v10.12.0-brightgreen.svg)](#prerequisites)
 
-O arquivo **candidatos.txt** contém as informações dos candidatos:
+## Introduction
 
-| Nome  | Data de Nascimento  | CPF |  Profissões|
-|---|---|---|---|
-| Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
-| Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
-| Cory Mendoza |   11/02/1957 |  565.512.353-92  |  [carpinteiro, marceneiro] |
+Start an API using NestJS framework with all the tedious commit lint settings and so on.
 
-O arquivo **concursos.txt** contém as informações dos concursos públicos:
+### Prerequisites
 
-| Órgão  | Edital  | Código do Concurso |  Lista de vagas|
-|---|---|---|---|
-| SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
-| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
-| SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
+* [NodeJS (^v10.12.0)](https://nodejs.org/en/)
+* [Yarn (^v1.10.0)](https://yarnpkg.com/en) (preferably) or Npm (^v6.4.0)
+* [Nest CLI](https://docs.nestjs.com/cli/overview) (optional)
 
-**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+## Getting Started
 
-Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+1. Install dependencies: `yarn install`
+2. Configure your .env environments based on [.env.example](.env.example)
+3. Start your application:
+    1. Development: `yarn start`
+    2. Watch mode: `yarn start:dev`
+    3. Production: `yarn start:prod` (run the build before: `yarn build`)
 
-**É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
+## Deployment
 
-Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
-1. Documentação da solução;
-2. Lista dos diferenciais implementados
-3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
+CircleCI configured with 4 jobs:
 
-## Avaliação
+1. [__Install dependencies__]: Install all dependencies with _yarn_ and save cache.
+2. [__Lint__]: check the link for all code.
+3. [__Tests__]: run all unit tests and e2e.
+4. [__Build__]: criar aplicativo com o _Docker_.
 
-O programa será avaliado levando em conta os seguintes critérios:
+Note: deploy job not configured because it varies for each type of application.
 
-| Critério  | Valor | 
-|---|---|
-| Legibilidade do Código |  10  |
-| Documentação do código|  10  |
-| Documentação da solução|  10  |
-| Tratamento de Erros| 10| 
-| Total| 40|
+## Contributing
 
-A pontuação do candidato será a soma dos valores obtidos nos critérios acima.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Diferenciais 
+## Versioning
 
-O candidato pode aumentar a sua pontuação na seleção implementando um ou mais dos itens abaixo:
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/xdevelsistemas/cpcon-api/tags).
 
-| Item  | Pontos Ganhos | 
-|---|---|
-| Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
-| Utilizar banco de dados| 30|
-| Implementar Clean Code |  20  |
-| Implementar o padrão de programação da tecnologia escolhida |  20  |
-| Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |
-| Implementar testes unitários |  15  |
-| Implementar testes comportamentais |  15  |
-| Implementar integração com [Travis](https://travis-ci.org/)  |  10  |
-| Implementar integração com Travis + SonarQube |  10  |
-| Implementar usando Docker| 5|
-| Total| 170|
+## Changelog
 
-A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
+See [__CHANGELOG__](CHANGELOG.md)
 
-## Penalizações
+## Authors
 
-O candidato será desclassifiado nas seguintes situações:
+* **David Vilaça** - [davidpvilaca](https://github.com/davidpvilaca)
 
-1. Submeter um solução que não funcione; 
-2. Não cumprir os critérios presentes no seção **Avaliação**
-3. Plágio
+## License
+
+Every code patch accepted in taiga codebase is licensed under [MIT](LICENSE).

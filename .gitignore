@@ -1,29 +1,35 @@
-# Roslyn cache directories
-*.ide/
-.vs/
-.vscode/
-.idea/
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Environment
-.env*
-!.env.example
-
-# Node
-dist
+# Ignore Node #
+###############
+node_modules/
+.yarnclean
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 package-lock.json
-node_modules
-*.log
 
-# Prisma/Graphcool
-.graphcoolrc
-server/src/prisma-client/
+# Ignore Web Storm & VS Code #
+##############################
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/settings.json
 
+# Ignore compiled files #
+#########################
+dist
+
+# Ignore test coverage files #
+##############################
+coverage/
+
+# Environments #
+################
+.env
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
