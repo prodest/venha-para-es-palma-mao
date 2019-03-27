@@ -8,6 +8,7 @@ import {
   Post,
   Put
 } from '@nestjs/common';
+import { ConcoursesService } from '../concourses/concourses.service';
 import { ICandidate } from '../interfaces';
 import { CandidatesService } from './candidates.service';
 import { CreateCandidateDto } from './create-candidate.dto';
@@ -19,9 +20,13 @@ export class CandidateController {
    * @author David Vilaça
    * @date 2019-03-23
    * @param {CandidatesService} candidateService
+   * @param {ConcoursesService} concoursesService
    * @memberof CandidateController
    */
-  constructor(private readonly candidateService: CandidatesService) {}
+  constructor(
+    private readonly candidateService: CandidatesService,
+    private readonly concoursesService: ConcoursesService
+  ) {}
 
   /**
    * @description create candidate route
@@ -83,6 +88,28 @@ export class CandidateController {
   }
 
   /**
+   * @description get suggestions of concourses for candidade by cpf
+   * @author David Vilaça
+   * @date 2019-03-27
+   * @param {string} cpf
+   * @returns
+   * @memberof CandidateController
+   */
+  @Get('suggestions/:cpf')
+  async suggestions(@Param('cpf') cpf: string) {
+    const candidate = await this.candidateService.findByCpf(cpf);
+    if (!candidate) {
+      throw new HttpException(`Candidate with cpf "${cpf}" not found.`, 400);
+    }
+    const concourses = await this.concoursesService.find({
+      vacancies: {
+        $in: [...candidate.professions]
+      }
+    });
+    return concourses;
+  }
+
+  /**
    * @description validate id exists in db
    * @author David Vilaça
    * @date 2019-03-23
@@ -94,7 +121,7 @@ export class CandidateController {
   private async validateId(id: string): Promise<void> {
     const doc = await this.candidateService.findOne(id);
     if (!doc) {
-      throw new HttpException('Document not found.', 400);
+      throw new HttpException(`Document with id "${id}" not found.`, 400);
     }
   }
 }
