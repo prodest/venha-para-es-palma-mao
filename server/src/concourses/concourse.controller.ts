@@ -8,20 +8,25 @@ import {
   Post,
   Put
 } from '@nestjs/common';
+// import { CandidatesService } from '../candidates/candidates.service';
 import { IConcourse } from '../interfaces';
 import { ConcoursesService } from './concourses.service';
 import { CreateConcourseDto } from './create-concourse.dto';
 
-@Controller('concourses')
-export class ConcoursesController {
+@Controller('concourse')
+export class ConcourseController {
   /**
    * Creates an instance of ConcoursesController.
    * @author David Vilaça
    * @date 2019-03-27
    * @param {ConcoursesService} concourseService
+   * @param {CandidatesService} candidateService
    * @memberof ConcoursesController
    */
-  constructor(private readonly concourseService: ConcoursesService) {}
+  constructor(
+    private readonly concourseService: ConcoursesService /*,
+    private readonly candidateService: CandidatesService*/
+  ) {}
 
   /**
    * @description create concourse route
@@ -82,6 +87,15 @@ export class ConcoursesController {
     return result;
   }
 
+  @Get('possible-candidates/:concourseCode')
+  async possibleCandidates(@Param('concourseCode') code: number) {
+    const res = await this.concourseService.findByCode(Number(code));
+    if (!res) {
+      throw new HttpException(`Concourse with code "${code}" not found.`, 400);
+    }
+    return res;
+  }
+
   /**
    * @description validate id exists in db
    * @author David Vilaça
@@ -94,7 +108,7 @@ export class ConcoursesController {
   private async validateId(id: string): Promise<void> {
     const doc = await this.concourseService.findOne(id);
     if (!doc) {
-      throw new HttpException('Document not found.', 400);
+      throw new HttpException(`Concourse with id "${id} not found.`, 400);
     }
   }
 }
