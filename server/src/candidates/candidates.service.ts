@@ -26,4 +26,17 @@ export class CandidatesService extends BaseModelService<ICandidate> {
     const res = await instance.save();
     return res;
   }
+
+  /**
+   * @description find a candidate by cpf
+   * @author David Vilaça
+   * @date 2019-03-27
+   * @param {string} cpf
+   * @returns {(Promise<ICandidate | null>)}
+   * @memberof CandidatesService
+   */
+  public async findByCpf(cpf: string): Promise<ICandidate | null> {
+    const res = (await this.find({ cpf }))[0];
+    return res || null;
+  }
 }
