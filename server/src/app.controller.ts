@@ -1,5 +1,4 @@
-import { All, Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { All, Controller } from '@nestjs/common';
 
 /**
  * @description Application home controller
@@ -10,14 +9,13 @@ import { AppService } from './app.service';
  */
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get()
-  async root(): Promise<string> {
-    const rootMessage = await this.appService.root();
-    return rootMessage;
-  }
-
+  /**
+   * @description ping route to health check
+   * @author David Vilaça
+   * @date 2019-03-27
+   * @returns {string}
+   * @memberof AppController
+   */
   @All('ping')
   ping(): string {
     return 'pong';

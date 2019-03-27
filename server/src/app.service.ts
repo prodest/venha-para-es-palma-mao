@@ -8,8 +8,4 @@ import { Injectable } from '@nestjs/common';
  * @class AppService
  */
 @Injectable()
-export class AppService {
-  async root(): Promise<string> {
-    return 'Hello World!';
-  }
-}
+export class AppService {}
