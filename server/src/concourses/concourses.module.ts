@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CandidatesModule } from '../candidates/candidates.module';
 import { ConcourseController } from './concourse.controller';
@@ -13,7 +13,7 @@ import { ConcoursesService } from './concourses.service';
         schema: ConcourseSchema
       }
     ]),
-    CandidatesModule
+    forwardRef(() => CandidatesModule)
   ],
   providers: [ConcoursesService],
   controllers: [ConcourseController],
