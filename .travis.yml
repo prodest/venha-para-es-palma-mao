@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "10"
+cache: yarn
+sudo: false
+install:
+  - yarn install --dev
+script:
+  - yarn lint
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKU_API_KEY"
+  app:
+    master: espm-david-server
