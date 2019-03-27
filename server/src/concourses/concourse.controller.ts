@@ -8,7 +8,7 @@ import {
   Post,
   Put
 } from '@nestjs/common';
-// import { CandidatesService } from '../candidates/candidates.service';
+import { CandidatesService } from '../candidates/candidates.service';
 import { IConcourse } from '../interfaces';
 import { ConcoursesService } from './concourses.service';
 import { CreateConcourseDto } from './create-concourse.dto';
@@ -24,8 +24,8 @@ export class ConcourseController {
    * @memberof ConcoursesController
    */
   constructor(
-    private readonly concourseService: ConcoursesService /*,
-    private readonly candidateService: CandidatesService*/
+    private readonly concourseService: ConcoursesService,
+    private readonly candidateService: CandidatesService
   ) {}
 
   /**
@@ -89,11 +89,16 @@ export class ConcourseController {
 
   @Get('possible-candidates/:concourseCode')
   async possibleCandidates(@Param('concourseCode') code: number) {
-    const res = await this.concourseService.findByCode(Number(code));
-    if (!res) {
+    const concourse = await this.concourseService.findByCode(Number(code));
+    if (!concourse) {
       throw new HttpException(`Concourse with code "${code}" not found.`, 400);
     }
-    return res;
+    const candidates = await this.candidateService.find({
+      professions: {
+        $in: [...concourse.vacancies]
+      }
+    });
+    return candidates;
   }
 
   /**
