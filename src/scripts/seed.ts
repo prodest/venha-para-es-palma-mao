@@ -105,11 +105,11 @@ async function bootstrap() {
   Candidate = mongoose.model<ICandidate>('Candidate', CandidateSchema);
   Concourse = mongoose.model<IConcourse>('Concourse', ConcourseSchema);
   const candidates = await txtToCsv(
-    `${__dirname}/../../../candidatos.txt`,
+    `${__dirname}/../../candidatos.txt`,
     candidateRegex
   );
   const concourses = await txtToCsv(
-    `${__dirname}/../../../concursos.txt`,
+    `${__dirname}/../../concursos.txt`,
     concourseRegex
   );
   await createCandidate(candidates.data);
