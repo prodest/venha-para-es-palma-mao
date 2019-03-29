@@ -36,6 +36,10 @@ Para resolver o problema da entrada de dados (arquivo txt com um padrão definid
 | DELETE [/concourse/:id](https://espm-david-server.herokuapp.com/concourse) | Apaga um concurso |
 | GET [/concourse/possible-candidates/:concourseCode](https://espm-david-server.herokuapp.com/concourse) | Lista todos candidatos que se encaixam no perfil do curso com código informado |
 
+## Wakatime
+
+https://wakatime.com/@davidpvilaca/projects/fdlqjcqgio
+
 ## Organização do código e padrões
 
 O projeto foi dividido em módulos e segue a seguinte estrutura:
