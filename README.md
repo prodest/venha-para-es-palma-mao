@@ -19,6 +19,23 @@ Para resolver o problema da entrada de dados (arquivo txt com um padrão definid
 2. Execute `yarn build` para transpilar a aplicação para JavaScript ou execute em modo desenvolvimento com `yarn start:dev`.
 3. Caso tenha feito o build e queira executar em modo produção execute: `yarn start:prod`
 
+## Api
+
+- Endpoint: https://espm-david-server.herokuapp.com
+
+| Rota | Detalhes |
+| ---- | -------- |
+| GET [/candidate](https://espm-david-server.herokuapp.com/candidate) | Obtém todos candidatos cadastrados |
+| POST [/candidate](https://espm-david-server.herokuapp.com/candidate) | Cadastra um candidato |
+| PUT [/candidate/:id](https://espm-david-server.herokuapp.com/candidate) | Atualiza um candidato |
+| DELETE [/candidate/:id](https://espm-david-server.herokuapp.com/candidate) | Apaga um candidato |
+| GET [/candidate/suggestions/:cpf](https://espm-david-server.herokuapp.com/candidate) | Lista todos os concursos a qual o candidado com cpf informado se encaixa |
+| GET [/concourse](https://espm-david-server.herokuapp.com/concourse) | Obtém todos concursos cadastrados |
+| POST [/concourse](https://espm-david-server.herokuapp.com/concourse) | Cadastra um concurso |
+| PUT [/concourse/:id](https://espm-david-server.herokuapp.com/concourse) | Atualiza um concurso |
+| DELETE [/concourse/:id](https://espm-david-server.herokuapp.com/concourse) | Apaga um concurso |
+| GET [/concourse/possible-candidates/:concourseCode](https://espm-david-server.herokuapp.com/concourse) | Lista todos candidatos que se encaixam no perfil do curso com código informado |
+
 ## Organização do código e padrões
 
 O projeto foi dividido em módulos e segue a seguinte estrutura:
