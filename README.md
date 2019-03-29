@@ -23,22 +23,22 @@ Para resolver o problema da entrada de dados (arquivo txt com um padrão definid
 
 O projeto foi dividido em módulos e segue a seguinte estrutura:
 
-| candidates                 # Módulo de candidatos
-  | candidate.controller.ts    # Controlador da rota de candidatos
-  | candidate.schema.ts        # Schema do banco de dados de candidatos
-  | candidates.module.ts       # Definição do módulo de candidatos e suas dependências
-  | candidates.service.ts      # Serviço de acesso ao dado para candidatos especificamente
-  | create-candidate.dto.ts    # Classe para tipagem da entrada de dados e futuras validações na criação de candidado
-| concourses                 # Módulo de concursos
-  | ...{.ts}                   # Mesma organização de candidates, porém para concursos
-| config                     # Arquivos de configurações gerais
-| interfaces                 # Interfaces de maneira geral
-| providers                  # Serviços que tangenciam toda a aplicação horizontalmente
-| scripts                    # Scripts para ser executado no terminal de forma independente da aplicação
-| app.controller.ts          # Controlador principal (root)
-| app.module.ts              # Módulo principal (root) 
-| app.service.ts             # Serviço principal da aplicação
-| main.ts                    # Arquivo para o bootstrap da api
+| candidates                 # Módulo de candidatos<br>
+&nbsp;&nbsp;| candidate.controller.ts    # Controlador da rota de candidatos<br>
+&nbsp;&nbsp;| candidate.schema.ts        # Schema do banco de dados de candidatos<br>
+&nbsp;&nbsp;| candidates.module.ts       # Definição do módulo de candidatos e suas dependências<br>
+&nbsp;&nbsp;| candidates.service.ts      # Serviço de acesso ao dado para candidatos especificamente<br>
+&nbsp;&nbsp;| create-candidate.dto.ts    # Classe para tipagem da entrada de dados e futuras validações na criação de candidado<br>
+| concourses                 # Módulo de concursos<br>
+&nbsp;&nbsp;| ...{.ts}                   # Mesma organização de candidates, porém para concursos<br>
+| config                     # Arquivos de configurações gerais<br>
+| interfaces                 # Interfaces de maneira geral<br>
+| providers                  # Serviços que tangenciam toda a aplicação horizontalmente<br>
+| scripts                    # Scripts para ser executado no terminal de forma independente da aplicação<br>
+| app.controller.ts          # Controlador principal (root)<br>
+| app.module.ts              # Módulo principal (root) <br>
+| app.service.ts             # Serviço principal da aplicação<br>
+| main.ts                    # Arquivo para o bootstrap da api<br>
 
 ## Banco de dados e modelagem
 
