@@ -1,55 +1,145 @@
-# API NEST STARTER
+# Solução
 
-[![CircleCI](https://circleci.com/gh/davidpvilaca/api-nest-starter.svg?style=shield&circle-token=339c2a2d8ec08e4de36981ad0121f0ed3a155b7a)](https://circleci.com/gh/davidpvilaca/api-nest-starter)
-[![dependencies Status](https://david-dm.org/davidpvilaca/api-nest-starter/status.svg)](https://david-dm.org/davidpvilaca/api-nest-starter)
-[![NodeJS](https://img.shields.io/badge/node-v10.12.0-brightgreen.svg)](#prerequisites)
+Para solucionar o problema proposto eu me direcionei para a criação de uma api web seguinto, de certa forma fiel, uma arquitetura REST padrão. Não foram desenvolvidos testes unitários e nem de integração por isso não fiz questão de integrar com SonarQube, porém foi adicionado um CI/CD com Travis e Heroku (https://espm-david-server.herokuapp.com/ping).
 
-## Introduction
+Para resolver o problema da entrada de dados (arquivo txt com um padrão definido) foi criado um script (`src/scripts/seed.ts`) que busca estes arquivos (`candidatos.txt` e `concursos.txt`) da pasta raíz do projeto e cadastra os itens no banco de dados diretamente, com a finalidade de economizar tempo.
 
-Start an API using NestJS framework with all the tedious commit lint settings and so on.
+## Tecnologias utilizadas
 
-### Prerequisites
+- NodeJS
+- TypeScript
+- NestJS (framework)
+- MongoDB
+- TravisCI
+- Heroku
 
-* [NodeJS (^v10.12.0)](https://nodejs.org/en/)
-* [Yarn (^v1.10.0)](https://yarnpkg.com/en) (preferably) or Npm (^v6.4.0)
-* [Nest CLI](https://docs.nestjs.com/cli/overview) (optional)
+## Iniciando aplicação
 
-## Getting Started
+1. Configure suas variáveis de ambient ou um arquivo `.env`, tomando como base o arquivo `.env.example`.
+2. Execute `yarn build` para transpilar a aplicação para JavaScript ou execute em modo desenvolvimento com `yarn start:dev`.
+3. Caso tenha feito o build e queira executar em modo produção execute: `yarn start:prod`
 
-1. Install dependencies: `yarn install`
-2. Configure your .env environments based on [.env.example](.env.example)
-3. Start your application:
-    1. Development: `yarn start`
-    2. Watch mode: `yarn start:dev`
-    3. Production: `yarn start:prod` (run the build before: `yarn build`)
+## Organização do código e padrões
 
-## Deployment
+O projeto foi dividido em módulos e segue a seguinte estrutura:
 
-CircleCI configured with 4 jobs:
+| candidates                 # Módulo de candidatos
+  | candidate.controller.ts    # Controlador da rota de candidatos
+  | candidate.schema.ts        # Schema do banco de dados de candidatos
+  | candidates.module.ts       # Definição do módulo de candidatos e suas dependências
+  | candidates.service.ts      # Serviço de acesso ao dado para candidatos especificamente
+  | create-candidate.dto.ts    # Classe para tipagem da entrada de dados e futuras validações na criação de candidado
+| concourses                 # Módulo de concursos
+  | ...{.ts}                   # Mesma organização de candidates, porém para concursos
+| config                     # Arquivos de configurações gerais
+| interfaces                 # Interfaces de maneira geral
+| providers                  # Serviços que tangenciam toda a aplicação horizontalmente
+| scripts                    # Scripts para ser executado no terminal de forma independente da aplicação
+| app.controller.ts          # Controlador principal (root)
+| app.module.ts              # Módulo principal (root) 
+| app.service.ts             # Serviço principal da aplicação
+| main.ts                    # Arquivo para o bootstrap da api
 
-1. [__Install dependencies__]: Install all dependencies with _yarn_ and save cache.
-2. [__Lint__]: check the link for all code.
-3. [__Tests__]: run all unit tests and e2e.
-4. [__Build__]: criar aplicativo com o _Docker_.
+## Banco de dados e modelagem
 
-Note: deploy job not configured because it varies for each type of application.
+Minha escolha para o banco de dados foi o MongoDB devido a sua simplicidade e facilidade de modelar com NodeJS e Mongoose, apesar de achar mais apropriada a resolução, devido a natureza do problema, com banco relacional (Postgres por exemplo).
 
-## Contributing
+Foram criadas duas Collections através do uso de schemas do Mongoose:
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+- Candidate: Para armazenar informações dos candidatos.
+- Concourse: Para armazenar informações dos concursos.
 
-## Versioning
+As profissões, que são informações comuns às duas entidades, não foram criadas uma Collection para elas a fim de melhorar o desempenho nas buscas, pois bancos não relacionais como MongoDB não são muito velozes em fazer essa junção depois.
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/xdevelsistemas/cpcon-api/tags).
+## Docker
 
-## Changelog
+Foi desenvolvido um Dockerfile da aplicação. A imagem pode ser criada e testada com os comandos:
 
-See [__CHANGELOG__](CHANGELOG.md)
+```bash
+$ docker build -t espmdavid:latest .  # Cria uma imagem da aplicação
+$ docker run -d -e PORT=3000 -e DB_URI='mongodb://your-server/yourdb' -p 3000:3000 espmdavid:latest # Executa a web api e expõem na porta 3000
+$ docker run --rm -it -e DB_URI='mongodb://your-server/yourdb' espmdavid:latest yarn seed # Executa o job de preencher o banco com as informações dos arquivos txt
+```
 
-## Authors
+## Linters e Configs
 
-* **David Vilaça** - [davidpvilaca](https://github.com/davidpvilaca)
+Segui muito do padrão Standard, porém adicionando algumas regras que acho interessante seguir, como por exemplo imports em ordem alfabética. Já as configurações de compilação do TypeScript não perdoa tipagem implícita do `any` e nem variáveis não utilizadas.
 
-## License
+Também foi configurado o Commitlint para padronizar as mensagens de commit, juntamente com a verificação do código e formatação adequada antes do commit ser efetuado.
 
-Every code patch accepted in taiga codebase is licensed under [MIT](LICENSE).
+---
+
+# Teste para o projeto ES na Palma da mão
+
+O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
+1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
+2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
+
+O arquivo **candidatos.txt** contém as informações dos candidatos:
+
+| Nome  | Data de Nascimento  | CPF |  Profissões|
+|---|---|---|---|
+| Lindsey Craft  |  19/05/1976  |  182.845.084-34  |  [carpinteiro]  | 
+| Jackie Dawson  |  14/08/1970  |  311.667.973-47  |  [marceneiro, assistente administrativo]  |
+| Cory Mendoza |   11/02/1957 |  565.512.353-92  |  [carpinteiro, marceneiro] |
+
+O arquivo **concursos.txt** contém as informações dos concursos públicos:
+
+| Órgão  | Edital  | Código do Concurso |  Lista de vagas|
+|---|---|---|---|
+| SEDU  | 9/2016  |  61828450843  |  [analista de sistemas, marceneiro]  | 
+| SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
+| SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
+
+**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+
+Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+
+**É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
+
+Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
+1. Documentação da solução;
+2. Lista dos diferenciais implementados
+3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
+
+## Avaliação
+
+O programa será avaliado levando em conta os seguintes critérios:
+
+| Critério  | Valor | 
+|---|---|
+| Legibilidade do Código |  10  |
+| Documentação do código|  10  |
+| Documentação da solução|  10  |
+| Tratamento de Erros| 10| 
+| Total| 40|
+
+A pontuação do candidato será a soma dos valores obtidos nos critérios acima.
+
+## Diferenciais 
+
+O candidato pode aumentar a sua pontuação na seleção implementando um ou mais dos itens abaixo:
+
+| Item  | Pontos Ganhos | 
+|---|---|
+| Criar um [serviço](https://martinfowler.com/articles/microservices.html) com o problema |  30  |
+| Utilizar banco de dados| 30|
+| Implementar Clean Code |  20  |
+| Implementar o padrão de programação da tecnologia escolhida |  20  |
+| Qualidade de [Código com SonarQube](https://about.sonarcloud.io/) |  15  |
+| Implementar testes unitários |  15  |
+| Implementar testes comportamentais |  15  |
+| Implementar integração com [Travis](https://travis-ci.org/)  |  10  |
+| Implementar integração com Travis + SonarQube |  10  |
+| Implementar usando Docker| 5|
+| Total| 170|
+
+A nota final do candidato será acrescido dos pontos referente ao item implementado corretamente.
+
+## Penalizações
+
+O candidato será desclassifiado nas seguintes situações:
+
+1. Submeter um solução que não funcione; 
+2. Não cumprir os critérios presentes no seção **Avaliação**
+3. Plágio
