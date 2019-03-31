@@ -1,0 +1,28 @@
+html
+    head
+        title Base de Concursos
+        link(rel="stylesheet", href="../public/stylesheets/style.css")
+    body
+        p BASE DE CONCURSOS
+
+    form(action="/", method="post")
+        label Termo:
+        input(type="text" name="termo" required)
+        br
+        label Opcao:
+        select(name="opcao" required)
+            option(value="1") CPF
+            option(value="2") Profissao
+        input(type="submit" value="Enviar")
+
+    h4 Listagem
+    table
+        thead
+            tr
+                td Categoria
+                td Opcao
+        tbody
+        each val in data    
+            tr
+                td=val.nome
+                td=val.categoria
