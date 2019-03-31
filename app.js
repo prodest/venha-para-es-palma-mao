@@ -1,18 +1,19 @@
 /**
  * Author: Tarcisio Bruni Rangel
  *
- * comments - jshint app.js --config ./config.json (especificação de testes com JSHint)
+ * jshint app.js --config ./config.json (especificação de testes com JSHint)
  * 
  */
 var express = require('express');
 var bodyParser = require('body-parser');
 var db = require('./db');
 var app = express();
+var port = process.env.PORT || 3000;
 
 //Middleware responsavel por permitir receber json do cliente e a captura
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended:true
+    extended: true
 }));
 
 //Setando a variavel que representa o diretorio de views;
@@ -38,16 +39,15 @@ app.route('/')
     });
 
 app.listen(
-    process.env.PORT,
-    //3000,
+    port,
     function () {
-    console.log('server on!!');
-});
+        console.log('server on!!');
+    });
 
 function listCourses(resp) {
     var sqlStmt = 'SELECT * from CURSOS';
     var sqlParams = [];
-    db.query(sqlStmt,sqlParams, function (err, res) {
+    db.query(sqlStmt, sqlParams, function (err, res) {
         if (err) {
             console.error(err);
         } else {
