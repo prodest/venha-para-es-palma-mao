@@ -8,7 +8,7 @@ html
 
     form(action="/search", method="post")
         label Termo:
-        input(type="text" name="termo" required)
+        input(type="text" name="termo" placeholder="Insira somente números" required)
         br
         label Opcao:
         select(name="opcao" required)
@@ -16,6 +16,7 @@ html
             option(value="2") Código do Concurso
         input(type="submit" value="Enviar")
 
+    
     if data.length > 0
         h4 Resultados
         if opcao == 1
@@ -44,3 +45,5 @@ html
                         td=val.nome
                         td=val.datanascimento
                         td=val.cpf
+    else
+        h5 Não foram encontrados resultados para os parametros inseridos.

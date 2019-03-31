@@ -41,7 +41,7 @@ function listCourses(req, resp) {
                 if (err) {
                     console.error(err);
                 } else {
-                    console.log(arrayRows = res.rows);
+                    var arrayRows = res.rows;
                     resp.render('search', { data: arrayRows, opcao: opt });
                 }
             });

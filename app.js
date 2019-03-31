@@ -1,8 +1,5 @@
 /**
  * Author: Tarcisio Bruni Rangel
- *
- * jshint app.js --config ./config.json (especificação de testes com JSHint)
- * 
  */
 var express = require('express');
 var app = require('./controller/index.js');

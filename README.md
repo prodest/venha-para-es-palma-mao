@@ -17,14 +17,14 @@ A Solução foi desenvolvida utilizando as seguintes ferramentas:
 6. WakaTime, como ferramenta de análise de desempenho.
 
 Segue os respectivos links para conferência:
-1. [WakaTime](https://wakatime.com/projects/es-palma-mao)
-2. [Heroku](https://espm-challenge.herokuapp.com/)
+1. [WakaTime](https://wakatime.com/projects/es-palma-mao).
+2. [Heroku](https://espm-challenge.herokuapp.com/).
+3 .[Codacy](https://app.codacy.com/project/tarcisiobruni/venha-para-es-palma-mao/dashboard).
  
-
 ## Diferenciais 
 
 Os diferencias que busquei aplicar no desenvolvimento da aplicação foram:
 
-1. Utilização de Banco de Dados.
+1. Utilização de Banco de Dados em Nuvem [ElephantSQL](https://www.elephantsql.com/docs/).
 2. Melhora de código através do Módulo [JsHint](https://jshint.com/).
 3. Aplicação das Melhoras estruturações de um projeto [Express](https://www.terlici.com/2014/08/25/best-practices-express-structure.html).
