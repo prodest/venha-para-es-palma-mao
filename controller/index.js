@@ -25,15 +25,28 @@ app.route('/search')
 function listCourses(req, resp) {
     try {
         var opt = req.body.opcao;
-        var sqlParams = [1];
-        db.query(db.viaCPF, sqlParams, function (err, res) {
-            if (err) {
-                console.error(err);
-            } else {
-                var arrayRows = res.rows;
-                resp.render('search', { data: arrayRows, opcao: opt });
-            }
-        });
+        var termo = req.body.termo;
+        var sqlParams = [termo];
+        if (opt == 1) {
+            db.query(db.viaCPF, sqlParams, function (err, res) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    var arrayRows = res.rows;
+                    resp.render('search', { data: arrayRows, opcao: opt });
+                }
+            });
+        } else {
+            db.query(db.viaCOD, sqlParams, function (err, res) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(arrayRows = res.rows);
+                    resp.render('search', { data: arrayRows, opcao: opt });
+                }
+            });
+        }
+
     } catch{
         resp.render('index');
     }

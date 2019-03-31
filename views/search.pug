@@ -13,45 +13,34 @@ html
         label Opcao:
         select(name="opcao" required)
             option(value="1") CPF
-            option(value="2") Profissao
+            option(value="2") Código do Concurso
         input(type="submit" value="Enviar")
 
     if data.length > 0
         h4 Resultados
+        if opcao == 1
             table
                 thead
                     tr
-                        td Categoria
-                        td Opcao
+                        td Órgão
+                        td Código
+                        td Edital
+                tbody
+                each val in data    
+                    tr
+                        td=val.orgao
+                        td=val.codigo
+                        td=val.edital
+        else
+            table
+                thead
+                    tr
+                        td Nome
+                        td Data Nascimento
+                        td CPF
                 tbody
                 each val in data    
                     tr
                         td=val.nome
-                        td=val.categoria
-
-    //- if opcao = 1
-    //-     table
-    //-         thead
-    //-             tr
-    //-                 td Órgão
-    //-                 td Código
-    //-                 td Edital
-    //-         tbody
-    //-         each val in data    
-    //-             tr
-    //-                 td=val.orgao
-    //-                 td=val.codigo
-    //-                 td=val.edital
-    //- else
-    //-     table
-    //-         thead
-    //-             tr
-    //-                 td Nome
-    //-                 td Data Nascimento
-    //-                 td CPF
-    //-         tbody
-    //-         each val in data    
-    //-             tr
-    //-                 td=val.nome
-    //-                 td=val.datanascimento
-    //-                 td=val.cpf
+                        td=val.datanascimento
+                        td=val.cpf
