@@ -3,26 +3,10 @@ html
         title Base de Concursos
         link(rel="stylesheet", href="../public/stylesheets/style.css")
     body
-        p BASE DE CONCURSOS
-
-    form(action="/", method="post")
-        label Termo:
-        input(type="text" name="termo" required)
-        br
-        label Opcao:
-        select(name="opcao" required)
-            option(value="1") CPF
-            option(value="2") Profissao
-        input(type="submit" value="Enviar")
-
-    h4 Resultados
-    table
-        thead
-            tr
-                td Categoria
-                td Opcao
-        tbody
-        each val in data    
-            tr
-                td=val.nome
-                td=val.categoria
+        h1 ESPM
+        p O sistema proposto tem como objetivo:
+        ul
+            li Realizar busca de concursos públicos para uma determinada pessoa baseada nas profissões atreladas ao seu CPF;
+            li Realizar busca das pessoas que se encaixam em determinado concurso baseado no número do Código do concurso.
+        p Clique no botão a seguir para ser redirecionado ao sistema de buscas.
+        a(href="./search") Acessar
