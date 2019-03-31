@@ -19,7 +19,7 @@ A Solução foi desenvolvida utilizando as seguintes ferramentas:
 Segue os respectivos links para conferência:
 1. [WakaTime](https://wakatime.com/projects/es-palma-mao).
 2. [Heroku](https://espm-challenge.herokuapp.com/).
-3 .[Codacy](https://app.codacy.com/project/tarcisiobruni/venha-para-es-palma-mao/dashboard).
+3. [Codacy](https://app.codacy.com/project/tarcisiobruni/venha-para-es-palma-mao/dashboard).
  
 ## Diferenciais 
 
